@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍 | myblog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="다운로드 전 필수 확인 사항🎉 스파크 설치 전에는 반드시 체크해야 하는 사항(System Compatibility) 2022년 1월 기준은 아래와 같다.  Get Spark from the downloads page of the project website. This documentation is for Spark version 3.2.0. Spark u">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍">
+<meta property="og:url" content="https://kjm12misa.github.io/2022/04/14/install/Spark/index.html">
+<meta property="og:site_name" content="myblog">
+<meta property="og:description" content="다운로드 전 필수 확인 사항🎉 스파크 설치 전에는 반드시 체크해야 하는 사항(System Compatibility) 2022년 1월 기준은 아래와 같다.  Get Spark from the downloads page of the project website. This documentation is for Spark version 3.2.0. Spark u">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/winRAR_%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/%EB%91%90%EB%B2%88%EC%A7%B8.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/%ED%95%98%EB%91%A1%EB%B2%84%EC%A0%84%EC%84%A0%ED%83%9D_1.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/%ED%95%98%EB%91%A1%EB%B2%84%EC%A0%84%EC%84%A0%ED%83%9D_2.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/hadoop_Folder.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/1..png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/2..png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/3..png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/4.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/5.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/jdk_jre_%EC%83%9D%EC%84%B1_%ED%8C%8C%EC%9D%BC_%ED%99%95%EC%9D%B8.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/w1.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/21.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/spark_%EC%97%B0%EA%B2%B0%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EB%A9%94%EB%AA%A8%EC%9E%A5.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/11_info-error.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/%ED%95%98%EB%91%A1%ED%8F%B4%EB%8D%94%EC%97%90%EC%84%9C_%EB%B3%B5%EC%82%AC%ED%95%B4%EC%84%9C_%EA%B0%80%EC%A3%A0%EC%98%A4%EA%B8%B0.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/cmd_%EA%B4%80%EB%A6%AC%EC%9E%90%EA%B6%8C%ED%95%9C_%EC%8B%A4%ED%96%89.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/spark_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98%EC%84%A4%EC%A0%95_1.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/spark_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98%EC%84%A4%EC%A0%95_2.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/java.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/hadoop.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/path.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/1.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/2.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/10.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/30.png">
+<meta property="article:published_time" content="2022-04-14T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-01T16:13:28.709Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/winRAR_%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C.png">
+  
+    <link rel="alternate" href="/atom.xml" title="myblog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">myblog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kjm12misa.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-install/Spark" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/14/install/Spark/" class="article-date">
+  <time class="dt-published" datetime="2022-04-14T00:00:00.000Z" itemprop="datePublished">2022-04-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      [Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="다운로드-전-필수-확인-사항🎉"><a href="#다운로드-전-필수-확인-사항🎉" class="headerlink" title="다운로드 전 필수 확인 사항🎉"></a><strong>다운로드 전 필수 확인 사항🎉</strong></h2><ul>
+<li>스파크 설치 전에는 반드시 체크해야 하는 사항(System Compatibility)</li>
+<li>2022년 1월 기준은 아래와 같다.</li>
+</ul>
+<p>Get Spark from the <strong><a target="_blank" rel="noopener" href="https://spark.apache.org/downloads.html">downloads page</a></strong> of the project website. This documentation is for Spark version 3.2.0. Spark uses Hadoop’s client libraries for HDFS and YARN. Downloads are pre-packaged for a handful of popular Hadoop versions. Users can also download a “Hadoop free” binary and run Spark with any Hadoop version <strong><a target="_blank" rel="noopener" href="https://spark.apache.org/docs/latest/hadoop-provided.html">by augmenting Spark’s classpath</a></strong>. Scala and Java users can include Spark in their projects using its Maven coordinates and Python users can install Spark from PyPI.</p>
+<p>If you’d like to build Spark from source, visit <strong><a target="_blank" rel="noopener" href="https://spark.apache.org/docs/latest/building-spark.html">Building Spark</a></strong>.</p>
+<p>Spark runs on both Windows and UNIX-like systems (e.g. Linux, Mac OS), and it should run on any platform that runs a supported version of Java. This should include JVMs on x86_64 and ARM64. It’s easy to run locally on one machine — all you need is to have <code>java</code> installed on your system <code>PATH</code>, or the <code>JAVA_HOME</code> environment variable pointing to a Java installation.</p>
+<p>Spark runs on Java 8&#x2F;11, Scala 2.12, Python 3.6+ and R 3.5+. Python 3.6 support is deprecated as of Spark 3.2.0. Java 8 prior to version 8u201 support is deprecated as of Spark 3.2.0. For the Scala API, Spark 3.2.0 uses Scala 2.12. You will need to use a compatible Scala version (2.12.x).</p>
+<p>For Python 3.9, Arrow optimization and pandas UDFs might not work due to the supported Python versions in Apache Arrow. Please refer to the latest <strong><a target="_blank" rel="noopener" href="https://arrow.apache.org/docs/python/install.html#python-compatibility">Python Compatibility</a></strong> page. For Java 11, <code>-Dio.netty.tryReflectionSetAccessible=true</code> is required additionally for Apache Arrow library. This prevents <code>java.lang.UnsupportedOperationException: sun.misc.Unsafe or java.nio.DirectByteBuffer.(long, int) not available</code> when Apache Arrow uses Netty internally.</p>
+<h2 id="Step-01-설치-파일-다운로드"><a href="#Step-01-설치-파일-다운로드" class="headerlink" title="Step 01 설치 파일 다운로드"></a><strong><strong>Step 01 설치 파일 다운로드</strong></strong></h2><ol>
+<li><strong>JAVA 설치 파일</strong></li>
+</ol>
+<ul>
+<li>설치 파일 :  <strong><a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/javase/javase8u211-later-archive-downloads.html">Java SE 8 Archive Downloads (JDK 8u211 and later)</a></strong></li>
+<li>설치 시, 오라클 로그인이 필요 할 수도 있다.</li>
+</ul>
+<ol>
+<li><strong><strong>WinRAR 프로그램 다운로드</strong></strong></li>
+</ol>
+<ul>
+<li><p>hadoop 파일의 압축을 풀기 위해서는 winRAR 프로그램을 다운로드 받아줘야 한다.</p>
+</li>
+<li><p>설치 주소 : <strong><a target="_blank" rel="noopener" href="https://www.rarlab.com/download.htm">https://www.rarlab.com/download.htm</a></strong></p>
+</li>
+<li><p>winRAR x64 (64 bit) 6.11 다운로드(각 컴퓨터 사양에 맞게 설치)</p>
+<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/winRAR_%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C.png" alt="winRAR 다운로드.PNG"></p>
+</li>
+</ul>
+<ol>
+<li><strong><strong>Spark 설치 파일</strong></strong></li>
+</ol>
+<ul>
+<li>설치 주소 :  <strong><a target="_blank" rel="noopener" href="https://spark.apache.org/downloads.html">https://spark.apache.org/downloads.html</a>(최신 버전)</strong></li>
+<li>설치 URL: <strong><a target="_blank" rel="noopener" href="https://www.apache.org/dyn/closer.lua/spark/spark-3.2.0/spark-3.2.0-bin-hadoop3.2.tgz">https://www.apache.org/dyn/closer.lua/spark/spark-3.2.0/spark-3.2.0-bin-hadoop3.2.tgz</a></strong> (2022년 1월 기준)</li>
+<li>아래와 같이 3.2.0 버전을 다운로드 하였다.</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/%EB%91%90%EB%B2%88%EC%A7%B8.png" alt="두번째.PNG"></p>
+<ol>
+<li><strong><strong>winutils 다운로드</strong></strong></li>
+</ol>
+<ul>
+<li><p>스파크가 윈도우 로컬 컴퓨터 Hadoop으로 착각하게 만들 프로그램이 필요하다.</p>
+</li>
+<li><p>설치 파일 :  <strong><a target="_blank" rel="noopener" href="https://github.com/cdarlint/winutils">https://github.com/cdarlint/winutils</a></strong></p>
+</li>
+<li><p>각 설치 버전에 맞는 winutils를 다운로드 받는다.</p>
+<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/%ED%95%98%EB%91%A1%EB%B2%84%EC%A0%84%EC%84%A0%ED%83%9D_1.png" alt="하둡버전선택 1.PNG"></p>
+</li>
+<li><p>hadoop-3.2.0 버전 폴더 들어가 다운로드</p>
+</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/%ED%95%98%EB%91%A1%EB%B2%84%EC%A0%84%EC%84%A0%ED%83%9D_2.png" alt="하둡버전선택 2.PNG"></p>
+<h3 id="Step-02-Java-spark-hadoop-다운로드"><a href="#Step-02-Java-spark-hadoop-다운로드" class="headerlink" title="Step 02 Java, spark, hadoop 다운로드"></a><strong><strong>Step 02 Java, spark, hadoop 다운로드</strong></strong></h3><ul>
+<li>다운 받은 4개의 파일을 C드라이브 hadoop 폴더를 생성 후 집어 넣어 주기.</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/hadoop_Folder.png" alt="hadoop Folder.PNG"></p>
+<ol>
+<li><strong>JAVA 다운로드</strong></li>
+</ol>
+<ul>
+<li><p>관리자 권한으로 실행</p>
+</li>
+<li><p>Install to : \program Files.…. 설치 파일 주소를 볼 때, 처음 설치 시 주소에 빈칸 없이 지정 해준다.</p>
+</li>
+<li><p>change …에 들어 가서 주소를 변경 해준다.</p>
+<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/1..png" alt="1..PNG"></p>
+</li>
+<li><p>Folder name: C:\jdk  변경.</p>
+<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/2..png" alt="2.,.PNG"></p>
+</li>
+<li><p>대상 폴더에서 변경을 눌러 준다.</p>
+</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/3..png" alt="3..PNG"></p>
+<ul>
+<li><p>C 드라이브 → 새 폴더 만들기 → jre 폴더 생성 → 확인.</p>
+<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/4.png" alt="4.PNG"></p>
+</li>
+<li><p>확인 후 변경 된 설치 위치를 확인 할 수 있다.</p>
+</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/5.png" alt="5.PNG"></p>
+<ul>
+<li>C 드라이브 자바 설치 완료!</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/jdk_jre_%EC%83%9D%EC%84%B1_%ED%8C%8C%EC%9D%BC_%ED%99%95%EC%9D%B8.png" alt="jdk, jre 생성 파일 확인.PNG"></p>
+<ol>
+<li><strong>WinRAR 설치</strong></li>
+</ol>
+<ul>
+<li><p>관리자 권한으로 실행</p>
+</li>
+<li><p>Toggle all 클릭 → OK → spark 설치 위한 응용 프로그램 설치 완료.</p>
+<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/w1.png" alt="w1.PNG"></p>
+</li>
+</ul>
+<ol>
+<li><strong>Spark 설치</strong></li>
+</ol>
+<ul>
+<li><p>winRAR 프로그램이 적용 된 spark-3.2.0을 설치</p>
+</li>
+<li><p>설치 시 마우스 우 클릭 Extract to “spark-3.2.0-bin-hadoop3.2\”  클릭하여 설치</p>
+<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/21.png" alt="21.PNG"></p>
+</li>
+<li><p>다운로드 된 spark 폴더를 복사해 C 드라이브에 붙여 넣어 준다.</p>
+</li>
+<li><p>C 드라이브에 있는 spark 폴더 → conf 폴더 → log4j.properties.template 파일 메모장으로 열기</p>
+<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/spark_%EC%97%B0%EA%B2%B0%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EB%A9%94%EB%AA%A8%EC%9E%A5.png" alt="spark 연결프로그램-메모장.PNG"></p>
+</li>
+<li><p>메모장으로 열린 파일에서 log4j.rootCategory&#x3D;INFO → ERROR 변경 후 저장.</p>
+<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/11_info-error.png" alt="11 info-error.PNG"></p>
+</li>
+<li><p>C drive → winutils 폴더 생성 → bin 폴더 생성 → hadoop폴더에서 winutils 파일 복사해서 붙이기</p>
+<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/%ED%95%98%EB%91%A1%ED%8F%B4%EB%8D%94%EC%97%90%EC%84%9C_%EB%B3%B5%EC%82%AC%ED%95%B4%EC%84%9C_%EA%B0%80%EC%A3%A0%EC%98%A4%EA%B8%B0.png" alt="하둡폴더에서 복사해서 가죠오기.PNG"></p>
+</li>
+</ul>
+<h3 id="winutils-설치"><a href="#winutils-설치" class="headerlink" title="winutils 설치"></a>winutils 설치</h3><ul>
+<li>만약, ChangeFileModeByMask error (3) 에러 발생 시, C드라이브 하단에 <code>tmp -&gt; hive</code><br> 폴더를 차례대로 생성</li>
+<li>cmd 관리자 권한으로 실행 후 아래와 같이 적어준다.</li>
+<li>경로 설정 : C:\winutils\bin&gt; → winutils.exe chmod 777 \tmp\hive</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/cmd_%EA%B4%80%EB%A6%AC%EC%9E%90%EA%B6%8C%ED%95%9C_%EC%8B%A4%ED%96%89.png" alt="cmd 관리자권한 실행.PNG"></p>
+<h3 id="환경-변수-설정"><a href="#환경-변수-설정" class="headerlink" title="환경 변수 설정"></a>환경 변수 설정</h3><ul>
+<li><p>시스템 환경 변수 설정</p>
+</li>
+<li><p>사용자 변수 → 새로 만들기</p>
+<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/spark_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98%EC%84%A4%EC%A0%95_1.png" alt="spark 환경변수설정 1.PNG"></p>
+</li>
+</ul>
+<ol>
+<li><strong>SPARK_HOME 환경 변수 설정</strong></li>
+</ol>
+<ul>
+<li>변수 이름 : SPARK_HOME</li>
+<li>변수 값 : 파일 찾아보기 → C drive - spark 폴더 경로 복사 붙이기.</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/spark_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98%EC%84%A4%EC%A0%95_2.png" alt="spark 환경변수설정 2.PNG"></p>
+<ol>
+<li><strong>JAVA_HOME 환경 변수 설정</strong></li>
+</ol>
+<ul>
+<li>변수 이름 : JAVA_HOME</li>
+<li>변수 값 : 파일 찾아보기 → C drive - jdk 폴더 경로 복사 붙이기.</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/java.png" alt="java.PNG"></p>
+<ol>
+<li><strong>HADOOP_HOME 환경 변수 설정</strong></li>
+</ol>
+<ul>
+<li>변수 이름 : HADOOP_HOME</li>
+<li>변수 값 : 파일 찾아보기 → C drive - winutils 폴더 경로 복사 붙이기.</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/hadoop.png" alt="hadoop.PNG"></p>
+<ol>
+<li><p><strong>사용자 변수 path 변수 편집</strong></p>
+<p> <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/path.png" alt="path.PNG"></p>
+</li>
+</ol>
+<ul>
+<li>아래와 같은 코드 입력</li>
+<li>%SPARK_HOME%\bin</li>
+<li>%JAVA_HOME%\bin</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/1.png" alt="1.PNG"></p>
+<h3 id="파이썬-환경-설정"><a href="#파이썬-환경-설정" class="headerlink" title="파이썬 환경 설정"></a>파이썬 환경 설정</h3><ol>
+<li><strong>python 환경 설정 추가</strong></li>
+</ol>
+<ul>
+<li>사용자 변수에 새로 만들기 추가</li>
+<li>변수 이름 : PYSPARK_PYTHON</li>
+<li>변수 값 : python</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/2.png" alt="2.PNG"></p>
+<h3 id="step-03-spark-test"><a href="#step-03-spark-test" class="headerlink" title="step 03. spark test"></a>step 03. spark test</h3><ul>
+<li>cmd 관리자 권한으로 실행.</li>
+<li>경로 설정 : C:\spark&gt; 후 pyspark 입력 → 아래와 같이 뜨면 설치 성공.</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/10.png" alt="10.PNG"></p>
+<ul>
+<li><p>Enter 누르고 아래와 같이 코드가 실행되는지 입력하여 확인하여 준다.</p>
+</li>
+<li><p><code>rd = sc.textFile(&quot;README.md&quot;)</code> → <code>rd.count()</code></p>
+<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/30.png" alt="30.PNG"></p>
+</li>
+</ul>
+<p>참조 출처 : <a target="_blank" rel="noopener" href="https://dschloe.github.io/python/python_edu/00_settings/spark_installation_windows_10/">https://dschloe.github.io/python/python_edu&#x2F;00_settings&#x2F;spark_installation_windows_10&#x2F;</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/04/14/install/Spark/" data-id="cl2nhi02o000cikv19qf008fr" data-title="[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/04/17/install/vscodeMac/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          [Mac M1] Installation VSCode✨
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/04/12/install/PostgreSQL/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">[Windows 10] PostgreSQL Installation on WSL2 and Windows✨</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/01/install/GitHub/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/24/Error/Airflow_web_scheduler/">[Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결🐱‍🏍</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/19/install/Oracle/">[Windows 10] Oracle Install🎊</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/17/install/vscodeMac/">[Mac M1] Installation VSCode✨</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/14/install/Spark/">[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

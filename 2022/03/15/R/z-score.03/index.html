@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>z-score | myblog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="표준편차 +평균활용 -&gt; 변동계수, z-score, 검정값 표준오차  모수검정  핵심 : 두 그룹 간의 평균 차이 검정&#x2F;두 그룹의 차이가 우연이냐 유의미냐 가정 : 데이터가 정규분포를 이룸   평균비교  one sample T Test : 모집단의 평균~샘플(표본)의 평균  대응표본 : 사전 표본의 평균(정책, 신약 투여 등 시간이 지난 후">
+<meta property="og:type" content="article">
+<meta property="og:title" content="z-score">
+<meta property="og:url" content="https://kjm12misa.github.io/2022/03/15/R/z-score.03/index.html">
+<meta property="og:site_name" content="myblog">
+<meta property="og:description" content="표준편차 +평균활용 -&gt; 변동계수, z-score, 검정값 표준오차  모수검정  핵심 : 두 그룹 간의 평균 차이 검정&#x2F;두 그룹의 차이가 우연이냐 유의미냐 가정 : 데이터가 정규분포를 이룸   평균비교  one sample T Test : 모집단의 평균~샘플(표본)의 평균  대응표본 : 사전 표본의 평균(정책, 신약 투여 등 시간이 지난 후">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-15T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-01T15:37:40.741Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="myblog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">myblog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kjm12misa.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-R/z-score.03" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/15/R/z-score.03/" class="article-date">
+  <time class="dt-published" datetime="2022-03-15T00:00:00.000Z" itemprop="datePublished">2022-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      z-score
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>표준편차 +평균활용 -&gt; 변동계수, z-score, 검정값 표준오차</p>
+</li>
+<li><p>모수검정</p>
+<ul>
+<li>핵심 : 두 그룹 간의 평균 차이 검정&#x2F;두 그룹의 차이가 우연이냐 유의미냐</li>
+<li>가정 : 데이터가 정규분포를 이룸</li>
+</ul>
+</li>
+<li><p>평균비교</p>
+<ul>
+<li><p>one sample T Test : 모집단의 평균~샘플(표본)의 평균</p>
+</li>
+<li><p>대응표본 : 사전 표본의 평균(정책, 신약 투여 등 시간이 지난 후) 사후 표본의 평균</p>
+</li>
+<li><p>독립표본 : A 그룹, B 그룹간의 평균 비교</p>
+</li>
+<li><p>귀무가설 : 두 그룹간의 00_평균 차이 없다</p>
+</li>
+<li><p>대립가설 : 두 그룹간의 평균 차이가 존재</p>
+</li>
+</ul>
+</li>
+<li><p>RISS 논문이 이를 인용한게 많음(스포츠, 의학 등) 데이터 수집 후 통계분석을 씀.</p>
+</li>
+<li><p>표준정규분포표를 보며 정함.</p>
+</li>
+<li><p>z-score</p>
+<ul>
+<li>특정 유치원 꽃잎반</li>
+</ul>
+</li>
+</ul>
+<p>data &#x3D; 120 -&gt; 임의의 데이터 한명 뽑음<br>mean &#x3D; 125 -&gt; 평균<br>sd &#x3D; 15<br>N &#x3D; 30</p>
+<p>z-value &#x3D; (mean - data) &#x2F; sd</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/03/15/R/z-score.03/" data-id="cl2nhi02d0005ikv17xl17sbz" data-title="z-score" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/03/15/R/chapter_8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          chapter_8
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/12/R/foodshop/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Food shop</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/01/install/GitHub/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/24/Error/Airflow_web_scheduler/">[Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결🐱‍🏍</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/19/install/Oracle/">[Windows 10] Oracle Install🎊</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/17/install/vscodeMac/">[Mac M1] Installation VSCode✨</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/14/install/Spark/">[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

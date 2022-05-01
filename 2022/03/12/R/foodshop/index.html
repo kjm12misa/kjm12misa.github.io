@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Food shop | myblog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1library(dplyr)  1library(ggplot2)  foodshop &lt;- read.csv(“6110000_서울특별시_07_24_04_P_일반음식점.csv”, na&#x3D;””, stringsAsFactors &#x3D; F) 1str(foodshop)  1234567foodshop &lt;- rename(foodshop,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Food shop">
+<meta property="og:url" content="https://kjm12misa.github.io/2022/03/12/R/foodshop/index.html">
+<meta property="og:site_name" content="myblog">
+<meta property="og:description" content="1library(dplyr)  1library(ggplot2)  foodshop &lt;- read.csv(“6110000_서울특별시_07_24_04_P_일반음식점.csv”, na&#x3D;””, stringsAsFactors &#x3D; F) 1str(foodshop)  1234567foodshop &lt;- rename(foodshop,">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-12T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-01T15:37:40.819Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="myblog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">myblog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kjm12misa.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-R/foodshop" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/12/R/foodshop/" class="article-date">
+  <time class="dt-published" datetime="2022-03-12T00:00:00.000Z" itemprop="datePublished">2022-03-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Food shop
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>dplyr<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>ggplot2<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p>foodshop &lt;- read.csv(“6110000_서울특별시_07_24_04_P_일반음식점.csv”, na&#x3D;””, stringsAsFactors &#x3D; F)</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str<span class="punctuation">(</span>foodshop<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">foodshop <span class="operator">&lt;-</span> rename<span class="punctuation">(</span>foodshop<span class="punctuation">,</span></span><br><span class="line">                   open_date <span class="operator">=</span> 인허가일자<span class="punctuation">,</span></span><br><span class="line">                   address <span class="operator">=</span> 소재지전체주소<span class="punctuation">,</span></span><br><span class="line">                   status <span class="operator">=</span> 상세영업상태명<span class="punctuation">,</span></span><br><span class="line">                   name <span class="operator">=</span> 사업장명<span class="punctuation">,</span></span><br><span class="line">                   close_date <span class="operator">=</span> 폐업일자<span class="punctuation">,</span></span><br><span class="line">                   type <span class="operator">=</span> 업태구분명<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p>일부변수추출</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foodshop <span class="operator">&lt;-</span> select<span class="punctuation">(</span>foodshop<span class="punctuation">,</span> name<span class="punctuation">,</span> type<span class="punctuation">,</span> status<span class="punctuation">,</span> open_date<span class="punctuation">,</span> close_date<span class="punctuation">,</span> address<span class="punctuation">)</span> </span><br></pre></td></tr></table></figure>
+
+<p>str(foodshop)</p>
+<p>foodshop$close_date &lt;- as.integer(foodshop$close_date) #정수형 변환<br>foodshop$open_date &lt;- as.integer(foodshop$open_date) #as.character 문자형 변환</p>
+<p>summary(is.na(foodshop))</p>
+<p>foodshop$type &lt;- ifelse(foodshop$type%in%c(“까페”, “다방”, “라이브카페”, “커피숍”),<br>                        “카페”, foodshop$type)<br>foodshop$type &lt;- ifelse(foodshop$type%in%c(“통닭(치킨)”, “호프&#x2F;통닭”), “치킨”, foodshop$type)<br>foodshop$type &lt;- ifelse(foodshop$type%in%c(“일식”, “회집”, “횟집”), “회집”, foodshop$type)<br>foodshop$type &lt;- ifelse(foodshop$type%in%c(“경양식”, “패밀리레스토랑”), “레스토랑”, foodshop$type)<br>foodshop$type &lt;- ifelse(foodshop$type&#x3D;&#x3D;”정종&#x2F;대포집&#x2F;소주방”, “소주방”, foodshop$type)<br>foodshop$type &lt;- ifelse(foodshop$type&#x3D;&#x3D;”외국음식전문점(인도,태국등)”, “외국음식전문점”, foodshop$type)<br>foodshop$type &lt;- ifelse(foodshop$type%in%c(“기타”, “193959.1505”), NA, foodshop$type)</p>
+<p>str(foodshop)</p>
+<p>range(foodshop$open_date, na.rm &#x3D; T) #결측치가 있어 na.rm&#x3D;T 를 사용</p>
+<p>foodshop$open_date &lt;- ifelse(foodshop$open_date &lt; 19480101 |<br>                               foodshop$open_date &gt; 20220228, NA, foodshop$open_date) #이상치처리</p>
+<p>table(is.na(foodshop$open_date))</p>
+<p>foodshop$open_year &lt;- substr(foodshop$open_date, 1, 4) #open_year 변수 만들기 </p>
+<p>range(foodshop$close_date, na.rm &#x3D; T)  #결측치가 있어 na.rm&#x3D;T 를 사용</p>
+<p>foodshop$close_date &lt;- ifelse(foodshop$close_date &lt; 19771029 |<br>                               foodshop$close_date &gt; 20220228, NA, foodshop$close_date) #이상치처리</p>
+<p>table(is.na(foodshop$close_date))</p>
+<p>foodshop$close_year &lt;- substr(foodshop$close_date, 1, 4)</p>
+<ol>
+<li>address 변수 제외해야 하는게 많을 때는?</li>
+</ol>
+<p>foodshop$district &lt;- substr(foodshop$address, 7, 9)<br>table(foodshop$district)</p>
+<p>foodshop$district &lt;-<br>  ifelse(foodshop$district%in%c(“지하”, “번지 “, “시분”, “시수”, “시원”, “시일”),<br>         NA, foodshop$district)</p>
+<p>table(foodshop$district)</p>
+<p>str(foodshop)</p>
+<ol start="2">
+<li>분석데이터 최종 확인</li>
+</ol>
+<p>str(foodshop) # 자료확인</p>
+<p>foodshop$open_year &lt;- as.integer(foodshop$open_year)<br>foodshop$close_year &lt;- as.integer(foodshop$close_year)</p>
+<p>str(foodshop)</p>
+<p>(1) 오래된 음식점 찾기_가장 오래 영업 중인 음식점</p>
+<p>foodshop %&gt;%<br>filter(!is.na(open_date) &amp; status&#x3D;&#x3D;”영업”) %&gt;%    #결측치 제거, ‘영업’ 데이터만 추출<br>filter(open_date&#x3D;&#x3D;min(open_date)) %&gt;%<br>select(name, type, open_date, address)  </p>
+<p>(2) 주요 업종별 가장 오래 영업 중인 음식점</p>
+<p>foodshop %&gt;%<br>filter(!is.na(open_date) &amp; status&#x3D;&#x3D;”영업”) %&gt;%<br>filter(type%in%c(“분식”, “치킨”, “레스토랑”, “회집”, “중국식”, “패스트푸드”, “카페”)) %&gt;%<br>  group_by(type) %&gt;% #업종별 분류<br>filter(open_date&#x3D;&#x3D;min(open_date)) %&gt;%<br>arrange(open_date) %&gt;% # 개업일 기준 오름차순<br>select(name, type, open_date, address)  </p>
+<ol>
+<li>개업, 영업, 폐업 현황_업종별 개업 비율</li>
+</ol>
+<p>foodshop %&gt;%<br>filter(!is.na(open_date) &amp; !is.na(type) &amp; !is.na(district)) %&gt;% #결측치 제거<br>group_by(type) %&gt;% # type 변수의 범주별 분류<br>summarise(n&#x3D;n()) %&gt;%   #범주별 빈도 구하기<br>mutate(total&#x3D;sum(n), pct&#x3D;round(n&#x2F;total*100, 1)) %&gt;%  # 범주의 빈도 총계, 범주별 비율 구하기<br>arrange(desc(n)) %&gt;% # 내림차순<br>head(10) # 상위 10개 데이터 출력</p>
+<ol start="2">
+<li>영업 중인 음식점의 업종별 비율</li>
+</ol>
+<p>foodshop %&gt;%<br>filter(!is.na(open_date) &amp; !is.na(type) &amp; !is.na(district)) %&gt;% #결측치 제거<br>filter(status&#x3D;&#x3D;”영업”) %&gt;% # ‘status’ 범주에서 ‘영업’ 변수만 추출<br>group_by(type) %&gt;% # ‘type’의 범주별 분류<br>summarise(n&#x3D;n()) %&gt;%   #범주별 빈도 구하기<br>mutate(total&#x3D;sum(n), pct&#x3D;round(n&#x2F;total*100, 1)) %&gt;%  # 범주의 빈도 총계, 범주별 비율 구하기<br>arrange(desc(n)) %&gt;% # 내림차순<br>head(5) # 상위 10개 데이터 출력</p>
+<ol start="3">
+<li>전체 음식점의 “영업과 폐업” 비율 알아보기</li>
+</ol>
+<p>foodshop %&gt;%<br>filter(!is.na(open_date) &amp; !is.na(type) &amp; !is.na(district)) %&gt;% #결측치 제거<br>group_by(status) %&gt;%<br>summarise(n&#x3D;n()) %&gt;%<br>mutate(total&#x3D;sum(n), pct&#x3D;round(n&#x2F;total*100, 1))</p>
+<ol start="4">
+<li>주요 업종별 영업과 폐업 비율 알아보기</li>
+</ol>
+<p>foodshop %&gt;%<br>filter(!is.na(open_date) &amp; !is.na(type) &amp; !is.na(district)) %&gt;% #결측치 제거<br>filter(type%in%c(“분식”, “한식”, “레스토랑”, “회집”, “치킨”, “카페”)) %&gt;% # 업종 분류<br>group_by(type, status) %&gt;% # type 와 status  두가지로 교차 분류<br>summarise(n&#x3D;n()) %&gt;%<br>mutate(total&#x3D;sum(n), pct&#x3D;round(n&#x2F;total*100, 1)) %&gt;%<br>filter(status&#x3D;&#x3D;”영업”) %&gt;%<br>arrange(desc(pct)) %&gt;% # 내림차순arrange(desc(내림차순하고자하는 변수))<br>head(5) # 추출 하고자 하는 순위 ‘상위 5개’</p>
+<p>(3) 연도별 분석</p>
+<ol>
+<li>개업이 많았던 연도</li>
+</ol>
+<p>foodshop %&gt;%<br>filter(!is.na(open_date) &amp; !is.na(type) &amp; !is.na(district)) %&gt;% #결측치 제거<br>group_by(open_year) %&gt;%<br>summarise(n&#x3D;n()) %&gt;%<br>arrange(desc(n)) %&gt;%<br>head(5)</p>
+<ul>
+<li>폐업이 많았던 연도</li>
+</ul>
+<p>foodshop %&gt;%<br>filter(!is.na(district) &amp; !is.na(close_date)) %&gt;%<br>group_by(close_year) %&gt;%<br>summarise(n&#x3D;n()) %&gt;% # 빈도 구하기<br>arrange(desc(n)) %&gt;%<br>head(5) </p>
+<p>(4) 개업, 폐업 음식점 수 그래프 그리기_1) 연도별 개업, 폐업 음식점 수 그래프</p>
+<ul>
+<li>개업 음식점 수 구하기</li>
+</ul>
+<p>open_trend &lt;- foodshop %&gt;%<br>  filter(!is.na(open_date) &amp; !is.na(district)) %&gt;%<br>  group_by(open_year) %&gt;%<br>  summarise(open_n&#x3D;n()) # open_year 변수의 범주별 빈도 구하기</p>
+<p>str(open_trend)</p>
+<p>ggplot(data &#x3D; open_trend, aes(x &#x3D; open_year, y &#x3D; open_n)) +<br>         geom_col() + xlab(“연도”) + ylab(“개업수”)  </p>
+<ul>
+<li>폐업 음식점 수 구하기</li>
+</ul>
+<p>close_trend &lt;- foodshop %&gt;%<br>  filter(!is.na(close_date) &amp; !is.na(district)) %&gt;%<br>  group_by(close_year) %&gt;%<br>  summarise(close_n&#x3D;n())</p>
+<p>str(close_trend)</p>
+<p>ggplot(data &#x3D; close_trend, aes(x &#x3D; close_year, y &#x3D; close_n)) + geom_col() + xlab(“연도”) + ylab(“폐업수”)</p>
+<ul>
+<li>개업, 폐업 음식점 수 통합해서 그래프로 그리기</li>
+</ul>
+<p>open_trend1 &lt;- rename(open_trend, year &#x3D; open_year) # 연도 이름 변경????????<br>close_trend1 &lt;- rename(close_trend, year &#x3D; close_year)</p>
+<p>open_close_trend &lt;- left_join(open_trend1, close_trend1, by &#x3D; “year”)</p>
+<p>ggplot(data &#x3D; open_close_trend) +<br>  geom_line(aes(year, open_n)) +<br>  geom_line(aes(year, close_n, color &#x3D; “red”)) +<br>  xlab(“연도”) + ylab(“개수”)</p>
+<ul>
+<li>폐업 음식점 수가 개업 음식점 수 보다 많았던 기간 확인하기(????? 한개 추출?) #####</li>
+</ul>
+<p>open_close_trend %&gt;%<br>  filter(close_n &gt; open_n) # 폐업수가 개업수보다 많은 연도 추출 식</p>
+<p>(1) 지역별 분석</p>
+<ol>
+<li>영업중인 음식점 수가 가장 많은 5개 구</li>
+</ol>
+<ul>
+<li><p>구별로 영업중인 음식점 빈도 구하는 새 객체<br>district_business &lt;- foodshop %&gt;%<br>filter(!is.na(open_date) &amp; !is.na(district) &amp; status &#x3D;&#x3D; “영업”) %&gt;% # is.na로 두개 결측치 제거하고 status 영업포함.<br>group_by(district) %&gt;% #범주 분류<br>summarise(n &#x3D; n()) # 빈도 구하기</p>
+</li>
+<li><p>영업 중인 음식점 수가 많은 5개 구하기<br>district_business %&gt;%<br>arrange(desc(n)) %&gt;%<br>head(5)  </p>
+</li>
+<li><p>서울 전체 구의 음식점 수를 막대 그래프로 그리기</p>
+</li>
+</ul>
+<p>ggplot(data &#x3D; district_business, aes(x &#x3D; reorder(district, n), y &#x3D; n)) +<br>  geom_col() + coord_flip() + xlab(“구 이름”) + ylab(“영업 음식점 수”)</p>
+<ul>
+<li>주요 업종별 가장 많은 구</li>
+</ul>
+<p>district_maxtype &lt;- foodshop %&gt;%<br>  filter(!is.na(open_date) &amp; !is.na(district) &amp; status &#x3D;&#x3D; “영업”) %&gt;%<br>  filter(type%in%c(“한식”, “분식”, “레스토랑”, “회집”, “중국식”, “카페”,<br>                   “패스트푸드”)) %&gt;%<br>  group_by(type, district) %&gt;% # 분류<br>  summarise(n &#x3D; n()) %&gt;%<br>  mutate(total&#x3D;sum(n), pct&#x3D;round(n&#x2F;total*100, 1)) %&gt;% </p>
+<p> -&gt; 앞이 type의 총계구하고, type(업종) 범주별로 district(구역) 범주 비율 구하기</p>
+<p>  group_by((type)) %&gt;% # 다시 type 으로 분류<br>  filter(pct&#x3D;&#x3D;max(pct)) # type의 분류 내에 pct(빈도?)의 높은 데이터 추출</p>
+<p>연습문제_1 종로구의 영업 업종의 비율 상위 5위 추출</p>
+<p>foodshop %&gt;%<br>  filter(!is.na(open_date) &amp; !is.na(type) &amp; !is.na(district) &amp;<br>           status &#x3D;&#x3D; “영업” &amp; district &#x3D;&#x3D; “종로구”) %&gt;%<br>  group_by(type) %&gt;%<br>  summarise(n &#x3D; n()) %&gt;%<br>  mutate(total&#x3D;sum(n), pct&#x3D;round(n&#x2F;total*100, 1)) %&gt;%<br>  arrange(desc(n)) %&gt;%<br>  head(5)</p>
+<p>연습문제_2 2020년에 개업한 음식점 수와 영업, 폐업 비율</p>
+<p>foodshop %&gt;%<br>  filter(!is.na(open_date) &amp; !is.na(type) &amp; !is.na(district) &amp;<br>           open_year &#x3D;&#x3D; “2020”) %&gt;%<br>  group_by(status) %&gt;%<br>  summarise(n&#x3D;n()) %&gt;%<br>  mutate(total&#x3D;sum(n), pct&#x3D;round(n&#x2F;total*100, 1))</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/03/12/R/foodshop/" data-id="cl2nhi02b0004ikv11zqg7467" data-title="Food shop" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/03/15/R/z-score.03/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          z-score
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/11/R/class_03/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">class</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/01/install/GitHub/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/24/Error/Airflow_web_scheduler/">[Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결🐱‍🏍</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/19/install/Oracle/">[Windows 10] Oracle Install🎊</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/17/install/vscodeMac/">[Mac M1] Installation VSCode✨</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/14/install/Spark/">[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

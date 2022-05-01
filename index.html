@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>myblog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="myblog">
+<meta property="og:url" content="https://kjm12misa.github.io/index.html">
+<meta property="og:site_name" content="myblog">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="myblog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">myblog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kjm12misa.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-install/GitHub" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/05/01/install/GitHub/" class="article-date">
+  <time class="dt-published" datetime="2022-05-01T06:32:28.000Z" itemprop="datePublished">2022-05-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Windows-10-Git-blog-Installation-on-Git-bash-and-VSCode-🐱‍🏍"><a href="#Windows-10-Git-blog-Installation-on-Git-bash-and-VSCode-🐱‍🏍" class="headerlink" title="[Windows 10] Git blog Installation on Git bash and VSCode.🐱‍🏍"></a>[Windows 10] Git blog Installation on Git bash and VSCode.🐱‍🏍</h1><ol>
+<li>git bash 를 열어 <code>hexo init myblog</code> → <code>cd myblog</code> → <code>git init</code> → <code>git remote add origin https://github.com/your_name/your_blog_repo.git</code></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/05/01/install/GitHub/" data-id="cl2nhi02h0008ikv11o46cuxu" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Error/Airflow_web_scheduler" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/24/Error/Airflow_web_scheduler/" class="article-date">
+  <time class="dt-published" datetime="2022-04-24T00:00:00.000Z" itemprop="datePublished">2022-04-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/24/Error/Airflow_web_scheduler/">[Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결🐱‍🏍</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="airflow-webserver-p-8081-airflow-scheduler-오류✨"><a href="#airflow-webserver-p-8081-airflow-scheduler-오류✨" class="headerlink" title="airflow webserver -p 8081 + airflow scheduler 오류✨"></a>airflow webserver -p 8081 + airflow scheduler 오류✨</h2><ul>
+<li>두 개를 동시에 열어야 하기 때문에 하나라도 안되면 결과 값이 뜨지 않는다.</li>
+</ul>
+<ol>
+<li><strong>오류 확인.</strong></li>
+</ol>
+<ul>
+<li>코드와 데이터 모두 맞게 작성 하고 웹 서버를 실행 했으나, 아무것도 뜨지 않는다.</li>
+<li>원래 가상 환경이 아닌 환경에서 되면 안되는데, 실행이 되지 않아 다른 방법을 썼다.</li>
+</ul>
+<hr>
+<ol>
+<li>각 <strong>webserver 리눅스와 scheduler 리눅스에서 확인.</strong></li>
+</ol>
+<ul>
+<li>vi ~&#x2F;.bashrc 환경 변수 편집 열어 내가 작업 중인 폴더와 이름이 같은지 확인.</li>
+<li>echo $AIRFLOW_HOME 입력 하였으나 아무것도 뜨지 않는다면, source ~&#x2F;.bashrc 환경 변수를 적용해주는 코드를 적고 다시 echo $AIRFLOW_HOME 확인.</li>
+</ul>
+<p> —- (가상 환경이 벗어 나면서 색이 변했는데 이유를 모른다…) 일단, 결과는 굳!</p>
+<ul>
+<li>제대로 뜬다면, 각 리눅스 환경에서 웹 서버 번호와 scheduler 실행, 뜬다면 성공!</li>
+</ul>
+<p><img src="/%5BWindows%2010%5DAirflow%20webserver%20+%20scheduler%20%E1%84%8B%E1%85%A1%E1%86%AB%20%E1%84%84%E1%85%B3%E1%84%82%E1%85%B3%20533bf73a3a434c13ac0831f73f4590bb/%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%9F%AC_%EC%98%A4%EB%A5%98_%EB%82%A0_%EC%8B%9C.png" alt="스케쥴러 오류 날 시.PNG"></p>
+<hr>
+<ol>
+<li>기타</li>
+</ol>
+<ul>
+<li>나는 기존에 저장 되어 있던 폴더(aiflow_test) 말고 다른 폴더로 변경 하였다. 그래서 환경 변수에서  $AIRFLOW_HOME&#x3D;&#x2F;mnt&#x2F;c&#x2F;airflow_t 저장해 놓았다. 작업하려는 폴더와 현재 폴더에 따라서 변경을 해줘야 한다.</li>
+<li>확인 코드 vi ~&#x2F;.bashrc(편집) → echo $AIRFLOW_HOME(확인) —(값이 잘 떴음. 안 뜰 경우 오타 확인)—&gt; source ~&#x2F;.bashrc(적용)</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/04/24/Error/Airflow_web_scheduler/" data-id="cl2nhynso0000vkv1hs3jcei7" data-title="[Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결🐱‍🏍" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-install/Oracle" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/19/install/Oracle/" class="article-date">
+  <time class="dt-published" datetime="2022-04-19T00:00:00.000Z" itemprop="datePublished">2022-04-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/19/install/Oracle/">[Windows 10] Oracle Install🎊</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>Oracle은 저사양에서는 실행이 되지 않기 때문에 컴퓨터(노트북)사양 및 메모리 확인!!</li>
+</ul>
+<h3 id="Step-01-Oracle-파일-다운로드"><a href="#Step-01-Oracle-파일-다운로드" class="headerlink" title="Step 01_Oracle 파일 다운로드"></a>Step 01_Oracle 파일 다운로드</h3><ul>
+<li><strong>Oracle developer</strong> : <a target="_blank" rel="noopener" href="https://www.oracle.com/tools/downloads/sqldev-downloads.html">https://www.oracle.com/tools/downloads/sqldev-downloads.html</a></li>
+</ul>
+<p><strong>설치 파일 : sqldeveloper-21.4.3.063.0100-x64</strong></p>
+<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled.png" alt="Untitled"></p>
+<ul>
+<li><strong>Oracle Database 19<em>c</em> (19.3)</strong><br><a target="_blank" rel="noopener" href="https://www.oracle.com/database/technologies/oracle19c-windows-downloads.html">https://www.oracle.com/database/technologies/oracle19c-windows-downloads.html</a></li>
+</ul>
+<p><strong>설치 파일 : WINDOWS.X64_193000_db_home</strong></p>
+<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%201.png" alt="Untitled"></p>
+<h3 id="Step-02-설치"><a href="#Step-02-설치" class="headerlink" title="Step 02_설치"></a>Step 02_설치</h3><ul>
+<li>setup 응용 프로그램 - 관리자 권한으로 실행</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%202.png" alt="Untitled"></p>
+<h3 id="단일-인스턴트-데이터베이스-생성"><a href="#단일-인스턴트-데이터베이스-생성" class="headerlink" title="단일 인스턴트 데이터베이스 생성"></a><strong>단일 인스턴트 데이터베이스 생성</strong></h3><p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%203.png" alt="Untitled"></p>
+<ul>
+<li>아래와 같이 기본적을 설정되어 있는 대로 진행</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%204.png" alt="Untitled"></p>
+<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%205.png" alt="Untitled"></p>
+<ul>
+<li>컨테이너 데이터 베이스 생성 선택 해제</li>
+<li>이름 myoracle 비밀번호 1234</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%206.png" alt="Untitled"></p>
+<ul>
+<li>설정 후 뜨는 창에 예 하고 설치!</li>
+</ul>
+<h3 id="소프트웨어만-설정-단일-선택에서-비밀번호-오류가-날-때"><a href="#소프트웨어만-설정-단일-선택에서-비밀번호-오류가-날-때" class="headerlink" title="소프트웨어만 설정(단일 선택에서 비밀번호 오류가 날 때)"></a>소프트웨어만 설정(단일 선택에서 비밀번호 오류가 날 때)</h3><ul>
+<li>DB가 깔리지 않음.</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%207.png" alt="Untitled"></p>
+<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%208.png" alt="Untitled"></p>
+<ul>
+<li>cmd 관리자 실행<ul>
+<li>경로 설정은 oracle이 깔려 있는  폴더-파일 지정 후, dbca 설치 파일 실행</li>
+<li>C:\sql_lecture&gt;cd WINDOWS.X64_193000_db_home(필자의 현재 경로)</li>
+</ul>
+</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%209.png" alt="Untitled"></p>
+<ul>
+<li>저장 영역 유형 : <strong>ASM(자동 저장 영역 관리)</strong> 설정</li>
+<li>이름 : myoracle 비밀 번호 : 1234</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2010.png" alt="Untitled"></p>
+<ul>
+<li><strong>에러 나면,</strong> 저장 영역 유형에서 <strong>파일 시스템</strong>으로 지정</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2011.png" alt="Untitled"></p>
+<ul>
+<li>예를 누르고 창이 뜨면 완료 누르고 설치.</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2012.png" alt="Untitled"></p>
+<h3 id="Step-03-테이블-스페이스-생성"><a href="#Step-03-테이블-스페이스-생성" class="headerlink" title="Step 03_테이블 스페이스 생성"></a>Step 03_테이블 스페이스 생성</h3><ul>
+<li>윈도우 검색 창에 sqlplus 입력 → 관리자 권한 실행<ul>
+<li>사용자명 입력 : system 비밀번호 :  1234(oracle 설치 시 지정한 비번 동일하게)</li>
+</ul>
+</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2013.png" alt="Untitled"></p>
+<ul>
+<li>CREATE TABLESPACE myts DATAFILE ‘C:\app\oradata\MYORACLE\myts.dbf’ SIZE 100M AUTOEXTEND ON NEXT 5M;<ul>
+<li>빨간 부분만 변경.(C drive에 있는 폴더 이름으로 지정)</li>
+<li>필자는 sql_lecture 폴더가 지정되어 있음.</li>
+</ul>
+</li>
+<li><code>CREATE USER ora_user IDENTIFIED BY evan DEFAULT TABLESPACE MYTS TEMPORARY TABLESPACE TEMP;</code><ul>
+<li>빨간 부분 수정(본인 이름으로)</li>
+</ul>
+</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2014.png" alt="Untitled"></p>
+<ul>
+<li>GRANT DBA TO ora_user; → select user from dual; → connect ora_user&#x2F;evan; → select user from dual;</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2015.png" alt="Untitled"></p>
+<ul>
+<li>새로운 유저 추가</li>
+<li><code>CREATE USER ora_user2 IDENTIFIED BY evan DEFAULT TABLESPACE MYTS TEMPORARY TABLESPACE TEMP;</code></li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2016.png" alt="Untitled"></p>
+<ul>
+<li>위와 동일 하게 진행</li>
+</ul>
+<h3 id="Step-04-developer-설치"><a href="#Step-04-developer-설치" class="headerlink" title="Step 04_developer 설치"></a>Step 04_developer 설치</h3><ul>
+<li>응용프로그램 클릭 → 아니오 → 확인</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2017.png" alt="Untitled"></p>
+<ul>
+<li>초록색 플러스 누르고 Name, 이름, 비번, SID 설정</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2018.png" alt="Untitled"></p>
+<ul>
+<li>오류 난다면, Net Configuration Assistant 클릭</li>
+<li>lsnrctl status 입력</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2019.png" alt="Untitled"></p>
+<ul>
+<li>재 접속<ul>
+<li>Name, 이름, 비번(ora_user 생성 시 쓴 이름(evan)), SID 적고 테스트 → 접속</li>
+</ul>
+</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2020.png" alt="Untitled"></p>
+<ul>
+<li><p>완료 된 화면</p>
+<p>  <img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2021.png" alt="Untitled"></p>
+</li>
+<li><p>실행</p>
+</li>
+<li><p>도구 - 환경 설정 - 데이터 베이스 - NLS - 시간 기록 형식(YYYY&#x2F;MM&#x2F;DD HH24:MI:SS) 변경</p>
+</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2022.png" alt="Untitled"></p>
+<ul>
+<li><p>다운로드 :  <a target="_blank" rel="noopener" href="https://github.com/gilbutITbook/006696/tree/master/01%EC%9E%A5%20%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95">https://github.com/gilbutITbook/006696/tree/master/01장 환경설정</a></p>
+<p>  <img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2023.png" alt="Untitled"></p>
+</li>
+<li><p>C drive 에 backup 폴더 생성 후 다운 받은 파일 넣기</p>
+</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2024.png" alt="Untitled"></p>
+<ul>
+<li>cmd 에서 backup폴더로 경로 설정</li>
+<li>imp ora_user&#x2F;evan file&#x3D;expall.dmp log&#x3D;empall.log ignore&#x3D;y grants&#x3D;y rows&#x3D;y indexes&#x3D;y full&#x3D;y<ul>
+<li>빨간 부분 설정한 값으로 변경</li>
+</ul>
+</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2025.png" alt="Untitled"></p>
+<ul>
+<li>imp ora_user&#x2F;evan file&#x3D;expcust.dmp log&#x3D;expcust.log ignore&#x3D;y grants&#x3D;y rows&#x3D;y indexes&#x3D;y full&#x3D;y<ul>
+<li>빨간 부분 설정한 값으로 변경</li>
+</ul>
+</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2026.png" alt="Untitled"></p>
+<h3 id="Step-05-oracle-developer-테스트"><a href="#Step-05-oracle-developer-테스트" class="headerlink" title="Step 05_oracle developer 테스트"></a>Step 05_oracle developer 테스트</h3><ul>
+<li>SELECT table_name FROM user_tables; 입력</li>
+<li>아래와 같이 값이 뜨면 된다.</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2027.png" alt="Untitled"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/04/19/install/Oracle/" data-id="cl2nhi02n000bikv1fcmscr82" data-title="[Windows 10] Oracle Install🎊" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-install/vscodeMac" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/17/install/vscodeMac/" class="article-date">
+  <time class="dt-published" datetime="2022-04-17T00:00:00.000Z" itemprop="datePublished">2022-04-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/17/install/vscodeMac/">[Mac M1] Installation VSCode✨</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Visual-Studio-Code의-PATH를-설정"><a href="#Visual-Studio-Code의-PATH를-설정" class="headerlink" title="Visual Studio Code의 PATH를 설정"></a><strong>Visual Studio Code의 PATH를 설정</strong></h2><h2 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h2><h3 id="Step-01"><a href="#Step-01" class="headerlink" title="Step 01"></a>Step 01</h3><ul>
+<li>설치 파일 다운로드 : <a target="_blank" rel="noopener" href="https://code.visualstudio.com/Download">https://code.visualstudio.com/Download</a></li>
+<li>Mac <strong>Universal</strong><br>인텔 CPU 맥과 애플 실리콘 맥북을 모두 지원한다는 의미.</li>
+</ul>
+<p><img src="/%5BMac%20M1%5D%20Installation%20VSCode%20%E2%9C%A8%20a9fcb642748b454c91b57abc0bf486f7/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-04-24_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_4.12.25.png" alt="스크린샷 2022-04-24 오후 4.12.25.png"></p>
+<h3 id="Step-02"><a href="#Step-02" class="headerlink" title="Step 02"></a>Step 02</h3><ul>
+<li>다운로드 된 파일 열기 → 다운로드 완료.</li>
+<li>다운로드 완료 된 vscode를 응용 프로그램으로 옮겨 준다.</li>
+</ul>
+<p><img src="/%5BMac%20M1%5D%20Installation%20VSCode%20%E2%9C%A8%20a9fcb642748b454c91b57abc0bf486f7/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-04-24_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_4.27.19.png" alt="스크린샷 2022-04-24 오후 4.27.19.png"></p>
+<h3 id="Step-03"><a href="#Step-03" class="headerlink" title="Step 03"></a>Step 03</h3><ul>
+<li>vscode 실행</li>
+<li>아래와 같이 뜨는데 공식 웹사이트에서 받았다면 보안 오류가 없다. 열기를 눌러 실행</li>
+</ul>
+<p><img src="/%5BMac%20M1%5D%20Installation%20VSCode%20%E2%9C%A8%20a9fcb642748b454c91b57abc0bf486f7/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-04-24_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_4.31.53.png" alt="스크린샷 2022-04-24 오후 4.31.53.png"></p>
+<h2 id="Visual-Studio-Code의-PATH를-설정-1"><a href="#Visual-Studio-Code의-PATH를-설정-1" class="headerlink" title="Visual Studio Code의 PATH를 설정"></a><strong>Visual Studio Code의 PATH를 설정</strong></h2><ul>
+<li>Terminal 에서 code . 가 제대로 열리지 않는다면,</li>
+</ul>
+<p><strong>code .<br>zsh: command not found: code</strong></p>
+<ul>
+<li>vscode 에서 command + shift + p(Show All Commands) → PATH 검색.</li>
+<li>Shell Command: Install ‘code’ command in PATH 클릭.</li>
+</ul>
+<p><img src="/%5BMac%20M1%5D%20Installation%20VSCode%20%E2%9C%A8%20a9fcb642748b454c91b57abc0bf486f7/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-04-24_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_4.40.36.png" alt="스크린샷 2022-04-24 오후 4.40.36.png"></p>
+<ul>
+<li>Terminal 실행</li>
+<li>code -v 버전 확인, code . 입력하여 vscode 열기.</li>
+</ul>
+<p><img src="/%5BMac%20M1%5D%20Installation%20VSCode%20%E2%9C%A8%20a9fcb642748b454c91b57abc0bf486f7/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-04-24_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_4.53.11.png" alt="스크린샷 2022-04-24 오후 4.53.11.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/04/17/install/vscodeMac/" data-id="cl2nhi03m000gikv18k9t5o52" data-title="[Mac M1] Installation VSCode✨" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-install/Spark" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/14/install/Spark/" class="article-date">
+  <time class="dt-published" datetime="2022-04-14T00:00:00.000Z" itemprop="datePublished">2022-04-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/14/install/Spark/">[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="다운로드-전-필수-확인-사항🎉"><a href="#다운로드-전-필수-확인-사항🎉" class="headerlink" title="다운로드 전 필수 확인 사항🎉"></a><strong>다운로드 전 필수 확인 사항🎉</strong></h2><ul>
+<li>스파크 설치 전에는 반드시 체크해야 하는 사항(System Compatibility)</li>
+<li>2022년 1월 기준은 아래와 같다.</li>
+</ul>
+<p>Get Spark from the <strong><a target="_blank" rel="noopener" href="https://spark.apache.org/downloads.html">downloads page</a></strong> of the project website. This documentation is for Spark version 3.2.0. Spark uses Hadoop’s client libraries for HDFS and YARN. Downloads are pre-packaged for a handful of popular Hadoop versions. Users can also download a “Hadoop free” binary and run Spark with any Hadoop version <strong><a target="_blank" rel="noopener" href="https://spark.apache.org/docs/latest/hadoop-provided.html">by augmenting Spark’s classpath</a></strong>. Scala and Java users can include Spark in their projects using its Maven coordinates and Python users can install Spark from PyPI.</p>
+<p>If you’d like to build Spark from source, visit <strong><a target="_blank" rel="noopener" href="https://spark.apache.org/docs/latest/building-spark.html">Building Spark</a></strong>.</p>
+<p>Spark runs on both Windows and UNIX-like systems (e.g. Linux, Mac OS), and it should run on any platform that runs a supported version of Java. This should include JVMs on x86_64 and ARM64. It’s easy to run locally on one machine — all you need is to have <code>java</code> installed on your system <code>PATH</code>, or the <code>JAVA_HOME</code> environment variable pointing to a Java installation.</p>
+<p>Spark runs on Java 8&#x2F;11, Scala 2.12, Python 3.6+ and R 3.5+. Python 3.6 support is deprecated as of Spark 3.2.0. Java 8 prior to version 8u201 support is deprecated as of Spark 3.2.0. For the Scala API, Spark 3.2.0 uses Scala 2.12. You will need to use a compatible Scala version (2.12.x).</p>
+<p>For Python 3.9, Arrow optimization and pandas UDFs might not work due to the supported Python versions in Apache Arrow. Please refer to the latest <strong><a target="_blank" rel="noopener" href="https://arrow.apache.org/docs/python/install.html#python-compatibility">Python Compatibility</a></strong> page. For Java 11, <code>-Dio.netty.tryReflectionSetAccessible=true</code> is required additionally for Apache Arrow library. This prevents <code>java.lang.UnsupportedOperationException: sun.misc.Unsafe or java.nio.DirectByteBuffer.(long, int) not available</code> when Apache Arrow uses Netty internally.</p>
+<h2 id="Step-01-설치-파일-다운로드"><a href="#Step-01-설치-파일-다운로드" class="headerlink" title="Step 01 설치 파일 다운로드"></a><strong><strong>Step 01 설치 파일 다운로드</strong></strong></h2><ol>
+<li><strong>JAVA 설치 파일</strong></li>
+</ol>
+<ul>
+<li>설치 파일 :  <strong><a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/javase/javase8u211-later-archive-downloads.html">Java SE 8 Archive Downloads (JDK 8u211 and later)</a></strong></li>
+<li>설치 시, 오라클 로그인이 필요 할 수도 있다.</li>
+</ul>
+<ol>
+<li><strong><strong>WinRAR 프로그램 다운로드</strong></strong></li>
+</ol>
+<ul>
+<li><p>hadoop 파일의 압축을 풀기 위해서는 winRAR 프로그램을 다운로드 받아줘야 한다.</p>
+</li>
+<li><p>설치 주소 : <strong><a target="_blank" rel="noopener" href="https://www.rarlab.com/download.htm">https://www.rarlab.com/download.htm</a></strong></p>
+</li>
+<li><p>winRAR x64 (64 bit) 6.11 다운로드(각 컴퓨터 사양에 맞게 설치)</p>
+<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/winRAR_%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C.png" alt="winRAR 다운로드.PNG"></p>
+</li>
+</ul>
+<ol>
+<li><strong><strong>Spark 설치 파일</strong></strong></li>
+</ol>
+<ul>
+<li>설치 주소 :  <strong><a target="_blank" rel="noopener" href="https://spark.apache.org/downloads.html">https://spark.apache.org/downloads.html</a>(최신 버전)</strong></li>
+<li>설치 URL: <strong><a target="_blank" rel="noopener" href="https://www.apache.org/dyn/closer.lua/spark/spark-3.2.0/spark-3.2.0-bin-hadoop3.2.tgz">https://www.apache.org/dyn/closer.lua/spark/spark-3.2.0/spark-3.2.0-bin-hadoop3.2.tgz</a></strong> (2022년 1월 기준)</li>
+<li>아래와 같이 3.2.0 버전을 다운로드 하였다.</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/%EB%91%90%EB%B2%88%EC%A7%B8.png" alt="두번째.PNG"></p>
+<ol>
+<li><strong><strong>winutils 다운로드</strong></strong></li>
+</ol>
+<ul>
+<li><p>스파크가 윈도우 로컬 컴퓨터 Hadoop으로 착각하게 만들 프로그램이 필요하다.</p>
+</li>
+<li><p>설치 파일 :  <strong><a target="_blank" rel="noopener" href="https://github.com/cdarlint/winutils">https://github.com/cdarlint/winutils</a></strong></p>
+</li>
+<li><p>각 설치 버전에 맞는 winutils를 다운로드 받는다.</p>
+<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/%ED%95%98%EB%91%A1%EB%B2%84%EC%A0%84%EC%84%A0%ED%83%9D_1.png" alt="하둡버전선택 1.PNG"></p>
+</li>
+<li><p>hadoop-3.2.0 버전 폴더 들어가 다운로드</p>
+</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/%ED%95%98%EB%91%A1%EB%B2%84%EC%A0%84%EC%84%A0%ED%83%9D_2.png" alt="하둡버전선택 2.PNG"></p>
+<h3 id="Step-02-Java-spark-hadoop-다운로드"><a href="#Step-02-Java-spark-hadoop-다운로드" class="headerlink" title="Step 02 Java, spark, hadoop 다운로드"></a><strong><strong>Step 02 Java, spark, hadoop 다운로드</strong></strong></h3><ul>
+<li>다운 받은 4개의 파일을 C드라이브 hadoop 폴더를 생성 후 집어 넣어 주기.</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/hadoop_Folder.png" alt="hadoop Folder.PNG"></p>
+<ol>
+<li><strong>JAVA 다운로드</strong></li>
+</ol>
+<ul>
+<li><p>관리자 권한으로 실행</p>
+</li>
+<li><p>Install to : \program Files.…. 설치 파일 주소를 볼 때, 처음 설치 시 주소에 빈칸 없이 지정 해준다.</p>
+</li>
+<li><p>change …에 들어 가서 주소를 변경 해준다.</p>
+<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/1..png" alt="1..PNG"></p>
+</li>
+<li><p>Folder name: C:\jdk  변경.</p>
+<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/2..png" alt="2.,.PNG"></p>
+</li>
+<li><p>대상 폴더에서 변경을 눌러 준다.</p>
+</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/3..png" alt="3..PNG"></p>
+<ul>
+<li><p>C 드라이브 → 새 폴더 만들기 → jre 폴더 생성 → 확인.</p>
+<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/4.png" alt="4.PNG"></p>
+</li>
+<li><p>확인 후 변경 된 설치 위치를 확인 할 수 있다.</p>
+</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/5.png" alt="5.PNG"></p>
+<ul>
+<li>C 드라이브 자바 설치 완료!</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/jdk_jre_%EC%83%9D%EC%84%B1_%ED%8C%8C%EC%9D%BC_%ED%99%95%EC%9D%B8.png" alt="jdk, jre 생성 파일 확인.PNG"></p>
+<ol>
+<li><strong>WinRAR 설치</strong></li>
+</ol>
+<ul>
+<li><p>관리자 권한으로 실행</p>
+</li>
+<li><p>Toggle all 클릭 → OK → spark 설치 위한 응용 프로그램 설치 완료.</p>
+<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/w1.png" alt="w1.PNG"></p>
+</li>
+</ul>
+<ol>
+<li><strong>Spark 설치</strong></li>
+</ol>
+<ul>
+<li><p>winRAR 프로그램이 적용 된 spark-3.2.0을 설치</p>
+</li>
+<li><p>설치 시 마우스 우 클릭 Extract to “spark-3.2.0-bin-hadoop3.2\”  클릭하여 설치</p>
+<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/21.png" alt="21.PNG"></p>
+</li>
+<li><p>다운로드 된 spark 폴더를 복사해 C 드라이브에 붙여 넣어 준다.</p>
+</li>
+<li><p>C 드라이브에 있는 spark 폴더 → conf 폴더 → log4j.properties.template 파일 메모장으로 열기</p>
+<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/spark_%EC%97%B0%EA%B2%B0%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EB%A9%94%EB%AA%A8%EC%9E%A5.png" alt="spark 연결프로그램-메모장.PNG"></p>
+</li>
+<li><p>메모장으로 열린 파일에서 log4j.rootCategory&#x3D;INFO → ERROR 변경 후 저장.</p>
+<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/11_info-error.png" alt="11 info-error.PNG"></p>
+</li>
+<li><p>C drive → winutils 폴더 생성 → bin 폴더 생성 → hadoop폴더에서 winutils 파일 복사해서 붙이기</p>
+<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/%ED%95%98%EB%91%A1%ED%8F%B4%EB%8D%94%EC%97%90%EC%84%9C_%EB%B3%B5%EC%82%AC%ED%95%B4%EC%84%9C_%EA%B0%80%EC%A3%A0%EC%98%A4%EA%B8%B0.png" alt="하둡폴더에서 복사해서 가죠오기.PNG"></p>
+</li>
+</ul>
+<h3 id="winutils-설치"><a href="#winutils-설치" class="headerlink" title="winutils 설치"></a>winutils 설치</h3><ul>
+<li>만약, ChangeFileModeByMask error (3) 에러 발생 시, C드라이브 하단에 <code>tmp -&gt; hive</code><br> 폴더를 차례대로 생성</li>
+<li>cmd 관리자 권한으로 실행 후 아래와 같이 적어준다.</li>
+<li>경로 설정 : C:\winutils\bin&gt; → winutils.exe chmod 777 \tmp\hive</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/cmd_%EA%B4%80%EB%A6%AC%EC%9E%90%EA%B6%8C%ED%95%9C_%EC%8B%A4%ED%96%89.png" alt="cmd 관리자권한 실행.PNG"></p>
+<h3 id="환경-변수-설정"><a href="#환경-변수-설정" class="headerlink" title="환경 변수 설정"></a>환경 변수 설정</h3><ul>
+<li><p>시스템 환경 변수 설정</p>
+</li>
+<li><p>사용자 변수 → 새로 만들기</p>
+<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/spark_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98%EC%84%A4%EC%A0%95_1.png" alt="spark 환경변수설정 1.PNG"></p>
+</li>
+</ul>
+<ol>
+<li><strong>SPARK_HOME 환경 변수 설정</strong></li>
+</ol>
+<ul>
+<li>변수 이름 : SPARK_HOME</li>
+<li>변수 값 : 파일 찾아보기 → C drive - spark 폴더 경로 복사 붙이기.</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/spark_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98%EC%84%A4%EC%A0%95_2.png" alt="spark 환경변수설정 2.PNG"></p>
+<ol>
+<li><strong>JAVA_HOME 환경 변수 설정</strong></li>
+</ol>
+<ul>
+<li>변수 이름 : JAVA_HOME</li>
+<li>변수 값 : 파일 찾아보기 → C drive - jdk 폴더 경로 복사 붙이기.</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/java.png" alt="java.PNG"></p>
+<ol>
+<li><strong>HADOOP_HOME 환경 변수 설정</strong></li>
+</ol>
+<ul>
+<li>변수 이름 : HADOOP_HOME</li>
+<li>변수 값 : 파일 찾아보기 → C drive - winutils 폴더 경로 복사 붙이기.</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/hadoop.png" alt="hadoop.PNG"></p>
+<ol>
+<li><p><strong>사용자 변수 path 변수 편집</strong></p>
+<p> <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/path.png" alt="path.PNG"></p>
+</li>
+</ol>
+<ul>
+<li>아래와 같은 코드 입력</li>
+<li>%SPARK_HOME%\bin</li>
+<li>%JAVA_HOME%\bin</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/1.png" alt="1.PNG"></p>
+<h3 id="파이썬-환경-설정"><a href="#파이썬-환경-설정" class="headerlink" title="파이썬 환경 설정"></a>파이썬 환경 설정</h3><ol>
+<li><strong>python 환경 설정 추가</strong></li>
+</ol>
+<ul>
+<li>사용자 변수에 새로 만들기 추가</li>
+<li>변수 이름 : PYSPARK_PYTHON</li>
+<li>변수 값 : python</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/2.png" alt="2.PNG"></p>
+<h3 id="step-03-spark-test"><a href="#step-03-spark-test" class="headerlink" title="step 03. spark test"></a>step 03. spark test</h3><ul>
+<li>cmd 관리자 권한으로 실행.</li>
+<li>경로 설정 : C:\spark&gt; 후 pyspark 입력 → 아래와 같이 뜨면 설치 성공.</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/10.png" alt="10.PNG"></p>
+<ul>
+<li><p>Enter 누르고 아래와 같이 코드가 실행되는지 입력하여 확인하여 준다.</p>
+</li>
+<li><p><code>rd = sc.textFile(&quot;README.md&quot;)</code> → <code>rd.count()</code></p>
+<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/30.png" alt="30.PNG"></p>
+</li>
+</ul>
+<p>참조 출처 : <a target="_blank" rel="noopener" href="https://dschloe.github.io/python/python_edu/00_settings/spark_installation_windows_10/">https://dschloe.github.io/python/python_edu&#x2F;00_settings&#x2F;spark_installation_windows_10&#x2F;</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/04/14/install/Spark/" data-id="cl2nhi02o000cikv19qf008fr" data-title="[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-install/PostgreSQL" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/12/install/PostgreSQL/" class="article-date">
+  <time class="dt-published" datetime="2022-04-12T00:00:00.000Z" itemprop="datePublished">2022-04-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/12/install/PostgreSQL/">[Windows 10] PostgreSQL Installation on WSL2 and Windows✨</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>주의할 점! 절대 PostgreSQL 14라고 따로 웹사이트에서 다운 받아 놓지 말자! 다운 받아 놓고 WSL2에서 설치 후 paAdmin에서 설정 시 오류가 난다. (이유 : 컴퓨터가 윈도우에 깔린 파일을 일순위로 잡아버리기 때문이다.) </p>
+<p>!!!!!!! 시작하기 전, ls → cd .. → ls 적고 아래와 같이 두 줄 나오면!!!!!!!!</p>
+<p><img src="/%5BWindows%2010%5D%20PostgreSQL%20Installation%20on%20WSL2%20and%20W%20525b7edb00df4156a8ef911a32397620/%EC%9C%84%EC%B9%98%EC%9E%A1%EA%B8%B0.png" alt="위치잡기.PNG"></p>
+<p>sudo apt-get update &amp;&amp; sudo apt-get upgrade 입력!! &lt;항상 설치하거나, 시작할 때 해주기&gt;</p>
+<ol>
+<li>sudo apt install postgresql postgresql-contrib</li>
+</ol>
+<ul>
+<li>WSL2에 postgreSQL 설치.</li>
+</ul>
+<ol start="2">
+<li>psql —version</li>
+</ol>
+<ul>
+<li>버전 확인</li>
+</ul>
+<ol start="3">
+<li>sudo service pstgresql status</li>
+</ol>
+<ul>
+<li>설치 후 Database에 접근하도록 활성화 해야 한다.</li>
+<li>입력하면 12&#x2F;main (port 5432): down → 포트가 활성화 되어 있지 않았다는 의미.</li>
+</ul>
+<ol start="4">
+<li>sudo service postgresql start</li>
+</ol>
+<ul>
+<li>활성화 시키기</li>
+</ul>
+<ol start="5">
+<li>sudo service postgresql status</li>
+</ol>
+<ul>
+<li>12&#x2F;main (port 5432): online → 활성화가 되었다는 의미.</li>
+</ul>
+<ol start="6">
+<li>sudo service postgresql stop</li>
+</ol>
+<ul>
+<li>Database 가 종료 됨.</li>
+</ul>
+<ol start="7">
+<li>sudo service postgresql status</li>
+</ol>
+<ul>
+<li>12&#x2F;main (port 5432): down → 활성화가 종료(또는 되어 있지 않은) 되었다는 의미.</li>
+</ul>
+<h3 id="사용자-계정-Password-설정"><a href="#사용자-계정-Password-설정" class="headerlink" title="사용자 계정 Password 설정"></a>사용자 계정 Password 설정</h3><p>기본적으로  admin 사용자로 등록 되어 있다. 보통 DB 초기 세팅 시 패스워드를 입력 받아야 한다.</p>
+<ol>
+<li>sudo passwd postgres</li>
+</ol>
+<ul>
+<li>New password:</li>
+<li>Retype new password:</li>
+<li>passwd: password updated successfully<br>→  패스워드 입력에 필자는 1234으로 적어준다. 자신이 원하는 패스워드로 설정.</li>
+</ul>
+<p>비밀 번호를 모두 설정 하였다면, </p>
+<ol>
+<li>WSL2에서 sudo service postgresql start (활성화) → sudo service postgresql status(활성화 확인: online)</li>
+</ol>
+<ul>
+<li><strong>활성화가 되어 있는 상태에서 pgAdmin 열기.</strong></li>
+</ul>
+<p>이렇게 WSL2에서 설치를 끝 마치고 다음으로 넘어가 pgAdmin 설치 하기</p>
+<h3 id="pgAdmin-Installation-on-Windows"><a href="#pgAdmin-Installation-on-Windows" class="headerlink" title="pgAdmin Installation on Windows"></a>pgAdmin Installation on Windows</h3><p>pgAdmin 설치 : <strong><a target="_blank" rel="noopener" href="https://www.pgadmin.org/download/pgadmin-4-windows/">https://www.pgadmin.org/download/pgadmin-4-windows/</a><br>→ 최신 버전으로 설치 해 줄 것</strong></p>
+<ul>
+<li><p>설치 시 아래와 같이 선택.</p>
+<p>  <img src="/%5BWindows%2010%5D%20PostgreSQL%20Installation%20on%20WSL2%20and%20W%20525b7edb00df4156a8ef911a32397620/%EC%BA%A1%EC%B2%98000.png" alt="캡처000.PNG"></p>
+</li>
+</ul>
+<ol>
+<li>설치 후 검색에서 pgAdmin 가 설치 되어 있는지 확인.</li>
+<li>WSL2에서 psql이 활성화가 되어 있다면, pgAdmin 실행 시 WSL2에서 입력한 Password 입력해 준다. (비밀번호가 헷갈린다면 우분투에서 설정한 것과 동일하게 적자) </li>
+<li>서버 설정</li>
+<li>Browser - Servers → Register → server 클릭</li>
+<li>General Name 는 test 입력.</li>
+<li>Connection Host name&#x2F;address 는 127.0.0.1 입력 → username 는 postgres 입력 → password 는 설정한 비밀번호 입력.(필자 1234) → Save 누르기</li>
+<li>서버 설정 했는데 오류 메시지가 아래와 같이 뜰 때</li>
+</ol>
+<p><img src="/%5BWindows%2010%5D%20PostgreSQL%20Installation%20on%20WSL2%20and%20W%20525b7edb00df4156a8ef911a32397620/%EC%98%A4%EB%A5%98.png" alt="오류.PNG"></p>
+<p>→ WSL2에  <code>sudo -u postgres psql -c &quot;ALTER USER postgres PASSWORD &#39;postgres&#39;;&quot;</code>  입력.<br>(<code>&#39;postgres&#39;</code> 따옴표 사이의 비밀번호는 원하는 걸로 변경 가능. 필자는 postgres 설정)</p>
+<ol>
+<li>위 설정이 끝난 뒤, 재 접속하면 정상적으로 접근이 되는 것을 확인.</li>
+<li>정상적으로 접근 안되면, 다시 다 삭제 하고 처음부터 시작</li>
+</ol>
+<ul>
+<li>삭제 하고자 하는 폴더 지정 후 우분투에 rm -rf * 입력.</li>
+</ul>
+<h3 id="DB-생성-및-확인"><a href="#DB-생성-및-확인" class="headerlink" title="DB 생성 및 확인"></a>DB 생성 및 확인</h3><p>test 서버 만들었다면,</p>
+<ol>
+<li>test → Database(마우스 우 클릭) → create → Database 클릭.</li>
+<li>General → Database - dataengineering 입력 → Save.</li>
+<li>생성된 dataengineering 노드 중 shemas 확장 → public 확장 → Tables(마우스 우 클릭) → create → Table 클릭.</li>
+<li>General → Name - users 입력 → Columns 탭에 추가.</li>
+</ol>
+<p><img src="/%5BWindows%2010%5D%20PostgreSQL%20Installation%20on%20WSL2%20and%20W%20525b7edb00df4156a8ef911a32397620/%EC%BB%AC%EB%9F%BC.png" alt="컬럼.PNG"></p>
+<ol>
+<li>우분투로 다시 돌아와 psql에 접속 후 dataengineering와 생성된 테이블을 조화하는 쿼리 실행</li>
+</ol>
+<ul>
+<li>dataengineering 테이블이 조회 되는지 확인.</li>
+<li><code>sudo -u postgres psql</code> 입력. → 아래는 결과.</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">psql (12.9 (Ubuntu 12.9-0ubuntu0.20.04.1))</span><br><span class="line">Type &quot;help&quot; for help.</span><br><span class="line"></span><br><span class="line">postgres=#</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>\l (영문 l 이다. 숫자 아니다.)입력 했을 때 생성한 dataengineering 뜨면 성공!!</li>
+</ol>
+<p><img src="/%5BWindows%2010%5D%20PostgreSQL%20Installation%20on%20WSL2%20and%20W%20525b7edb00df4156a8ef911a32397620/%EA%B2%B0%EA%B3%BC.png" alt="결과.PNG"></p>
+<ol>
+<li>기 생성된 dataengineering DB에 연결 후, 테이블을 조회.</li>
+</ol>
+<ul>
+<li>\c dataengineering 입력.</li>
+<li>생성 된 dataengineering&#x3D;# 에  \dt 입력 하면 아래 와 같이 결과가 뜨면 성공!!</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20PostgreSQL%20Installation%20on%20WSL2%20and%20W%20525b7edb00df4156a8ef911a32397620/%EA%B2%B0%EA%B3%BC_2.png" alt="결과 2.PNG"></p>
+<ol>
+<li>확인이 다 되었다면, \q 입력하고 나오기.</li>
+</ol>
+<h3 id="다시-재-접속-할-때"><a href="#다시-재-접속-할-때" class="headerlink" title="다시 재 접속 할 때"></a>다시 재 접속 할 때</h3><ol>
+<li>활성화 할 때</li>
+</ol>
+<ul>
+<li>우분투에서 ls → cd .. → ls → sudo 업데이트 &amp;&amp; 업그레이드 → sudo service postgresql start(활성화) → sudo service postgresql status (online 확인)</li>
+</ul>
+<ol start="2">
+<li>pgAdmin 실행 → 서버 비밀번호(25**) → 생성 해 놓은 서버 test 클릭 →  test 서버 때 설정한 비밀번호(po******) 접속!!</li>
+<li>종료 할 때</li>
+</ol>
+<ul>
+<li>우분투에서 sudo service postgresql stop(활성화 종료) → sudo service postgresql status(down 확인)</li>
+</ul>
+<h3 id="반드시-서버를-이용하고-사용-하지-않을-때는-서버를-종료-해주는-걸-입력한다-종료-하지-않으면-요금-폭탄을-받을-수-있다"><a href="#반드시-서버를-이용하고-사용-하지-않을-때는-서버를-종료-해주는-걸-입력한다-종료-하지-않으면-요금-폭탄을-받을-수-있다" class="headerlink" title="반드시!!! 서버를 이용하고 사용 하지 않을 때는 서버를 종료 해주는 걸 입력한다. 종료 하지 않으면 요금 폭탄을 받을 수 있다."></a>반드시!!! 서버를 이용하고 사용 하지 않을 때는 서버를 종료 해주는 걸 입력한다. 종료 하지 않으면 요금 폭탄을 받을 수 있다.</h3><p>출처 및 참조 : 강사님 &#x2F; <a target="_blank" rel="noopener" href="https://dschloe.github.io/sql/postgreslq_wsl2/">https://dschloe.github.io/sql/postgreslq_wsl2&#x2F;</a></p>
+<p>우분투 apt-get 속도 향상 방법  <a target="_blank" rel="noopener" href="https://mungiyo.tistory.com/15">https://mungiyo.tistory.com/15</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/04/12/install/PostgreSQL/" data-id="cl2nhi02l000aikv14kl7h33o" data-title="[Windows 10] PostgreSQL Installation on WSL2 and Windows✨" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-install/vscodeWLS" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/11/install/vscodeWLS/" class="article-date">
+  <time class="dt-published" datetime="2022-04-11T00:00:00.000Z" itemprop="datePublished">2022-04-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/11/install/vscodeWLS/">[Windows 10] VSCode WLS 연동✨</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="✨설치-전-airflow-설치-후-진행-✨"><a href="#✨설치-전-airflow-설치-후-진행-✨" class="headerlink" title="✨설치 전, airflow 설치 후 진행.✨"></a>✨설치 전, airflow 설치 후 진행.✨</h3><ol>
+<li><strong><strong>VSCode 설치</strong></strong></li>
+</ol>
+<ul>
+<li><p>• URL : <strong><a target="_blank" rel="noopener" href="https://code.visualstudio.com/download">https://code.visualstudio.com/download</a></strong></p>
+</li>
+<li><p>관리자로 실행할 것이기 때문에 System Installer 다운로드.</p>
+</li>
+<li><p>본인 컴퓨터 사양 확인 후 다운로드.</p>
+<p>  <img src="/%5BWindows%2010%5D%20VSCode%20Remote%20WLS%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%83%E1%85%A9%E1%86%BC%E2%9C%A8%20d4dfbee3d05344bdbdea5956c8826099/vcord.png" alt="vcord.PNG"></p>
+</li>
+</ul>
+<ol>
+<li><p>설치 시, 환경 변수 체크란 잘 확인 할 것.</p>
+<p> <img src="/%5BWindows%2010%5D%20VSCode%20Remote%20WLS%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%83%E1%85%A9%E1%86%BC%E2%9C%A8%20d4dfbee3d05344bdbdea5956c8826099/vcord_%EC%84%A4%EC%B9%98%EC%B2%B4%ED%81%AC%EB%9E%80.png" alt="vcord 설치체크란.PNG"></p>
+</li>
+</ol>
+<h3 id="Remote-WSL-연동"><a href="#Remote-WSL-연동" class="headerlink" title="Remote WSL 연동"></a><strong><strong>Remote WSL 연동</strong></strong></h3><ol>
+<li><p>visual studio code 관리자 모드로 실행</p>
+</li>
+<li><p>Extension 버튼 클릭 → Remote WSL 검색하고 설치 → 모두 체크 후, Mark Done 선택.</p>
+</li>
+<li><p>open folder 클릭 → WSL에서  C 드라이브(저장 되어 있는 드라이브)에 저장 했던 airflow-test 폴더 선택.</p>
+</li>
+<li><p>해당 프로젝트가 화면 왼쪽에 열려 있는 것을 확인.</p>
+</li>
+<li><p>메뉴 바에 Terminal 선택. → New Terminal 선택.</p>
+<p> <img src="/%5BWindows%2010%5D%20VSCode%20Remote%20WLS%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%83%E1%85%A9%E1%86%BC%E2%9C%A8%20d4dfbee3d05344bdbdea5956c8826099/%ED%84%B0%EB%AF%B8%EB%84%90.png" alt="터미널.PNG"></p>
+</li>
+<li><p>생성된 터미널에  WSL이 있는지 확인.</p>
+<p> <img src="/%5BWindows%2010%5D%20VSCode%20Remote%20WLS%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%83%E1%85%A9%E1%86%BC%E2%9C%A8%20d4dfbee3d05344bdbdea5956c8826099/d.png" alt="d.png"></p>
+</li>
+<li><p>생성된 WSL 에 필요한 데이터 다운로드.(p. 45)</p>
+</li>
+</ol>
+<ul>
+<li>pip3 install faker, pip3 install pandas</li>
+</ul>
+<h3 id="간단하게-python-파일-실행"><a href="#간단하게-python-파일-실행" class="headerlink" title="간단하게 python 파일 실행."></a>간단하게 python 파일 실행.</h3><ol>
+<li><p>AIRFLOW-TEST 클릭 → 새로운 폴더(chapter03) → 새로운 파일(step01_wirtecsv.py)생성</p>
+<p> <img src="/%5BWindows%2010%5D%20VSCode%20Remote%20WLS%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%83%E1%85%A9%E1%86%BC%E2%9C%A8%20d4dfbee3d05344bdbdea5956c8826099/Inked%EC%BA%A1%EC%B2%98_LI.png" alt="Inked캡처_LI.png"></p>
+</li>
+<li><p>생성된 파일 열고 print(“dddd”) 적고 ctrl + s 눌러서 저장</p>
+</li>
+</ol>
+<ul>
+<li>반드시!!! 작성하고 나서 <strong>저장</strong>을 해야지 터미널에서 출력이 된다.</li>
+</ul>
+<ol>
+<li>그림과 같이 순서대로 세팅 후 진행.</li>
+</ol>
+<p><img src="/%5BWindows%2010%5D%20VSCode%20Remote%20WLS%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%83%E1%85%A9%E1%86%BC%E2%9C%A8%20d4dfbee3d05344bdbdea5956c8826099/%EC%88%9C%EC%84%9C%EB%8C%80%EB%A1%9C_%EC%9E%91%EC%84%B1_%ED%9B%84_%EC%A7%84%ED%96%89.png" alt="순서대로 작성 후 진행.PNG"></p>
+<ol>
+<li>python3 step01_writecsv.py 입력.</li>
+</ol>
+<ul>
+<li>출력을 할 경우 앞에 python3를 붙여줘야 하며, 파일이 많을 경우 특정 앞 문자만 적고 TAB 버튼을 눌러 자동 완성 시키자. step01_(TAB)writecsv.py</li>
+<li>TAB 눌러 주는 건 내가 제대로 파일을 잘 생성한 것 인지에 대한 확인도 가능.</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20VSCode%20Remote%20WLS%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%83%E1%85%A9%E1%86%BC%E2%9C%A8%20d4dfbee3d05344bdbdea5956c8826099/%EC%BA%A1%EC%B2%9811.png" alt="캡처11.PNG"></p>
+<ol>
+<li>출력 된 값 확인.</li>
+</ol>
+<p>출처 및 참조 : 강사님  <a target="_blank" rel="noopener" href="https://dschloe.github.io/settings/vscode_wsl2/">https://dschloe.github.io/settings/vscode_wsl2&#x2F;</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/04/11/install/vscodeWLS/" data-id="cl2nhi03e000eikv1c7vygow3" data-title="[Windows 10] VSCode WLS 연동✨" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-install/Airflow" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/10/install/Airflow/" class="article-date">
+  <time class="dt-published" datetime="2022-04-10T00:00:00.000Z" itemprop="datePublished">2022-04-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/10/install/Airflow/">[Windows 10]</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Windows-10-Setting-up-Apache-Airflow-in-Windows-using-WSL2✨"><a href="#Windows-10-Setting-up-Apache-Airflow-in-Windows-using-WSL2✨" class="headerlink" title="[Windows 10] Setting up Apache-Airflow in Windows using WSL2✨"></a>[Windows 10] Setting up Apache-Airflow in Windows using WSL2✨</h1><h3 id="✨설치-전-WSL2-설치-필수-✨"><a href="#✨설치-전-WSL2-설치-필수-✨" class="headerlink" title="✨설치 전, WSL2 설치 필수.✨"></a>✨설치 전, WSL2 설치 필수.✨</h3><h3 id="01-Install-pip-on-WSL"><a href="#01-Install-pip-on-WSL" class="headerlink" title="01. Install pip on WSL"></a>01. Install pip on WSL</h3><ol>
+<li>airflow 설치하기 위해 pip 설치</li>
+<li><code>sudo apt install python3-pip</code></li>
+</ol>
+<h3 id="02-Install-virtualenv-package"><a href="#02-Install-virtualenv-package" class="headerlink" title="02. Install virtualenv package"></a>02. Install virtualenv package</h3><ol>
+<li>virtualenv 라이브러리 설치</li>
+<li><code>sudo pip3 install virtualenv</code></li>
+</ol>
+<h3 id="03-Create-a-virtual-environment"><a href="#03-Create-a-virtual-environment" class="headerlink" title="03. Create a virtual environment"></a>03. Create a virtual environment</h3><ol>
+<li>C 드라이브에 airflow-test 폴더 생성</li>
+<li>mkdir 입력하고 생성 폴더 이름 적기</li>
+</ol>
+<ul>
+<li>ex. mkdir airflow-test 이렇게 적으면 현재 내 위치에 폴더가 생성된다.(내 위치 : mnt&#x2F;c:)</li>
+</ul>
+<ol>
+<li>가상 환경 생성</li>
+</ol>
+<ul>
+<li><code>virtualenv venv</code></li>
+</ul>
+<ol>
+<li>가상 환경 접속</li>
+</ol>
+<ul>
+<li><code>source venv/bin/activate</code></li>
+</ul>
+<ol>
+<li>환경 변수 열고 코드 추가</li>
+</ol>
+<ul>
+<li><code>vi ~/.bashrc</code> ——→ <code>export AIRFLOW_HOME=/mnt/c/airflow-test</code></li>
+<li>환경 변수를 열고 코드 추가하기 위해서는 <strong>esc</strong> + <strong>i</strong> 눌러 작성.</li>
+<li>코드를 맞게 적었다면,   <strong>:wq!</strong>  ———→ 단축키 : 저장하고 나가기.</li>
+<li>저장 안하고 나간다면 그냥 q! 적기.</li>
+</ul>
+<ol>
+<li>수정 된 코드를 업데이트 하기 위한 코드</li>
+</ol>
+<ul>
+<li><code>source ~/.bashrc</code></li>
+</ul>
+<ol>
+<li>실제 코드가 반영되었는지 확인 하기 위한 코드</li>
+</ol>
+<ul>
+<li><code>echo $AIRFLOW_HOME</code>    —(결과)—&gt; <code>/mnt/c/airflow-test</code></li>
+</ul>
+<h3 id="04-Apache-Airflow-설치"><a href="#04-Apache-Airflow-설치" class="headerlink" title="04. Apache Airflow 설치"></a>04. Apache Airflow 설치</h3><ol>
+<li>PostgreSQL, Slack, Celery 패키지를 동시에 설치하는 코드를 작성</li>
+</ol>
+<ul>
+<li><code>pip3 install &#39;apache-airflow[postgres, slack, celery]&#39;</code></li>
+</ul>
+<ol>
+<li>airflow 설치 위해 DB 초기화 해줘야 한다.</li>
+</ol>
+<ul>
+<li><code>airflow db init</code></li>
+</ul>
+<ol>
+<li>실제로 잘 구현이 되었는지 확인하기 위해 webserver 실행</li>
+</ol>
+<ul>
+<li><code>airflow webserver -p 8081</code></li>
+<li>뒤에 번호는 때에 따라서 달라질 수 있음.</li>
+</ul>
+<ol>
+<li>링크에 접속하여 아래와 같은 화면이 나타나지는 확인 한다.</li>
+</ol>
+<ul>
+<li><p><strong><a target="_blank" rel="noopener" href="http://localhost:8081/login/">http://localhost:8081/login/</a></strong></p>
+<p>  <img src="/%5BWindows%2010%5D%20Setting%20up%20Apache-Airflow%20in%20Windows%20%203e8868c484fd45dda251baa160654b51/%EC%97%90%EC%96%B4%ED%94%8C%EB%A1%9C.png" alt="에어플로.PNG"></p>
+</li>
+</ul>
+<ol>
+<li>username 생성을 하지 않았다.  아래와 같이 추가 하는 코드 작성.</li>
+</ol>
+<ul>
+<li><code>airflow users create --username airflow --password airflow --firstname evan --lastname airflow --role Admin --email your_email@some.com</code></li>
+<li>각 해당 목록 마다 본인 걸로 지정.</li>
+</ul>
+<ol>
+<li>다시 링크 접속 후 생성된 username, password 적고 접속. 아래 와 같이 뜬다면 성공!</li>
+</ol>
+<p><img src="/%5BWindows%2010%5D%20Setting%20up%20Apache-Airflow%20in%20Windows%20%203e8868c484fd45dda251baa160654b51/%EC%BA%A1%EC%B2%98dd.png" alt="캡처dd.PNG"></p>
+<p>출처 및 참조 : 강사님  <a target="_blank" rel="noopener" href="https://dschloe.github.io/settings/apache_airflow_using_wsl2/">https://dschloe.github.io/settings/apache_airflow_using_wsl2&#x2F;</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/04/10/install/Airflow/" data-id="cl2nhi02e0006ikv1bojf7l3z" data-title="[Windows 10]" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-install/Github (2)" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/10/install/Github%20(2)/" class="article-date">
+  <time class="dt-published" datetime="2022-04-10T00:00:00.000Z" itemprop="datePublished">2022-04-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/10/install/Github%20(2)/">[Windows 10] GitHub 설정</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Step-01-설치"><a href="#Step-01-설치" class="headerlink" title="Step 01_설치"></a>Step 01_설치</h3><ul>
+<li>Git bash, node .js, vs code 설치를 전제로 진행</li>
+<li>마우스 우 클릭 git bash 열기</li>
+<li>hexo init 깃허브 생성해 놓은 이름(ex. hexo init myblog)</li>
+<li>Git bash 에서 생성 된 myblog 폴더가 있는 곳으로 경로 설정</li>
+<li>code . 입력하여 vs code 실행</li>
+</ul>
+<h3 id="Step-02-git-blog-생성"><a href="#Step-02-git-blog-생성" class="headerlink" title="Step 02_git blog 생성"></a>Step 02_git blog 생성</h3><ul>
+<li>github에  뜬 방법 복사 붙이기</li>
+<li>git add . (모든 파일 올리기.) or git add .github_new(파일이름)</li>
+<li>git commit -m “설정 이름(영어로, ex. ”updated”)</li>
+<li>git push (업로드)</li>
+<li>GitHub 사이트에서 새로 고침 하여 올라간 파일 확인.</li>
+<li>3가지 명령어를 순차적으로 install(맨 앞에 공백 없이)</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br><span class="line">$ npm install hexo-server --save</span><br><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>GitHub에 새로운 아이디 생성하기 위해 config.yml 에서 수정.</li>
+<li><code>url:  [https://kjm12misa.github.io](https://kjm12misa.github.io)</code> 수정</li>
+</ul>
+<p><img src="/GitHub%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC%20f8510ef29d394907b5e2ab3f3098c8cf/Untitled.png" alt="Untitled"></p>
+<ul>
+<li>아래와 같이 설정 해 줄 것</li>
+<li>type: git<br>repo: <a target="_blank" rel="noopener" href="https://github.com/kjm12misa/kjm12misa.github.io.git">https://github.com/kjm12misa/kjm12misa.github.io.git</a><br>branch: main</li>
+</ul>
+<p><img src="/GitHub%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC%20f8510ef29d394907b5e2ab3f3098c8cf/Untitled%201.png" alt="Untitled"></p>
+<ul>
+<li>아래와 같이 설정이 된 것을 확인</li>
+</ul>
+<p><img src="/GitHub%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC%20f8510ef29d394907b5e2ab3f3098c8cf/Untitled%202.png" alt="Untitled"></p>
+<ul>
+<li>“branch : main” 을 잘못 적거나 정해 놓지 않은 이름을 적으면 오류가 난다.<br>다른 이름으로도 설정이 가능하다.</li>
+</ul>
+<h3 id="Step-03-GitHub-파일-업로드"><a href="#Step-03-GitHub-파일-업로드" class="headerlink" title="Step 03_GitHub 파일 업로드"></a>Step 03_GitHub 파일 업로드</h3><ul>
+<li>hexo generate —deploy(파일 업로드) or hexo generate → hexo server(서버 확인)</li>
+</ul>
+<h3 id="Step-04-source-posts-파일-생성"><a href="#Step-04-source-posts-파일-생성" class="headerlink" title="Step 04_source-posts 파일 생성"></a>Step 04_source-posts 파일 생성</h3><ul>
+<li>hexo new “영어로 파일 이름 작성“</li>
+<li><code>Ex) hexo new &quot;My New Post&quot;</code></li>
+</ul>
+<h3 id="Step-05-기타"><a href="#Step-05-기타" class="headerlink" title="Step 05_기타"></a>Step 05_기타</h3><ul>
+<li><p>hexo clean 해주기. (쿠키 등 없애줌)</p>
+</li>
+<li><p>참고 사이트 : <a target="_blank" rel="noopener" href="https://dschloe.github.io/settings/hexo_blog/">https://dschloe.github.io/settings/hexo_blog&#x2F;</a></p>
+</li>
+<li><p>github 배포 문제점 확인 : <a target="_blank" rel="noopener" href="https://www.githubstatus.com/">https://www.githubstatus.com/</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/04/10/install/Github%20(2)/" data-id="cl2nhi02i0009ikv100i864lz" data-title="[Windows 10] GitHub 설정" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-install/WLS2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/10/install/WLS2/" class="article-date">
+  <time class="dt-published" datetime="2022-04-10T00:00:00.000Z" itemprop="datePublished">2022-04-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/10/install/WLS2/">[Windows 10] WSL2 설치 및 사용법✨</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="✨첫-번째로-설치-✨"><a href="#✨첫-번째로-설치-✨" class="headerlink" title="✨첫 번째로 설치.✨"></a>✨첫 번째로 설치.✨</h3><h3 id="필요-항목-설치-및-준비"><a href="#필요-항목-설치-및-준비" class="headerlink" title="필요 항목 설치 및 준비"></a>필요 항목 설치 및 준비</h3><ol>
+<li>pc 정보 → windows 사양 → 버전 확인(20H1, 20H2, 21H1 ..)</li>
+<li>버전이 낮으면 windows update 설정을 열어 최신 버전으로 업데이트.</li>
+<li>WSL2를 설치 하기 위해서는 가상 터미널을 사용해야 한다. Windows Terminal 사용 추천.<br>powershell 사용해도 되지만 windows Terminal 에서 WSL2를 바로 실행하는 것도 가능하기 때문에 미리 설치해두는 것 추천!</li>
+</ol>
+<h3 id="ubuntu-및-WSL2-Linux-설치"><a href="#ubuntu-및-WSL2-Linux-설치" class="headerlink" title="ubuntu 및 WSL2 Linux 설치"></a>ubuntu 및 WSL2 Linux 설치</h3><ol>
+<li>Windows Terminal 관리자로 실행</li>
+<li>dism.exe &#x2F;online &#x2F;enable-feature &#x2F;featurename:Microsoft-Windows-Subsystem-Linux &#x2F;all &#x2F;norestart 입력.  → 아래와 같이 출력.</li>
+</ol>
+<p><img src="/%5BWindows%2010%5D%20WSL2%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%20%E1%84%86%E1%85%B5%E1%86%BE%20%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8%E2%9C%A8%2039132bb568854aa785612cdaf787ce71/%EC%9A%B0%EB%B6%84%ED%88%AC1.png" alt="우분투1.PNG"></p>
+<ol>
+<li>dism.exe &#x2F;online &#x2F;enable-feature &#x2F;featurename:VirtualMachinePlatform &#x2F;all &#x2F;norestart 입력. → 아래와 같이 출력.</li>
+</ol>
+<ul>
+<li>작업을 완료했습니다. 메시지를 꼭 확인할 것. 작업이 정상적으로 완료 되었다면, 재부팅 한 번 하기.</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20WSL2%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%20%E1%84%86%E1%85%B5%E1%86%BE%20%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8%E2%9C%A8%2039132bb568854aa785612cdaf787ce71/%EC%9A%B0%EB%B6%84%ED%88%AC_2.png" alt="우분투 2.PNG"></p>
+<h3 id="WSl2-Linux-커널-업데이트"><a href="#WSl2-Linux-커널-업데이트" class="headerlink" title="WSl2 Linux 커널 업데이트"></a>WSl2 Linux 커널 업데이트</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi</a>  (x64 머신용 최신 WSL2 Linux 커널 업데이트 패키지) 다운로드.</li>
+<li>windows Terminal에 다음 명령어 입력. 기본적으로 사용할 WSL 버전을 2로 변경 해줍니다.</li>
+<li>wsl –set-default-version 2</li>
+</ul>
+<h3 id="마이크로소프트-스토어에서-리눅스-설치"><a href="#마이크로소프트-스토어에서-리눅스-설치" class="headerlink" title="마이크로소프트 스토어에서 리눅스 설치"></a>마이크로소프트 스토어에서 리눅스 설치</h3><p><img src="/%5BWindows%2010%5D%20WSL2%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%20%E1%84%86%E1%85%B5%E1%86%BE%20%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8%E2%9C%A8%2039132bb568854aa785612cdaf787ce71/%EC%9A%B0%EB%B6%84%ED%88%AC%ED%88%AC.png" alt="우분투투.PNG"></p>
+<ol>
+<li>관리자 모드로 실행 후 처음 ‘Installing. this may take few minutes…’ 메시지가 나오고, 시간이 지나면 사용자 이름과 패스워드를 지정하는 입력 창이 나타난다. 사용하고자 하는 사용자 이름 , 패스워드 지정.</li>
+</ol>
+<h3 id="이-때-메시지가-뜨지-않는다면"><a href="#이-때-메시지가-뜨지-않는다면" class="headerlink" title="이 때, 메시지가 뜨지 않는다면 !!!"></a>이 때, 메시지가 뜨지 않는다면 !!!</h3><ul>
+<li>윈도우에 검색 → windows 기능 켜기&#x2F;끄기에서 체크 해제 후 재 부팅 → 다시 체크 확인 후 재 부팅 → 우분투 다시 관리자 모드로 실행 후 메시지가 뜬다면 성공!</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20WSL2%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%20%E1%84%86%E1%85%B5%E1%86%BE%20%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8%E2%9C%A8%2039132bb568854aa785612cdaf787ce71/%EC%9C%88%EB%8F%84%EC%9A%B0.png" alt="윈도우.PNG"></p>
+<ol>
+<li>wsl -l -v 입력</li>
+</ol>
+<ul>
+<li>현재 설치된 리눅스 버전 확인</li>
+<li>버전에 2가 출력이 된다면 그대로 진행. 1이 뜬다면 2번을 입력.</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20WSL2%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%20%E1%84%86%E1%85%B5%E1%86%BE%20%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8%E2%9C%A8%2039132bb568854aa785612cdaf787ce71/ghkrdl.png" alt="ghkrdl.PNG"></p>
+<ol>
+<li>wsl –set-version Ubuntu 2</li>
+</ol>
+<ul>
+<li>아래와 같이 ‘변환이 완료 되었습니다.’ 라는 메시지가 뜰 때 까지 기다린다.</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20WSL2%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%20%E1%84%86%E1%85%B5%E1%86%BE%20%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8%E2%9C%A8%2039132bb568854aa785612cdaf787ce71/qusghks.png" alt="qusghks.PNG"></p>
+<ol>
+<li>wsl -l -v 입력</li>
+</ol>
+<ul>
+<li>다시 설치된 리눅스 버전 확인</li>
+<li>버전에 2가 뜬다면 설치 완료!</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20WSL2%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%20%E1%84%86%E1%85%B5%E1%86%BE%20%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8%E2%9C%A8%2039132bb568854aa785612cdaf787ce71/1.png" alt="1.PNG"></p>
+<p>출처 및 참조 : 강사님  <a target="_blank" rel="noopener" href="https://www.lainyzine.com/ko/article/how-to-install-wsl2-and-use-linux-on-windows-10/#google_vignette">https://www.lainyzine.com/ko/article/how-to-install-wsl2-and-use-linux-on-windows-10/#google_vignette</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/04/10/install/WLS2/" data-id="cl2nhi03c000dikv149nlb4ow" data-title="[Windows 10] WSL2 설치 및 사용법✨" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/01/install/GitHub/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/24/Error/Airflow_web_scheduler/">[Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결🐱‍🏍</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/19/install/Oracle/">[Windows 10] Oracle Install🎊</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/17/install/vscodeMac/">[Mac M1] Installation VSCode✨</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/14/install/Spark/">[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

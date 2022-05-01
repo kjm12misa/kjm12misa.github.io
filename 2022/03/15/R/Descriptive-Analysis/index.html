@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Descriptive Analysis | myblog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="모수와 통계량  파일 불러 오기.   albums &#x3D; read.csv(“2_day_stat_regression&#x2F;data&#x2F;album.csv”)  앨범 판매량 데이터  adverts : 광고 집행 비용 sales : 판매량   기술 통계량 (Descriptive Analysis)-최대, 최소, 평균, 중간값, 분산, 표준 편차">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Descriptive Analysis">
+<meta property="og:url" content="https://kjm12misa.github.io/2022/03/15/R/Descriptive-Analysis/index.html">
+<meta property="og:site_name" content="myblog">
+<meta property="og:description" content="모수와 통계량  파일 불러 오기.   albums &#x3D; read.csv(“2_day_stat_regression&#x2F;data&#x2F;album.csv”)  앨범 판매량 데이터  adverts : 광고 집행 비용 sales : 판매량   기술 통계량 (Descriptive Analysis)-최대, 최소, 평균, 중간값, 분산, 표준 편차">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-15T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-01T15:37:40.772Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="myblog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">myblog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kjm12misa.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-R/Descriptive-Analysis" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/15/R/Descriptive-Analysis/" class="article-date">
+  <time class="dt-published" datetime="2022-03-15T00:00:00.000Z" itemprop="datePublished">2022-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Descriptive Analysis
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>모수와 통계량</p>
+</li>
+<li><p>파일 불러 오기.</p>
+</li>
+</ul>
+<p>albums &#x3D; read.csv(“2_day_stat_regression&#x2F;data&#x2F;album.csv”)</p>
+<ul>
+<li><p>앨범 판매량 데이터</p>
+<ul>
+<li>adverts : 광고 집행 비용</li>
+<li>sales : 판매량</li>
+</ul>
+</li>
+<li><p>기술 통계량 (Descriptive Analysis)<br>-최대, 최소, 평균, 중간값, 분산, 표준 편차</p>
+</li>
+</ul>
+<p>albums$sales<br>sort(albums$sales)</p>
+<ul>
+<li>최소값</li>
+</ul>
+<p>sort(albums$sales)<br>min(albums$sales)</p>
+<ul>
+<li>최대값</li>
+</ul>
+<p>sort(albums$sales)<br>max(albums$sales)</p>
+<ul>
+<li>최빈값</li>
+</ul>
+<p>table(albums$sales)<br>sort(table(albums$sales), decreasing &#x3D; TRUE)[1]</p>
+<ul>
+<li>평균과 중앙값</li>
+</ul>
+<p>mean(albums$sales)<br>median(albums$sales)</p>
+<ul>
+<li>결측치 데이터 추가</li>
+</ul>
+<p>sales2 &#x3D; c(albums$sales, NA)<br>tail(sales2)<br>mean(sales2)<br>mean(sales2, na.rm &#x3D; TRUE)</p>
+<ul>
+<li>평균의 가장 큰 단점</li>
+<li>극단 적인 값에 굉장히 민감 하게 반응</li>
+</ul>
+<p>sales3 &#x3D; c(albums$sales, 30000000000)<br>mean(sales3)<br>median(sales3)</p>
+<ul>
+<li><p>양 극단의 값에 민감 하게 반응 하지 않음</p>
+</li>
+<li><p>이러한 특징을 강건 하다(Robust)</p>
+</li>
+<li><p>분산</p>
+</li>
+</ul>
+<p>weight &#x3D; c(64, 68, 70, 72, 76)<br>weight_mean &#x3D; mean(weight)# 평균<br>weight_deviation &#x3D; weight - weight_mean # 편차 A - B<br>weight_deviation<br>sum(weight_deviation)</p>
+<p>weight_deviation_2 &#x3D; weight_deviation ^2<br>sum(weight_deviation_2)<br>mean(weight_deviation_2) </p>
+<ul>
+<li>표준 편차</li>
+</ul>
+<p>sqrt(mean(weight_deviation_2))</p>
+<p>var(weight) - 표본 분산<br>sd(weight) - 표본 표준 편차</p>
+<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+<ul>
+<li><p>CV : Coefficient pf variation &#x3D; 변동계수</p>
+</li>
+<li><p>RCD : \</p>
+</li>
+<li><p>변동계수</p>
+</li>
+</ul>
+<p>cv &#x3D; sd(data) &#x2F; mean(data)</p>
+<ul>
+<li>주식 데이터<br>install.packages(“tidyquant”)<br>library(tidyquant)<br>library(quantmod)<br>library(purrr)<br>library(ggplot2)<br>library(tibble)</li>
+</ul>
+<p>tickers &#x3D; c(“AAPL”, “TSLA”)<br>getSymbols(tickers,<br>           from &#x3D; “2022-01-02”,<br>           to   &#x3D; “2022-01-30”)</p>
+<p>stock &lt;- map(tickers, function(x) Ad(get(x)))<br>stock &lt;- reduce(stock, merge)<br>colnames(stock) &lt;- tickers</p>
+<p>head(stock)</p>
+<p>stock_df &lt;- stock %&gt;% data.frame(date &#x3D; index(stock))<br>stock_df</p>
+<ul>
+<li>사용자 정의 함수</li>
+</ul>
+<p>cv_fun &lt;- function(data) {<br>  result &#x3D; sd(data) &#x2F; mean(data) * 100<br>  return(result)<br>}</p>
+<p>-&gt; 위와 같은 식을 알고리즘이라고 한다.</p>
+<p>cv_fun(stock_df$AAPL)<br>cv_fun(stock_df$TSLA)</p>
+<p>ggplot(stock_df, aes(x &#x3D; date)) +<br>  geom_line(aes(y &#x3D; AAPL, colour &#x3D; “Apple”)) +<br>  geom_line(aes(y &#x3D; TSLA, colour &#x3D; ‘Tesla’)) +<br>  scale_colour_manual(name &#x3D; “company”, values &#x3D; c(“Apple” &#x3D; “red”,<br>                                                   “Tesla” &#x3D; “blue”)) +<br>  theme_bw()</p>
+<ul>
+<li>사분위수 : 전체 자료를 균등하게 4개의 그룹으로 나눈 값(EX&gt;박스그래프)</li>
+<li>Q1 &#x3D; 1사분위(맨밑), Q2 &#x3D; 2사분위(중간), Q3 &#x3D; 3사분위(맨위라인)</li>
+<li>이상치판별</li>
+</ul>
+<p>qs_df &#x3D; quantile(albums$sales)<br>qs_df[4] - qs_df[2]<br>IQR(albums$sales) -&gt; 3사분위 - 1사분위</p>
+<p>boxplot(albums$sales)</p>
+<ul>
+<li>이상치 판별</li>
+</ul>
+<p>sales2 &#x3D; c(albums$sales, 450, 460, -100, -1000)</p>
+<p>q &#x3D; quantile(sales2)<br>boxplot(sales2)</p>
+<ul>
+<li>하한 극단 경계값 찾기</li>
+</ul>
+<p>bottom_outlier &#x3D; q[2] - 1.5 * (q[4] - q[2])<br>bottom_outlier</p>
+<ul>
+<li><p>상한 극단 경계값 찾기<br>top_outlier &#x3D; q[4] + 1.5 * (q[4] - q[2])<br>top_outlier</p>
+</li>
+<li><p>실제 극단값 존재하는지 출력</p>
+</li>
+</ul>
+<p>sales2[sales2 &lt; bottom_outlier]<br>sales2[sales2 &gt; top_outlier]</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/03/15/R/Descriptive-Analysis/" data-id="cl2nhi01y0001ikv1291t1d71" data-title="Descriptive Analysis" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/03/16/R/03.16-study/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          study
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/15/R/chapter_8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">chapter_8</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/01/install/GitHub/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/24/Error/Airflow_web_scheduler/">[Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결🐱‍🏍</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/19/install/Oracle/">[Windows 10] Oracle Install🎊</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/17/install/vscodeMac/">[Mac M1] Installation VSCode✨</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/14/install/Spark/">[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>study | myblog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="3 그룹 이상의 평균에서 분산 값을 비교 할 때 쓰임.  분산값 : 평균 - 분산에 n분의 n을 제곱한 값?   -전체 학년 2학년의 평균을 계산 하였 는데 A,B,C 그룹 간의 평균을 구하여 분산 분석을 원할 시 A 그룹 평균 : 72, B 그룹 평균 : 55, C 그룹 평균 : 83 -&gt; 이 3 그룹 간의 평균을 구해 분석을 하는 것을 분산 분석">
+<meta property="og:type" content="article">
+<meta property="og:title" content="study">
+<meta property="og:url" content="https://kjm12misa.github.io/2022/03/16/R/03.16-study/index.html">
+<meta property="og:site_name" content="myblog">
+<meta property="og:description" content="3 그룹 이상의 평균에서 분산 값을 비교 할 때 쓰임.  분산값 : 평균 - 분산에 n분의 n을 제곱한 값?   -전체 학년 2학년의 평균을 계산 하였 는데 A,B,C 그룹 간의 평균을 구하여 분산 분석을 원할 시 A 그룹 평균 : 72, B 그룹 평균 : 55, C 그룹 평균 : 83 -&gt; 이 3 그룹 간의 평균을 구해 분석을 하는 것을 분산 분석">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-16T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-01T16:19:09.452Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="myblog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">myblog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kjm12misa.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-R/03.16-study" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/16/R/03.16-study/" class="article-date">
+  <time class="dt-published" datetime="2022-03-16T00:00:00.000Z" itemprop="datePublished">2022-03-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      study
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>3 그룹 이상의 평균에서 분산 값을 비교 할 때 쓰임.</p>
+</li>
+<li><p>분산값 : 평균 - 분산에 n분의 n을 제곱한 값?</p>
+</li>
+</ul>
+<p>-전체 학년 2학년의 평균을 계산 하였 는데 A,B,C 그룹 간의 평균을 구하여 분산 분석을 원할 시<br> A 그룹 평균 : 72, B 그룹 평균 : 55, C 그룹 평균 : 83 -&gt; 이 3 그룹 간의 평균을 구해 분석을 하는 것을 분산 분석을 통해 설명을 할 수 있음.</p>
+<ul>
+<li>분산 분석</li>
+<li>라이브 러리 불러 오기</li>
+</ul>
+<p>library(dplyr)<br>library(ggplot2)</p>
+<ul>
+<li>데이터 수집 및 가공</li>
+</ul>
+<p>my_data &#x3D; PlantGrowth<br>my_data$group &lt;- ordered(my_data$group, levels &#x3D; c(“ctrl”, “trt1”, “trt2”))</p>
+<p>my_data %&gt;%<br>  group_by(group) %&gt;%<br>  summarise(<br>    count &#x3D; n(),<br>    mean  &#x3D; mean(weight, na.rm &#x3D; TRUE),<br>    sd    &#x3D; sd(weight, na.rm &#x3D; TRUE)<br>  )</p>
+<p>ggplot(my_data, aes(x &#x3D; group, y &#x3D; weight)) +<br>  geom_boxplot()</p>
+<ul>
+<li>One-Way ANOVA 테스트</li>
+<li>오차 제곱합(SSE)</li>
+</ul>
+<p>ctrl &lt;- my_data$weight[my_data$group &#x3D;&#x3D; “ctrl”]<br>trt1 &lt;- my_data$weight[my_data$group &#x3D;&#x3D; “trt1”]<br>trt2 &lt;- my_data$weight[my_data$group &#x3D;&#x3D; “trt2”]</p>
+<p>ctrl_mean &#x3D; mean(ctrl)<br>trt1_mean &#x3D; mean(trt1)<br>trt2_mean &#x3D; mean(trt2)</p>
+<ul>
+<li><p>각 처리별 오차의 제곱합<br>ctrl_sse &#x3D; sum((ctrl-ctrl_mean) ^ 2)<br>trt1_sse &#x3D; sum((trt1-trt1_mean) ^ 2)<br>trt2_sse &#x3D; sum((trt2-trt2_mean) ^ 2)</p>
+</li>
+<li><p>오차의 제곱합<br>sse &lt;- ctrl_sse + trt1_sse + trt2_sse<br>sse</p>
+</li>
+<li><p>오차의 자유도<br>dfe &lt;- (length(ctrl) - 1) + (length(trt1) - 1) + (length(trt2) - 1)</p>
+</li>
+<li><p>처리의 제곱합(SST)<br>total_mean &#x3D; mean(my_data$weight)<br>ctrl_sst &#x3D; length(ctrl) * sum((ctrl_mean - total_mean) ^ 2)<br>trt1_sst &#x3D; length(trt1) * sum((trt1_mean - total_mean) ^ 2)<br>trt2_sst &#x3D; length(trt2) * sum((trt2_mean - total_mean) ^ 2)</p>
+</li>
+<li><p>처리 제곱합<br>sst &#x3D; ctrl_sst + trt1_sst + trt2_sst</p>
+</li>
+<li><p>처리 제곱합의 자유도<br>dft &#x3D; length(levels(my_data$group)) - 1</p>
+</li>
+<li><p>전체 제곱합과 분해 된 제곱 합의 합<br>tsq &#x3D; sum(my_data$weight - total_mean ^ 2)<br>ss &#x3D; sst + sse</p>
+</li>
+</ul>
+<p>all.equal(tsq, ss)</p>
+<ul>
+<li>검정 통계량<br>mst &#x3D; sst &#x2F; dft<br>mse &#x3D; sse &#x2F; sst</li>
+</ul>
+<p>f.t &#x3D; mst &#x2F; mse<br>f.t</p>
+<p>alpha &#x3D; 0.5<br>tol &lt;- qf(1-alpha, 2, 27)<br>tol</p>
+<p>p.value &#x3D; 1-pf(f.t, 2, 27)<br>p.value</p>
+<p>res.aov &lt;- aov(weight ~ group, data &#x3D; my_data)<br>summary(res.aov)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/03/16/R/03.16-study/" data-id="cl2nhhzyf0000ikv1fmqacpu4" data-title="study" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/03/20/install/GitBash/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          [Windows 10] Git bash 가상 환경🐱‍🏍
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/15/R/Descriptive-Analysis/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Descriptive Analysis</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/01/install/GitHub/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/24/Error/Airflow_web_scheduler/">[Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결🐱‍🏍</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/19/install/Oracle/">[Windows 10] Oracle Install🎊</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/17/install/vscodeMac/">[Mac M1] Installation VSCode✨</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/14/install/Spark/">[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

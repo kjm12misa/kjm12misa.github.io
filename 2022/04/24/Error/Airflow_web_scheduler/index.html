@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>[Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결🐱‍🏍 | myblog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="airflow webserver -p 8081 + airflow scheduler 오류✨ 두 개를 동시에 열어야 하기 때문에 하나라도 안되면 결과 값이 뜨지 않는다.   오류 확인.   코드와 데이터 모두 맞게 작성 하고 웹 서버를 실행 했으나, 아무것도 뜨지 않는다. 원래 가상 환경이 아닌 환경에서 되면 안되는데, 실행이 되지 않아 다른 방법을 썼다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결🐱‍🏍">
+<meta property="og:url" content="https://kjm12misa.github.io/2022/04/24/Error/Airflow_web_scheduler/index.html">
+<meta property="og:site_name" content="myblog">
+<meta property="og:description" content="airflow webserver -p 8081 + airflow scheduler 오류✨ 두 개를 동시에 열어야 하기 때문에 하나라도 안되면 결과 값이 뜨지 않는다.   오류 확인.   코드와 데이터 모두 맞게 작성 하고 웹 서버를 실행 했으나, 아무것도 뜨지 않는다. 원래 가상 환경이 아닌 환경에서 되면 안되는데, 실행이 되지 않아 다른 방법을 썼다.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5DAirflow%20webserver%20+%20scheduler%20%E1%84%8B%E1%85%A1%E1%86%AB%20%E1%84%84%E1%85%B3%E1%84%82%E1%85%B3%20533bf73a3a434c13ac0831f73f4590bb/%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%9F%AC_%EC%98%A4%EB%A5%98_%EB%82%A0_%EC%8B%9C.png">
+<meta property="article:published_time" content="2022-04-24T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-01T16:18:23.133Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kjm12misa.github.io/%5BWindows%2010%5DAirflow%20webserver%20+%20scheduler%20%E1%84%8B%E1%85%A1%E1%86%AB%20%E1%84%84%E1%85%B3%E1%84%82%E1%85%B3%20533bf73a3a434c13ac0831f73f4590bb/%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%9F%AC_%EC%98%A4%EB%A5%98_%EB%82%A0_%EC%8B%9C.png">
+  
+    <link rel="alternate" href="/atom.xml" title="myblog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">myblog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kjm12misa.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Error/Airflow_web_scheduler" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/24/Error/Airflow_web_scheduler/" class="article-date">
+  <time class="dt-published" datetime="2022-04-24T00:00:00.000Z" itemprop="datePublished">2022-04-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      [Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결🐱‍🏍
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="airflow-webserver-p-8081-airflow-scheduler-오류✨"><a href="#airflow-webserver-p-8081-airflow-scheduler-오류✨" class="headerlink" title="airflow webserver -p 8081 + airflow scheduler 오류✨"></a>airflow webserver -p 8081 + airflow scheduler 오류✨</h2><ul>
+<li>두 개를 동시에 열어야 하기 때문에 하나라도 안되면 결과 값이 뜨지 않는다.</li>
+</ul>
+<ol>
+<li><strong>오류 확인.</strong></li>
+</ol>
+<ul>
+<li>코드와 데이터 모두 맞게 작성 하고 웹 서버를 실행 했으나, 아무것도 뜨지 않는다.</li>
+<li>원래 가상 환경이 아닌 환경에서 되면 안되는데, 실행이 되지 않아 다른 방법을 썼다.</li>
+</ul>
+<hr>
+<ol>
+<li>각 <strong>webserver 리눅스와 scheduler 리눅스에서 확인.</strong></li>
+</ol>
+<ul>
+<li>vi ~&#x2F;.bashrc 환경 변수 편집 열어 내가 작업 중인 폴더와 이름이 같은지 확인.</li>
+<li>echo $AIRFLOW_HOME 입력 하였으나 아무것도 뜨지 않는다면, source ~&#x2F;.bashrc 환경 변수를 적용해주는 코드를 적고 다시 echo $AIRFLOW_HOME 확인.</li>
+</ul>
+<p> —- (가상 환경이 벗어 나면서 색이 변했는데 이유를 모른다…) 일단, 결과는 굳!</p>
+<ul>
+<li>제대로 뜬다면, 각 리눅스 환경에서 웹 서버 번호와 scheduler 실행, 뜬다면 성공!</li>
+</ul>
+<p><img src="/%5BWindows%2010%5DAirflow%20webserver%20+%20scheduler%20%E1%84%8B%E1%85%A1%E1%86%AB%20%E1%84%84%E1%85%B3%E1%84%82%E1%85%B3%20533bf73a3a434c13ac0831f73f4590bb/%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%9F%AC_%EC%98%A4%EB%A5%98_%EB%82%A0_%EC%8B%9C.png" alt="스케쥴러 오류 날 시.PNG"></p>
+<hr>
+<ol>
+<li>기타</li>
+</ol>
+<ul>
+<li>나는 기존에 저장 되어 있던 폴더(aiflow_test) 말고 다른 폴더로 변경 하였다. 그래서 환경 변수에서  $AIRFLOW_HOME&#x3D;&#x2F;mnt&#x2F;c&#x2F;airflow_t 저장해 놓았다. 작업하려는 폴더와 현재 폴더에 따라서 변경을 해줘야 한다.</li>
+<li>확인 코드 vi ~&#x2F;.bashrc(편집) → echo $AIRFLOW_HOME(확인) —(값이 잘 떴음. 안 뜰 경우 오타 확인)—&gt; source ~&#x2F;.bashrc(적용)</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/04/24/Error/Airflow_web_scheduler/" data-id="cl2nhynso0000vkv1hs3jcei7" data-title="[Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결🐱‍🏍" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/05/01/install/GitHub/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/04/19/install/Oracle/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">[Windows 10] Oracle Install🎊</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/01/install/GitHub/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/24/Error/Airflow_web_scheduler/">[Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결🐱‍🏍</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/19/install/Oracle/">[Windows 10] Oracle Install🎊</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/17/install/vscodeMac/">[Mac M1] Installation VSCode✨</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/14/install/Spark/">[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

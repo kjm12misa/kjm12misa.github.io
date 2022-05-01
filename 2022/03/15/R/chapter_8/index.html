@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>chapter_8 | myblog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="8장 통계 분석 유의수준은 .05, .01, .001 등 세종류가 있다. 유의수준이 낮을수록 오류 허용 범위가 적고, 신뢰성을 높여 줍니다.  (1) 기술 통계(descriptive statistics)  데이터의 특징을 서술한다 또는 사실 확인 평균, 최소값, 최대값, 중앙값  (2) 추론 통계(inferential statistics)_&lt;  변수">
+<meta property="og:type" content="article">
+<meta property="og:title" content="chapter_8">
+<meta property="og:url" content="https://kjm12misa.github.io/2022/03/15/R/chapter_8/index.html">
+<meta property="og:site_name" content="myblog">
+<meta property="og:description" content="8장 통계 분석 유의수준은 .05, .01, .001 등 세종류가 있다. 유의수준이 낮을수록 오류 허용 범위가 적고, 신뢰성을 높여 줍니다.  (1) 기술 통계(descriptive statistics)  데이터의 특징을 서술한다 또는 사실 확인 평균, 최소값, 최대값, 중앙값  (2) 추론 통계(inferential statistics)_&lt;  변수">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-15T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-01T15:37:40.850Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="myblog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">myblog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kjm12misa.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-R/chapter_8" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/15/R/chapter_8/" class="article-date">
+  <time class="dt-published" datetime="2022-03-15T00:00:00.000Z" itemprop="datePublished">2022-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      chapter_8
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="8장-통계-분석"><a href="#8장-통계-분석" class="headerlink" title="8장 통계 분석"></a>8장 통계 분석</h3><ul>
+<li>유의수준은 .05, .01, .001 등 세종류가 있다. 유의수준이 낮을수록 오류 허용 범위가 적고, 신뢰성을 높여 줍니다.</li>
+</ul>
+<p>(1) 기술 통계(descriptive statistics)</p>
+<ul>
+<li>데이터의 특징을 서술한다 또는 사실 확인</li>
+<li>평균, 최소값, 최대값, 중앙값</li>
+</ul>
+<p>(2) 추론 통계(inferential statistics)_&lt;</p>
+<ul>
+<li>변수 간의 관계 파악, 인과 관계, 새로운 사실 발견.</li>
+</ul>
+<ol>
+<li>평균 차이 검정 : 집단별로 평군의 차이가 실제 있는지 확인</li>
+</ol>
+<ul>
+<li>분석 사례_t.test() 함수 사용</li>
+<li>방법 1 : t.test(data&#x3D;데이터세트, 종속변수(비교값)~독립변수(비교대상))</li>
+<li>방법 2 : t.test(data&#x3D;데이터세트$종속변수(비교값)~데이터세트$독립변수(비교대상))</li>
+</ul>
+<p> 모변수를 알면 n 모르면 n-1<br> 신약 개발  실험 (사전 테스트 + 사후 테스트)</p>
+<p> 독립 변수_trans, 종속변수_cty</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">library(dplyr)</span><br><span class="line">library(ggplot2)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>파일 불러오기<br>mpg1 &#x3D; read.csv(“homework&#x2F;mpg1.csv”, stringsAsFactors &#x3D; F)</p>
+</li>
+<li><p>방법 1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t.test(data = mpg1, cty~trans)# 비교값(종속)~비교대상(독립)</span><br></pre></td></tr></table></figure></li>
+<li><p>방법 2</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t.test(mpg1$cty~mpg1$trans)</span><br></pre></td></tr></table></figure>
+<p> 값 분석</p>
+</li>
+</ul>
+<p>Welch Two Sample t-test</p>
+<p>data:  mpg1$cty by mpg1$trans<br>t &#x3D; -4.5375, df &#x3D; 132.32, p-value &#x3D; 1.263e-05<br>alternative hypothesis: true difference in means between group auto and group manual is not equal to 0<br>95 percent confidence interval:<br> -3.887311 -1.527033<br>sample estimates:<br>  mean in group auto mean in group manual<br>            15.96815             18.67532</p>
+<ul>
+<li><p>p-value &#x3D; 1.263e-05 유의수준이 1.263e-05</p>
+</li>
+<li><p>e-n : 10의 n승 분의 1, e+n : 10의 n승 의미</p>
+</li>
+<li><p>1.263e-05 -&gt; 1.263&#x2F;100000</p>
+</li>
+<li><p>유의수준 허용 조건(p &lt; .05) 보다 적기 때문에 조건 충족</p>
+</li>
+<li><p>alternative hypothesis: true difference in means between group Man and group Woman is not equal to 0</p>
+</li>
+<li><p>대립가설 : 평균 차이가 있다. </p>
+</li>
+<li><p>95 percent confidence interval: 신뢰수준 95%</p>
+</li>
+<li><p>-3.887311 -1.527033</p>
+</li>
+<li><p>auto : 15.96.., manual : 18.67.. 두 값의 평균 차이가 있다는 대립 가설을 채택할 수 있음.</p>
+</li>
+</ul>
+<p> 결론</p>
+<ul>
+<li>cty 평균거리는 auto 15.97마일, manual 18.68마일. 유의수준의 허용 조건인 0.05보다 작아 통계적으로 유의미한 차이기 있어 auto 보다 manual가 2.7마일 길다고 볼 수 있다. (확률을 토대로 한 추론분석이라서 ‘볼 수 있다’ 표현.)</li>
+</ul>
+<ol start="2">
+<li>교차분석 : 범주형 변수로 구성된 집단들의 관련성을 검정</li>
+</ol>
+<ul>
+<li>카이제곰검정, 카이스퀘어검정, 독립성 검정 이라고도 함</li>
+<li>chisq_test(x, y) 함수 사용. 또는 chisq.test(table(x, y), summary(table(x, y))</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">table(mpg1$trans, mpg1$drv)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prop.table(table(mpg1$trans, mpg1$drv),1)</span><br></pre></td></tr></table></figure>
+<p> 방법 1 _ 방법 1~3 모두 같은 값.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chisq.test(mpg1$trans, mpg1$drv)</span><br></pre></td></tr></table></figure>
+<p> 방법 2</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chisq.test((table(mpg1$trans, mpg1$drv)))</span><br></pre></td></tr></table></figure>
+
+<p> 방법 3</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">summary(table(mpg1$trans, mpg1$drv))</span><br></pre></td></tr></table></figure>
+<p> 값 분석</p>
+<ul>
+<li>X-squared &#x3D; 3.1368 는 통계 검정 값</li>
+<li>p-value &#x3D; 0.2084 는 유의수준 허용치를 넘기에 trans에 따라 drv에 차이가 있다고 할 수 없음.</li>
+</ul>
+<ol start="3">
+<li>상관관계분석</li>
+</ol>
+<ul>
+<li>변수 간의 연관성 즉, 한 변수가 변화하면 다른 변수도 변화 하는 관계</li>
+<li>귀무가설(H0) : cty, hwy는 상관관계가 없다.</li>
+<li>대립가설(H1) : cty, hwy는 상관관계가 있다.</li>
+<li>cor.test() 함수 사용. # cor.test(데이터세트$비교변수1, 데이터세트$비교변수2)</li>
+<li>cty, hwy 두 관계 간 가설 검정</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cor.test(mpg1$cty, mpg1$hwy)</span><br></pre></td></tr></table></figure>
+<p> 값 분석</p>
+<ul>
+<li>p-value &lt; 2.2e-16p-value : 2.2&#x2F;10^16(e-n는 10의 n승 분의 1) -&gt; 0.0000000000000022로 유의수준 안에 있음. p-value의 결과로는 대립가설을 선택 할 수 있음.</li>
+<li>sample estimates: cor 0.96 으로 1에 가까워 매우 높음. 결과를 쓸 땐 ‘cty’, ‘hwy’는 유의미하게 매우 높은 상관관계(r&#x3D;.96)에 있다.</li>
+</ul>
+<ol start="4">
+<li>회귀분석</li>
+</ol>
+<p> (1) 단순회귀분석</p>
+<ul>
+<li>독립변수 1개, 종속변수 1개일 때 쓰임.</li>
+<li>lm() 함수 사용 -&gt; lm(data&#x3D;데이터세트, 종속변수<del>독립변수), lm(데이터세트$종속</del>데이터세트$독립)</li>
+</ul>
+<p>help(mtcars)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str(mtcars)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lm(data = mtcars, mpg ~ disp)</span><br></pre></td></tr></table></figure>
+<p> 값 분석</p>
+<ul>
+<li>disp 계수 값은 -0.04122, 절편은 29.59985</li>
+<li>회귀분석에서 구해진 식 : mpg &#x3D; 29.59985 - 0.04122 * disp</li>
+<li>배기량이 1단위 씩 올라 갈때마다 mpg는 0.04122 씩 감소</li>
+<li>회귀분석은 유의수준이 없으면 회귀계수는 의미가 없으므로 summary(회귀분석식)를 사용.</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PA &lt;- lm(data = mtcars, mpg ~ disp)</span><br><span class="line">summary(PA)</span><br></pre></td></tr></table></figure>
+<p> 값 분석</p>
+<ul>
+<li>p-value : 9.38e-10(9.38&#x2F;10^10 -&gt; 9.38&#x2F;10000000000 &#x3D;0.000000000938)허용치 안에 있어 회귀모형 적합</li>
+<li>대립가설만 채택 가능.</li>
+<li>Signif. codes:  0 ‘<em><strong>’ 0.001 ‘</strong>’ 0.01 ‘</em>’ 0.05 ‘.’ 0.1 ‘ ’ 1 : 세가지 유의수준 유형을 모두 충족함. (유의수준기호)</li>
+<li>Adjusted R-squared:  0.709 -&gt; 수정된 결정계수(R^2): 0.709</li>
+<li>결론 : 회귀모형은 유의수준에 적합하며, 수정된 결정계수는 .709 이다. 배기량이 연비에 미치는 회귀계수는 유의수준 p &lt; .001에서 -0.04이다.</li>
+</ul>
+<p>(2) 다중회귀분석</p>
+<ul>
+<li>종속변수에 영향을 주는 독립변수가 복수일 때 분석하는 방식</li>
+<li>다중회귀분석은 단일회귀분석에서 독립변수1 + 독립변수2 + 독립변수3 + ,,,, 하는 방식.</li>
+<li>lm() 함수 사용.</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lm(data = mtcars, mpg ~ disp + hp + wt)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RA &lt;- lm(data = mtcars, mpg ~ disp + hp + wt)</span><br><span class="line">summary(RA)</span><br></pre></td></tr></table></figure>
+<p> 값 분석</p>
+<ul>
+<li>유의 수준이 8.65&#x2F;10^11 &#x3D; 0.0000000000865 로 유의 수준 .001 보다 작아 회귀 모형에 적합.</li>
+<li>disp는 유의 수준 조건을 넘고, hp&#x2F;wt는 혀용치 안이기에 영향력이 있음.</li>
+<li>Adjusted R-squared:  0.8083 : 결정 계수는 1에 가깝기에 회귀 모델 설명력이 높음.</li>
+<li>결론 : 회귀 모형 p &lt; .001에서 적합 하며, 3개의 독립 변수가 연비에 미치는 회귀 계수는 hp가 -0.03, wt가 -3.8이었고, disp는 없었다. wt가 영향력이 가장 컸다.</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/03/15/R/chapter_8/" data-id="cl2nhi0250002ikv1dsq70ysn" data-title="chapter_8" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/03/15/R/Descriptive-Analysis/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Descriptive Analysis
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/15/R/z-score.03/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">z-score</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/01/install/GitHub/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/24/Error/Airflow_web_scheduler/">[Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결🐱‍🏍</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/19/install/Oracle/">[Windows 10] Oracle Install🎊</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/17/install/vscodeMac/">[Mac M1] Installation VSCode✨</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/14/install/Spark/">[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

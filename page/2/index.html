@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>myblog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="myblog">
+<meta property="og:url" content="https://kjm12misa.github.io/page/2/index.html">
+<meta property="og:site_name" content="myblog">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="myblog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">myblog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kjm12misa.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Oracle/chapter03/Oracle" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/01/Oracle/chapter03/Oracle/" class="article-date">
+  <time class="dt-published" datetime="2022-03-31T15:00:00.000Z" itemprop="datePublished">2022-04-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/01/Oracle/chapter03/Oracle/">🎈Oracle/SQL_Chapter 03</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="01-연산자"><a href="#01-연산자" class="headerlink" title="01. 연산자"></a>01. 연산자</h2><ul>
+<li>대문자 : 함수 &#x2F; 소문자 : 컬럼명, 테이블 명</li>
+<li>DESC 테이블명;</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DESC</span> employees;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>employees 테이블 구조 확인</p>
+<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled.png" alt="Untitled"></p>
+</li>
+</ul>
+<h2 id="02-표현식"><a href="#02-표현식" class="headerlink" title="02. 표현식"></a>02. 표현식</h2><ul>
+<li><p>한 개 이상의 값과 연산자, SQL 함수 등이 결합 된 식</p>
+<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%201.png" alt="Untitled"></p>
+</li>
+<li><p>WHEN 다음에 조건을 기술하고 THEN 다음에는 앞에서 기술한 조건에 만족하면 실제 출력 되는 값을 명시</p>
+</li>
+<li><p>주의할 점은 THEN 이하 출력 값들의 데이터 타입은 반드시 일치 시켜야 한다.</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line">    , <span class="keyword">CASE</span> <span class="keyword">WHEN</span> salary <span class="operator">&lt;=</span> <span class="number">5000</span> <span class="keyword">THEN</span> <span class="string">&#x27;C등급&#x27;</span></span><br><span class="line">           <span class="keyword">WHEN</span> salary <span class="operator">&gt;</span> <span class="number">5000</span> <span class="keyword">AND</span> salary <span class="operator">&lt;=</span> <span class="number">15000</span> <span class="keyword">THEN</span> <span class="string">&#x27;B등급&#x27;</span></span><br><span class="line">           <span class="keyword">ELSE</span> <span class="string">&#x27;A등급&#x27;</span></span><br><span class="line">      <span class="keyword">END</span> <span class="keyword">AS</span> salary_grade</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>‘C등급’ 5000 이하 거나 같은, ‘’B등급’ 5000 ~ 15000을 포함한 사이 값, ‘A등급’ 15001 ~ 결과</p>
+<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%202.png" alt="Untitled"></p>
+</li>
+</ul>
+<h2 id="03-조건식"><a href="#03-조건식" class="headerlink" title="03. 조건식"></a>03. 조건식</h2><h3 id="03-1-비교-조건식"><a href="#03-1-비교-조건식" class="headerlink" title="03_1. 비교 조건식"></a>03_1. 비교 조건식</h3><ul>
+<li>논리 연산자나 ANY, SOME, ALL 키워드로 비교하는 조건식</li>
+<li>기존 문법</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="operator">=</span> <span class="number">2000</span> <span class="keyword">or</span> salary <span class="operator">=</span> <span class="number">3000</span> <span class="keyword">or</span> salary <span class="operator">=</span> <span class="number">4000</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>비교 연산자와 ANY 함수</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A &gt; ANY(값)</td>
+<td>A가 최소 값 보다 크면</td>
+</tr>
+<tr>
+<td>A ≥ ANY(값)</td>
+<td>A가 최소 값보다 크거나 같으면</td>
+</tr>
+<tr>
+<td>A &lt; ANY(값)</td>
+<td>A가 최대 값보다 작으면</td>
+</tr>
+<tr>
+<td>A ≤ ANY(값)</td>
+<td>A가 최대 값보다 작거나 같으면</td>
+</tr>
+<tr>
+<td>A &#x3D; ANY(값)</td>
+<td>A 값이 같으면(IN과 같은 효과)</td>
+</tr>
+<tr>
+<td>A ≠ ANY(값)</td>
+<td>A 값이 같지 않은(NOT IN과 같은 효과)</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>ANY(&#x3D;OR) : 다수의 비교값 중 한 개라도 만족하면 TRUE</strong></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="operator">=</span> <span class="keyword">ANY</span>(<span class="number">2000</span>, <span class="number">3000</span>, <span class="number">4000</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%203.png" alt="Untitled"></p>
+</li>
+<li><p>비교 연산자와 ALL 함수</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A &gt; ALL(값)</td>
+<td>A가 최대 값보다 크면</td>
+</tr>
+<tr>
+<td>A ≥ ALL(값)</td>
+<td>A가 최대 값보다 크거나 같으면</td>
+</tr>
+<tr>
+<td>A &lt; ALL(값)</td>
+<td>A가 최소 값보다 작으면</td>
+</tr>
+<tr>
+<td>A ≤ ALL(값)</td>
+<td>A가 최소 값보다 작거나 같으면</td>
+</tr>
+<tr>
+<td>A &#x3D; ALL(값)</td>
+<td>SUBSELECT 결과가 1건이면 상관 없지만 여러 건이면 오류 발생</td>
+</tr>
+<tr>
+<td>A ≠ ALL(값)</td>
+<td>SUBSELECT 결과가 여러 건이면 오류 발생</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>ALL : 모든 조건을  만족 시 TRUE</strong></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="operator">&gt;</span> <span class="keyword">All</span>(<span class="number">7000</span>, <span class="number">10000</span>, <span class="number">12000</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>급여가 모든 조건 보다 큰 값 결과</p>
+<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%204.png" alt="Untitled"></p>
+</li>
+<li><p>SOME(ANY 함수와 동일)</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="operator">=</span> <span class="keyword">SOME</span>(<span class="number">2000</span>, <span class="number">3000</span>, <span class="number">4000</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>데이터 중 조건에 맞는 값 결과</p>
+<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%205.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="03-2-논리-조건식"><a href="#03-2-논리-조건식" class="headerlink" title="03_2. 논리 조건식"></a>03_2. 논리 조건식</h3><ul>
+<li>조건절에서 AND, OR, NOT을 사용하는 조건식</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AND</td>
+<td>모든 조건을 만족 시</td>
+</tr>
+<tr>
+<td>OR</td>
+<td>조건 중에서 한 가지라도 만족 시</td>
+</tr>
+<tr>
+<td>NOT</td>
+<td>조건에 만족하지 못하는 것만</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>AND</strong></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="operator">&gt;</span> <span class="number">2500</span> <span class="keyword">AND</span> salary <span class="operator">&lt;</span> <span class="number">3000</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>급여가 2500 보다 크거나 3000 보다 작은 사원 결과</p>
+<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%206.png" alt="Untitled"></p>
+</li>
+<li><p><strong>OR(ANY 함수와 동일)</strong></p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="operator">=</span> <span class="number">3000</span> <span class="keyword">OR</span> salary <span class="operator">&lt;</span> <span class="number">2500</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>급여가 3000과 같거나 2500 보다 작은 사원 결과</p>
+<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%207.png" alt="Untitled"></p>
+</li>
+<li><p><strong>NOT</strong></p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">NOT</span> (salary <span class="operator">&gt;=</span> <span class="number">2500</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>급여가 2500 이하인 사원 반환(2500 보다 크거나 같지 않은 값 → ≠ 2500 AND 2500 이상)</p>
+<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%208.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="03-2-BETWEEN-AND-조건식"><a href="#03-2-BETWEEN-AND-조건식" class="headerlink" title="03_2. BETWEEN AND 조건식"></a>03_2. BETWEEN AND 조건식</h3><ul>
+<li>범위에 해당되는 값, ‘≥’,  ‘≤’ 값을 찾는데 사용</li>
+<li>‘≥’ 와 ‘≤’ 논리 연산자로 변환 가능</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="keyword">BETWEEN</span> <span class="number">2000</span> <span class="keyword">AND</span> <span class="number">2500</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>급여가 2000 ~ 2500 사이에 해당하는 사원 결과</p>
+<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%209.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="03-3-1-IN-조건식"><a href="#03-3-1-IN-조건식" class="headerlink" title="03_3_(1). IN 조건식"></a>03_3_(1). IN 조건식</h3><ul>
+<li>비교 연산 사용 불가능</li>
+<li>ANY 함수 예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="operator">=</span> <span class="keyword">ANY</span>(<span class="number">2000</span>, <span class="number">3000</span>, <span class="number">4000</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>IN 함수 예제 : ANY 에서는 ‘&#x3D;’이 들어가지만, IN 에는 ‘&#x3D;’을 넣지 않는다.</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="keyword">IN</span> (<span class="number">3000</span>, <span class="number">3500</span>, <span class="number">4000</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>급여가 3000인 사원, 3500인 사원, 4000인 사원도 조회  결과</p>
+<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%2010.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="03-3-2-NOT-IN-조건의-반대"><a href="#03-3-2-NOT-IN-조건의-반대" class="headerlink" title="03_3_(2). NOT IN (조건의 반대)"></a>03_3_(2). NOT IN (조건의 반대)</h3><ul>
+<li>NOT은 다른 함수와 같이 쓰이면 반대라는 의미.</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="keyword">NOT</span> <span class="keyword">IN</span> (<span class="number">3000</span>, <span class="number">3500</span>, <span class="number">4000</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>3000, 3500, 4000 이 들어가지  않은 급여 결과</p>
+<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%2011.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="03-4-EXISTS-조건식"><a href="#03-4-EXISTS-조건식" class="headerlink" title="03_4. EXISTS  조건식"></a>03_4. EXISTS  조건식</h3><p><img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%2012.png" alt="Untitled"></p>
+<ul>
+<li>IN 과 비슷함. <strong>단, 서브 쿼리 절에서만 사용 가능</strong>하고 서브 쿼리 내에 조인 조건이 있어야 한다.</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    department_id</span><br><span class="line">    , department_name</span><br><span class="line"><span class="keyword">FROM</span> departments a</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">EXISTS</span> (<span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line">                <span class="keyword">FROM</span> employees b</span><br><span class="line">                <span class="keyword">WHERE</span> a.department_id <span class="operator">=</span> b.department_id</span><br><span class="line">                  <span class="keyword">AND</span> b.salary <span class="operator">&gt;</span> <span class="number">3000</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> a.department_name;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%2013.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="03-5-LIKE-조건식"><a href="#03-5-LIKE-조건식" class="headerlink" title="03_5. LIKE 조건식"></a>03_5. LIKE 조건식</h3><ul>
+<li>문자열의 패턴을 검색할 때 사용 하는 조건식</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>조건식</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>‘A%’</td>
+<td>앞자리가 A 로 시작되는 값 조회</td>
+</tr>
+<tr>
+<td>‘%A’</td>
+<td>뒷자리가 A 로 끝나는 값 조회</td>
+</tr>
+<tr>
+<td>‘A__%’</td>
+<td>앞에서 3번째 자리에 A 가 들어가는 값 조회(’_’  하나가 자리 수)</td>
+</tr>
+<tr>
+<td>‘__A%’</td>
+<td>뒤에서 3번째 자리에 A가 들어가는 값 조회</td>
+</tr>
+<tr>
+<td>‘%ABC%’</td>
+<td>ABC 가 들어 있는 값 모두 조회</td>
+</tr>
+</tbody></table>
+<ul>
+<li>‘A%’ 값 조회</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> emp_name</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> emp_name <span class="keyword">LIKE</span> <span class="string">&#x27;A%&#x27;</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> emp_name;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>‘A’ 로 시작 되는 사원명 결과</p>
+<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%2014.png" alt="Untitled"></p>
+</li>
+<li><p>‘%a’ 값 조회</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> emp_name</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> emp_name <span class="keyword">LIKE</span> <span class="string">&#x27;%a&#x27;</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> emp_name;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>‘a’ 로 끝나는 사원명 결과</p>
+<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%2015.png" alt="Untitled"></p>
+</li>
+<li><p>‘__a%’ 값 조회</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> emp_name</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> emp_name <span class="keyword">LIKE</span> <span class="string">&#x27;__a%&#x27;</span> </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> emp_name;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>세 번째 자리에 ‘a’ 가 들어가는 사원명 결과</p>
+<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%2016.png" alt="Untitled"></p>
+</li>
+<li><p>‘%abc%’ 값 조회</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> emp_name</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> emp_name <span class="keyword">LIKE</span> <span class="string">&#x27;%ohn%&#x27;</span> </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> emp_name;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>‘ohn’ 이 들어간 사원명 모두 조회 결과</p>
+<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%2017.png" alt="Untitled"></p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/04/01/Oracle/chapter03/Oracle/" data-id="cl2nhi03l000fikv18r12fskh" data-title="🎈Oracle/SQL_Chapter 03" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-install/GitBash" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/20/install/GitBash/" class="article-date">
+  <time class="dt-published" datetime="2022-03-20T00:00:00.000Z" itemprop="datePublished">2022-03-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/20/install/GitBash/">[Windows 10] Git bash 가상 환경🐱‍🏍</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Step-01-폴더-만들고-기본-경로-설정"><a href="#Step-01-폴더-만들고-기본-경로-설정" class="headerlink" title="Step 01_폴더 만들고 기본 경로 설정"></a>Step 01_폴더 만들고 기본 경로 설정</h3><ul>
+<li>경로 찾기<br>which python</li>
+<li>아래와 같이 경로 값이 나오면 된다.</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Git%20bash%20%E1%84%80%E1%85%A1%E1%84%89%E1%85%A1%E1%86%BC%20%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%F0%9F%90%B1%E2%80%8D%F0%9F%8F%8D%20a1af718a6c1f4bbfaa5974f4ad9001bc/which_python.png" alt="which python.PNG"></p>
+<h3 id="Step-02-vs-code-가상-환경-실행"><a href="#Step-02-vs-code-가상-환경-실행" class="headerlink" title="Step 02_vs code 가상 환경 실행"></a>Step 02_vs code 가상 환경 실행</h3><ul>
+<li><p>code .  → 터미널에서 git bash 선택. → 만들어 놓은 폴더 경로 설정.</p>
+</li>
+<li><p>virtualenv venv  입력<br>bash: virtualenv: command not found 뜨면, **pip install virtualenv(**가상 환경 설치)</p>
+<p>  <img src="/%5BWindows%2010%5D%20Git%20bash%20%E1%84%80%E1%85%A1%E1%84%89%E1%85%A1%E1%86%BC%20%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%F0%9F%90%B1%E2%80%8D%F0%9F%8F%8D%20a1af718a6c1f4bbfaa5974f4ad9001bc/git_bash_not_found_error.png" alt="git bash not found error.PNG"></p>
+</li>
+<li><p>가상 환경 활성화<br>source venv&#x2F;Scripts&#x2F;activate 입력 하면, 아래와 같이 활성화가 된 모습이 확인 된다.</p>
+</li>
+<li><p>필요에 따라 라이브러리 설치(pandas, numpy ….)</p>
+<p>  <img src="/%5BWindows%2010%5D%20Git%20bash%20%E1%84%80%E1%85%A1%E1%84%89%E1%85%A1%E1%86%BC%20%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%F0%9F%90%B1%E2%80%8D%F0%9F%8F%8D%20a1af718a6c1f4bbfaa5974f4ad9001bc/3.png" alt="3.PNG"></p>
+</li>
+<li><p>pip install 했을 때, 만들어 놓은 폴더 - venv 폴더 - Lib 폴더에 새로운 라이브러리가 잘 설치되고 있는지 확인을 해줘야 한다.</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/03/20/install/GitBash/" data-id="cl2nhi02g0007ikv1f44b3dp0" data-title="[Windows 10] Git bash 가상 환경🐱‍🏍" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-R/03.16-study" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/16/R/03.16-study/" class="article-date">
+  <time class="dt-published" datetime="2022-03-16T00:00:00.000Z" itemprop="datePublished">2022-03-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/16/R/03.16-study/">study</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>3 그룹 이상의 평균에서 분산 값을 비교 할 때 쓰임.</p>
+</li>
+<li><p>분산값 : 평균 - 분산에 n분의 n을 제곱한 값?</p>
+</li>
+</ul>
+<p>-전체 학년 2학년의 평균을 계산 하였 는데 A,B,C 그룹 간의 평균을 구하여 분산 분석을 원할 시<br> A 그룹 평균 : 72, B 그룹 평균 : 55, C 그룹 평균 : 83 -&gt; 이 3 그룹 간의 평균을 구해 분석을 하는 것을 분산 분석을 통해 설명을 할 수 있음.</p>
+<ul>
+<li>분산 분석</li>
+<li>라이브 러리 불러 오기</li>
+</ul>
+<p>library(dplyr)<br>library(ggplot2)</p>
+<ul>
+<li>데이터 수집 및 가공</li>
+</ul>
+<p>my_data &#x3D; PlantGrowth<br>my_data$group &lt;- ordered(my_data$group, levels &#x3D; c(“ctrl”, “trt1”, “trt2”))</p>
+<p>my_data %&gt;%<br>  group_by(group) %&gt;%<br>  summarise(<br>    count &#x3D; n(),<br>    mean  &#x3D; mean(weight, na.rm &#x3D; TRUE),<br>    sd    &#x3D; sd(weight, na.rm &#x3D; TRUE)<br>  )</p>
+<p>ggplot(my_data, aes(x &#x3D; group, y &#x3D; weight)) +<br>  geom_boxplot()</p>
+<ul>
+<li>One-Way ANOVA 테스트</li>
+<li>오차 제곱합(SSE)</li>
+</ul>
+<p>ctrl &lt;- my_data$weight[my_data$group &#x3D;&#x3D; “ctrl”]<br>trt1 &lt;- my_data$weight[my_data$group &#x3D;&#x3D; “trt1”]<br>trt2 &lt;- my_data$weight[my_data$group &#x3D;&#x3D; “trt2”]</p>
+<p>ctrl_mean &#x3D; mean(ctrl)<br>trt1_mean &#x3D; mean(trt1)<br>trt2_mean &#x3D; mean(trt2)</p>
+<ul>
+<li><p>각 처리별 오차의 제곱합<br>ctrl_sse &#x3D; sum((ctrl-ctrl_mean) ^ 2)<br>trt1_sse &#x3D; sum((trt1-trt1_mean) ^ 2)<br>trt2_sse &#x3D; sum((trt2-trt2_mean) ^ 2)</p>
+</li>
+<li><p>오차의 제곱합<br>sse &lt;- ctrl_sse + trt1_sse + trt2_sse<br>sse</p>
+</li>
+<li><p>오차의 자유도<br>dfe &lt;- (length(ctrl) - 1) + (length(trt1) - 1) + (length(trt2) - 1)</p>
+</li>
+<li><p>처리의 제곱합(SST)<br>total_mean &#x3D; mean(my_data$weight)<br>ctrl_sst &#x3D; length(ctrl) * sum((ctrl_mean - total_mean) ^ 2)<br>trt1_sst &#x3D; length(trt1) * sum((trt1_mean - total_mean) ^ 2)<br>trt2_sst &#x3D; length(trt2) * sum((trt2_mean - total_mean) ^ 2)</p>
+</li>
+<li><p>처리 제곱합<br>sst &#x3D; ctrl_sst + trt1_sst + trt2_sst</p>
+</li>
+<li><p>처리 제곱합의 자유도<br>dft &#x3D; length(levels(my_data$group)) - 1</p>
+</li>
+<li><p>전체 제곱합과 분해 된 제곱 합의 합<br>tsq &#x3D; sum(my_data$weight - total_mean ^ 2)<br>ss &#x3D; sst + sse</p>
+</li>
+</ul>
+<p>all.equal(tsq, ss)</p>
+<ul>
+<li>검정 통계량<br>mst &#x3D; sst &#x2F; dft<br>mse &#x3D; sse &#x2F; sst</li>
+</ul>
+<p>f.t &#x3D; mst &#x2F; mse<br>f.t</p>
+<p>alpha &#x3D; 0.5<br>tol &lt;- qf(1-alpha, 2, 27)<br>tol</p>
+<p>p.value &#x3D; 1-pf(f.t, 2, 27)<br>p.value</p>
+<p>res.aov &lt;- aov(weight ~ group, data &#x3D; my_data)<br>summary(res.aov)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/03/16/R/03.16-study/" data-id="cl2nhhzyf0000ikv1fmqacpu4" data-title="study" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-R/Descriptive-Analysis" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/15/R/Descriptive-Analysis/" class="article-date">
+  <time class="dt-published" datetime="2022-03-15T00:00:00.000Z" itemprop="datePublished">2022-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/15/R/Descriptive-Analysis/">Descriptive Analysis</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>모수와 통계량</p>
+</li>
+<li><p>파일 불러 오기.</p>
+</li>
+</ul>
+<p>albums &#x3D; read.csv(“2_day_stat_regression&#x2F;data&#x2F;album.csv”)</p>
+<ul>
+<li><p>앨범 판매량 데이터</p>
+<ul>
+<li>adverts : 광고 집행 비용</li>
+<li>sales : 판매량</li>
+</ul>
+</li>
+<li><p>기술 통계량 (Descriptive Analysis)<br>-최대, 최소, 평균, 중간값, 분산, 표준 편차</p>
+</li>
+</ul>
+<p>albums$sales<br>sort(albums$sales)</p>
+<ul>
+<li>최소값</li>
+</ul>
+<p>sort(albums$sales)<br>min(albums$sales)</p>
+<ul>
+<li>최대값</li>
+</ul>
+<p>sort(albums$sales)<br>max(albums$sales)</p>
+<ul>
+<li>최빈값</li>
+</ul>
+<p>table(albums$sales)<br>sort(table(albums$sales), decreasing &#x3D; TRUE)[1]</p>
+<ul>
+<li>평균과 중앙값</li>
+</ul>
+<p>mean(albums$sales)<br>median(albums$sales)</p>
+<ul>
+<li>결측치 데이터 추가</li>
+</ul>
+<p>sales2 &#x3D; c(albums$sales, NA)<br>tail(sales2)<br>mean(sales2)<br>mean(sales2, na.rm &#x3D; TRUE)</p>
+<ul>
+<li>평균의 가장 큰 단점</li>
+<li>극단 적인 값에 굉장히 민감 하게 반응</li>
+</ul>
+<p>sales3 &#x3D; c(albums$sales, 30000000000)<br>mean(sales3)<br>median(sales3)</p>
+<ul>
+<li><p>양 극단의 값에 민감 하게 반응 하지 않음</p>
+</li>
+<li><p>이러한 특징을 강건 하다(Robust)</p>
+</li>
+<li><p>분산</p>
+</li>
+</ul>
+<p>weight &#x3D; c(64, 68, 70, 72, 76)<br>weight_mean &#x3D; mean(weight)# 평균<br>weight_deviation &#x3D; weight - weight_mean # 편차 A - B<br>weight_deviation<br>sum(weight_deviation)</p>
+<p>weight_deviation_2 &#x3D; weight_deviation ^2<br>sum(weight_deviation_2)<br>mean(weight_deviation_2) </p>
+<ul>
+<li>표준 편차</li>
+</ul>
+<p>sqrt(mean(weight_deviation_2))</p>
+<p>var(weight) - 표본 분산<br>sd(weight) - 표본 표준 편차</p>
+<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+<ul>
+<li><p>CV : Coefficient pf variation &#x3D; 변동계수</p>
+</li>
+<li><p>RCD : \</p>
+</li>
+<li><p>변동계수</p>
+</li>
+</ul>
+<p>cv &#x3D; sd(data) &#x2F; mean(data)</p>
+<ul>
+<li>주식 데이터<br>install.packages(“tidyquant”)<br>library(tidyquant)<br>library(quantmod)<br>library(purrr)<br>library(ggplot2)<br>library(tibble)</li>
+</ul>
+<p>tickers &#x3D; c(“AAPL”, “TSLA”)<br>getSymbols(tickers,<br>           from &#x3D; “2022-01-02”,<br>           to   &#x3D; “2022-01-30”)</p>
+<p>stock &lt;- map(tickers, function(x) Ad(get(x)))<br>stock &lt;- reduce(stock, merge)<br>colnames(stock) &lt;- tickers</p>
+<p>head(stock)</p>
+<p>stock_df &lt;- stock %&gt;% data.frame(date &#x3D; index(stock))<br>stock_df</p>
+<ul>
+<li>사용자 정의 함수</li>
+</ul>
+<p>cv_fun &lt;- function(data) {<br>  result &#x3D; sd(data) &#x2F; mean(data) * 100<br>  return(result)<br>}</p>
+<p>-&gt; 위와 같은 식을 알고리즘이라고 한다.</p>
+<p>cv_fun(stock_df$AAPL)<br>cv_fun(stock_df$TSLA)</p>
+<p>ggplot(stock_df, aes(x &#x3D; date)) +<br>  geom_line(aes(y &#x3D; AAPL, colour &#x3D; “Apple”)) +<br>  geom_line(aes(y &#x3D; TSLA, colour &#x3D; ‘Tesla’)) +<br>  scale_colour_manual(name &#x3D; “company”, values &#x3D; c(“Apple” &#x3D; “red”,<br>                                                   “Tesla” &#x3D; “blue”)) +<br>  theme_bw()</p>
+<ul>
+<li>사분위수 : 전체 자료를 균등하게 4개의 그룹으로 나눈 값(EX&gt;박스그래프)</li>
+<li>Q1 &#x3D; 1사분위(맨밑), Q2 &#x3D; 2사분위(중간), Q3 &#x3D; 3사분위(맨위라인)</li>
+<li>이상치판별</li>
+</ul>
+<p>qs_df &#x3D; quantile(albums$sales)<br>qs_df[4] - qs_df[2]<br>IQR(albums$sales) -&gt; 3사분위 - 1사분위</p>
+<p>boxplot(albums$sales)</p>
+<ul>
+<li>이상치 판별</li>
+</ul>
+<p>sales2 &#x3D; c(albums$sales, 450, 460, -100, -1000)</p>
+<p>q &#x3D; quantile(sales2)<br>boxplot(sales2)</p>
+<ul>
+<li>하한 극단 경계값 찾기</li>
+</ul>
+<p>bottom_outlier &#x3D; q[2] - 1.5 * (q[4] - q[2])<br>bottom_outlier</p>
+<ul>
+<li><p>상한 극단 경계값 찾기<br>top_outlier &#x3D; q[4] + 1.5 * (q[4] - q[2])<br>top_outlier</p>
+</li>
+<li><p>실제 극단값 존재하는지 출력</p>
+</li>
+</ul>
+<p>sales2[sales2 &lt; bottom_outlier]<br>sales2[sales2 &gt; top_outlier]</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/03/15/R/Descriptive-Analysis/" data-id="cl2nhi01y0001ikv1291t1d71" data-title="Descriptive Analysis" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-R/chapter_8" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/15/R/chapter_8/" class="article-date">
+  <time class="dt-published" datetime="2022-03-15T00:00:00.000Z" itemprop="datePublished">2022-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/15/R/chapter_8/">chapter_8</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="8장-통계-분석"><a href="#8장-통계-분석" class="headerlink" title="8장 통계 분석"></a>8장 통계 분석</h3><ul>
+<li>유의수준은 .05, .01, .001 등 세종류가 있다. 유의수준이 낮을수록 오류 허용 범위가 적고, 신뢰성을 높여 줍니다.</li>
+</ul>
+<p>(1) 기술 통계(descriptive statistics)</p>
+<ul>
+<li>데이터의 특징을 서술한다 또는 사실 확인</li>
+<li>평균, 최소값, 최대값, 중앙값</li>
+</ul>
+<p>(2) 추론 통계(inferential statistics)_&lt;</p>
+<ul>
+<li>변수 간의 관계 파악, 인과 관계, 새로운 사실 발견.</li>
+</ul>
+<ol>
+<li>평균 차이 검정 : 집단별로 평군의 차이가 실제 있는지 확인</li>
+</ol>
+<ul>
+<li>분석 사례_t.test() 함수 사용</li>
+<li>방법 1 : t.test(data&#x3D;데이터세트, 종속변수(비교값)~독립변수(비교대상))</li>
+<li>방법 2 : t.test(data&#x3D;데이터세트$종속변수(비교값)~데이터세트$독립변수(비교대상))</li>
+</ul>
+<p> 모변수를 알면 n 모르면 n-1<br> 신약 개발  실험 (사전 테스트 + 사후 테스트)</p>
+<p> 독립 변수_trans, 종속변수_cty</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">library(dplyr)</span><br><span class="line">library(ggplot2)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>파일 불러오기<br>mpg1 &#x3D; read.csv(“homework&#x2F;mpg1.csv”, stringsAsFactors &#x3D; F)</p>
+</li>
+<li><p>방법 1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t.test(data = mpg1, cty~trans)# 비교값(종속)~비교대상(독립)</span><br></pre></td></tr></table></figure></li>
+<li><p>방법 2</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t.test(mpg1$cty~mpg1$trans)</span><br></pre></td></tr></table></figure>
+<p> 값 분석</p>
+</li>
+</ul>
+<p>Welch Two Sample t-test</p>
+<p>data:  mpg1$cty by mpg1$trans<br>t &#x3D; -4.5375, df &#x3D; 132.32, p-value &#x3D; 1.263e-05<br>alternative hypothesis: true difference in means between group auto and group manual is not equal to 0<br>95 percent confidence interval:<br> -3.887311 -1.527033<br>sample estimates:<br>  mean in group auto mean in group manual<br>            15.96815             18.67532</p>
+<ul>
+<li><p>p-value &#x3D; 1.263e-05 유의수준이 1.263e-05</p>
+</li>
+<li><p>e-n : 10의 n승 분의 1, e+n : 10의 n승 의미</p>
+</li>
+<li><p>1.263e-05 -&gt; 1.263&#x2F;100000</p>
+</li>
+<li><p>유의수준 허용 조건(p &lt; .05) 보다 적기 때문에 조건 충족</p>
+</li>
+<li><p>alternative hypothesis: true difference in means between group Man and group Woman is not equal to 0</p>
+</li>
+<li><p>대립가설 : 평균 차이가 있다. </p>
+</li>
+<li><p>95 percent confidence interval: 신뢰수준 95%</p>
+</li>
+<li><p>-3.887311 -1.527033</p>
+</li>
+<li><p>auto : 15.96.., manual : 18.67.. 두 값의 평균 차이가 있다는 대립 가설을 채택할 수 있음.</p>
+</li>
+</ul>
+<p> 결론</p>
+<ul>
+<li>cty 평균거리는 auto 15.97마일, manual 18.68마일. 유의수준의 허용 조건인 0.05보다 작아 통계적으로 유의미한 차이기 있어 auto 보다 manual가 2.7마일 길다고 볼 수 있다. (확률을 토대로 한 추론분석이라서 ‘볼 수 있다’ 표현.)</li>
+</ul>
+<ol start="2">
+<li>교차분석 : 범주형 변수로 구성된 집단들의 관련성을 검정</li>
+</ol>
+<ul>
+<li>카이제곰검정, 카이스퀘어검정, 독립성 검정 이라고도 함</li>
+<li>chisq_test(x, y) 함수 사용. 또는 chisq.test(table(x, y), summary(table(x, y))</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">table(mpg1$trans, mpg1$drv)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prop.table(table(mpg1$trans, mpg1$drv),1)</span><br></pre></td></tr></table></figure>
+<p> 방법 1 _ 방법 1~3 모두 같은 값.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chisq.test(mpg1$trans, mpg1$drv)</span><br></pre></td></tr></table></figure>
+<p> 방법 2</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chisq.test((table(mpg1$trans, mpg1$drv)))</span><br></pre></td></tr></table></figure>
+
+<p> 방법 3</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">summary(table(mpg1$trans, mpg1$drv))</span><br></pre></td></tr></table></figure>
+<p> 값 분석</p>
+<ul>
+<li>X-squared &#x3D; 3.1368 는 통계 검정 값</li>
+<li>p-value &#x3D; 0.2084 는 유의수준 허용치를 넘기에 trans에 따라 drv에 차이가 있다고 할 수 없음.</li>
+</ul>
+<ol start="3">
+<li>상관관계분석</li>
+</ol>
+<ul>
+<li>변수 간의 연관성 즉, 한 변수가 변화하면 다른 변수도 변화 하는 관계</li>
+<li>귀무가설(H0) : cty, hwy는 상관관계가 없다.</li>
+<li>대립가설(H1) : cty, hwy는 상관관계가 있다.</li>
+<li>cor.test() 함수 사용. # cor.test(데이터세트$비교변수1, 데이터세트$비교변수2)</li>
+<li>cty, hwy 두 관계 간 가설 검정</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cor.test(mpg1$cty, mpg1$hwy)</span><br></pre></td></tr></table></figure>
+<p> 값 분석</p>
+<ul>
+<li>p-value &lt; 2.2e-16p-value : 2.2&#x2F;10^16(e-n는 10의 n승 분의 1) -&gt; 0.0000000000000022로 유의수준 안에 있음. p-value의 결과로는 대립가설을 선택 할 수 있음.</li>
+<li>sample estimates: cor 0.96 으로 1에 가까워 매우 높음. 결과를 쓸 땐 ‘cty’, ‘hwy’는 유의미하게 매우 높은 상관관계(r&#x3D;.96)에 있다.</li>
+</ul>
+<ol start="4">
+<li>회귀분석</li>
+</ol>
+<p> (1) 단순회귀분석</p>
+<ul>
+<li>독립변수 1개, 종속변수 1개일 때 쓰임.</li>
+<li>lm() 함수 사용 -&gt; lm(data&#x3D;데이터세트, 종속변수<del>독립변수), lm(데이터세트$종속</del>데이터세트$독립)</li>
+</ul>
+<p>help(mtcars)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str(mtcars)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lm(data = mtcars, mpg ~ disp)</span><br></pre></td></tr></table></figure>
+<p> 값 분석</p>
+<ul>
+<li>disp 계수 값은 -0.04122, 절편은 29.59985</li>
+<li>회귀분석에서 구해진 식 : mpg &#x3D; 29.59985 - 0.04122 * disp</li>
+<li>배기량이 1단위 씩 올라 갈때마다 mpg는 0.04122 씩 감소</li>
+<li>회귀분석은 유의수준이 없으면 회귀계수는 의미가 없으므로 summary(회귀분석식)를 사용.</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PA &lt;- lm(data = mtcars, mpg ~ disp)</span><br><span class="line">summary(PA)</span><br></pre></td></tr></table></figure>
+<p> 값 분석</p>
+<ul>
+<li>p-value : 9.38e-10(9.38&#x2F;10^10 -&gt; 9.38&#x2F;10000000000 &#x3D;0.000000000938)허용치 안에 있어 회귀모형 적합</li>
+<li>대립가설만 채택 가능.</li>
+<li>Signif. codes:  0 ‘<em><strong>’ 0.001 ‘</strong>’ 0.01 ‘</em>’ 0.05 ‘.’ 0.1 ‘ ’ 1 : 세가지 유의수준 유형을 모두 충족함. (유의수준기호)</li>
+<li>Adjusted R-squared:  0.709 -&gt; 수정된 결정계수(R^2): 0.709</li>
+<li>결론 : 회귀모형은 유의수준에 적합하며, 수정된 결정계수는 .709 이다. 배기량이 연비에 미치는 회귀계수는 유의수준 p &lt; .001에서 -0.04이다.</li>
+</ul>
+<p>(2) 다중회귀분석</p>
+<ul>
+<li>종속변수에 영향을 주는 독립변수가 복수일 때 분석하는 방식</li>
+<li>다중회귀분석은 단일회귀분석에서 독립변수1 + 독립변수2 + 독립변수3 + ,,,, 하는 방식.</li>
+<li>lm() 함수 사용.</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lm(data = mtcars, mpg ~ disp + hp + wt)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RA &lt;- lm(data = mtcars, mpg ~ disp + hp + wt)</span><br><span class="line">summary(RA)</span><br></pre></td></tr></table></figure>
+<p> 값 분석</p>
+<ul>
+<li>유의 수준이 8.65&#x2F;10^11 &#x3D; 0.0000000000865 로 유의 수준 .001 보다 작아 회귀 모형에 적합.</li>
+<li>disp는 유의 수준 조건을 넘고, hp&#x2F;wt는 혀용치 안이기에 영향력이 있음.</li>
+<li>Adjusted R-squared:  0.8083 : 결정 계수는 1에 가깝기에 회귀 모델 설명력이 높음.</li>
+<li>결론 : 회귀 모형 p &lt; .001에서 적합 하며, 3개의 독립 변수가 연비에 미치는 회귀 계수는 hp가 -0.03, wt가 -3.8이었고, disp는 없었다. wt가 영향력이 가장 컸다.</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/03/15/R/chapter_8/" data-id="cl2nhi0250002ikv1dsq70ysn" data-title="chapter_8" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-R/z-score.03" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/15/R/z-score.03/" class="article-date">
+  <time class="dt-published" datetime="2022-03-15T00:00:00.000Z" itemprop="datePublished">2022-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/15/R/z-score.03/">z-score</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>표준편차 +평균활용 -&gt; 변동계수, z-score, 검정값 표준오차</p>
+</li>
+<li><p>모수검정</p>
+<ul>
+<li>핵심 : 두 그룹 간의 평균 차이 검정&#x2F;두 그룹의 차이가 우연이냐 유의미냐</li>
+<li>가정 : 데이터가 정규분포를 이룸</li>
+</ul>
+</li>
+<li><p>평균비교</p>
+<ul>
+<li><p>one sample T Test : 모집단의 평균~샘플(표본)의 평균</p>
+</li>
+<li><p>대응표본 : 사전 표본의 평균(정책, 신약 투여 등 시간이 지난 후) 사후 표본의 평균</p>
+</li>
+<li><p>독립표본 : A 그룹, B 그룹간의 평균 비교</p>
+</li>
+<li><p>귀무가설 : 두 그룹간의 00_평균 차이 없다</p>
+</li>
+<li><p>대립가설 : 두 그룹간의 평균 차이가 존재</p>
+</li>
+</ul>
+</li>
+<li><p>RISS 논문이 이를 인용한게 많음(스포츠, 의학 등) 데이터 수집 후 통계분석을 씀.</p>
+</li>
+<li><p>표준정규분포표를 보며 정함.</p>
+</li>
+<li><p>z-score</p>
+<ul>
+<li>특정 유치원 꽃잎반</li>
+</ul>
+</li>
+</ul>
+<p>data &#x3D; 120 -&gt; 임의의 데이터 한명 뽑음<br>mean &#x3D; 125 -&gt; 평균<br>sd &#x3D; 15<br>N &#x3D; 30</p>
+<p>z-value &#x3D; (mean - data) &#x2F; sd</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/03/15/R/z-score.03/" data-id="cl2nhi02d0005ikv17xl17sbz" data-title="z-score" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-R/foodshop" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/12/R/foodshop/" class="article-date">
+  <time class="dt-published" datetime="2022-03-12T00:00:00.000Z" itemprop="datePublished">2022-03-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/12/R/foodshop/">Food shop</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>dplyr<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>ggplot2<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p>foodshop &lt;- read.csv(“6110000_서울특별시_07_24_04_P_일반음식점.csv”, na&#x3D;””, stringsAsFactors &#x3D; F)</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str<span class="punctuation">(</span>foodshop<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">foodshop <span class="operator">&lt;-</span> rename<span class="punctuation">(</span>foodshop<span class="punctuation">,</span></span><br><span class="line">                   open_date <span class="operator">=</span> 인허가일자<span class="punctuation">,</span></span><br><span class="line">                   address <span class="operator">=</span> 소재지전체주소<span class="punctuation">,</span></span><br><span class="line">                   status <span class="operator">=</span> 상세영업상태명<span class="punctuation">,</span></span><br><span class="line">                   name <span class="operator">=</span> 사업장명<span class="punctuation">,</span></span><br><span class="line">                   close_date <span class="operator">=</span> 폐업일자<span class="punctuation">,</span></span><br><span class="line">                   type <span class="operator">=</span> 업태구분명<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p>일부변수추출</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foodshop <span class="operator">&lt;-</span> select<span class="punctuation">(</span>foodshop<span class="punctuation">,</span> name<span class="punctuation">,</span> type<span class="punctuation">,</span> status<span class="punctuation">,</span> open_date<span class="punctuation">,</span> close_date<span class="punctuation">,</span> address<span class="punctuation">)</span> </span><br></pre></td></tr></table></figure>
+
+<p>str(foodshop)</p>
+<p>foodshop$close_date &lt;- as.integer(foodshop$close_date) #정수형 변환<br>foodshop$open_date &lt;- as.integer(foodshop$open_date) #as.character 문자형 변환</p>
+<p>summary(is.na(foodshop))</p>
+<p>foodshop$type &lt;- ifelse(foodshop$type%in%c(“까페”, “다방”, “라이브카페”, “커피숍”),<br>                        “카페”, foodshop$type)<br>foodshop$type &lt;- ifelse(foodshop$type%in%c(“통닭(치킨)”, “호프&#x2F;통닭”), “치킨”, foodshop$type)<br>foodshop$type &lt;- ifelse(foodshop$type%in%c(“일식”, “회집”, “횟집”), “회집”, foodshop$type)<br>foodshop$type &lt;- ifelse(foodshop$type%in%c(“경양식”, “패밀리레스토랑”), “레스토랑”, foodshop$type)<br>foodshop$type &lt;- ifelse(foodshop$type&#x3D;&#x3D;”정종&#x2F;대포집&#x2F;소주방”, “소주방”, foodshop$type)<br>foodshop$type &lt;- ifelse(foodshop$type&#x3D;&#x3D;”외국음식전문점(인도,태국등)”, “외국음식전문점”, foodshop$type)<br>foodshop$type &lt;- ifelse(foodshop$type%in%c(“기타”, “193959.1505”), NA, foodshop$type)</p>
+<p>str(foodshop)</p>
+<p>range(foodshop$open_date, na.rm &#x3D; T) #결측치가 있어 na.rm&#x3D;T 를 사용</p>
+<p>foodshop$open_date &lt;- ifelse(foodshop$open_date &lt; 19480101 |<br>                               foodshop$open_date &gt; 20220228, NA, foodshop$open_date) #이상치처리</p>
+<p>table(is.na(foodshop$open_date))</p>
+<p>foodshop$open_year &lt;- substr(foodshop$open_date, 1, 4) #open_year 변수 만들기 </p>
+<p>range(foodshop$close_date, na.rm &#x3D; T)  #결측치가 있어 na.rm&#x3D;T 를 사용</p>
+<p>foodshop$close_date &lt;- ifelse(foodshop$close_date &lt; 19771029 |<br>                               foodshop$close_date &gt; 20220228, NA, foodshop$close_date) #이상치처리</p>
+<p>table(is.na(foodshop$close_date))</p>
+<p>foodshop$close_year &lt;- substr(foodshop$close_date, 1, 4)</p>
+<ol>
+<li>address 변수 제외해야 하는게 많을 때는?</li>
+</ol>
+<p>foodshop$district &lt;- substr(foodshop$address, 7, 9)<br>table(foodshop$district)</p>
+<p>foodshop$district &lt;-<br>  ifelse(foodshop$district%in%c(“지하”, “번지 “, “시분”, “시수”, “시원”, “시일”),<br>         NA, foodshop$district)</p>
+<p>table(foodshop$district)</p>
+<p>str(foodshop)</p>
+<ol start="2">
+<li>분석데이터 최종 확인</li>
+</ol>
+<p>str(foodshop) # 자료확인</p>
+<p>foodshop$open_year &lt;- as.integer(foodshop$open_year)<br>foodshop$close_year &lt;- as.integer(foodshop$close_year)</p>
+<p>str(foodshop)</p>
+<p>(1) 오래된 음식점 찾기_가장 오래 영업 중인 음식점</p>
+<p>foodshop %&gt;%<br>filter(!is.na(open_date) &amp; status&#x3D;&#x3D;”영업”) %&gt;%    #결측치 제거, ‘영업’ 데이터만 추출<br>filter(open_date&#x3D;&#x3D;min(open_date)) %&gt;%<br>select(name, type, open_date, address)  </p>
+<p>(2) 주요 업종별 가장 오래 영업 중인 음식점</p>
+<p>foodshop %&gt;%<br>filter(!is.na(open_date) &amp; status&#x3D;&#x3D;”영업”) %&gt;%<br>filter(type%in%c(“분식”, “치킨”, “레스토랑”, “회집”, “중국식”, “패스트푸드”, “카페”)) %&gt;%<br>  group_by(type) %&gt;% #업종별 분류<br>filter(open_date&#x3D;&#x3D;min(open_date)) %&gt;%<br>arrange(open_date) %&gt;% # 개업일 기준 오름차순<br>select(name, type, open_date, address)  </p>
+<ol>
+<li>개업, 영업, 폐업 현황_업종별 개업 비율</li>
+</ol>
+<p>foodshop %&gt;%<br>filter(!is.na(open_date) &amp; !is.na(type) &amp; !is.na(district)) %&gt;% #결측치 제거<br>group_by(type) %&gt;% # type 변수의 범주별 분류<br>summarise(n&#x3D;n()) %&gt;%   #범주별 빈도 구하기<br>mutate(total&#x3D;sum(n), pct&#x3D;round(n&#x2F;total*100, 1)) %&gt;%  # 범주의 빈도 총계, 범주별 비율 구하기<br>arrange(desc(n)) %&gt;% # 내림차순<br>head(10) # 상위 10개 데이터 출력</p>
+<ol start="2">
+<li>영업 중인 음식점의 업종별 비율</li>
+</ol>
+<p>foodshop %&gt;%<br>filter(!is.na(open_date) &amp; !is.na(type) &amp; !is.na(district)) %&gt;% #결측치 제거<br>filter(status&#x3D;&#x3D;”영업”) %&gt;% # ‘status’ 범주에서 ‘영업’ 변수만 추출<br>group_by(type) %&gt;% # ‘type’의 범주별 분류<br>summarise(n&#x3D;n()) %&gt;%   #범주별 빈도 구하기<br>mutate(total&#x3D;sum(n), pct&#x3D;round(n&#x2F;total*100, 1)) %&gt;%  # 범주의 빈도 총계, 범주별 비율 구하기<br>arrange(desc(n)) %&gt;% # 내림차순<br>head(5) # 상위 10개 데이터 출력</p>
+<ol start="3">
+<li>전체 음식점의 “영업과 폐업” 비율 알아보기</li>
+</ol>
+<p>foodshop %&gt;%<br>filter(!is.na(open_date) &amp; !is.na(type) &amp; !is.na(district)) %&gt;% #결측치 제거<br>group_by(status) %&gt;%<br>summarise(n&#x3D;n()) %&gt;%<br>mutate(total&#x3D;sum(n), pct&#x3D;round(n&#x2F;total*100, 1))</p>
+<ol start="4">
+<li>주요 업종별 영업과 폐업 비율 알아보기</li>
+</ol>
+<p>foodshop %&gt;%<br>filter(!is.na(open_date) &amp; !is.na(type) &amp; !is.na(district)) %&gt;% #결측치 제거<br>filter(type%in%c(“분식”, “한식”, “레스토랑”, “회집”, “치킨”, “카페”)) %&gt;% # 업종 분류<br>group_by(type, status) %&gt;% # type 와 status  두가지로 교차 분류<br>summarise(n&#x3D;n()) %&gt;%<br>mutate(total&#x3D;sum(n), pct&#x3D;round(n&#x2F;total*100, 1)) %&gt;%<br>filter(status&#x3D;&#x3D;”영업”) %&gt;%<br>arrange(desc(pct)) %&gt;% # 내림차순arrange(desc(내림차순하고자하는 변수))<br>head(5) # 추출 하고자 하는 순위 ‘상위 5개’</p>
+<p>(3) 연도별 분석</p>
+<ol>
+<li>개업이 많았던 연도</li>
+</ol>
+<p>foodshop %&gt;%<br>filter(!is.na(open_date) &amp; !is.na(type) &amp; !is.na(district)) %&gt;% #결측치 제거<br>group_by(open_year) %&gt;%<br>summarise(n&#x3D;n()) %&gt;%<br>arrange(desc(n)) %&gt;%<br>head(5)</p>
+<ul>
+<li>폐업이 많았던 연도</li>
+</ul>
+<p>foodshop %&gt;%<br>filter(!is.na(district) &amp; !is.na(close_date)) %&gt;%<br>group_by(close_year) %&gt;%<br>summarise(n&#x3D;n()) %&gt;% # 빈도 구하기<br>arrange(desc(n)) %&gt;%<br>head(5) </p>
+<p>(4) 개업, 폐업 음식점 수 그래프 그리기_1) 연도별 개업, 폐업 음식점 수 그래프</p>
+<ul>
+<li>개업 음식점 수 구하기</li>
+</ul>
+<p>open_trend &lt;- foodshop %&gt;%<br>  filter(!is.na(open_date) &amp; !is.na(district)) %&gt;%<br>  group_by(open_year) %&gt;%<br>  summarise(open_n&#x3D;n()) # open_year 변수의 범주별 빈도 구하기</p>
+<p>str(open_trend)</p>
+<p>ggplot(data &#x3D; open_trend, aes(x &#x3D; open_year, y &#x3D; open_n)) +<br>         geom_col() + xlab(“연도”) + ylab(“개업수”)  </p>
+<ul>
+<li>폐업 음식점 수 구하기</li>
+</ul>
+<p>close_trend &lt;- foodshop %&gt;%<br>  filter(!is.na(close_date) &amp; !is.na(district)) %&gt;%<br>  group_by(close_year) %&gt;%<br>  summarise(close_n&#x3D;n())</p>
+<p>str(close_trend)</p>
+<p>ggplot(data &#x3D; close_trend, aes(x &#x3D; close_year, y &#x3D; close_n)) + geom_col() + xlab(“연도”) + ylab(“폐업수”)</p>
+<ul>
+<li>개업, 폐업 음식점 수 통합해서 그래프로 그리기</li>
+</ul>
+<p>open_trend1 &lt;- rename(open_trend, year &#x3D; open_year) # 연도 이름 변경????????<br>close_trend1 &lt;- rename(close_trend, year &#x3D; close_year)</p>
+<p>open_close_trend &lt;- left_join(open_trend1, close_trend1, by &#x3D; “year”)</p>
+<p>ggplot(data &#x3D; open_close_trend) +<br>  geom_line(aes(year, open_n)) +<br>  geom_line(aes(year, close_n, color &#x3D; “red”)) +<br>  xlab(“연도”) + ylab(“개수”)</p>
+<ul>
+<li>폐업 음식점 수가 개업 음식점 수 보다 많았던 기간 확인하기(????? 한개 추출?) #####</li>
+</ul>
+<p>open_close_trend %&gt;%<br>  filter(close_n &gt; open_n) # 폐업수가 개업수보다 많은 연도 추출 식</p>
+<p>(1) 지역별 분석</p>
+<ol>
+<li>영업중인 음식점 수가 가장 많은 5개 구</li>
+</ol>
+<ul>
+<li><p>구별로 영업중인 음식점 빈도 구하는 새 객체<br>district_business &lt;- foodshop %&gt;%<br>filter(!is.na(open_date) &amp; !is.na(district) &amp; status &#x3D;&#x3D; “영업”) %&gt;% # is.na로 두개 결측치 제거하고 status 영업포함.<br>group_by(district) %&gt;% #범주 분류<br>summarise(n &#x3D; n()) # 빈도 구하기</p>
+</li>
+<li><p>영업 중인 음식점 수가 많은 5개 구하기<br>district_business %&gt;%<br>arrange(desc(n)) %&gt;%<br>head(5)  </p>
+</li>
+<li><p>서울 전체 구의 음식점 수를 막대 그래프로 그리기</p>
+</li>
+</ul>
+<p>ggplot(data &#x3D; district_business, aes(x &#x3D; reorder(district, n), y &#x3D; n)) +<br>  geom_col() + coord_flip() + xlab(“구 이름”) + ylab(“영업 음식점 수”)</p>
+<ul>
+<li>주요 업종별 가장 많은 구</li>
+</ul>
+<p>district_maxtype &lt;- foodshop %&gt;%<br>  filter(!is.na(open_date) &amp; !is.na(district) &amp; status &#x3D;&#x3D; “영업”) %&gt;%<br>  filter(type%in%c(“한식”, “분식”, “레스토랑”, “회집”, “중국식”, “카페”,<br>                   “패스트푸드”)) %&gt;%<br>  group_by(type, district) %&gt;% # 분류<br>  summarise(n &#x3D; n()) %&gt;%<br>  mutate(total&#x3D;sum(n), pct&#x3D;round(n&#x2F;total*100, 1)) %&gt;% </p>
+<p> -&gt; 앞이 type의 총계구하고, type(업종) 범주별로 district(구역) 범주 비율 구하기</p>
+<p>  group_by((type)) %&gt;% # 다시 type 으로 분류<br>  filter(pct&#x3D;&#x3D;max(pct)) # type의 분류 내에 pct(빈도?)의 높은 데이터 추출</p>
+<p>연습문제_1 종로구의 영업 업종의 비율 상위 5위 추출</p>
+<p>foodshop %&gt;%<br>  filter(!is.na(open_date) &amp; !is.na(type) &amp; !is.na(district) &amp;<br>           status &#x3D;&#x3D; “영업” &amp; district &#x3D;&#x3D; “종로구”) %&gt;%<br>  group_by(type) %&gt;%<br>  summarise(n &#x3D; n()) %&gt;%<br>  mutate(total&#x3D;sum(n), pct&#x3D;round(n&#x2F;total*100, 1)) %&gt;%<br>  arrange(desc(n)) %&gt;%<br>  head(5)</p>
+<p>연습문제_2 2020년에 개업한 음식점 수와 영업, 폐업 비율</p>
+<p>foodshop %&gt;%<br>  filter(!is.na(open_date) &amp; !is.na(type) &amp; !is.na(district) &amp;<br>           open_year &#x3D;&#x3D; “2020”) %&gt;%<br>  group_by(status) %&gt;%<br>  summarise(n&#x3D;n()) %&gt;%<br>  mutate(total&#x3D;sum(n), pct&#x3D;round(n&#x2F;total*100, 1))</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/03/12/R/foodshop/" data-id="cl2nhi02b0004ikv11zqg7467" data-title="Food shop" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-R/class_03" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/11/R/class_03/" class="article-date">
+  <time class="dt-published" datetime="2022-03-11T00:00:00.000Z" itemprop="datePublished">2022-03-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/11/R/class_03/">class</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>install.packages(dplyr)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">library(dplyr)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>이름 &lt;- c(“rain”, “구름”, “하늘”)<br>나이 &lt;- c(30, 70, 20)<br>지각 &lt;- c(TRUE, FALSE, TRUE)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">students &lt;- data.frame(name = 이름,</span><br><span class="line">                        age = 나이,</span><br><span class="line">                       atte = 지각)</span><br></pre></td></tr></table></figure>
+
+<p>str(students)</p>
+<ul>
+<li><p>경로 확인</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getwd()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>파일 저장</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">write.csv(x = students, file = &quot;학생.csv&quot;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>엑셀로 내보내기</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">library(writexl)</span><br><span class="line">write_xlsx(x = students, path = &quot;학생.xlsx&quot;)</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>모두 지우기</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm(list = ls())</span><br></pre></td></tr></table></figure>
+
+<p>students &lt;- read.csv(“학생.csv”)</p>
+<ul>
+<li>엑셀 파일 불러오기<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">library(readxl)</span><br><span class="line">students2 &lt;- read_xlsx(&quot;학생.xlsx&quot;, sheet = 1)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>iris &lt;- iris<br>str(iris)</p>
+<ul>
+<li>파이프 라인</li>
+</ul>
+<p>iris %&gt;% # ~에서 150개, 5개의 변수<br>  select(Sepal.Length, Sepal.Width) %&gt;% #150개, 2개의 변수<br>  filter(Sepal.Length &gt; 6) %&gt;% #61개, 2개의 변수<br>  head(10) -&gt; iris2 #10개, 2개의 변수</p>
+<ul>
+<li>help</li>
+</ul>
+<p>?head()</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/03/11/R/class_03/" data-id="cl2nhi0290003ikv1b1dd0tbo" data-title="class" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/01/install/GitHub/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/24/Error/Airflow_web_scheduler/">[Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결🐱‍🏍</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/19/install/Oracle/">[Windows 10] Oracle Install🎊</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/17/install/vscodeMac/">[Mac M1] Installation VSCode✨</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/14/install/Spark/">[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

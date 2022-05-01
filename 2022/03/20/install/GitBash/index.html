@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>[Windows 10] Git bash 가상 환경🐱‍🏍 | myblog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Step 01_폴더 만들고 기본 경로 설정 경로 찾기which python 아래와 같이 경로 값이 나오면 된다.   Step 02_vs code 가상 환경 실행 code .  → 터미널에서 git bash 선택. → 만들어 놓은 폴더 경로 설정.  virtualenv venv  입력bash: virtualenv: command not found 뜨면, **">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Windows 10] Git bash 가상 환경🐱‍🏍">
+<meta property="og:url" content="https://kjm12misa.github.io/2022/03/20/install/GitBash/index.html">
+<meta property="og:site_name" content="myblog">
+<meta property="og:description" content="Step 01_폴더 만들고 기본 경로 설정 경로 찾기which python 아래와 같이 경로 값이 나오면 된다.   Step 02_vs code 가상 환경 실행 code .  → 터미널에서 git bash 선택. → 만들어 놓은 폴더 경로 설정.  virtualenv venv  입력bash: virtualenv: command not found 뜨면, **">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Git%20bash%20%E1%84%80%E1%85%A1%E1%84%89%E1%85%A1%E1%86%BC%20%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%F0%9F%90%B1%E2%80%8D%F0%9F%8F%8D%20a1af718a6c1f4bbfaa5974f4ad9001bc/which_python.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Git%20bash%20%E1%84%80%E1%85%A1%E1%84%89%E1%85%A1%E1%86%BC%20%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%F0%9F%90%B1%E2%80%8D%F0%9F%8F%8D%20a1af718a6c1f4bbfaa5974f4ad9001bc/git_bash_not_found_error.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Git%20bash%20%E1%84%80%E1%85%A1%E1%84%89%E1%85%A1%E1%86%BC%20%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%F0%9F%90%B1%E2%80%8D%F0%9F%8F%8D%20a1af718a6c1f4bbfaa5974f4ad9001bc/3.png">
+<meta property="article:published_time" content="2022-03-20T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-01T16:08:28.954Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20Git%20bash%20%E1%84%80%E1%85%A1%E1%84%89%E1%85%A1%E1%86%BC%20%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%F0%9F%90%B1%E2%80%8D%F0%9F%8F%8D%20a1af718a6c1f4bbfaa5974f4ad9001bc/which_python.png">
+  
+    <link rel="alternate" href="/atom.xml" title="myblog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">myblog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kjm12misa.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-install/GitBash" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/20/install/GitBash/" class="article-date">
+  <time class="dt-published" datetime="2022-03-20T00:00:00.000Z" itemprop="datePublished">2022-03-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      [Windows 10] Git bash 가상 환경🐱‍🏍
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Step-01-폴더-만들고-기본-경로-설정"><a href="#Step-01-폴더-만들고-기본-경로-설정" class="headerlink" title="Step 01_폴더 만들고 기본 경로 설정"></a>Step 01_폴더 만들고 기본 경로 설정</h3><ul>
+<li>경로 찾기<br>which python</li>
+<li>아래와 같이 경로 값이 나오면 된다.</li>
+</ul>
+<p><img src="/%5BWindows%2010%5D%20Git%20bash%20%E1%84%80%E1%85%A1%E1%84%89%E1%85%A1%E1%86%BC%20%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%F0%9F%90%B1%E2%80%8D%F0%9F%8F%8D%20a1af718a6c1f4bbfaa5974f4ad9001bc/which_python.png" alt="which python.PNG"></p>
+<h3 id="Step-02-vs-code-가상-환경-실행"><a href="#Step-02-vs-code-가상-환경-실행" class="headerlink" title="Step 02_vs code 가상 환경 실행"></a>Step 02_vs code 가상 환경 실행</h3><ul>
+<li><p>code .  → 터미널에서 git bash 선택. → 만들어 놓은 폴더 경로 설정.</p>
+</li>
+<li><p>virtualenv venv  입력<br>bash: virtualenv: command not found 뜨면, **pip install virtualenv(**가상 환경 설치)</p>
+<p>  <img src="/%5BWindows%2010%5D%20Git%20bash%20%E1%84%80%E1%85%A1%E1%84%89%E1%85%A1%E1%86%BC%20%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%F0%9F%90%B1%E2%80%8D%F0%9F%8F%8D%20a1af718a6c1f4bbfaa5974f4ad9001bc/git_bash_not_found_error.png" alt="git bash not found error.PNG"></p>
+</li>
+<li><p>가상 환경 활성화<br>source venv&#x2F;Scripts&#x2F;activate 입력 하면, 아래와 같이 활성화가 된 모습이 확인 된다.</p>
+</li>
+<li><p>필요에 따라 라이브러리 설치(pandas, numpy ….)</p>
+<p>  <img src="/%5BWindows%2010%5D%20Git%20bash%20%E1%84%80%E1%85%A1%E1%84%89%E1%85%A1%E1%86%BC%20%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%F0%9F%90%B1%E2%80%8D%F0%9F%8F%8D%20a1af718a6c1f4bbfaa5974f4ad9001bc/3.png" alt="3.PNG"></p>
+</li>
+<li><p>pip install 했을 때, 만들어 놓은 폴더 - venv 폴더 - Lib 폴더에 새로운 라이브러리가 잘 설치되고 있는지 확인을 해줘야 한다.</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/03/20/install/GitBash/" data-id="cl2nhi02g0007ikv1f44b3dp0" data-title="[Windows 10] Git bash 가상 환경🐱‍🏍" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/04/01/Oracle/chapter03/Oracle/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          🎈Oracle/SQL_Chapter 03
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/16/R/03.16-study/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">study</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/01/install/GitHub/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/24/Error/Airflow_web_scheduler/">[Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결🐱‍🏍</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/19/install/Oracle/">[Windows 10] Oracle Install🎊</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/17/install/vscodeMac/">[Mac M1] Installation VSCode✨</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/14/install/Spark/">[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
