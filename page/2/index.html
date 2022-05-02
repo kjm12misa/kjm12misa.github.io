@@ -71,10 +71,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Oracle/chapter03/Oracle" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-install/vscodeWLS" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/04/01/Oracle/chapter03/Oracle/" class="article-date">
-  <time class="dt-published" datetime="2022-03-31T15:00:00.000Z" itemprop="datePublished">2022-04-01</time>
+    <a href="/2022/04/11/install/vscodeWLS/" class="article-date">
+  <time class="dt-published" datetime="2022-04-11T00:00:00.000Z" itemprop="datePublished">2022-04-11</time>
 </a>
     
   </div>
@@ -85,7 +85,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/04/01/Oracle/chapter03/Oracle/">🎈Oracle/SQL_Chapter 03</a>
+      <a class="p-name article-title" href="/2022/04/11/install/vscodeWLS/">[Windows 10] VSCode WLS 연동🐱‍🏍</a>
     </h1>
   
 
@@ -93,309 +93,72 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="01-연산자"><a href="#01-연산자" class="headerlink" title="01. 연산자"></a>01. 연산자</h2><ul>
-<li>대문자 : 함수 &#x2F; 소문자 : 컬럼명, 테이블 명</li>
-<li>DESC 테이블명;</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DESC</span> employees;</span><br></pre></td></tr></table></figure>
-
+        <h3 id="설치-전-airflow-설치-후-진행"><a href="#설치-전-airflow-설치-후-진행" class="headerlink" title="설치 전, airflow 설치 후 진행."></a>설치 전, airflow 설치 후 진행.</h3><ol>
+<li><strong><strong>VSCode 설치</strong></strong></li>
+</ol>
 <ul>
-<li><p>employees 테이블 구조 확인</p>
-<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled.png" alt="Untitled"></p>
+<li><p><strong><a target="_blank" rel="noopener" href="https://code.visualstudio.com/download">vscode 설치 url</a></strong></p>
+</li>
+<li><p>관리자로 실행할 것이기 때문에 System Installer 다운로드.</p>
+</li>
+<li><p>본인 컴퓨터 사양 확인 후 다운로드.</p>
+<p>  <img src="/%5Cimages%5Cinstall%5CvscodeWLS%5Cvcord.png" alt="vcord.PNG"></p>
 </li>
 </ul>
-<h2 id="02-표현식"><a href="#02-표현식" class="headerlink" title="02. 표현식"></a>02. 표현식</h2><ul>
-<li><p>한 개 이상의 값과 연산자, SQL 함수 등이 결합 된 식</p>
-<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%201.png" alt="Untitled"></p>
+<ol>
+<li><p>설치 시, 환경 변수 체크란 잘 확인 할 것.</p>
+<p> <img src="/%5Cimages%5Cinstall%5CvscodeWLS%5Cvcord_%EC%84%A4%EC%B9%98%EC%B2%B4%ED%81%AC%EB%9E%80.png" alt="vcord 설치체크란.PNG"></p>
 </li>
-<li><p>WHEN 다음에 조건을 기술하고 THEN 다음에는 앞에서 기술한 조건에 만족하면 실제 출력 되는 값을 명시</p>
+</ol>
+<h3 id="Remote-WSL-연동"><a href="#Remote-WSL-연동" class="headerlink" title="Remote WSL 연동"></a><strong><strong>Remote WSL 연동</strong></strong></h3><ol>
+<li><p>visual studio code 관리자 모드로 실행</p>
 </li>
-<li><p>주의할 점은 THEN 이하 출력 값들의 데이터 타입은 반드시 일치 시켜야 한다.</p>
+<li><p>Extension 버튼 클릭 → Remote WSL 검색하고 설치 → 모두 체크 후, Mark Done 선택.</p>
 </li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line">    , <span class="keyword">CASE</span> <span class="keyword">WHEN</span> salary <span class="operator">&lt;=</span> <span class="number">5000</span> <span class="keyword">THEN</span> <span class="string">&#x27;C등급&#x27;</span></span><br><span class="line">           <span class="keyword">WHEN</span> salary <span class="operator">&gt;</span> <span class="number">5000</span> <span class="keyword">AND</span> salary <span class="operator">&lt;=</span> <span class="number">15000</span> <span class="keyword">THEN</span> <span class="string">&#x27;B등급&#x27;</span></span><br><span class="line">           <span class="keyword">ELSE</span> <span class="string">&#x27;A등급&#x27;</span></span><br><span class="line">      <span class="keyword">END</span> <span class="keyword">AS</span> salary_grade</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
-
+<li><p>open folder 클릭 → WSL에서  C 드라이브(저장 되어 있는 드라이브)에 저장 했던 airflow-test 폴더 선택.</p>
+</li>
+<li><p>해당 프로젝트가 화면 왼쪽에 열려 있는 것을 확인.</p>
+</li>
+<li><p>메뉴 바에 Terminal 선택. → New Terminal 선택.</p>
+<p> <img src="/%5Cimages%5Cinstall%5CvscodeWLS%ED%84%B0%EB%AF%B8%EB%84%90.png" alt="터미널.PNG"></p>
+</li>
+<li><p>생성된 터미널에  WSL이 있는지 확인.</p>
+<p> <img src="/%5Cimages%5Cinstall%5CvscodeWLS%5Cd.png" alt="d.png"></p>
+</li>
+<li><p>생성된 WSL 에 필요한 데이터 다운로드.(p. 45)</p>
+</li>
+</ol>
 <ul>
-<li><p>‘C등급’ 5000 이하 거나 같은, ‘’B등급’ 5000 ~ 15000을 포함한 사이 값, ‘A등급’ 15001 ~ 결과</p>
-<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%202.png" alt="Untitled"></p>
+<li>pip3 install faker, pip3 install pandas</li>
+</ul>
+<h3 id="간단하게-python-파일-실행"><a href="#간단하게-python-파일-실행" class="headerlink" title="간단하게 python 파일 실행."></a>간단하게 python 파일 실행.</h3><ol>
+<li><p>AIRFLOW-TEST 클릭 → 새로운 폴더(chapter03) → 새로운 파일(step01_wirtecsv.py)생성</p>
+<p> <img src="/%5Cimages%5Cinstall%5CvscodeWLS%5CInked%EC%BA%A1%EC%B2%98_LI.png" alt="Inked캡처_LI.png"></p>
 </li>
-</ul>
-<h2 id="03-조건식"><a href="#03-조건식" class="headerlink" title="03. 조건식"></a>03. 조건식</h2><h3 id="03-1-비교-조건식"><a href="#03-1-비교-조건식" class="headerlink" title="03_1. 비교 조건식"></a>03_1. 비교 조건식</h3><ul>
-<li>논리 연산자나 ANY, SOME, ALL 키워드로 비교하는 조건식</li>
-<li>기존 문법</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="operator">=</span> <span class="number">2000</span> <span class="keyword">or</span> salary <span class="operator">=</span> <span class="number">3000</span> <span class="keyword">or</span> salary <span class="operator">=</span> <span class="number">4000</span>;</span><br></pre></td></tr></table></figure>
-
+<li><p>생성된 파일 열고 print(“dddd”) 적고 ctrl + s 눌러서 저장</p>
+</li>
+</ol>
 <ul>
-<li>비교 연산자와 ANY 함수</li>
+<li>반드시!!! 작성하고 나서 <strong>저장</strong>을 해야지 터미널에서 출력이 된다.</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th>함수</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>A &gt; ANY(값)</td>
-<td>A가 최소 값 보다 크면</td>
-</tr>
-<tr>
-<td>A ≥ ANY(값)</td>
-<td>A가 최소 값보다 크거나 같으면</td>
-</tr>
-<tr>
-<td>A &lt; ANY(값)</td>
-<td>A가 최대 값보다 작으면</td>
-</tr>
-<tr>
-<td>A ≤ ANY(값)</td>
-<td>A가 최대 값보다 작거나 같으면</td>
-</tr>
-<tr>
-<td>A &#x3D; ANY(값)</td>
-<td>A 값이 같으면(IN과 같은 효과)</td>
-</tr>
-<tr>
-<td>A ≠ ANY(값)</td>
-<td>A 값이 같지 않은(NOT IN과 같은 효과)</td>
-</tr>
-</tbody></table>
+<ol>
+<li>그림과 같이 순서대로 세팅 후 진행.</li>
+</ol>
+<p><img src="/%5Cimages%5Cinstall%5CvscodeWLS%5C%EC%88%9C%EC%84%9C%EB%8C%80%EB%A1%9C_%EC%9E%91%EC%84%B1_%ED%9B%84_%EC%A7%84%ED%96%89.png" alt="순서대로 작성 후 진행.PNG"></p>
+<ol>
+<li>python3 step01_writecsv.py 입력.</li>
+</ol>
 <ul>
-<li><strong>ANY(&#x3D;OR) : 다수의 비교값 중 한 개라도 만족하면 TRUE</strong></li>
+<li>출력을 할 경우 앞에 python3를 붙여줘야 하며, 파일이 많을 경우 특정 앞 문자만 적고 TAB 버튼을 눌러 자동 완성 시키자. step01_(TAB)writecsv.py</li>
+<li>TAB 눌러 주는 건 내가 제대로 파일을 잘 생성한 것 인지에 대한 확인도 가능.</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="operator">=</span> <span class="keyword">ANY</span>(<span class="number">2000</span>, <span class="number">3000</span>, <span class="number">4000</span>);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>결과</p>
-<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%203.png" alt="Untitled"></p>
-</li>
-<li><p>비교 연산자와 ALL 함수</p>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>함수</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>A &gt; ALL(값)</td>
-<td>A가 최대 값보다 크면</td>
-</tr>
-<tr>
-<td>A ≥ ALL(값)</td>
-<td>A가 최대 값보다 크거나 같으면</td>
-</tr>
-<tr>
-<td>A &lt; ALL(값)</td>
-<td>A가 최소 값보다 작으면</td>
-</tr>
-<tr>
-<td>A ≤ ALL(값)</td>
-<td>A가 최소 값보다 작거나 같으면</td>
-</tr>
-<tr>
-<td>A &#x3D; ALL(값)</td>
-<td>SUBSELECT 결과가 1건이면 상관 없지만 여러 건이면 오류 발생</td>
-</tr>
-<tr>
-<td>A ≠ ALL(값)</td>
-<td>SUBSELECT 결과가 여러 건이면 오류 발생</td>
-</tr>
-</tbody></table>
-<ul>
-<li><strong>ALL : 모든 조건을  만족 시 TRUE</strong></li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="operator">&gt;</span> <span class="keyword">All</span>(<span class="number">7000</span>, <span class="number">10000</span>, <span class="number">12000</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>급여가 모든 조건 보다 큰 값 결과</p>
-<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%204.png" alt="Untitled"></p>
-</li>
-<li><p>SOME(ANY 함수와 동일)</p>
-</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="operator">=</span> <span class="keyword">SOME</span>(<span class="number">2000</span>, <span class="number">3000</span>, <span class="number">4000</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>데이터 중 조건에 맞는 값 결과</p>
-<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%205.png" alt="Untitled"></p>
-</li>
-</ul>
-<h3 id="03-2-논리-조건식"><a href="#03-2-논리-조건식" class="headerlink" title="03_2. 논리 조건식"></a>03_2. 논리 조건식</h3><ul>
-<li>조건절에서 AND, OR, NOT을 사용하는 조건식</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>함수</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>AND</td>
-<td>모든 조건을 만족 시</td>
-</tr>
-<tr>
-<td>OR</td>
-<td>조건 중에서 한 가지라도 만족 시</td>
-</tr>
-<tr>
-<td>NOT</td>
-<td>조건에 만족하지 못하는 것만</td>
-</tr>
-</tbody></table>
-<ul>
-<li><strong>AND</strong></li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="operator">&gt;</span> <span class="number">2500</span> <span class="keyword">AND</span> salary <span class="operator">&lt;</span> <span class="number">3000</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>급여가 2500 보다 크거나 3000 보다 작은 사원 결과</p>
-<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%206.png" alt="Untitled"></p>
-</li>
-<li><p><strong>OR(ANY 함수와 동일)</strong></p>
-</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="operator">=</span> <span class="number">3000</span> <span class="keyword">OR</span> salary <span class="operator">&lt;</span> <span class="number">2500</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>급여가 3000과 같거나 2500 보다 작은 사원 결과</p>
-<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%207.png" alt="Untitled"></p>
-</li>
-<li><p><strong>NOT</strong></p>
-</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">NOT</span> (salary <span class="operator">&gt;=</span> <span class="number">2500</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>급여가 2500 이하인 사원 반환(2500 보다 크거나 같지 않은 값 → ≠ 2500 AND 2500 이상)</p>
-<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%208.png" alt="Untitled"></p>
-</li>
-</ul>
-<h3 id="03-2-BETWEEN-AND-조건식"><a href="#03-2-BETWEEN-AND-조건식" class="headerlink" title="03_2. BETWEEN AND 조건식"></a>03_2. BETWEEN AND 조건식</h3><ul>
-<li>범위에 해당되는 값, ‘≥’,  ‘≤’ 값을 찾는데 사용</li>
-<li>‘≥’ 와 ‘≤’ 논리 연산자로 변환 가능</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="keyword">BETWEEN</span> <span class="number">2000</span> <span class="keyword">AND</span> <span class="number">2500</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>급여가 2000 ~ 2500 사이에 해당하는 사원 결과</p>
-<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%209.png" alt="Untitled"></p>
-</li>
-</ul>
-<h3 id="03-3-1-IN-조건식"><a href="#03-3-1-IN-조건식" class="headerlink" title="03_3_(1). IN 조건식"></a>03_3_(1). IN 조건식</h3><ul>
-<li>비교 연산 사용 불가능</li>
-<li>ANY 함수 예제</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="operator">=</span> <span class="keyword">ANY</span>(<span class="number">2000</span>, <span class="number">3000</span>, <span class="number">4000</span>);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>IN 함수 예제 : ANY 에서는 ‘&#x3D;’이 들어가지만, IN 에는 ‘&#x3D;’을 넣지 않는다.</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="keyword">IN</span> (<span class="number">3000</span>, <span class="number">3500</span>, <span class="number">4000</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>급여가 3000인 사원, 3500인 사원, 4000인 사원도 조회  결과</p>
-<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%2010.png" alt="Untitled"></p>
-</li>
-</ul>
-<h3 id="03-3-2-NOT-IN-조건의-반대"><a href="#03-3-2-NOT-IN-조건의-반대" class="headerlink" title="03_3_(2). NOT IN (조건의 반대)"></a>03_3_(2). NOT IN (조건의 반대)</h3><ul>
-<li>NOT은 다른 함수와 같이 쓰이면 반대라는 의미.</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="keyword">NOT</span> <span class="keyword">IN</span> (<span class="number">3000</span>, <span class="number">3500</span>, <span class="number">4000</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>3000, 3500, 4000 이 들어가지  않은 급여 결과</p>
-<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%2011.png" alt="Untitled"></p>
-</li>
-</ul>
-<h3 id="03-4-EXISTS-조건식"><a href="#03-4-EXISTS-조건식" class="headerlink" title="03_4. EXISTS  조건식"></a>03_4. EXISTS  조건식</h3><p><img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%2012.png" alt="Untitled"></p>
-<ul>
-<li>IN 과 비슷함. <strong>단, 서브 쿼리 절에서만 사용 가능</strong>하고 서브 쿼리 내에 조인 조건이 있어야 한다.</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    department_id</span><br><span class="line">    , department_name</span><br><span class="line"><span class="keyword">FROM</span> departments a</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">EXISTS</span> (<span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line">                <span class="keyword">FROM</span> employees b</span><br><span class="line">                <span class="keyword">WHERE</span> a.department_id <span class="operator">=</span> b.department_id</span><br><span class="line">                  <span class="keyword">AND</span> b.salary <span class="operator">&gt;</span> <span class="number">3000</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> a.department_name;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>결과</p>
-<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%2013.png" alt="Untitled"></p>
-</li>
-</ul>
-<h3 id="03-5-LIKE-조건식"><a href="#03-5-LIKE-조건식" class="headerlink" title="03_5. LIKE 조건식"></a>03_5. LIKE 조건식</h3><ul>
-<li>문자열의 패턴을 검색할 때 사용 하는 조건식</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>조건식</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>‘A%’</td>
-<td>앞자리가 A 로 시작되는 값 조회</td>
-</tr>
-<tr>
-<td>‘%A’</td>
-<td>뒷자리가 A 로 끝나는 값 조회</td>
-</tr>
-<tr>
-<td>‘A__%’</td>
-<td>앞에서 3번째 자리에 A 가 들어가는 값 조회(’_’  하나가 자리 수)</td>
-</tr>
-<tr>
-<td>‘__A%’</td>
-<td>뒤에서 3번째 자리에 A가 들어가는 값 조회</td>
-</tr>
-<tr>
-<td>‘%ABC%’</td>
-<td>ABC 가 들어 있는 값 모두 조회</td>
-</tr>
-</tbody></table>
-<ul>
-<li>‘A%’ 값 조회</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> emp_name</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> emp_name <span class="keyword">LIKE</span> <span class="string">&#x27;A%&#x27;</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> emp_name;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>‘A’ 로 시작 되는 사원명 결과</p>
-<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%2014.png" alt="Untitled"></p>
-</li>
-<li><p>‘%a’ 값 조회</p>
-</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> emp_name</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> emp_name <span class="keyword">LIKE</span> <span class="string">&#x27;%a&#x27;</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> emp_name;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>‘a’ 로 끝나는 사원명 결과</p>
-<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%2015.png" alt="Untitled"></p>
-</li>
-<li><p>‘__a%’ 값 조회</p>
-</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> emp_name</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> emp_name <span class="keyword">LIKE</span> <span class="string">&#x27;__a%&#x27;</span> </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> emp_name;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>세 번째 자리에 ‘a’ 가 들어가는 사원명 결과</p>
-<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%2016.png" alt="Untitled"></p>
-</li>
-<li><p>‘%abc%’ 값 조회</p>
-</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> emp_name</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> emp_name <span class="keyword">LIKE</span> <span class="string">&#x27;%ohn%&#x27;</span> </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> emp_name;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>‘ohn’ 이 들어간 사원명 모두 조회 결과</p>
-<p>  <img src="/%F0%9F%8E%88Oracle%20SQL_2022-04-27%2008557dcf278641acba415f80b3b5604c/Untitled%2017.png" alt="Untitled"></p>
-</li>
-</ul>
+<p><img src="/%5Cimages%5Cinstall%5CvscodeWLS%5C%EC%BA%A1%EC%B2%9811.png" alt="캡처11.PNG"></p>
+<p><a target="_blank" rel="noopener" href="https://dschloe.github.io/settings/vscode_wsl2/">출처 및 참조 사이트</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/01/Oracle/chapter03/Oracle/" data-id="cl2nhi03l000fikv18r12fskh" data-title="🎈Oracle/SQL_Chapter 03" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/11/install/vscodeWLS/" data-id="cl2oaoezu000frov1gsxdb148" data-title="[Windows 10] VSCode WLS 연동🐱‍🏍" class="article-share-link">Share</a>
       
       
       
@@ -407,10 +170,10 @@
 
 
   
-    <article id="post-install/GitBash" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-install/Github (2)" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/03/20/install/GitBash/" class="article-date">
-  <time class="dt-published" datetime="2022-03-20T00:00:00.000Z" itemprop="datePublished">2022-03-20</time>
+    <a href="/2022/04/10/install/Github%20(2)/" class="article-date">
+  <time class="dt-published" datetime="2022-04-10T00:00:00.000Z" itemprop="datePublished">2022-04-10</time>
 </a>
     
   </div>
@@ -421,7 +184,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/03/20/install/GitBash/">[Windows 10] Git bash 가상 환경🐱‍🏍</a>
+      <a class="p-name article-title" href="/2022/04/10/install/Github%20(2)/">[Windows 10] GitHub blog 만들기✨</a>
     </h1>
   
 
@@ -429,30 +192,152 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h3 id="Step-01-폴더-만들고-기본-경로-설정"><a href="#Step-01-폴더-만들고-기본-경로-설정" class="headerlink" title="Step 01_폴더 만들고 기본 경로 설정"></a>Step 01_폴더 만들고 기본 경로 설정</h3><ul>
-<li>경로 찾기<br>which python</li>
-<li>아래와 같이 경로 값이 나오면 된다.</li>
+        <h3 id="Step-01-설치"><a href="#Step-01-설치" class="headerlink" title="Step 01_설치"></a>Step 01_설치</h3><ul>
+<li>Git bash, node .js, vs code 설치를 전제로 진행</li>
+<li>마우스 우 클릭 git bash 열기</li>
+<li>hexo init 깃허브 생성해 놓은 이름(ex. hexo init myblog)</li>
+<li>Git bash 에서 생성 된 myblog 폴더가 있는 곳으로 경로 설정</li>
+<li>code . 입력하여 vs code 실행</li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Git%20bash%20%E1%84%80%E1%85%A1%E1%84%89%E1%85%A1%E1%86%BC%20%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%F0%9F%90%B1%E2%80%8D%F0%9F%8F%8D%20a1af718a6c1f4bbfaa5974f4ad9001bc/which_python.png" alt="which python.PNG"></p>
-<h3 id="Step-02-vs-code-가상-환경-실행"><a href="#Step-02-vs-code-가상-환경-실행" class="headerlink" title="Step 02_vs code 가상 환경 실행"></a>Step 02_vs code 가상 환경 실행</h3><ul>
-<li><p>code .  → 터미널에서 git bash 선택. → 만들어 놓은 폴더 경로 설정.</p>
+<h3 id="Step-02-git-blog-생성"><a href="#Step-02-git-blog-생성" class="headerlink" title="Step 02_git blog 생성"></a>Step 02_git blog 생성</h3><ul>
+<li>github에  뜬 방법 복사 붙이기</li>
+<li>git add . (모든 파일 올리기.) or git add .github_new(파일이름)</li>
+<li>git commit -m “설정 이름(영어로, ex. ”updated”)</li>
+<li>git push (업로드)</li>
+<li>GitHub 사이트에서 새로 고침 하여 올라간 파일 확인.</li>
+<li>3가지 명령어를 순차적으로 install(맨 앞에 공백 없이)</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br><span class="line">$ npm install hexo-server --save</span><br><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>GitHub에 새로운 아이디 생성하기 위해 config.yml 에서 수정.</li>
+<li><code>url:  [https://kjm12misa.github.io](https://kjm12misa.github.io)</code> 수정</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5CGitHub%5CUntitled.png" alt="Untitled"></p>
+<ul>
+<li>아래와 같이 설정 해 줄 것</li>
+<li>type: git<br>repo: <a target="_blank" rel="noopener" href="https://github.com/kjm12misa/kjm12misa.github.io.git">https://github.com/kjm12misa/kjm12misa.github.io.git</a><br>branch: main</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5CGitHub%5CUntitled%201.png" alt="Untitled"></p>
+<ul>
+<li>아래와 같이 설정이 된 것을 확인</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5CGitHub%5CUntitled%202.png" alt="Untitled"></p>
+<ul>
+<li>“branch : main” 을 잘못 적거나 정해 놓지 않은 이름을 적으면 오류가 난다.<br>다른 이름으로도 설정이 가능하다.</li>
+</ul>
+<h3 id="Step-03-GitHub-파일-업로드"><a href="#Step-03-GitHub-파일-업로드" class="headerlink" title="Step 03_GitHub 파일 업로드"></a>Step 03_GitHub 파일 업로드</h3><ul>
+<li>hexo generate —deploy(파일 업로드) or hexo generate → hexo server(서버 확인)</li>
+</ul>
+<h3 id="Step-04-source-posts-파일-생성"><a href="#Step-04-source-posts-파일-생성" class="headerlink" title="Step 04_source-posts 파일 생성"></a>Step 04_source-posts 파일 생성</h3><ul>
+<li>hexo new “영어로 파일 이름 작성“</li>
+<li><code>Ex) hexo new &quot;My New Post&quot;</code></li>
+</ul>
+<h3 id="Step-05-기타"><a href="#Step-05-기타" class="headerlink" title="Step 05_기타"></a>Step 05_기타</h3><ul>
+<li><p>hexo clean 해주기. (쿠키 등 없애줌)</p>
 </li>
-<li><p>virtualenv venv  입력<br>bash: virtualenv: command not found 뜨면, **pip install virtualenv(**가상 환경 설치)</p>
-<p>  <img src="/%5BWindows%2010%5D%20Git%20bash%20%E1%84%80%E1%85%A1%E1%84%89%E1%85%A1%E1%86%BC%20%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%F0%9F%90%B1%E2%80%8D%F0%9F%8F%8D%20a1af718a6c1f4bbfaa5974f4ad9001bc/git_bash_not_found_error.png" alt="git bash not found error.PNG"></p>
+<li><p>참고 사이트 : <a target="_blank" rel="noopener" href="https://dschloe.github.io/settings/hexo_blog/">https://dschloe.github.io/settings/hexo_blog&#x2F;</a></p>
 </li>
-<li><p>가상 환경 활성화<br>source venv&#x2F;Scripts&#x2F;activate 입력 하면, 아래와 같이 활성화가 된 모습이 확인 된다.</p>
-</li>
-<li><p>필요에 따라 라이브러리 설치(pandas, numpy ….)</p>
-<p>  <img src="/%5BWindows%2010%5D%20Git%20bash%20%E1%84%80%E1%85%A1%E1%84%89%E1%85%A1%E1%86%BC%20%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%F0%9F%90%B1%E2%80%8D%F0%9F%8F%8D%20a1af718a6c1f4bbfaa5974f4ad9001bc/3.png" alt="3.PNG"></p>
-</li>
-<li><p>pip install 했을 때, 만들어 놓은 폴더 - venv 폴더 - Lib 폴더에 새로운 라이브러리가 잘 설치되고 있는지 확인을 해줘야 한다.</p>
+<li><p>github 배포 문제점 확인 : <a target="_blank" rel="noopener" href="https://www.githubstatus.com/">https://www.githubstatus.com/</a></p>
 </li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/03/20/install/GitBash/" data-id="cl2nhi02g0007ikv1f44b3dp0" data-title="[Windows 10] Git bash 가상 환경🐱‍🏍" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/10/install/Github%20(2)/" data-id="cl2oaoezp000brov18ezfdfqj" data-title="[Windows 10] GitHub blog 만들기✨" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-install/WLS2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/08/install/WLS2/" class="article-date">
+  <time class="dt-published" datetime="2022-04-08T00:00:00.000Z" itemprop="datePublished">2022-04-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/08/install/WLS2/">[Windows 10] Install WSL2🐱‍🏍</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="✨첫-번째로-설치-✨"><a href="#✨첫-번째로-설치-✨" class="headerlink" title="✨첫 번째로 설치.✨"></a>✨첫 번째로 설치.✨</h3><h3 id="필요-항목-설치-및-준비"><a href="#필요-항목-설치-및-준비" class="headerlink" title="필요 항목 설치 및 준비"></a>필요 항목 설치 및 준비</h3><ol>
+<li>pc 정보 → windows 사양 → 버전 확인(20H1, 20H2, 21H1 ..)</li>
+<li>버전이 낮으면 windows update 설정을 열어 최신 버전으로 업데이트.</li>
+<li>WSL2를 설치 하기 위해서는 가상 터미널을 사용해야 한다. Windows Terminal 사용 추천.<br>powershell 사용해도 되지만 windows Terminal 에서 WSL2를 바로 실행하는 것도 가능하기 때문에 미리 설치해두는 것 추천!</li>
+</ol>
+<h3 id="ubuntu-및-WSL2-Linux-설치"><a href="#ubuntu-및-WSL2-Linux-설치" class="headerlink" title="ubuntu 및 WSL2 Linux 설치"></a>ubuntu 및 WSL2 Linux 설치</h3><ol>
+<li>Windows Terminal 관리자로 실행</li>
+<li>dism.exe &#x2F;online &#x2F;enable-feature &#x2F;featurename:Microsoft-Windows-Subsystem-Linux &#x2F;all &#x2F;norestart 입력.  → 아래와 같이 출력.</li>
+</ol>
+<p><img src="/%5Cimages%5Cinstall%5CWSL2%5C5.png" alt="우분투1.PNG"></p>
+<ol>
+<li>dism.exe &#x2F;online &#x2F;enable-feature &#x2F;featurename:VirtualMachinePlatform &#x2F;all &#x2F;norestart 입력. → 아래와 같이 출력.</li>
+</ol>
+<ul>
+<li>작업을 완료했습니다. 메시지를 꼭 확인할 것. 작업이 정상적으로 완료 되었다면, 재부팅 한 번 하기.</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5CWSL2%5C4.png" alt="우분투 2.PNG"></p>
+<h3 id="WSl2-Linux-커널-업데이트"><a href="#WSl2-Linux-커널-업데이트" class="headerlink" title="WSl2 Linux 커널 업데이트"></a>WSl2 Linux 커널 업데이트</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi</a>  (x64 머신용 최신 WSL2 Linux 커널 업데이트 패키지) 다운로드.</li>
+<li>windows Terminal에 다음 명령어 입력. 기본적으로 사용할 WSL 버전을 2로 변경 해줍니다.</li>
+<li>wsl –set-default-version 2</li>
+</ul>
+<h3 id="마이크로소프트-스토어에서-리눅스-설치"><a href="#마이크로소프트-스토어에서-리눅스-설치" class="headerlink" title="마이크로소프트 스토어에서 리눅스 설치"></a>마이크로소프트 스토어에서 리눅스 설치</h3><p><img src="/%5Cimages%5Cinstall%5CWSL2%5C6.png" alt="우분투투.PNG"></p>
+<ol>
+<li>관리자 모드로 실행 후 처음 ‘Installing. this may take few minutes…’ 메시지가 나오고, 시간이 지나면 사용자 이름과 패스워드를 지정하는 입력 창이 나타난다. 사용하고자 하는 사용자 이름 , 패스워드 지정.</li>
+</ol>
+<h3 id="이-때-메시지가-뜨지-않는다면"><a href="#이-때-메시지가-뜨지-않는다면" class="headerlink" title="이 때, 메시지가 뜨지 않는다면 !!!"></a>이 때, 메시지가 뜨지 않는다면 !!!</h3><ul>
+<li>윈도우에 검색 → windows 기능 켜기&#x2F;끄기에서 체크 해제 후 재 부팅 → 다시 체크 확인 후 재 부팅 → 우분투 다시 관리자 모드로 실행 후 메시지가 뜬다면 성공!</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5CWSL2%5C7.png" alt="윈도우.PNG"></p>
+<ol>
+<li>wsl -l -v 입력</li>
+</ol>
+<ul>
+<li>현재 설치된 리눅스 버전 확인</li>
+<li>버전에 2가 출력이 된다면 그대로 진행. 1이 뜬다면 2번을 입력.</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5CWSL2%5C2.png" alt="ghkrdl.PNG"></p>
+<ol>
+<li>wsl –set-version Ubuntu 2</li>
+</ol>
+<ul>
+<li>아래와 같이 ‘변환이 완료 되었습니다.’ 라는 메시지가 뜰 때 까지 기다린다.</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5CWSL2%5C1.png" alt="qusghks.PNG"></p>
+<ol>
+<li>wsl -l -v 입력</li>
+</ol>
+<ul>
+<li>다시 설치된 리눅스 버전 확인</li>
+<li>버전에 2가 뜬다면 설치 완료!</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5CWSL2%5C854aa785612cdaf787ce71/1.png" alt="1.PNG"></p>
+<p>출처 및 참조 : 강사님  <a target="_blank" rel="noopener" href="https://www.lainyzine.com/ko/article/how-to-install-wsl2-and-use-linux-on-windows-10/#google_vignette">https://www.lainyzine.com/ko/article/how-to-install-wsl2-and-use-linux-on-windows-10/#google_vignette</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/04/08/install/WLS2/" data-id="cl2oaoezs000erov1fh76cbu3" data-title="[Windows 10] Install WSL2🐱‍🏍" class="article-share-link">Share</a>
       
       
       
@@ -538,7 +423,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/03/16/R/03.16-study/" data-id="cl2nhhzyf0000ikv1fmqacpu4" data-title="study" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/03/16/R/03.16-study/" data-id="cl2oaoeze0002rov1828ccqom" data-title="study" class="article-share-link">Share</a>
       
       
       
@@ -681,7 +566,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/03/15/R/Descriptive-Analysis/" data-id="cl2nhi01y0001ikv1291t1d71" data-title="Descriptive Analysis" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/03/15/R/Descriptive-Analysis/" data-id="cl2oaoezb0001rov1glg52r72" data-title="Descriptive Analysis" class="article-share-link">Share</a>
       
       
       
@@ -859,7 +744,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/03/15/R/chapter_8/" data-id="cl2nhi0250002ikv1dsq70ysn" data-title="chapter_8" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/03/15/R/chapter_8/" data-id="cl2oaoezf0003rov13jvy6iy1" data-title="chapter_8" class="article-share-link">Share</a>
       
       
       
@@ -932,7 +817,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/03/15/R/z-score.03/" data-id="cl2nhi02d0005ikv17xl17sbz" data-title="z-score" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/03/15/R/z-score.03/" data-id="cl2oaoezi0006rov1dhje2swr" data-title="z-score" class="article-share-link">Share</a>
       
       
       
@@ -1083,7 +968,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/03/12/R/foodshop/" data-id="cl2nhi02b0004ikv11zqg7467" data-title="Food shop" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/03/12/R/foodshop/" data-id="cl2oaoezh0005rov1dvmp3krf" data-title="Food shop" class="article-share-link">Share</a>
       
       
       
@@ -1157,7 +1042,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/03/11/R/class_03/" data-id="cl2nhi0290003ikv1b1dd0tbo" data-title="class" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/03/11/R/class_03/" data-id="cl2oaoezg0004rov18hzh3n72" data-title="class" class="article-share-link">Share</a>
       
       
       
@@ -1205,23 +1090,23 @@
       <ul>
         
           <li>
-            <a href="/2022/05/01/install/GitHub/">(no title)</a>
+            <a href="/2022/05/02/Oracle/Chapter04/">🎈OracleSQL_Chapter 04</a>
           </li>
         
           <li>
-            <a href="/2022/04/24/Error/Airflow_web_scheduler/">[Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결🐱‍🏍</a>
+            <a href="/2022/04/27/Oracle/chapter03/">🎈OracleSQL_Chapter 03</a>
           </li>
         
           <li>
-            <a href="/2022/04/19/install/Oracle/">[Windows 10] Oracle Install🎊</a>
+            <a href="/2022/04/25/Oracle/chapter02/">🎈OracleSQL_Chapter 02</a>
           </li>
         
           <li>
-            <a href="/2022/04/17/install/vscodeMac/">[Mac M1] Installation VSCode✨</a>
+            <a href="/2022/04/20/install/vscodeMac/">[Mac M1] Installation VSCode🐱‍🏍</a>
           </li>
         
           <li>
-            <a href="/2022/04/14/install/Spark/">[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍</a>
+            <a href="/2022/04/18/install/Oracle/">[Windows 10] Oracle Install🐱‍🏍</a>
           </li>
         
       </ul>

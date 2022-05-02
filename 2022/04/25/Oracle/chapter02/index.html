@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>🎈OracleSQL_Chapter 02 | myblog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="샘플 스키마 chapter 0202. 테이블대표적인 데이터 베이스 객체 1. 문자 데이터 타입  SQL Developer (X), VS code pycharm 이클 립스 연동  테이블 생성 ex2_1   123456CREATE TABLE ex2_1 (COLUMN1 CHAR(10), COLUMN2 VARCHAR2(10), COLUMN3 NVARCHAR2(10">
+<meta property="og:type" content="article">
+<meta property="og:title" content="🎈OracleSQL_Chapter 02">
+<meta property="og:url" content="https://kjm12misa.github.io/2022/04/25/Oracle/chapter02/index.html">
+<meta property="og:site_name" content="myblog">
+<meta property="og:description" content="샘플 스키마 chapter 0202. 테이블대표적인 데이터 베이스 객체 1. 문자 데이터 타입  SQL Developer (X), VS code pycharm 이클 립스 연동  테이블 생성 ex2_1   123456CREATE TABLE ex2_1 (COLUMN1 CHAR(10), COLUMN2 VARCHAR2(10), COLUMN3 NVARCHAR2(10">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter02%5CUntitled.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter02%5CUntitled%201.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter02%5CUntitled%202.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter02%5CUntitled%203.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter02%5CUntitled%204.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter02%5CUntitled%205.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter02%5CUntitled%206.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter02%5CUntitled%207.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter02%5CUntitled%208.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter02%5CUntitled%209.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter02%5CUntitled%2010.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter02%5CUntitled%2011.png">
+<meta property="article:published_time" content="2022-04-25T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-02T08:03:43.399Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter02%5CUntitled.png">
+  
+    <link rel="alternate" href="/atom.xml" title="myblog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">myblog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kjm12misa.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Oracle/chapter02" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/25/Oracle/chapter02/" class="article-date">
+  <time class="dt-published" datetime="2022-04-25T00:00:00.000Z" itemprop="datePublished">2022-04-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      🎈OracleSQL_Chapter 02
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="샘플-스키마"><a href="#샘플-스키마" class="headerlink" title="샘플 스키마"></a>샘플 스키마</h3><p><img src="/%5Cimages%5COracle%5Cchapter02%5CUntitled.png" alt="Untitled"></p>
+<h1 id="chapter-02"><a href="#chapter-02" class="headerlink" title="chapter 02"></a>chapter 02</h1><h3 id="02-테이블"><a href="#02-테이블" class="headerlink" title="02. 테이블"></a>02. 테이블</h3><h3 id="대표적인-데이터-베이스-객체"><a href="#대표적인-데이터-베이스-객체" class="headerlink" title="대표적인 데이터 베이스 객체"></a>대표적인 데이터 베이스 객체</h3><p><img src="/%5Cimages%5COracle%5Cchapter02%5CUntitled%201.png" alt="Untitled"></p>
+<h3 id="1-문자-데이터-타입"><a href="#1-문자-데이터-타입" class="headerlink" title="1. 문자 데이터 타입"></a>1. 문자 데이터 타입</h3><p><img src="/%5Cimages%5COracle%5Cchapter02%5CUntitled%202.png" alt="Untitled"></p>
+<ul>
+<li><p>SQL Developer (X), VS code pycharm 이클 립스 연동</p>
+</li>
+<li><p>테이블 생성 ex2_1</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> ex2_1 (</span><br><span class="line">COLUMN1 <span class="type">CHAR</span>(<span class="number">10</span>)</span><br><span class="line">, COLUMN2 VARCHAR2(<span class="number">10</span>)</span><br><span class="line">, COLUMN3 NVARCHAR2(<span class="number">10</span>)</span><br><span class="line">, COLUMN4 NUMBER</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>데이터 추가</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> ex2_1 </span><br><span class="line">    (COLUMN1, COLUMN2)</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="string">&#x27;abc&#x27;</span>, <span class="string">&#x27;abc&#x27;</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>데이터 확인</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">COLUMN1</span><br><span class="line">, LENGTH(COLUMN1) <span class="keyword">as</span> len1</span><br><span class="line">, COLUMN2</span><br><span class="line">, LENGTH(COLUMN2) <span class="keyword">as</span> len2</span><br><span class="line"><span class="keyword">FROM</span> ex2_1;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>테이블 생성 ex2_2</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> ex2_2(</span><br><span class="line">	COLUMN1     VARCHAR2(<span class="number">3</span>)</span><br><span class="line">	, COLUMN2   VARCHAR2(<span class="number">3</span> byte)</span><br><span class="line">	, COLUMN3   VARCHAR2(<span class="number">3</span> <span class="type">char</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>데이터 추가</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> ex2_2 <span class="keyword">VALUES</span>(<span class="string">&#x27;ABC&#x27;</span>, <span class="string">&#x27;ABC&#x27;</span>, <span class="string">&#x27;ABC&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>데이터 확인</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">COLUMN1</span><br><span class="line">, LENGTH(COLUMN1) <span class="keyword">as</span> len1</span><br><span class="line">, COLUMN2</span><br><span class="line">, LENGTH(COLUMN2) <span class="keyword">as</span> len2</span><br><span class="line">, COLUMN3</span><br><span class="line">, LENGTH(COLUMN3) <span class="keyword">as</span> len3</span><br><span class="line"><span class="keyword">FROM</span> ex2_2;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>데이터 추가</li>
+<li>오류 값 : “COLUMN1” 열에 대한 값이 너무 큼(실제: 6, 최대 값: 3)</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> ex2_2 <span class="keyword">VALUES</span> ( <span class="string">&#x27;홍길동&#x27;</span>, <span class="string">&#x27;홍길동&#x27;</span>, <span class="string">&#x27;홍길동&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>COLUMN3에만 데이터 추가</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> ex2_2 (column3) <span class="keyword">VALUES</span> (<span class="string">&#x27;홍길동&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>데이터 확인</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	COLUMN3</span><br><span class="line">	, LENGTH(COLUMN3) <span class="keyword">as</span> len3</span><br><span class="line">	, LENGTH(COLUMN3) <span class="keyword">as</span> bytelen</span><br><span class="line"><span class="keyword">FROM</span> ex2_2;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter02%5CUntitled%203.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="2-숫자-데이터-삽입"><a href="#2-숫자-데이터-삽입" class="headerlink" title="2. 숫자 데이터 삽입"></a>2. 숫자 데이터 삽입</h3><p><img src="/%5Cimages%5COracle%5Cchapter02%5CUntitled%204.png" alt="Untitled"></p>
+<ul>
+<li>테이블 생성</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> ex2_3 (</span><br><span class="line">	COL_INT <span class="type">INTEGER</span></span><br><span class="line">	, COL_DEC <span class="type">DECIMAL</span></span><br><span class="line">	, COL_NUM NUMBER</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>데이터 확인</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	column_id</span><br><span class="line">	, column_name</span><br><span class="line">	, data_type</span><br><span class="line">	, data_length</span><br><span class="line"><span class="keyword">FROM</span> user_tab_cols</span><br><span class="line"><span class="keyword">WHERE</span> table_name <span class="operator">=</span> <span class="string">&#x27;EX2_3&#x27;</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> column_id;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter02%5CUntitled%205.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="NUMBER형-예제"><a href="#NUMBER형-예제" class="headerlink" title="NUMBER형 예제"></a>NUMBER형 예제</h3><p><img src="/%5Cimages%5COracle%5Cchapter02%5CUntitled%206.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5COracle%5Cchapter02%5CUntitled%207.png" alt="Untitled"></p>
+<h3 id="3-FLOAT형으로-인한-오류-p-57"><a href="#3-FLOAT형으로-인한-오류-p-57" class="headerlink" title="3. FLOAT형으로 인한 오류(p.57)"></a>3. FLOAT형으로 인한 오류(p.57)</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> ex2_4 (</span><br><span class="line">	COL_FLOT1       <span class="type">FLOAT</span>(<span class="number">32</span>)</span><br><span class="line">	, COL_FLOT2     <span class="type">FLOAT</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>데이터 추가</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> ex2_4 (col_flot1, col_flot2) <span class="keyword">VALUES</span> (<span class="number">1234567891234</span>, <span class="number">1234567891234</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>데이터 조회</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> ex2_4;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-날짜-데이터-타입-p-58"><a href="#4-날짜-데이터-타입-p-58" class="headerlink" title="4. 날짜 데이터 타입 p.58"></a>4. 날짜 데이터 타입 p.58</h3><p><img src="/%5Cimages%5COracle%5Cchapter02%5CUntitled%208.png" alt="Untitled"></p>
+<h3 id="날짜-데이터-함수-종류"><a href="#날짜-데이터-함수-종류" class="headerlink" title="날짜 데이터 함수 종류"></a>날짜 데이터 함수 종류</h3><table>
+<thead>
+<tr>
+<th>데이터 타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SYSDATE</td>
+<td>컴퓨터의 시스템 시간을 알려 준다.</td>
+</tr>
+<tr>
+<td>MONTHS_BETWEEN</td>
+<td></td>
+</tr>
+<tr>
+<td>(날짜 1, 날짜 2) 형식</td>
+<td>날짜 1과 날짜 2 사이의 개월 수</td>
+</tr>
+<tr>
+<td>즉, 날짜 1(최근)&gt;날짜 2(전날) 이면 결과 값 (+)</td>
+<td></td>
+</tr>
+<tr>
+<td>날짜 1(최근)&lt;날짜 2(전날) 이면 결과 값 (-)</td>
+<td></td>
+</tr>
+<tr>
+<td>NEXT_DAY</td>
+<td></td>
+</tr>
+<tr>
+<td>(’기준 일자’, ‘찾을 요일’)</td>
+<td>기준 일자로부터 다음 지정 요일이 몇 일 인지를 구해 준다.</td>
+</tr>
+<tr>
+<td>LAST_DAY</td>
+<td></td>
+</tr>
+<tr>
+<td>(날짜)</td>
+<td>해당 월의 마지막 날짜</td>
+</tr>
+<tr>
+<td>ADD_MONTHS</td>
+<td></td>
+</tr>
+<tr>
+<td>(날짜, 개월 수)</td>
+<td>해당 날짜로부터 지정한 개월 수 뒤의 날짜</td>
+</tr>
+<tr>
+<td>ROUND&#x2F;TRUNC</td>
+<td>날짜를 반올림&#x2F;날짜를 버림</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>테이블 생성</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> ex2_5(</span><br><span class="line">	COL_DATE            <span class="type">DATE</span></span><br><span class="line">	, COL_TIMESTAMP     <span class="type">TIMESTAMP</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>데이터 추가</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> ex2_5 <span class="keyword">VALUES</span> (SYSDATE, SYSTIMESTAMP);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>데이터 조회</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> ex2_5;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter02%5CUntitled%209.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="5-LOB-데이터-타입"><a href="#5-LOB-데이터-타입" class="headerlink" title="5. LOB 데이터 타입"></a>5. LOB 데이터 타입</h3><ul>
+<li>LARGE OBJECT의 약자로 그래픽, 이미지, 음성, 바이너리 데이터, 사이즈가 큰 텍스트 데이터를 다루는 데이터 타입(비정형 데이터(대용량)를 저장할 때 쓰임)</li>
+<li>BFILE 타입은 읽기 전용 데이터 타입으로 로케이터(Locator) 지정 한다.<ul>
+<li>로케이터(Locator) 는 서버상의 바이너리 파일을 나타내는 파일의 주소와 이름으로 풀패스명을 지정하는 디렉토리별 이름이 포함 되어 있다.</li>
+</ul>
+</li>
+</ul>
+<p><img src="/%5Cimages%5COracle%5Cchapter02%5CUntitled%2010.png" alt="Untitled"></p>
+<h2 id="03-뷰"><a href="#03-뷰" class="headerlink" title="03. 뷰"></a>03. 뷰</h2><h3 id="1-뷰-생성"><a href="#1-뷰-생성" class="headerlink" title="1. 뷰 생성"></a>1. 뷰 생성</h3><ul>
+<li>테이블이나 또 다른 뷰를 참조하는 객체</li>
+<li>다른 테이블이나 뷰를 select 하는 구문으로 구성</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE OR REPLACE VIEW [스키마.]뷰명 AS</span><br><span class="line">SELECT 문장;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>기본 문법 예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> a.employee_id, a.emp_name, a.department_id,</span><br><span class="line">           b.department_name   <span class="comment">-- 부서명 컬럼</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	employees a</span><br><span class="line">	, departments b</span><br><span class="line"><span class="keyword">WHERE</span> a.department_id <span class="operator">=</span> b.department_id;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>뷰 생성 예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> REPLACE <span class="keyword">VIEW</span> emp_dept_v1 <span class="keyword">AS</span> <span class="comment">-- 뷰 생성 테이블 네임</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="comment">-- 뷰 테이블에 넣을 컬럼 </span></span><br><span class="line">    a.employee_id</span><br><span class="line">    , a.emp_name</span><br><span class="line">    , a.department_id</span><br><span class="line">    , b.department_name</span><br><span class="line"><span class="keyword">FROM</span> </span><br><span class="line">    employees a</span><br><span class="line">    , departments b</span><br><span class="line"><span class="keyword">WHERE</span> a.department_id <span class="operator">=</span> b.department_id;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> emp_dept_v1;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter02%5CUntitled%2011.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="2-뷰-삭제"><a href="#2-뷰-삭제" class="headerlink" title="2. 뷰 삭제"></a>2. 뷰 삭제</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP VIEW [스키마.]뷰명;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">VIEW</span> emp_dept_v1;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- View EMP_DEPT_V1이(가) 삭제되었습니다. </span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/04/25/Oracle/chapter02/" data-id="cl2oflzof000krov1fnzqgsh3" data-title="🎈OracleSQL_Chapter 02" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/04/27/Oracle/chapter03/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          🎈OracleSQL_Chapter 03
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/04/20/install/vscodeMac/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">[Mac M1] Installation VSCode🐱‍🏍</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/02/Oracle/Chapter04/">🎈OracleSQL_Chapter 04</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/27/Oracle/chapter03/">🎈OracleSQL_Chapter 03</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/25/Oracle/chapter02/">🎈OracleSQL_Chapter 02</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/20/install/vscodeMac/">[Mac M1] Installation VSCode🐱‍🏍</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/18/install/Oracle/">[Windows 10] Oracle Install🐱‍🏍</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

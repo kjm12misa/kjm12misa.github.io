@@ -71,26 +71,730 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-install/GitHub" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-Oracle/Chapter04" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/05/01/install/GitHub/" class="article-date">
-  <time class="dt-published" datetime="2022-05-01T06:32:28.000Z" itemprop="datePublished">2022-05-01</time>
+    <a href="/2022/05/02/Oracle/Chapter04/" class="article-date">
+  <time class="dt-published" datetime="2022-05-02T00:00:00.000Z" itemprop="datePublished">2022-05-02</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/05/02/Oracle/Chapter04/">🎈OracleSQL_Chapter 04</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="Windows-10-Git-blog-Installation-on-Git-bash-and-VSCode-🐱‍🏍"><a href="#Windows-10-Git-blog-Installation-on-Git-bash-and-VSCode-🐱‍🏍" class="headerlink" title="[Windows 10] Git blog Installation on Git bash and VSCode.🐱‍🏍"></a>[Windows 10] Git blog Installation on Git bash and VSCode.🐱‍🏍</h1><ol>
-<li>git bash 를 열어 <code>hexo init myblog</code> → <code>cd myblog</code> → <code>git init</code> → <code>git remote add origin https://github.com/your_name/your_blog_repo.git</code></li>
+        <h1 id="Chapter-04"><a href="#Chapter-04" class="headerlink" title="Chapter 04"></a>Chapter 04</h1><h3 id="01-숫자-함수"><a href="#01-숫자-함수" class="headerlink" title="01. 숫자 함수"></a>01. 숫자 함수</h3><ul>
+<li>수식 연산을 하는 함수로 연산 대상 즉, 매개변수나 반환 값이 대부분 숫자 형태</li>
+</ul>
+<ol>
+<li><strong>ABS(n)</strong></li>
 </ol>
+<ul>
+<li>절대 값 반환 하는 함수</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    <span class="built_in">ABS</span>(<span class="number">10</span>)</span><br><span class="line">    , <span class="built_in">ABS</span>(<span class="number">-10</span>)</span><br><span class="line">    , <span class="built_in">ABS</span>(<span class="number">10.123</span>)</span><br><span class="line">    , <span class="built_in">ABS</span>(<span class="number">-10.123</span>)</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>CEIL &amp; FLOOR</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CEIL(n)</td>
+<td></td>
+</tr>
+<tr>
+<td>(올림한 정수)</td>
+<td>n과 같거나 가장 큰 정수 반환</td>
+</tr>
+<tr>
+<td>영어로 ‘천장’ 이라는 의미로 가장 가까운 정수를 올림</td>
+<td></td>
+</tr>
+<tr>
+<td>FLOOR(n)</td>
+<td></td>
+</tr>
+<tr>
+<td>(버림 함수)</td>
+<td>n보다 작거나 가장 큰 정수 반환</td>
+</tr>
+<tr>
+<td>영어로 ‘바닥’ 이라는 의미로 실수의 경우 더 낮은 정수로 내림(버림)</td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    <span class="built_in">CEIL</span>(<span class="number">10.123</span>)</span><br><span class="line">    , <span class="built_in">CEIL</span>(<span class="number">-10.123</span>)</span><br><span class="line">    , <span class="built_in">FLOOR</span>(<span class="number">10.123</span>)</span><br><span class="line">    , <span class="built_in">FLOOR</span>(<span class="number">-10.123</span>)</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%201.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>ROUND &amp; TRUNC</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ROUND(n, i)</td>
+<td></td>
+</tr>
+<tr>
+<td>반올림</td>
+<td>실수, 소수점 이하 자리 수</td>
+</tr>
+<tr>
+<td>n을 소수점 기준 (i+1) 번째에서 반올림한 결과 반환(i는 생략 가능)</td>
+<td></td>
+</tr>
+<tr>
+<td>TRUNC(n1, n2)</td>
+<td></td>
+</tr>
+<tr>
+<td>내림(버림)</td>
+<td>실수, 소수점 이하 자리 수</td>
+</tr>
+<tr>
+<td>n1을 소수점 기준 n2 자리에서 무조건 잘라낸 결과 반환</td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>ROUND(n) 예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    ROUND(<span class="number">10.154</span>)</span><br><span class="line">    , ROUND(<span class="number">11.001</span>)</span><br><span class="line">    , ROUND(<span class="number">-10.154</span>)</span><br><span class="line">    , ROUND(<span class="number">-10.001</span>)</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%202.png" alt="Untitled"></p>
+</li>
+<li><p>ROUND(n, i) 예제&lt;i 가 양수 일 때&gt;</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    ROUND(<span class="number">10.154</span>, <span class="number">1</span>)</span><br><span class="line">    , ROUND(<span class="number">10.131</span>, <span class="number">2</span>)</span><br><span class="line">    , ROUND(<span class="number">11.001</span>, <span class="number">1</span>)</span><br><span class="line">    , ROUND(<span class="number">-10.154</span>, <span class="number">2</span>)</span><br><span class="line">    , ROUND(<span class="number">-10.131</span>, <span class="number">1</span>)</span><br><span class="line">    , ROUND(<span class="number">-10.001</span>, <span class="number">2</span>)</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>i1 일 경우 소수점 기준 오른쪽 두 번째 반올림</p>
+</li>
+<li><p>2 일 경우 소수점 기준 오른쪽 세 번째에서 반올림</p>
+</li>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%203.png" alt="Untitled"></p>
+</li>
+<li><p>ROUND(n, -i) 예제&lt;i 가 음수 일 때&gt;</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    ROUND(<span class="number">0</span>, <span class="number">3</span>)</span><br><span class="line">    , ROUND(<span class="number">115.155</span>, <span class="number">-1</span>)</span><br><span class="line">    , ROUND(<span class="number">115.155</span>, <span class="number">-2</span>)</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>-1은 소수점 기준 왼쪽 첫 번째에서 올림, 남은 뒤 값은 0</p>
+</li>
+<li><p>-2는 소수점 기준 왼쪽 두 번째에서 올림, 남은 뒤 값은 0</p>
+</li>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%204.png" alt="Untitled"></p>
+</li>
+<li><p>TRUNC(n1, n2) 예제</p>
+</li>
+<li><p>양수는 소수점 기준 오른쪽부터 절삭, 음수는 기준 왼쪽부터 절삭</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    TRUNC(<span class="number">115.155</span>)<span class="comment">-- 소수점 자리 뒤로 X</span></span><br><span class="line">    , TRUNC(<span class="number">115.155</span>, <span class="number">1</span>)<span class="comment">-- 두 번째 자리 부터 X</span></span><br><span class="line">    , TRUNC(<span class="number">115.155</span>, <span class="number">2</span>)<span class="comment">-- 세 번째 자리 부터 절삭 X</span></span><br><span class="line">    , TRUNC(<span class="number">115.155</span>, <span class="number">-2</span>)<span class="comment">--두 번째 자리 X</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%205.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>POWER &amp; SQRT</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>POWER(n2, n1)</td>
+<td></td>
+</tr>
+<tr>
+<td>제곱</td>
+<td>n2를 n1 제곱한 결과 반환한다. n1은 정수, 실수 모두 올 수 있는데 n2가 음수일 때 n1은 정수만 가능.</td>
+</tr>
+<tr>
+<td>SQRT(n)</td>
+<td></td>
+</tr>
+<tr>
+<td>제곱근</td>
+<td>n의 제곱근을 반환</td>
+</tr>
+</tbody></table>
+<ul>
+<li>제곱 &amp; 제곱근 예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    <span class="built_in">POWER</span>(<span class="number">3</span>, <span class="number">2</span>)</span><br><span class="line">    , <span class="built_in">POWER</span>(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">    , <span class="built_in">SQRT</span>(<span class="number">9</span>)</span><br><span class="line">    , <span class="built_in">SQRT</span>(<span class="number">8</span>)</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%206.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>MOD &amp; REMAINDER</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MOD(n2, n1)</td>
+<td></td>
+</tr>
+<tr>
+<td>- n2를 n1으로 나눈 나머지 값 반환하는데, 나머지 계산 시 FLOOR 함수 사용</td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>‘0으로 나누기’ 오류를 방지하기 위해 분모가 0인 경우 분자 값 반환</li>
+<li>계산식은 n2 - (n1 * FLOOR(n2&#x2F;n1)) |<br>|</li>
+</ul>
+<p>REMAINDER(n2, n1) | - n2를 n1으로 나눈 나머지 값 반환하는데, 나머지 계산 시 ROUND 함수 사용</p>
+<ul>
+<li>n2는 무한대, 데이터 타입이 n이면 오류를 반환,  binary_float 또는 binary_double이면 NaN 반환</li>
+<li>n2가 부동 소수점이고 나머지 값이 0이면, 나머지 부호는 n2의 부호</li>
+<li>n1 ≠ 0이면, 계산식은 n2 - (n1 * ROUND(n2&#x2F;n1)) |</li>
+<li>예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    <span class="built_in">MOD</span>(<span class="number">19</span>, <span class="number">4</span>)</span><br><span class="line">    , REMAINDER(<span class="number">19</span>, <span class="number">4</span>)</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>MOD 결과 값 3 나온 이유를 계산식에 대입해 보면,</p>
+<ul>
+<li>19 - (4*(FLOOR(19&#x2F;4)) → 19 - 4*(4) → 19 - 16 &#x3D; 3</li>
+</ul>
+</li>
+<li><p>REMAINDER 결과 값 -1 나온 이유를 계산식에 대입해 보면,</p>
+<ul>
+<li>19 - (4<em>ROUND(19&#x2F;4)) → 19 - (4</em>5) → 19 - 20 &#x3D; -1</li>
+</ul>
+</li>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%207.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li>EXP, LN &amp; LOG</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>EXP(n)</td>
+<td>지수 함수로 e(e&#x3D;2.71828183…)의 n제곱 값을 반환</td>
+</tr>
+<tr>
+<td>LN(n)</td>
+<td>자연 로그 함수로 밑 수가 e인 로그 함수</td>
+</tr>
+<tr>
+<td>LOG(n2, n1)</td>
+<td>n2를 밑수로 하는 n1의 로그 값을 반환</td>
+</tr>
+</tbody></table>
+<ul>
+<li>예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    <span class="built_in">EXP</span>(<span class="number">2</span>)</span><br><span class="line">    , <span class="built_in">LN</span>(<span class="number">2.713</span>)</span><br><span class="line">    , <span class="built_in">LOG</span>(<span class="number">10</span>, <span class="number">100</span>)</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%208.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="02-문자-함수"><a href="#02-문자-함수" class="headerlink" title="02. 문자 함수"></a>02. 문자 함수</h3><ul>
+<li>연산 대상이 문자이며 반환 값은 함수에 따라 문자나 숫자를 반환</li>
+</ul>
+<ol>
+<li>INITCAP, LOWER, UPPER</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>INITCAP(char)</td>
+<td>영문 단어의 첫 번째 문자를 대문자로 나머지는 소문자로 변환</td>
+</tr>
+<tr>
+<td>LOWER(char)</td>
+<td>소문자 변환</td>
+</tr>
+<tr>
+<td>UPPER(char)</td>
+<td>대문자 변환</td>
+</tr>
+</tbody></table>
+<ul>
+<li>간단한 예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    INITCAP(<span class="string">&#x27;apple&#x27;</span>) <span class="comment">--Apple</span></span><br><span class="line">    , <span class="built_in">LOWER</span>(<span class="string">&#x27;APPLE&#x27;</span>) <span class="comment">-- apple</span></span><br><span class="line">    , <span class="built_in">UPPER</span>(<span class="string">&#x27;apple&#x27;</span>) <span class="comment">-- APPLE</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>INITCAP 예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    INITCAP(<span class="string">&#x27;john&#x27;</span>) result1</span><br><span class="line">    , INITCAP(<span class="string">&#x27;JOHN&#x27;</span>) result2</span><br><span class="line">    , INITCAP(<span class="string">&#x27;john chen&#x27;</span>) result3</span><br><span class="line">    , INITCAP(<span class="string">&#x27;john russell&#x27;</span>) result4</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%209.png" alt="Untitled"></p>
+</li>
+<li><p>LOWER 예제</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    job_id <span class="comment">-- 원래 값</span></span><br><span class="line">    , <span class="built_in">LOWER</span>(job_id) job_id <span class="comment">-- 소문자 변환 값</span></span><br><span class="line"><span class="keyword">FROM</span> employees</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2010.png" alt="Untitled"></p>
+</li>
+<li><p>UPPER 예제</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    job_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> <span class="built_in">UPPER</span>(job_id) <span class="keyword">LIKE</span> <span class="string">&#x27;%&#x27;</span> <span class="operator">||</span> <span class="built_in">UPPER</span>(<span class="string">&#x27;sa&#x27;</span>) <span class="operator">||</span> <span class="string">&#x27;%&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2011.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li>CONCAT**, SUBSTR,** SUBSTRB</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>중요도</th>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-</td>
+<td>CONCAT(char1, char2)</td>
+<td>‘</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>★★★★</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SUBSTR(char, pos, len)</td>
+<td>- 잘라올 문자열인 char의 pos번째 문자부터 len길이만큼 잘라낸 결과를 반환하는 함수</td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>하나의 필드 데이터의 일부를 읽는데 사용 |<br>| </li>
+<li>|<br>SUBSTRB(char, pos, len) | - 문자열의 바이트 수만큼, 맨 끝자인 ‘B’는 BYTE</li>
+<li>UTF-8 타입은 3바이트로 인식</li>
+<li>한글 인코딩 타입에 따라 2바이트 이거나 3바이트로 인식 될 수 있다. |</li>
+<li>CONCAT 예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    CONCAT(<span class="string">&#x27;I Have&#x27;</span>, <span class="string">&#x27; A Dream&#x27;</span>),</span><br><span class="line">    <span class="string">&#x27;I Have&#x27;</span> <span class="operator">||</span> <span class="string">&#x27; A Dream&#x27;</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2012.png" alt="Untitled"></p>
+</li>
+<li><p>CONCAT 활용 예제</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    employee_id <span class="keyword">AS</span> emp_id</span><br><span class="line">    , emp_name</span><br><span class="line">    , job_id</span><br><span class="line">    , CONCAT(emp_name, job_id)</span><br><span class="line">    , CONCAT(CONCAT(emp_name, <span class="string">&#x27;/&#x27;</span>), job_id)</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> employee_id <span class="keyword">IN</span> (<span class="string">&#x27;124&#x27;</span>, <span class="string">&#x27;125&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2013.png" alt="Untitled"></p>
+</li>
+<li><p>SUBSTR 예제</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    SUBSTR(<span class="string">&#x27;ABCDEFG&#x27;</span>, <span class="number">1</span>, <span class="number">2</span>) <span class="comment">-- 앞에서 1 번째 자리부터 길이 2만큼 값 출력</span></span><br><span class="line">    , SUBSTR(<span class="string">&#x27;ABCDEFG&#x27;</span>, <span class="number">-3</span>, <span class="number">2</span>) <span class="comment">-- 뒤에서 3 번째 자리부터 길이 2만큼 값 출력</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2014.png" alt="Untitled"></p>
+</li>
+<li><p>SUBSTRB 예제</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    SUBSTRB(<span class="string">&#x27;ABCDEFG&#x27;</span>, <span class="number">1</span>, <span class="number">4</span>) <span class="keyword">AS</span> result1</span><br><span class="line">    , SUBSTRB(<span class="string">&#x27;홍길동은내친구!&#x27;</span>, <span class="number">2</span>, <span class="number">5</span>) <span class="keyword">AS</span> result2</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2015.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>LTRIM, RTRIM</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LTRIM(char, set)</td>
+<td>문자열 왼쪽 공백 제거와 왼쪽 반복 적인 문자 제거</td>
+</tr>
+<tr>
+<td>RTRIM(char, set)</td>
+<td>문자열 오른쪽 공백 제거와 오른쪽 반복 적인 문자 제거</td>
+</tr>
+</tbody></table>
+<ul>
+<li>예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    LTRIM(<span class="string">&#x27;ASDFGHJKL&#x27;</span>, <span class="string">&#x27;ASD&#x27;</span>) <span class="keyword">AS</span> L_result1</span><br><span class="line">    , LTRIM(<span class="string">&#x27;봄이왔구나&#x27;</span>, <span class="string">&#x27;봄&#x27;</span>) <span class="keyword">AS</span> L_result2</span><br><span class="line">    , RTRIM(<span class="string">&#x27;ASDFGHJKL&#x27;</span>, <span class="string">&#x27;ASD&#x27;</span>) <span class="keyword">AS</span> R_result1</span><br><span class="line">    , RTRIM(<span class="string">&#x27;봄이왔구나&#x27;</span>, <span class="string">&#x27;나&#x27;</span>) <span class="keyword">AS</span> R_result2</span><br><span class="line"><span class="keyword">FROM</span> DUAL;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2016.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>LPAD, RPAD</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LPAD(expr1, n, expr2)</td>
+<td>expr2 문자열(생략할 때 디폴트는 공백 한 문자)을 n자리만큼 왼쪽부터 채워 expr1을 반환</td>
+</tr>
+<tr>
+<td>RPAD(expr1, n, expr2)</td>
+<td>expr2 문자열(생략할 때 디폴트는 공백 한 문자)을 n자리만큼 오른쪽부터 채워 expr1을 반환</td>
+</tr>
+</tbody></table>
+<ul>
+<li>LPAD 예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 테이블 생성</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> ex4_1 (</span><br><span class="line">    phone_num VARCHAR2(<span class="number">30</span>)</span><br><span class="line">);</span><br><span class="line"><span class="comment">-- 데이터 추가</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> ex4_1 <span class="keyword">VALUES</span>(<span class="string">&#x27;111-1111&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> ex4_1 <span class="keyword">VALUES</span>(<span class="string">&#x27;111-2222&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> ex4_1 <span class="keyword">VALUES</span>(<span class="string">&#x27;111-3333&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> LPAD(phone_num, <span class="number">12</span>, <span class="string">&#x27;(02)&#x27;</span>)</span><br><span class="line"><span class="keyword">FROM</span> ex4_1;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2017.png" alt="Untitled"></p>
+</li>
+<li><p>RPAD 예제</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> RPAD(phone_num, <span class="number">12</span>, <span class="string">&#x27;(02)&#x27;</span>)</span><br><span class="line"><span class="keyword">FROM</span> ex4_1;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2018.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>REPLACE,</strong> TRANSLATE</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>REPLACE</td>
+<td></td>
+</tr>
+<tr>
+<td>(char, search_str, replace_str)</td>
+<td>- char 문자열에서 search_str 문자열을 찾아 이를 replace_str 문자열로 대체한 결과를 반환</td>
+</tr>
+<tr>
+<td>TRANSLATE</td>
+<td></td>
+</tr>
+<tr>
+<td>(expr, FROM_str, to_str)</td>
+<td>- expr 문자열에서 FROM_str에 해당하는 문자를 찾아 to_str로 바꾼 결과를 반환</td>
+</tr>
+</tbody></table>
+<ul>
+<li>문자열 자체가 아닌 문자 한 글자씩 매핑해 바꾼 결과를 반환 |</li>
+<li>REPLACE 예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    REPLACE(<span class="string">&#x27;간장공장 공장장은 강 공장장이고&#x27;</span>, <span class="string">&#x27;장장&#x27;</span>, <span class="string">&#x27;된장&#x27;</span>) <span class="keyword">AS</span> rep</span><br><span class="line">    , <span class="built_in">TRANSLATE</span>(<span class="string">&#x27;간장공장 공장장은 강 공장장이고&#x27;</span>, <span class="string">&#x27;장공&#x27;</span>, <span class="string">&#x27;된장&#x27;</span>) <span class="keyword">AS</span> trn</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<ul>
+<li>replace는 ‘장장’ → ‘된장’&#x2F;translate는 ’장 → 된’, ‘공 → 장’</li>
+</ul>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2019.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="03-날짜-함수"><a href="#03-날짜-함수" class="headerlink" title="03. 날짜 함수"></a>03. 날짜 함수</h3><ol>
+<li><strong>SYSDATE, SYSTIMESTAMP</strong></li>
+</ol>
+<ul>
+<li>SYSDATE 와 SYSTIMESTAMP(날, 시간, 분, 초) 현재 날짜 시간을 각각 DATE, TIMESTAMP 형으로 반환</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    SYSDATE <span class="comment">-- 결과 : 22/05/01</span></span><br><span class="line">    , SYSTIMESTAMP <span class="comment">-- 결과 : 22/05/01 20:00:13.417000000 09:00</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>ADD_MONTH(date, integer)</strong></li>
+</ol>
+<ul>
+<li>매개변수로 들어온 날짜에 interger 만큼의 월을 더한 날짜를 반환</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    ADD_MONTHS(SYSDATE, <span class="number">1</span>) <span class="keyword">AS</span> result1 <span class="comment">-- 현재 달에서 +1 22/06/01</span></span><br><span class="line">    , ADD_MONTHS(SYSDATE, <span class="number">-1</span>) <span class="keyword">AS</span> result2 <span class="comment">-- 현재 달에서 -1 22/04/01</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>MONTHS_BETWEEN(date1, date2)</strong></li>
+</ol>
+<ul>
+<li>두 날짜 사이의 개월 수가 얼마인지 반환</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    MONTHS_BETWEEN(SYSDATE, ADD_MONTHS(SYSDATE, <span class="number">1</span>)) mon1 <span class="comment">-- 결과 : -1</span></span><br><span class="line">    , MONTHS_BETWEEN(ADD_MONTHS(SYSDATE, <span class="number">1</span>), SYSDATE) mon2 <span class="comment">-- 결과 : 1</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>LAST_DAY(date)</strong></li>
+</ol>
+<ul>
+<li>date 날짜를 기준으로 해당 월의 마지막 일자 출력</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">LAST_DAY(SYSDATE)</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br><span class="line"><span class="comment">-- 예제 2</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">LAST_DAY(SYSDATE) <span class="comment">-- 결과 : 22/05/31</span></span><br><span class="line">, LAST_DAY(ADD_MONTHS(SYSDATE, <span class="number">1</span>)) <span class="comment">-- 결과 : 22/06/30</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>ROUND(date, format) &amp; TRUNC(date, format)</strong></li>
+</ol>
+<ul>
+<li>ROUND 반올림한 날짜, TRUNC 잘라낸 날짜 반환.</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">SYSDATE <span class="comment">-- 결과 : 22/05/02</span></span><br><span class="line">, ROUND(SYSDATE, <span class="string">&#x27;month&#x27;</span>) <span class="comment">-- 결과 : 22/05/01 </span></span><br><span class="line">, TRUNC(SYSDATE, <span class="string">&#x27;month&#x27;</span>) <span class="comment">-- 결과 : 22/05/01</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>NEXT_DAY (date, char)</strong></li>
+</ol>
+<ul>
+<li>지정한 해당 요일의 날짜를 출력</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> NEXT_DAY(SYSDATE, <span class="string">&#x27;금요일&#x27;</span>) <span class="comment">-- 결과 : 22/05/06</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<h3 id="04-변환-함수"><a href="#04-변환-함수" class="headerlink" title="04. 변환 함수"></a>04. 변환 함수</h3><ul>
+<li><p>서로 다른 유형의 데이터 타입으로 변환해 결과를 반환하는 함수</p>
+</li>
+<li><p>날짜 변환 형식</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2020.png" alt="Untitled"></p>
+</li>
+<li><p>숫자 변환 형식</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2021.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>TO_CHAR(숫자 혹은 날짜, format)</strong></li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> TO_CHAR(<span class="number">123456789</span>, <span class="string">&#x27;999,999,999&#x27;</span>) <span class="comment">-- 결과 : 123,456,789</span></span><br><span class="line"><span class="keyword">FROM</span> DURL;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 날짜 변환 형식</span></span><br><span class="line"><span class="keyword">SELECT</span> TO_CHAR(SYSDATE, <span class="string">&#x27;YYYY-MM-DD&#x27;</span>) <span class="comment">-- 결과 : 2022-05-02</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>TO_NUMBER(expr, format), TO_DATE(char, format)</strong></li>
+</ol>
+<ul>
+<li>문자나 다른 유형의 숫자를 NUMBER 형으로 변환하는 함수</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> TO_NUMBER(<span class="string">&#x27;123456&#x27;</span>) <span class="comment">-- 결과 : 123456</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br><span class="line"><span class="comment">-- TO_DATE, TO_TIMESTAMP</span></span><br><span class="line"><span class="keyword">SELECT</span> TO_DATE(<span class="string">&#x27;20140101&#x27;</span>, <span class="string">&#x27;YYYY-MM-DD&#x27;</span>) <span class="comment">-- 결과 : 14/01/01</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br><span class="line"><span class="keyword">SELECT</span> TO_DATE(<span class="string">&#x27;20220427 14:06:20&#x27;</span>, <span class="string">&#x27;YYYY-MM-DD HH24:MI:SS&#x27;</span>) <span class="comment">-- 결과 : 22/04/27</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<h3 id="05-NULL-관련-함수"><a href="#05-NULL-관련-함수" class="headerlink" title="05. NULL 관련 함수"></a>05. NULL 관련 함수</h3><ul>
+<li>NULL을 비교할 때는 IS NULL이나 IS NOT NULL 구문을 사용하였는데, 오라클에서는 NULL을 연산 대상으로 처리하는 SQL 함수를 제공</li>
+</ul>
+<ol>
+<li><strong>NVL, NVL2</strong></li>
+</ol>
+<ul>
+<li>NVL(expr1, expr2)<ul>
+<li>expr1 이 null 일 때 expr2를 반환</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">NVL(manager_id, employee_id) <span class="comment">-- 결과 : 100</span></span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> manager_id <span class="keyword">IS</span> <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>NVL2(expr1, expr2, expr3)<ul>
+<li>expr1 이 null이 아니면 expr2를, null이면 expr3를 반환</li>
+<li>null 값이 많은 commission!</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">employee_id</span><br><span class="line">, commission_pct</span><br><span class="line">, salary</span><br><span class="line">, NVL2(commission_pct <span class="comment">-- null이 존재하는 컬럼</span></span><br><span class="line">, salary <span class="operator">+</span> (salary <span class="operator">+</span> commission_pct)<span class="comment">-- null이면 저거 아니면 이거 실행</span></span><br><span class="line">, salary) <span class="keyword">as</span> final_salary</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2022.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>COALESCE(expr1, expr2, ….)</strong></li>
+</ol>
+<ul>
+<li>매개변수로 들어오는 표현식에서 NULL이 아닌 첫 번째 표현식 반환</li>
+<li>아직 NULL 값이 존재 한다는 걸 인지하고 있어야 한다.</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">employee_id</span><br><span class="line">, salary</span><br><span class="line">, commission_pct</span><br><span class="line">, <span class="built_in">COALESCE</span>(salary <span class="operator">*</span> commission_pct, salary) <span class="keyword">AS</span> salary2</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2023.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>LNNVL</strong></li>
+</ol>
+<ul>
+<li>매개변수로 들어오는 조건식의 결과 FALSE나 UNKNOWN –&gt; TRUE 반환</li>
+<li>결과가 TRUE 면 → FALSE로 반환</li>
+<li>commission_pct가 0.2 이하인 값만 조회.</li>
+<li>기본 문법</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">employee_id</span><br><span class="line">, commission_pct</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> commission_pct <span class="operator">&lt;</span> <span class="number">0.2</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>커미션이 NULL인 사원도 0.2 이하라고 봐야 하는데 쿼리 결과에는 조회 되지 않았다.</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2024.png" alt="Untitled"></p>
+</li>
+<li><p>null 인 사원도 반환</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line"><span class="comment">-- COUNT(*)</span></span><br><span class="line">employee_id</span><br><span class="line">, commission_pct</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> NVL(commission_pct, <span class="number">0</span>) <span class="operator">&lt;</span> <span class="number">0.2</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2025.png" alt="Untitled"></p>
+</li>
+</ul>
+<p>3_1. COUNT </p>
+<ul>
+<li>행의 개 수 반환</li>
+<li>NVL 함수를 써서 커미션이 NULL인 사원은 0을 반환</li>
+<li>LNV &amp; LNNVL 함수 예제_결과 값은 동일</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- LNV</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="comment">-- 결과 : 83</span></span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> NVL(commission_pct, <span class="number">0</span>) <span class="operator">&lt;</span> <span class="number">0.2</span>;</span><br><span class="line"><span class="comment">-- LNNVL</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="built_in">count</span>(<span class="operator">*</span>) <span class="comment">-- 결과 : 83</span></span><br><span class="line"><span class="comment">-- employee_id</span></span><br><span class="line"><span class="comment">--, commission_pct</span></span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> LNNVL(commission_pct <span class="operator">&gt;=</span> <span class="number">0.2</span>);</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>NULLIF(expr1, expr2)</li>
+</ol>
+<ul>
+<li>expr1과 expr2을 비교해 같으면 NULL을, 같지 않으면 expr1을 반환</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	employee_id</span><br><span class="line">	, TO_CHAR(start_date, <span class="string">&#x27;YYYY&#x27;</span>) start_year</span><br><span class="line">	, TO_CHAR(end_date, <span class="string">&#x27;YYYY&#x27;</span>) end_year</span><br><span class="line">	, <span class="built_in">NULLIF</span>(TO_CHAR(end_date, <span class="string">&#x27;YYYY&#x27;</span>), TO_CHAR(start_date, <span class="string">&#x27;YYYY&#x27;</span>)) nullif_year</span><br><span class="line"><span class="keyword">FROM</span> job_history;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2026.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="06-기타-함수"><a href="#06-기타-함수" class="headerlink" title="06. 기타 함수"></a>06. 기타 함수</h3><ol>
+<li>GREATEST, LEAST</li>
+</ol>
+<ul>
+<li>GREATEST(expr1, expr2, ….)</li>
+<li>매개변수로 들어오는 표현식에서 가장 큰 값을, LEAST는 가장 작은 값을 반환</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 숫자형</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	GREATEST(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>) <span class="comment">-- 결과 : 3</span></span><br><span class="line">	, LEAST(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>) <span class="comment">-- 결과 : 1</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br><span class="line"><span class="comment">-- 문자형</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    GREATEST(<span class="string">&#x27;이순신&#x27;</span>, <span class="string">&#x27;강감찬&#x27;</span>, <span class="string">&#x27;세종대왕&#x27;</span>) <span class="comment">-- 결과 : 이순신</span></span><br><span class="line">    , LEAST(<span class="string">&#x27;이순신&#x27;</span>, <span class="string">&#x27;강감찬&#x27;</span>, <span class="string">&#x27;세종대왕&#x27;</span>) <span class="comment">-- 결과 : 강감찬</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>DECODE (expr, search1, result1, search2, result2, …, default)</strong></li>
+</ol>
+<ul>
+<li>IF-ELIF-ELIF-ELIF-ELSE 파이썬의 문법과 비슷.</li>
+<li>expr과 search1을 비교해 두 값이 같으면 result1을, 같지 않으면 다시 search2와 비교해 값이 같으면 result2를 반환</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> sales;</span><br><span class="line"><span class="comment">-- 1. 한번에 적지 말고 순차적으로 껴 넣기</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line"><span class="keyword">UNIQUE</span>(channel_id)</span><br><span class="line"><span class="keyword">FROM</span> sales;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 2. 두 개의 컬럼에서 prod_id가 &#x27;125&#x27;인 사원 조회</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	prod_id</span><br><span class="line">	, channel_id</span><br><span class="line"><span class="keyword">FROM</span> sales</span><br><span class="line"><span class="keyword">WHERE</span> prod_id <span class="operator">=</span> <span class="number">125</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2027.png" alt="Untitled"></p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 3. DECODE() 안에 검색할 값 넣기</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	prod_id</span><br><span class="line">	, channel_id</span><br><span class="line">	, DECODE(channel_id, <span class="number">3</span>, <span class="string">&#x27;Direct&#x27;</span>, <span class="comment">-- 조건</span></span><br><span class="line">												<span class="number">9</span>, <span class="string">&#x27;Direct&#x27;</span>,</span><br><span class="line">												<span class="number">5</span>, <span class="string">&#x27;Indirect&#x27;</span>,</span><br><span class="line">												<span class="number">4</span>, <span class="string">&#x27;Indirect&#x27;</span>,</span><br><span class="line">														<span class="string">&#x27;Others&#x27;</span>) decodes</span><br><span class="line"><span class="keyword">FROM</span> sales</span><br><span class="line"><span class="keyword">WHERE</span> prod_id <span class="operator">=</span> <span class="number">125</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2028.png" alt="Untitled"></p>
+</li>
+<li><p>ALTER SESSION SET NLS_DATE_FORMAT &#x3D; ‘YYYY-MM-DD HH24:MI:SS’;</p>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/05/01/install/GitHub/" data-id="cl2nhi02h0008ikv11o46cuxu" data-title="" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/05/02/Oracle/Chapter04/" data-id="cl2onvswy000lrov167l58b63" data-title="🎈OracleSQL_Chapter 04" class="article-share-link">Share</a>
       
       
       
@@ -102,10 +806,10 @@
 
 
   
-    <article id="post-Error/Airflow_web_scheduler" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-Oracle/chapter03" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/04/24/Error/Airflow_web_scheduler/" class="article-date">
-  <time class="dt-published" datetime="2022-04-24T00:00:00.000Z" itemprop="datePublished">2022-04-24</time>
+    <a href="/2022/04/27/Oracle/chapter03/" class="article-date">
+  <time class="dt-published" datetime="2022-04-27T00:00:00.000Z" itemprop="datePublished">2022-04-27</time>
 </a>
     
   </div>
@@ -116,7 +820,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/04/24/Error/Airflow_web_scheduler/">[Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결🐱‍🏍</a>
+      <a class="p-name article-title" href="/2022/04/27/Oracle/chapter03/">🎈OracleSQL_Chapter 03</a>
     </h1>
   
 
@@ -124,42 +828,608 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="airflow-webserver-p-8081-airflow-scheduler-오류✨"><a href="#airflow-webserver-p-8081-airflow-scheduler-오류✨" class="headerlink" title="airflow webserver -p 8081 + airflow scheduler 오류✨"></a>airflow webserver -p 8081 + airflow scheduler 오류✨</h2><ul>
-<li>두 개를 동시에 열어야 하기 때문에 하나라도 안되면 결과 값이 뜨지 않는다.</li>
+        <h2 id="01-연산자"><a href="#01-연산자" class="headerlink" title="01. 연산자"></a>01. 연산자</h2><ul>
+<li>대문자 : 함수 &#x2F; 소문자 : 컬럼명, 테이블 명</li>
+<li>DESC 테이블명;</li>
 </ul>
-<ol>
-<li><strong>오류 확인.</strong></li>
-</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DESC</span> employees;</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>코드와 데이터 모두 맞게 작성 하고 웹 서버를 실행 했으나, 아무것도 뜨지 않는다.</li>
-<li>원래 가상 환경이 아닌 환경에서 되면 안되는데, 실행이 되지 않아 다른 방법을 썼다.</li>
+<li><p>employees 테이블 구조 확인</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter03%5CUntitled.png" alt="Untitled"></p>
+</li>
 </ul>
-<hr>
-<ol>
-<li>각 <strong>webserver 리눅스와 scheduler 리눅스에서 확인.</strong></li>
-</ol>
-<ul>
-<li>vi ~&#x2F;.bashrc 환경 변수 편집 열어 내가 작업 중인 폴더와 이름이 같은지 확인.</li>
-<li>echo $AIRFLOW_HOME 입력 하였으나 아무것도 뜨지 않는다면, source ~&#x2F;.bashrc 환경 변수를 적용해주는 코드를 적고 다시 echo $AIRFLOW_HOME 확인.</li>
+<h2 id="02-표현식"><a href="#02-표현식" class="headerlink" title="02. 표현식"></a>02. 표현식</h2><ul>
+<li><p>한 개 이상의 값과 연산자, SQL 함수 등이 결합 된 식</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter03%5CUntitled%201.png" alt="Untitled"></p>
+</li>
+<li><p>WHEN 다음에 조건을 기술하고 THEN 다음에는 앞에서 기술한 조건에 만족하면 실제 출력 되는 값을 명시</p>
+</li>
+<li><p>주의할 점은 THEN 이하 출력 값들의 데이터 타입은 반드시 일치 시켜야 한다.</p>
+</li>
 </ul>
-<p> —- (가상 환경이 벗어 나면서 색이 변했는데 이유를 모른다…) 일단, 결과는 굳!</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line">    , <span class="keyword">CASE</span> <span class="keyword">WHEN</span> salary <span class="operator">&lt;=</span> <span class="number">5000</span> <span class="keyword">THEN</span> <span class="string">&#x27;C등급&#x27;</span></span><br><span class="line">           <span class="keyword">WHEN</span> salary <span class="operator">&gt;</span> <span class="number">5000</span> <span class="keyword">AND</span> salary <span class="operator">&lt;=</span> <span class="number">15000</span> <span class="keyword">THEN</span> <span class="string">&#x27;B등급&#x27;</span></span><br><span class="line">           <span class="keyword">ELSE</span> <span class="string">&#x27;A등급&#x27;</span></span><br><span class="line">      <span class="keyword">END</span> <span class="keyword">AS</span> salary_grade</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>제대로 뜬다면, 각 리눅스 환경에서 웹 서버 번호와 scheduler 실행, 뜬다면 성공!</li>
+<li><p>‘C등급’ 5000 이하 거나 같은, ‘’B등급’ 5000 ~ 15000을 포함한 사이 값, ‘A등급’ 15001 ~ 결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter03%5CUntitled%202.png" alt="Untitled"></p>
+</li>
 </ul>
-<p><img src="/%5BWindows%2010%5DAirflow%20webserver%20+%20scheduler%20%E1%84%8B%E1%85%A1%E1%86%AB%20%E1%84%84%E1%85%B3%E1%84%82%E1%85%B3%20533bf73a3a434c13ac0831f73f4590bb/%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%9F%AC_%EC%98%A4%EB%A5%98_%EB%82%A0_%EC%8B%9C.png" alt="스케쥴러 오류 날 시.PNG"></p>
-<hr>
-<ol>
-<li>기타</li>
-</ol>
+<h2 id="03-조건식"><a href="#03-조건식" class="headerlink" title="03. 조건식"></a>03. 조건식</h2><h3 id="03-1-비교-조건식"><a href="#03-1-비교-조건식" class="headerlink" title="03_1. 비교 조건식"></a>03_1. 비교 조건식</h3><ul>
+<li>논리 연산자나 ANY, SOME, ALL 키워드로 비교하는 조건식</li>
+<li>기존 문법</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="operator">=</span> <span class="number">2000</span> <span class="keyword">or</span> salary <span class="operator">=</span> <span class="number">3000</span> <span class="keyword">or</span> salary <span class="operator">=</span> <span class="number">4000</span>;</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>나는 기존에 저장 되어 있던 폴더(aiflow_test) 말고 다른 폴더로 변경 하였다. 그래서 환경 변수에서  $AIRFLOW_HOME&#x3D;&#x2F;mnt&#x2F;c&#x2F;airflow_t 저장해 놓았다. 작업하려는 폴더와 현재 폴더에 따라서 변경을 해줘야 한다.</li>
-<li>확인 코드 vi ~&#x2F;.bashrc(편집) → echo $AIRFLOW_HOME(확인) —(값이 잘 떴음. 안 뜰 경우 오타 확인)—&gt; source ~&#x2F;.bashrc(적용)</li>
+<li>비교 연산자와 ANY 함수</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A &gt; ANY(값)</td>
+<td>A가 최소 값 보다 크면</td>
+</tr>
+<tr>
+<td>A ≥ ANY(값)</td>
+<td>A가 최소 값보다 크거나 같으면</td>
+</tr>
+<tr>
+<td>A &lt; ANY(값)</td>
+<td>A가 최대 값보다 작으면</td>
+</tr>
+<tr>
+<td>A ≤ ANY(값)</td>
+<td>A가 최대 값보다 작거나 같으면</td>
+</tr>
+<tr>
+<td>A &#x3D; ANY(값)</td>
+<td>A 값이 같으면(IN과 같은 효과)</td>
+</tr>
+<tr>
+<td>A ≠ ANY(값)</td>
+<td>A 값이 같지 않은(NOT IN과 같은 효과)</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>ANY(&#x3D;OR) : 다수의 비교값 중 한 개라도 만족하면 TRUE</strong></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="operator">=</span> <span class="keyword">ANY</span>(<span class="number">2000</span>, <span class="number">3000</span>, <span class="number">4000</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter03%5CUntitled%203.png" alt="Untitled"></p>
+</li>
+<li><p>비교 연산자와 ALL 함수</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A &gt; ALL(값)</td>
+<td>A가 최대 값보다 크면</td>
+</tr>
+<tr>
+<td>A ≥ ALL(값)</td>
+<td>A가 최대 값보다 크거나 같으면</td>
+</tr>
+<tr>
+<td>A &lt; ALL(값)</td>
+<td>A가 최소 값보다 작으면</td>
+</tr>
+<tr>
+<td>A ≤ ALL(값)</td>
+<td>A가 최소 값보다 작거나 같으면</td>
+</tr>
+<tr>
+<td>A &#x3D; ALL(값)</td>
+<td>SUBSELECT 결과가 1건이면 상관 없지만 여러 건이면 오류 발생</td>
+</tr>
+<tr>
+<td>A ≠ ALL(값)</td>
+<td>SUBSELECT 결과가 여러 건이면 오류 발생</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>ALL : 모든 조건을  만족 시 TRUE</strong></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="operator">&gt;</span> <span class="keyword">All</span>(<span class="number">7000</span>, <span class="number">10000</span>, <span class="number">12000</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>급여가 모든 조건 보다 큰 값 결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter03%5CUntitled%204.png" alt="Untitled"></p>
+</li>
+<li><p>SOME(ANY 함수와 동일)</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="operator">=</span> <span class="keyword">SOME</span>(<span class="number">2000</span>, <span class="number">3000</span>, <span class="number">4000</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>데이터 중 조건에 맞는 값 결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter03%5CUntitled%205.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="03-2-논리-조건식"><a href="#03-2-논리-조건식" class="headerlink" title="03_2. 논리 조건식"></a>03_2. 논리 조건식</h3><ul>
+<li>조건절에서 AND, OR, NOT을 사용하는 조건식</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AND</td>
+<td>모든 조건을 만족 시</td>
+</tr>
+<tr>
+<td>OR</td>
+<td>조건 중에서 한 가지라도 만족 시</td>
+</tr>
+<tr>
+<td>NOT</td>
+<td>조건에 만족하지 못하는 것만</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>AND</strong></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="operator">&gt;</span> <span class="number">2500</span> <span class="keyword">AND</span> salary <span class="operator">&lt;</span> <span class="number">3000</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>급여가 2500 보다 크거나 3000 보다 작은 사원 결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter03%5CUntitled%206.png" alt="Untitled"></p>
+</li>
+<li><p><strong>OR(ANY 함수와 동일)</strong></p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="operator">=</span> <span class="number">3000</span> <span class="keyword">OR</span> salary <span class="operator">&lt;</span> <span class="number">2500</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>급여가 3000과 같거나 2500 보다 작은 사원 결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter03%5CUntitled%207.png" alt="Untitled"></p>
+</li>
+<li><p><strong>NOT</strong></p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">NOT</span> (salary <span class="operator">&gt;=</span> <span class="number">2500</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>급여가 2500 이하인 사원 반환(2500 보다 크거나 같지 않은 값 → ≠ 2500 AND 2500 이상)</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter03%5CUntitled%208.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="03-2-BETWEEN-AND-조건식"><a href="#03-2-BETWEEN-AND-조건식" class="headerlink" title="03_2. BETWEEN AND 조건식"></a>03_2. BETWEEN AND 조건식</h3><ul>
+<li>범위에 해당되는 값, ‘≥’,  ‘≤’ 값을 찾는데 사용</li>
+<li>‘≥’ 와 ‘≤’ 논리 연산자로 변환 가능</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="keyword">BETWEEN</span> <span class="number">2000</span> <span class="keyword">AND</span> <span class="number">2500</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>급여가 2000 ~ 2500 사이에 해당하는 사원 결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter03%5CUntitled%209.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="03-3-1-IN-조건식"><a href="#03-3-1-IN-조건식" class="headerlink" title="03_3_(1). IN 조건식"></a>03_3_(1). IN 조건식</h3><ul>
+<li>비교 연산 사용 불가능</li>
+<li>ANY 함수 예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="operator">=</span> <span class="keyword">ANY</span>(<span class="number">2000</span>, <span class="number">3000</span>, <span class="number">4000</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>IN 함수 예제 : ANY 에서는 ‘&#x3D;’이 들어가지만, IN 에는 ‘&#x3D;’을 넣지 않는다.</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="keyword">IN</span> (<span class="number">3000</span>, <span class="number">3500</span>, <span class="number">4000</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>급여가 3000인 사원, 3500인 사원, 4000인 사원도 조회  결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter03%5CUntitled%2010.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="03-3-2-NOT-IN-조건의-반대"><a href="#03-3-2-NOT-IN-조건의-반대" class="headerlink" title="03_3_(2). NOT IN (조건의 반대)"></a>03_3_(2). NOT IN (조건의 반대)</h3><ul>
+<li>NOT은 다른 함수와 같이 쓰이면 반대라는 의미.</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id</span><br><span class="line">    , salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="keyword">NOT</span> <span class="keyword">IN</span> (<span class="number">3000</span>, <span class="number">3500</span>, <span class="number">4000</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>3000, 3500, 4000 이 들어가지  않은 급여 결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter03%5CUntitled%2011.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="03-4-EXISTS-조건식"><a href="#03-4-EXISTS-조건식" class="headerlink" title="03_4. EXISTS  조건식"></a>03_4. EXISTS  조건식</h3><p><img src="/%5Cimages%5COracle%5Cchapter03%5CUntitled%2012.png" alt="Untitled"></p>
+<ul>
+<li>IN 과 비슷함. <strong>단, 서브 쿼리 절에서만 사용 가능</strong>하고 서브 쿼리 내에 조인 조건이 있어야 한다.</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    department_id</span><br><span class="line">    , department_name</span><br><span class="line"><span class="keyword">FROM</span> departments a</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">EXISTS</span> (<span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line">                <span class="keyword">FROM</span> employees b</span><br><span class="line">                <span class="keyword">WHERE</span> a.department_id <span class="operator">=</span> b.department_id</span><br><span class="line">                  <span class="keyword">AND</span> b.salary <span class="operator">&gt;</span> <span class="number">3000</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> a.department_name;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter03%5CUntitled%2013.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="03-5-LIKE-조건식"><a href="#03-5-LIKE-조건식" class="headerlink" title="03_5. LIKE 조건식"></a>03_5. LIKE 조건식</h3><ul>
+<li>문자열의 패턴을 검색할 때 사용 하는 조건식</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>조건식</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>‘A%’</td>
+<td>앞자리가 A 로 시작되는 값 조회</td>
+</tr>
+<tr>
+<td>‘%A’</td>
+<td>뒷자리가 A 로 끝나는 값 조회</td>
+</tr>
+<tr>
+<td>‘A__%’</td>
+<td>앞에서 3번째 자리에 A 가 들어가는 값 조회(’_’  하나가 자리 수)</td>
+</tr>
+<tr>
+<td>‘__A%’</td>
+<td>뒤에서 3번째 자리에 A가 들어가는 값 조회</td>
+</tr>
+<tr>
+<td>‘%ABC%’</td>
+<td>ABC 가 들어 있는 값 모두 조회</td>
+</tr>
+</tbody></table>
+<ul>
+<li>‘A%’ 값 조회</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> emp_name</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> emp_name <span class="keyword">LIKE</span> <span class="string">&#x27;A%&#x27;</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> emp_name;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>‘A’ 로 시작 되는 사원명 결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter03%5CUntitled%2014.png" alt="Untitled"></p>
+</li>
+<li><p>‘%a’ 값 조회</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> emp_name</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> emp_name <span class="keyword">LIKE</span> <span class="string">&#x27;%a&#x27;</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> emp_name;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>‘a’ 로 끝나는 사원명 결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter03%5CUntitled%2015.png" alt="Untitled"></p>
+</li>
+<li><p>‘__a%’ 값 조회</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> emp_name</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> emp_name <span class="keyword">LIKE</span> <span class="string">&#x27;__a%&#x27;</span> </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> emp_name;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>세 번째 자리에 ‘a’ 가 들어가는 사원명 결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter03%5CUntitled%2016.png" alt="Untitled"></p>
+</li>
+<li><p>‘%abc%’ 값 조회</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> emp_name</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> emp_name <span class="keyword">LIKE</span> <span class="string">&#x27;%ohn%&#x27;</span> </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> emp_name;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>‘ohn’ 이 들어간 사원명 모두 조회 결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter03%5CUntitled%2017.png" alt="Untitled"></p>
+</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/24/Error/Airflow_web_scheduler/" data-id="cl2nhynso0000vkv1hs3jcei7" data-title="[Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결🐱‍🏍" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/27/Oracle/chapter03/" data-id="cl2oflhyx000jrov11zi20uu5" data-title="🎈OracleSQL_Chapter 03" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Oracle/chapter02" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/25/Oracle/chapter02/" class="article-date">
+  <time class="dt-published" datetime="2022-04-25T00:00:00.000Z" itemprop="datePublished">2022-04-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/25/Oracle/chapter02/">🎈OracleSQL_Chapter 02</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="샘플-스키마"><a href="#샘플-스키마" class="headerlink" title="샘플 스키마"></a>샘플 스키마</h3><p><img src="/%5Cimages%5COracle%5Cchapter02%5CUntitled.png" alt="Untitled"></p>
+<h1 id="chapter-02"><a href="#chapter-02" class="headerlink" title="chapter 02"></a>chapter 02</h1><h3 id="02-테이블"><a href="#02-테이블" class="headerlink" title="02. 테이블"></a>02. 테이블</h3><h3 id="대표적인-데이터-베이스-객체"><a href="#대표적인-데이터-베이스-객체" class="headerlink" title="대표적인 데이터 베이스 객체"></a>대표적인 데이터 베이스 객체</h3><p><img src="/%5Cimages%5COracle%5Cchapter02%5CUntitled%201.png" alt="Untitled"></p>
+<h3 id="1-문자-데이터-타입"><a href="#1-문자-데이터-타입" class="headerlink" title="1. 문자 데이터 타입"></a>1. 문자 데이터 타입</h3><p><img src="/%5Cimages%5COracle%5Cchapter02%5CUntitled%202.png" alt="Untitled"></p>
+<ul>
+<li><p>SQL Developer (X), VS code pycharm 이클 립스 연동</p>
+</li>
+<li><p>테이블 생성 ex2_1</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> ex2_1 (</span><br><span class="line">COLUMN1 <span class="type">CHAR</span>(<span class="number">10</span>)</span><br><span class="line">, COLUMN2 VARCHAR2(<span class="number">10</span>)</span><br><span class="line">, COLUMN3 NVARCHAR2(<span class="number">10</span>)</span><br><span class="line">, COLUMN4 NUMBER</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>데이터 추가</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> ex2_1 </span><br><span class="line">    (COLUMN1, COLUMN2)</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="string">&#x27;abc&#x27;</span>, <span class="string">&#x27;abc&#x27;</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>데이터 확인</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">COLUMN1</span><br><span class="line">, LENGTH(COLUMN1) <span class="keyword">as</span> len1</span><br><span class="line">, COLUMN2</span><br><span class="line">, LENGTH(COLUMN2) <span class="keyword">as</span> len2</span><br><span class="line"><span class="keyword">FROM</span> ex2_1;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>테이블 생성 ex2_2</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> ex2_2(</span><br><span class="line">	COLUMN1     VARCHAR2(<span class="number">3</span>)</span><br><span class="line">	, COLUMN2   VARCHAR2(<span class="number">3</span> byte)</span><br><span class="line">	, COLUMN3   VARCHAR2(<span class="number">3</span> <span class="type">char</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>데이터 추가</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> ex2_2 <span class="keyword">VALUES</span>(<span class="string">&#x27;ABC&#x27;</span>, <span class="string">&#x27;ABC&#x27;</span>, <span class="string">&#x27;ABC&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>데이터 확인</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">COLUMN1</span><br><span class="line">, LENGTH(COLUMN1) <span class="keyword">as</span> len1</span><br><span class="line">, COLUMN2</span><br><span class="line">, LENGTH(COLUMN2) <span class="keyword">as</span> len2</span><br><span class="line">, COLUMN3</span><br><span class="line">, LENGTH(COLUMN3) <span class="keyword">as</span> len3</span><br><span class="line"><span class="keyword">FROM</span> ex2_2;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>데이터 추가</li>
+<li>오류 값 : “COLUMN1” 열에 대한 값이 너무 큼(실제: 6, 최대 값: 3)</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> ex2_2 <span class="keyword">VALUES</span> ( <span class="string">&#x27;홍길동&#x27;</span>, <span class="string">&#x27;홍길동&#x27;</span>, <span class="string">&#x27;홍길동&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>COLUMN3에만 데이터 추가</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> ex2_2 (column3) <span class="keyword">VALUES</span> (<span class="string">&#x27;홍길동&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>데이터 확인</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	COLUMN3</span><br><span class="line">	, LENGTH(COLUMN3) <span class="keyword">as</span> len3</span><br><span class="line">	, LENGTH(COLUMN3) <span class="keyword">as</span> bytelen</span><br><span class="line"><span class="keyword">FROM</span> ex2_2;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter02%5CUntitled%203.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="2-숫자-데이터-삽입"><a href="#2-숫자-데이터-삽입" class="headerlink" title="2. 숫자 데이터 삽입"></a>2. 숫자 데이터 삽입</h3><p><img src="/%5Cimages%5COracle%5Cchapter02%5CUntitled%204.png" alt="Untitled"></p>
+<ul>
+<li>테이블 생성</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> ex2_3 (</span><br><span class="line">	COL_INT <span class="type">INTEGER</span></span><br><span class="line">	, COL_DEC <span class="type">DECIMAL</span></span><br><span class="line">	, COL_NUM NUMBER</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>데이터 확인</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	column_id</span><br><span class="line">	, column_name</span><br><span class="line">	, data_type</span><br><span class="line">	, data_length</span><br><span class="line"><span class="keyword">FROM</span> user_tab_cols</span><br><span class="line"><span class="keyword">WHERE</span> table_name <span class="operator">=</span> <span class="string">&#x27;EX2_3&#x27;</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> column_id;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter02%5CUntitled%205.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="NUMBER형-예제"><a href="#NUMBER형-예제" class="headerlink" title="NUMBER형 예제"></a>NUMBER형 예제</h3><p><img src="/%5Cimages%5COracle%5Cchapter02%5CUntitled%206.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5COracle%5Cchapter02%5CUntitled%207.png" alt="Untitled"></p>
+<h3 id="3-FLOAT형으로-인한-오류-p-57"><a href="#3-FLOAT형으로-인한-오류-p-57" class="headerlink" title="3. FLOAT형으로 인한 오류(p.57)"></a>3. FLOAT형으로 인한 오류(p.57)</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> ex2_4 (</span><br><span class="line">	COL_FLOT1       <span class="type">FLOAT</span>(<span class="number">32</span>)</span><br><span class="line">	, COL_FLOT2     <span class="type">FLOAT</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>데이터 추가</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> ex2_4 (col_flot1, col_flot2) <span class="keyword">VALUES</span> (<span class="number">1234567891234</span>, <span class="number">1234567891234</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>데이터 조회</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> ex2_4;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-날짜-데이터-타입-p-58"><a href="#4-날짜-데이터-타입-p-58" class="headerlink" title="4. 날짜 데이터 타입 p.58"></a>4. 날짜 데이터 타입 p.58</h3><p><img src="/%5Cimages%5COracle%5Cchapter02%5CUntitled%208.png" alt="Untitled"></p>
+<h3 id="날짜-데이터-함수-종류"><a href="#날짜-데이터-함수-종류" class="headerlink" title="날짜 데이터 함수 종류"></a>날짜 데이터 함수 종류</h3><table>
+<thead>
+<tr>
+<th>데이터 타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SYSDATE</td>
+<td>컴퓨터의 시스템 시간을 알려 준다.</td>
+</tr>
+<tr>
+<td>MONTHS_BETWEEN</td>
+<td></td>
+</tr>
+<tr>
+<td>(날짜 1, 날짜 2) 형식</td>
+<td>날짜 1과 날짜 2 사이의 개월 수</td>
+</tr>
+<tr>
+<td>즉, 날짜 1(최근)&gt;날짜 2(전날) 이면 결과 값 (+)</td>
+<td></td>
+</tr>
+<tr>
+<td>날짜 1(최근)&lt;날짜 2(전날) 이면 결과 값 (-)</td>
+<td></td>
+</tr>
+<tr>
+<td>NEXT_DAY</td>
+<td></td>
+</tr>
+<tr>
+<td>(’기준 일자’, ‘찾을 요일’)</td>
+<td>기준 일자로부터 다음 지정 요일이 몇 일 인지를 구해 준다.</td>
+</tr>
+<tr>
+<td>LAST_DAY</td>
+<td></td>
+</tr>
+<tr>
+<td>(날짜)</td>
+<td>해당 월의 마지막 날짜</td>
+</tr>
+<tr>
+<td>ADD_MONTHS</td>
+<td></td>
+</tr>
+<tr>
+<td>(날짜, 개월 수)</td>
+<td>해당 날짜로부터 지정한 개월 수 뒤의 날짜</td>
+</tr>
+<tr>
+<td>ROUND&#x2F;TRUNC</td>
+<td>날짜를 반올림&#x2F;날짜를 버림</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>테이블 생성</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> ex2_5(</span><br><span class="line">	COL_DATE            <span class="type">DATE</span></span><br><span class="line">	, COL_TIMESTAMP     <span class="type">TIMESTAMP</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>데이터 추가</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> ex2_5 <span class="keyword">VALUES</span> (SYSDATE, SYSTIMESTAMP);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>데이터 조회</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> ex2_5;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter02%5CUntitled%209.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="5-LOB-데이터-타입"><a href="#5-LOB-데이터-타입" class="headerlink" title="5. LOB 데이터 타입"></a>5. LOB 데이터 타입</h3><ul>
+<li>LARGE OBJECT의 약자로 그래픽, 이미지, 음성, 바이너리 데이터, 사이즈가 큰 텍스트 데이터를 다루는 데이터 타입(비정형 데이터(대용량)를 저장할 때 쓰임)</li>
+<li>BFILE 타입은 읽기 전용 데이터 타입으로 로케이터(Locator) 지정 한다.<ul>
+<li>로케이터(Locator) 는 서버상의 바이너리 파일을 나타내는 파일의 주소와 이름으로 풀패스명을 지정하는 디렉토리별 이름이 포함 되어 있다.</li>
+</ul>
+</li>
+</ul>
+<p><img src="/%5Cimages%5COracle%5Cchapter02%5CUntitled%2010.png" alt="Untitled"></p>
+<h2 id="03-뷰"><a href="#03-뷰" class="headerlink" title="03. 뷰"></a>03. 뷰</h2><h3 id="1-뷰-생성"><a href="#1-뷰-생성" class="headerlink" title="1. 뷰 생성"></a>1. 뷰 생성</h3><ul>
+<li>테이블이나 또 다른 뷰를 참조하는 객체</li>
+<li>다른 테이블이나 뷰를 select 하는 구문으로 구성</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE OR REPLACE VIEW [스키마.]뷰명 AS</span><br><span class="line">SELECT 문장;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>기본 문법 예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> a.employee_id, a.emp_name, a.department_id,</span><br><span class="line">           b.department_name   <span class="comment">-- 부서명 컬럼</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	employees a</span><br><span class="line">	, departments b</span><br><span class="line"><span class="keyword">WHERE</span> a.department_id <span class="operator">=</span> b.department_id;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>뷰 생성 예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> REPLACE <span class="keyword">VIEW</span> emp_dept_v1 <span class="keyword">AS</span> <span class="comment">-- 뷰 생성 테이블 네임</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="comment">-- 뷰 테이블에 넣을 컬럼 </span></span><br><span class="line">    a.employee_id</span><br><span class="line">    , a.emp_name</span><br><span class="line">    , a.department_id</span><br><span class="line">    , b.department_name</span><br><span class="line"><span class="keyword">FROM</span> </span><br><span class="line">    employees a</span><br><span class="line">    , departments b</span><br><span class="line"><span class="keyword">WHERE</span> a.department_id <span class="operator">=</span> b.department_id;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> emp_dept_v1;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter02%5CUntitled%2011.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="2-뷰-삭제"><a href="#2-뷰-삭제" class="headerlink" title="2. 뷰 삭제"></a>2. 뷰 삭제</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP VIEW [스키마.]뷰명;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">VIEW</span> emp_dept_v1;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- View EMP_DEPT_V1이(가) 삭제되었습니다. </span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/04/25/Oracle/chapter02/" data-id="cl2oflzof000krov1fnzqgsh3" data-title="🎈OracleSQL_Chapter 02" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-install/vscodeMac" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/20/install/vscodeMac/" class="article-date">
+  <time class="dt-published" datetime="2022-04-20T00:00:00.000Z" itemprop="datePublished">2022-04-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/20/install/vscodeMac/">[Mac M1] Installation VSCode🐱‍🏍</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Visual-Studio-Code의-PATH를-설정"><a href="#Visual-Studio-Code의-PATH를-설정" class="headerlink" title="Visual Studio Code의 PATH를 설정"></a><strong>Visual Studio Code의 PATH를 설정</strong></h2><h2 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h2><h3 id="Step-01"><a href="#Step-01" class="headerlink" title="Step 01"></a>Step 01</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://code.visualstudio.com/Download">설치 파일 다운로드</a></li>
+<li>Mac <strong>Universal</strong> 인텔 CPU 맥과 애플 실리콘 맥북을 모두 지원한다는 의미.</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5CvscodeMac%5C%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-04-24_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_4.12.25.png" alt="스크린샷 2022-04-24 오후 4.12.25.png"></p>
+<h3 id="Step-02"><a href="#Step-02" class="headerlink" title="Step 02"></a>Step 02</h3><ul>
+<li>다운로드 된 파일 열기 → 다운로드 완료.</li>
+<li>다운로드 완료 된 vscode를 응용 프로그램으로 옮겨 준다.</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5CvscodeMac%5C%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-04-24_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_4.27.19.png" alt="스크린샷 2022-04-24 오후 4.27.19.png"></p>
+<h3 id="Step-03"><a href="#Step-03" class="headerlink" title="Step 03"></a>Step 03</h3><ul>
+<li>vscode 실행</li>
+<li>아래와 같이 뜨는데 공식 웹사이트에서 받았다면 보안 오류가 없다. 열기를 눌러 실행</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5CvscodeMac%5C%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-04-24_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_4.31.53.png" alt="스크린샷 2022-04-24 오후 4.31.53.png"></p>
+<h2 id="Visual-Studio-Code의-PATH를-설정-1"><a href="#Visual-Studio-Code의-PATH를-설정-1" class="headerlink" title="Visual Studio Code의 PATH를 설정"></a><strong>Visual Studio Code의 PATH를 설정</strong></h2><ul>
+<li>Terminal 에서 code . 가 제대로 열리지 않는다면,</li>
+</ul>
+<p><strong>code .<br>zsh: command not found: code</strong></p>
+<ul>
+<li>vscode 에서 command + shift + p(Show All Commands) → PATH 검색.</li>
+<li>Shell Command: Install ‘code’ command in PATH 클릭.</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5CvscodeMac%5C%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-04-24_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_4.40.36.png" alt="스크린샷 2022-04-24 오후 4.40.36.png"></p>
+<ul>
+<li>Terminal 실행</li>
+<li>code -v 버전 확인, code . 입력하여 vscode 열기.</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5CvscodeMac%5C%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-04-24_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_4.53.11.png" alt="스크린샷 2022-04-24 오후 4.53.11.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/04/20/install/vscodeMac/" data-id="cl2oaoezv000grov1gqtm6rtn" data-title="[Mac M1] Installation VSCode🐱‍🏍" class="article-share-link">Share</a>
       
       
       
@@ -173,8 +1443,8 @@
   
     <article id="post-install/Oracle" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/04/19/install/Oracle/" class="article-date">
-  <time class="dt-published" datetime="2022-04-19T00:00:00.000Z" itemprop="datePublished">2022-04-19</time>
+    <a href="/2022/04/18/install/Oracle/" class="article-date">
+  <time class="dt-published" datetime="2022-04-18T00:00:00.000Z" itemprop="datePublished">2022-04-18</time>
 </a>
     
   </div>
@@ -185,7 +1455,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/04/19/install/Oracle/">[Windows 10] Oracle Install🎊</a>
+      <a class="p-name article-title" href="/2022/04/18/install/Oracle/">[Windows 10] Oracle Install🐱‍🏍</a>
     </h1>
   
 
@@ -200,35 +1470,35 @@
 <li><strong>Oracle developer</strong> : <a target="_blank" rel="noopener" href="https://www.oracle.com/tools/downloads/sqldev-downloads.html">https://www.oracle.com/tools/downloads/sqldev-downloads.html</a></li>
 </ul>
 <p><strong>설치 파일 : sqldeveloper-21.4.3.063.0100-x64</strong></p>
-<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled.png" alt="Untitled"></p>
 <ul>
 <li><strong>Oracle Database 19<em>c</em> (19.3)</strong><br><a target="_blank" rel="noopener" href="https://www.oracle.com/database/technologies/oracle19c-windows-downloads.html">https://www.oracle.com/database/technologies/oracle19c-windows-downloads.html</a></li>
 </ul>
 <p><strong>설치 파일 : WINDOWS.X64_193000_db_home</strong></p>
-<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%201.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%201.png" alt="Untitled"></p>
 <h3 id="Step-02-설치"><a href="#Step-02-설치" class="headerlink" title="Step 02_설치"></a>Step 02_설치</h3><ul>
 <li>setup 응용 프로그램 - 관리자 권한으로 실행</li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%202.png" alt="Untitled"></p>
-<h3 id="단일-인스턴트-데이터베이스-생성"><a href="#단일-인스턴트-데이터베이스-생성" class="headerlink" title="단일 인스턴트 데이터베이스 생성"></a><strong>단일 인스턴트 데이터베이스 생성</strong></h3><p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%203.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%202.png" alt="Untitled"></p>
+<h3 id="단일-인스턴트-데이터베이스-생성"><a href="#단일-인스턴트-데이터베이스-생성" class="headerlink" title="단일 인스턴트 데이터베이스 생성"></a><strong>단일 인스턴트 데이터베이스 생성</strong></h3><p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%203.png" alt="Untitled"></p>
 <ul>
 <li>아래와 같이 기본적을 설정되어 있는 대로 진행</li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%204.png" alt="Untitled"></p>
-<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%205.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%204.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%205.png" alt="Untitled"></p>
 <ul>
 <li>컨테이너 데이터 베이스 생성 선택 해제</li>
 <li>이름 myoracle 비밀번호 1234</li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%206.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%206.png" alt="Untitled"></p>
 <ul>
 <li>설정 후 뜨는 창에 예 하고 설치!</li>
 </ul>
 <h3 id="소프트웨어만-설정-단일-선택에서-비밀번호-오류가-날-때"><a href="#소프트웨어만-설정-단일-선택에서-비밀번호-오류가-날-때" class="headerlink" title="소프트웨어만 설정(단일 선택에서 비밀번호 오류가 날 때)"></a>소프트웨어만 설정(단일 선택에서 비밀번호 오류가 날 때)</h3><ul>
 <li>DB가 깔리지 않음.</li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%207.png" alt="Untitled"></p>
-<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%208.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%207.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%208.png" alt="Untitled"></p>
 <ul>
 <li>cmd 관리자 실행<ul>
 <li>경로 설정은 oracle이 깔려 있는  폴더-파일 지정 후, dbca 설치 파일 실행</li>
@@ -236,27 +1506,27 @@
 </ul>
 </li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%209.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%209.png" alt="Untitled"></p>
 <ul>
 <li>저장 영역 유형 : <strong>ASM(자동 저장 영역 관리)</strong> 설정</li>
 <li>이름 : myoracle 비밀 번호 : 1234</li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2010.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2010.png" alt="Untitled"></p>
 <ul>
 <li><strong>에러 나면,</strong> 저장 영역 유형에서 <strong>파일 시스템</strong>으로 지정</li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2011.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2011.png" alt="Untitled"></p>
 <ul>
 <li>예를 누르고 창이 뜨면 완료 누르고 설치.</li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2012.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2012.png" alt="Untitled"></p>
 <h3 id="Step-03-테이블-스페이스-생성"><a href="#Step-03-테이블-스페이스-생성" class="headerlink" title="Step 03_테이블 스페이스 생성"></a>Step 03_테이블 스페이스 생성</h3><ul>
 <li>윈도우 검색 창에 sqlplus 입력 → 관리자 권한 실행<ul>
 <li>사용자명 입력 : system 비밀번호 :  1234(oracle 설치 시 지정한 비번 동일하게)</li>
 </ul>
 </li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2013.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2013.png" alt="Untitled"></p>
 <ul>
 <li>CREATE TABLESPACE myts DATAFILE ‘C:\app\oradata\MYORACLE\myts.dbf’ SIZE 100M AUTOEXTEND ON NEXT 5M;<ul>
 <li>빨간 부분만 변경.(C drive에 있는 폴더 이름으로 지정)</li>
@@ -268,57 +1538,57 @@
 </ul>
 </li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2014.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2014.png" alt="Untitled"></p>
 <ul>
 <li>GRANT DBA TO ora_user; → select user from dual; → connect ora_user&#x2F;evan; → select user from dual;</li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2015.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2015.png" alt="Untitled"></p>
 <ul>
 <li>새로운 유저 추가</li>
 <li><code>CREATE USER ora_user2 IDENTIFIED BY evan DEFAULT TABLESPACE MYTS TEMPORARY TABLESPACE TEMP;</code></li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2016.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2016.png" alt="Untitled"></p>
 <ul>
 <li>위와 동일 하게 진행</li>
 </ul>
 <h3 id="Step-04-developer-설치"><a href="#Step-04-developer-설치" class="headerlink" title="Step 04_developer 설치"></a>Step 04_developer 설치</h3><ul>
 <li>응용프로그램 클릭 → 아니오 → 확인</li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2017.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2017.png" alt="Untitled"></p>
 <ul>
 <li>초록색 플러스 누르고 Name, 이름, 비번, SID 설정</li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2018.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2018.png" alt="Untitled"></p>
 <ul>
 <li>오류 난다면, Net Configuration Assistant 클릭</li>
 <li>lsnrctl status 입력</li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2019.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2019.png" alt="Untitled"></p>
 <ul>
 <li>재 접속<ul>
 <li>Name, 이름, 비번(ora_user 생성 시 쓴 이름(evan)), SID 적고 테스트 → 접속</li>
 </ul>
 </li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2020.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2020.png" alt="Untitled"></p>
 <ul>
 <li><p>완료 된 화면</p>
-<p>  <img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2021.png" alt="Untitled"></p>
+<p>  <img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2021.png" alt="Untitled"></p>
 </li>
 <li><p>실행</p>
 </li>
 <li><p>도구 - 환경 설정 - 데이터 베이스 - NLS - 시간 기록 형식(YYYY&#x2F;MM&#x2F;DD HH24:MI:SS) 변경</p>
 </li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2022.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2022.png" alt="Untitled"></p>
 <ul>
 <li><p>다운로드 :  <a target="_blank" rel="noopener" href="https://github.com/gilbutITbook/006696/tree/master/01%EC%9E%A5%20%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95">https://github.com/gilbutITbook/006696/tree/master/01장 환경설정</a></p>
-<p>  <img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2023.png" alt="Untitled"></p>
+<p>  <img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2023.png" alt="Untitled"></p>
 </li>
 <li><p>C drive 에 backup 폴더 생성 후 다운 받은 파일 넣기</p>
 </li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2024.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2024.png" alt="Untitled"></p>
 <ul>
 <li>cmd 에서 backup폴더로 경로 설정</li>
 <li>imp ora_user&#x2F;evan file&#x3D;expall.dmp log&#x3D;empall.log ignore&#x3D;y grants&#x3D;y rows&#x3D;y indexes&#x3D;y full&#x3D;y<ul>
@@ -326,91 +1596,24 @@
 </ul>
 </li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2025.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2025.png" alt="Untitled"></p>
 <ul>
 <li>imp ora_user&#x2F;evan file&#x3D;expcust.dmp log&#x3D;expcust.log ignore&#x3D;y grants&#x3D;y rows&#x3D;y indexes&#x3D;y full&#x3D;y<ul>
 <li>빨간 부분 설정한 값으로 변경</li>
 </ul>
 </li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2026.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2026.png" alt="Untitled"></p>
 <h3 id="Step-05-oracle-developer-테스트"><a href="#Step-05-oracle-developer-테스트" class="headerlink" title="Step 05_oracle developer 테스트"></a>Step 05_oracle developer 테스트</h3><ul>
 <li>SELECT table_name FROM user_tables; 입력</li>
 <li>아래와 같이 값이 뜨면 된다.</li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Oracle%20Install%F0%9F%8E%8A%200166e410cb4d48dea47f957b00b96131/Untitled%2027.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2027.png" alt="Untitled"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/19/install/Oracle/" data-id="cl2nhi02n000bikv1fcmscr82" data-title="[Windows 10] Oracle Install🎊" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-install/vscodeMac" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/04/17/install/vscodeMac/" class="article-date">
-  <time class="dt-published" datetime="2022-04-17T00:00:00.000Z" itemprop="datePublished">2022-04-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/04/17/install/vscodeMac/">[Mac M1] Installation VSCode✨</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="Visual-Studio-Code의-PATH를-설정"><a href="#Visual-Studio-Code의-PATH를-설정" class="headerlink" title="Visual Studio Code의 PATH를 설정"></a><strong>Visual Studio Code의 PATH를 설정</strong></h2><h2 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h2><h3 id="Step-01"><a href="#Step-01" class="headerlink" title="Step 01"></a>Step 01</h3><ul>
-<li>설치 파일 다운로드 : <a target="_blank" rel="noopener" href="https://code.visualstudio.com/Download">https://code.visualstudio.com/Download</a></li>
-<li>Mac <strong>Universal</strong><br>인텔 CPU 맥과 애플 실리콘 맥북을 모두 지원한다는 의미.</li>
-</ul>
-<p><img src="/%5BMac%20M1%5D%20Installation%20VSCode%20%E2%9C%A8%20a9fcb642748b454c91b57abc0bf486f7/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-04-24_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_4.12.25.png" alt="스크린샷 2022-04-24 오후 4.12.25.png"></p>
-<h3 id="Step-02"><a href="#Step-02" class="headerlink" title="Step 02"></a>Step 02</h3><ul>
-<li>다운로드 된 파일 열기 → 다운로드 완료.</li>
-<li>다운로드 완료 된 vscode를 응용 프로그램으로 옮겨 준다.</li>
-</ul>
-<p><img src="/%5BMac%20M1%5D%20Installation%20VSCode%20%E2%9C%A8%20a9fcb642748b454c91b57abc0bf486f7/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-04-24_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_4.27.19.png" alt="스크린샷 2022-04-24 오후 4.27.19.png"></p>
-<h3 id="Step-03"><a href="#Step-03" class="headerlink" title="Step 03"></a>Step 03</h3><ul>
-<li>vscode 실행</li>
-<li>아래와 같이 뜨는데 공식 웹사이트에서 받았다면 보안 오류가 없다. 열기를 눌러 실행</li>
-</ul>
-<p><img src="/%5BMac%20M1%5D%20Installation%20VSCode%20%E2%9C%A8%20a9fcb642748b454c91b57abc0bf486f7/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-04-24_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_4.31.53.png" alt="스크린샷 2022-04-24 오후 4.31.53.png"></p>
-<h2 id="Visual-Studio-Code의-PATH를-설정-1"><a href="#Visual-Studio-Code의-PATH를-설정-1" class="headerlink" title="Visual Studio Code의 PATH를 설정"></a><strong>Visual Studio Code의 PATH를 설정</strong></h2><ul>
-<li>Terminal 에서 code . 가 제대로 열리지 않는다면,</li>
-</ul>
-<p><strong>code .<br>zsh: command not found: code</strong></p>
-<ul>
-<li>vscode 에서 command + shift + p(Show All Commands) → PATH 검색.</li>
-<li>Shell Command: Install ‘code’ command in PATH 클릭.</li>
-</ul>
-<p><img src="/%5BMac%20M1%5D%20Installation%20VSCode%20%E2%9C%A8%20a9fcb642748b454c91b57abc0bf486f7/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-04-24_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_4.40.36.png" alt="스크린샷 2022-04-24 오후 4.40.36.png"></p>
-<ul>
-<li>Terminal 실행</li>
-<li>code -v 버전 확인, code . 입력하여 vscode 열기.</li>
-</ul>
-<p><img src="/%5BMac%20M1%5D%20Installation%20VSCode%20%E2%9C%A8%20a9fcb642748b454c91b57abc0bf486f7/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-04-24_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_4.53.11.png" alt="스크린샷 2022-04-24 오후 4.53.11.png"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/17/install/vscodeMac/" data-id="cl2nhi03m000gikv18k9t5o52" data-title="[Mac M1] Installation VSCode✨" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/18/install/Oracle/" data-id="cl2oaoezn000arov132gadm6u" data-title="[Windows 10] Oracle Install🐱‍🏍" class="article-share-link">Share</a>
       
       
       
@@ -424,8 +1627,8 @@
   
     <article id="post-install/Spark" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/04/14/install/Spark/" class="article-date">
-  <time class="dt-published" datetime="2022-04-14T00:00:00.000Z" itemprop="datePublished">2022-04-14</time>
+    <a href="/2022/04/18/install/Spark/" class="article-date">
+  <time class="dt-published" datetime="2022-04-18T00:00:00.000Z" itemprop="datePublished">2022-04-18</time>
 </a>
     
   </div>
@@ -436,7 +1639,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/04/14/install/Spark/">[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍</a>
+      <a class="p-name article-title" href="/2022/04/18/install/Spark/">[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍</a>
     </h1>
   
 
@@ -469,7 +1672,7 @@
 <li><p>설치 주소 : <strong><a target="_blank" rel="noopener" href="https://www.rarlab.com/download.htm">https://www.rarlab.com/download.htm</a></strong></p>
 </li>
 <li><p>winRAR x64 (64 bit) 6.11 다운로드(각 컴퓨터 사양에 맞게 설치)</p>
-<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/winRAR_%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C.png" alt="winRAR 다운로드.PNG"></p>
+<p>  <img src="/%5Cimages%5Cinstall%5CSpark%5CwinRAR_%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C.png" alt="winRAR 다운로드.PNG"></p>
 </li>
 </ul>
 <ol>
@@ -480,7 +1683,7 @@
 <li>설치 URL: <strong><a target="_blank" rel="noopener" href="https://www.apache.org/dyn/closer.lua/spark/spark-3.2.0/spark-3.2.0-bin-hadoop3.2.tgz">https://www.apache.org/dyn/closer.lua/spark/spark-3.2.0/spark-3.2.0-bin-hadoop3.2.tgz</a></strong> (2022년 1월 기준)</li>
 <li>아래와 같이 3.2.0 버전을 다운로드 하였다.</li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/%EB%91%90%EB%B2%88%EC%A7%B8.png" alt="두번째.PNG"></p>
+<p><img src="/%5Cimages%5Cinstall%5CSpark%5C%EB%91%90%EB%B2%88%EC%A7%B8.png" alt="두번째.PNG"></p>
 <ol>
 <li><strong><strong>winutils 다운로드</strong></strong></li>
 </ol>
@@ -490,16 +1693,16 @@
 <li><p>설치 파일 :  <strong><a target="_blank" rel="noopener" href="https://github.com/cdarlint/winutils">https://github.com/cdarlint/winutils</a></strong></p>
 </li>
 <li><p>각 설치 버전에 맞는 winutils를 다운로드 받는다.</p>
-<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/%ED%95%98%EB%91%A1%EB%B2%84%EC%A0%84%EC%84%A0%ED%83%9D_1.png" alt="하둡버전선택 1.PNG"></p>
+<p>  <img src="/%5Cimages%5Cinstall%5CSpark%5C%ED%95%98%EB%91%A1%EB%B2%84%EC%A0%84%EC%84%A0%ED%83%9D_1.png" alt="하둡버전선택 1.PNG"></p>
 </li>
 <li><p>hadoop-3.2.0 버전 폴더 들어가 다운로드</p>
 </li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/%ED%95%98%EB%91%A1%EB%B2%84%EC%A0%84%EC%84%A0%ED%83%9D_2.png" alt="하둡버전선택 2.PNG"></p>
+<p><img src="/%5Cimages%5Cinstall%5CSpark%5C%ED%95%98%EB%91%A1%EB%B2%84%EC%A0%84%EC%84%A0%ED%83%9D_2.png" alt="하둡버전선택 2.PNG"></p>
 <h3 id="Step-02-Java-spark-hadoop-다운로드"><a href="#Step-02-Java-spark-hadoop-다운로드" class="headerlink" title="Step 02 Java, spark, hadoop 다운로드"></a><strong><strong>Step 02 Java, spark, hadoop 다운로드</strong></strong></h3><ul>
 <li>다운 받은 4개의 파일을 C드라이브 hadoop 폴더를 생성 후 집어 넣어 주기.</li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/hadoop_Folder.png" alt="hadoop Folder.PNG"></p>
+<p><img src="/%5Cimages%5Cinstall%5CSpark%5Chadoop_Folder.png" alt="hadoop Folder.PNG"></p>
 <ol>
 <li><strong>JAVA 다운로드</strong></li>
 </ol>
@@ -509,27 +1712,27 @@
 <li><p>Install to : \program Files.…. 설치 파일 주소를 볼 때, 처음 설치 시 주소에 빈칸 없이 지정 해준다.</p>
 </li>
 <li><p>change …에 들어 가서 주소를 변경 해준다.</p>
-<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/1..png" alt="1..PNG"></p>
+<p>  <img src="/%5Cimages%5Cinstall%5CSpark%5C1..png" alt="1..PNG"></p>
 </li>
 <li><p>Folder name: C:\jdk  변경.</p>
-<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/2..png" alt="2.,.PNG"></p>
+<p>  <img src="/%5Cimages%5Cinstall%5CSpark%5C2..png" alt="2.,.PNG"></p>
 </li>
 <li><p>대상 폴더에서 변경을 눌러 준다.</p>
 </li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/3..png" alt="3..PNG"></p>
+<p><img src="/%5Cimages%5Cinstall%5CSpark%5C3..png" alt="3..PNG"></p>
 <ul>
 <li><p>C 드라이브 → 새 폴더 만들기 → jre 폴더 생성 → 확인.</p>
-<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/4.png" alt="4.PNG"></p>
+<p>  <img src="/%5Cimages%5Cinstall%5CSpark%5C4.png" alt="4.PNG"></p>
 </li>
 <li><p>확인 후 변경 된 설치 위치를 확인 할 수 있다.</p>
 </li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/5.png" alt="5.PNG"></p>
+<p><img src="/%5Cimages%5Cinstall%5CSpark%5C5.png" alt="5.PNG"></p>
 <ul>
 <li>C 드라이브 자바 설치 완료!</li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/jdk_jre_%EC%83%9D%EC%84%B1_%ED%8C%8C%EC%9D%BC_%ED%99%95%EC%9D%B8.png" alt="jdk, jre 생성 파일 확인.PNG"></p>
+<p><img src="/%5Cimages%5Cinstall%5CSpark%5Cjdk_jre_%EC%83%9D%EC%84%B1_%ED%8C%8C%EC%9D%BC_%ED%99%95%EC%9D%B8.png" alt="jdk, jre 생성 파일 확인.PNG"></p>
 <ol>
 <li><strong>WinRAR 설치</strong></li>
 </ol>
@@ -537,7 +1740,7 @@
 <li><p>관리자 권한으로 실행</p>
 </li>
 <li><p>Toggle all 클릭 → OK → spark 설치 위한 응용 프로그램 설치 완료.</p>
-<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/w1.png" alt="w1.PNG"></p>
+<p>  <img src="/%5Cimages%5Cinstall%5CSpark%5Cw1.png" alt="w1.PNG"></p>
 </li>
 </ul>
 <ol>
@@ -547,18 +1750,18 @@
 <li><p>winRAR 프로그램이 적용 된 spark-3.2.0을 설치</p>
 </li>
 <li><p>설치 시 마우스 우 클릭 Extract to “spark-3.2.0-bin-hadoop3.2\”  클릭하여 설치</p>
-<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/21.png" alt="21.PNG"></p>
+<p>  <img src="/%5Cimages%5Cinstall%5CSpark%5C21.png" alt="21.PNG"></p>
 </li>
 <li><p>다운로드 된 spark 폴더를 복사해 C 드라이브에 붙여 넣어 준다.</p>
 </li>
 <li><p>C 드라이브에 있는 spark 폴더 → conf 폴더 → log4j.properties.template 파일 메모장으로 열기</p>
-<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/spark_%EC%97%B0%EA%B2%B0%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EB%A9%94%EB%AA%A8%EC%9E%A5.png" alt="spark 연결프로그램-메모장.PNG"></p>
+<p>  <img src="/%5Cimages%5Cinstall%5CSpark%5Cspark_%EC%97%B0%EA%B2%B0%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EB%A9%94%EB%AA%A8%EC%9E%A5.png" alt="spark 연결프로그램-메모장.PNG"></p>
 </li>
 <li><p>메모장으로 열린 파일에서 log4j.rootCategory&#x3D;INFO → ERROR 변경 후 저장.</p>
-<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/11_info-error.png" alt="11 info-error.PNG"></p>
+<p>  <img src="/%5Cimages%5Cinstall%5CSpark%5C11_info-error.png" alt="11 info-error.PNG"></p>
 </li>
 <li><p>C drive → winutils 폴더 생성 → bin 폴더 생성 → hadoop폴더에서 winutils 파일 복사해서 붙이기</p>
-<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/%ED%95%98%EB%91%A1%ED%8F%B4%EB%8D%94%EC%97%90%EC%84%9C_%EB%B3%B5%EC%82%AC%ED%95%B4%EC%84%9C_%EA%B0%80%EC%A3%A0%EC%98%A4%EA%B8%B0.png" alt="하둡폴더에서 복사해서 가죠오기.PNG"></p>
+<p>  <img src="/%5Cimages%5Cinstall%5CSpark%5C%ED%95%98%EB%91%A1%ED%8F%B4%EB%8D%94%EC%97%90%EC%84%9C_%EB%B3%B5%EC%82%AC%ED%95%B4%EC%84%9C_%EA%B0%80%EC%A3%A0%EC%98%A4%EA%B8%B0.png" alt="하둡폴더에서 복사해서 가죠오기.PNG"></p>
 </li>
 </ul>
 <h3 id="winutils-설치"><a href="#winutils-설치" class="headerlink" title="winutils 설치"></a>winutils 설치</h3><ul>
@@ -566,12 +1769,12 @@
 <li>cmd 관리자 권한으로 실행 후 아래와 같이 적어준다.</li>
 <li>경로 설정 : C:\winutils\bin&gt; → winutils.exe chmod 777 \tmp\hive</li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/cmd_%EA%B4%80%EB%A6%AC%EC%9E%90%EA%B6%8C%ED%95%9C_%EC%8B%A4%ED%96%89.png" alt="cmd 관리자권한 실행.PNG"></p>
+<p><img src="/%5Cimages%5Cinstall%5CSpark%5Ccmd_%EA%B4%80%EB%A6%AC%EC%9E%90%EA%B6%8C%ED%95%9C_%EC%8B%A4%ED%96%89.png" alt="cmd 관리자권한 실행.PNG"></p>
 <h3 id="환경-변수-설정"><a href="#환경-변수-설정" class="headerlink" title="환경 변수 설정"></a>환경 변수 설정</h3><ul>
 <li><p>시스템 환경 변수 설정</p>
 </li>
 <li><p>사용자 변수 → 새로 만들기</p>
-<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/spark_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98%EC%84%A4%EC%A0%95_1.png" alt="spark 환경변수설정 1.PNG"></p>
+<p>  <img src="/%5Cimages%5Cinstall%5CSpark%5Cspark_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98%EC%84%A4%EC%A0%95_1.png" alt="spark 환경변수설정 1.PNG"></p>
 </li>
 </ul>
 <ol>
@@ -581,7 +1784,7 @@
 <li>변수 이름 : SPARK_HOME</li>
 <li>변수 값 : 파일 찾아보기 → C drive - spark 폴더 경로 복사 붙이기.</li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/spark_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98%EC%84%A4%EC%A0%95_2.png" alt="spark 환경변수설정 2.PNG"></p>
+<p><img src="/%5Cimages%5Cinstall%5CSpark%5Cspark_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98%EC%84%A4%EC%A0%95_2.png" alt="spark 환경변수설정 2.PNG"></p>
 <ol>
 <li><strong>JAVA_HOME 환경 변수 설정</strong></li>
 </ol>
@@ -589,7 +1792,7 @@
 <li>변수 이름 : JAVA_HOME</li>
 <li>변수 값 : 파일 찾아보기 → C drive - jdk 폴더 경로 복사 붙이기.</li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/java.png" alt="java.PNG"></p>
+<p><img src="/%5Cimages%5Cinstall%5CSpark%5Cjava.png" alt="java.PNG"></p>
 <ol>
 <li><strong>HADOOP_HOME 환경 변수 설정</strong></li>
 </ol>
@@ -597,10 +1800,10 @@
 <li>변수 이름 : HADOOP_HOME</li>
 <li>변수 값 : 파일 찾아보기 → C drive - winutils 폴더 경로 복사 붙이기.</li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/hadoop.png" alt="hadoop.PNG"></p>
+<p><img src="/%5Cimages%5Cinstall%5CSpark%5Chadoop.png" alt="hadoop.PNG"></p>
 <ol>
 <li><p><strong>사용자 변수 path 변수 편집</strong></p>
-<p> <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/path.png" alt="path.PNG"></p>
+<p> <img src="/%5Cimages%5Cinstall%5CSpark%5Cpath.png" alt="path.PNG"></p>
 </li>
 </ol>
 <ul>
@@ -608,7 +1811,7 @@
 <li>%SPARK_HOME%\bin</li>
 <li>%JAVA_HOME%\bin</li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/1.png" alt="1.PNG"></p>
+<p><img src="/%5Cimages%5Cinstall%5CSpark%5C1.png" alt="1.PNG"></p>
 <h3 id="파이썬-환경-설정"><a href="#파이썬-환경-설정" class="headerlink" title="파이썬 환경 설정"></a>파이썬 환경 설정</h3><ol>
 <li><strong>python 환경 설정 추가</strong></li>
 </ol>
@@ -617,17 +1820,17 @@
 <li>변수 이름 : PYSPARK_PYTHON</li>
 <li>변수 값 : python</li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/2.png" alt="2.PNG"></p>
+<p><img src="/%5Cimages%5Cinstall%5CSpark%5C2.png" alt="2.PNG"></p>
 <h3 id="step-03-spark-test"><a href="#step-03-spark-test" class="headerlink" title="step 03. spark test"></a>step 03. spark test</h3><ul>
 <li>cmd 관리자 권한으로 실행.</li>
 <li>경로 설정 : C:\spark&gt; 후 pyspark 입력 → 아래와 같이 뜨면 설치 성공.</li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/10.png" alt="10.PNG"></p>
+<p><img src="/%5Cimages%5Cinstall%5CSpark%5C10.png" alt="10.PNG"></p>
 <ul>
 <li><p>Enter 누르고 아래와 같이 코드가 실행되는지 입력하여 확인하여 준다.</p>
 </li>
 <li><p><code>rd = sc.textFile(&quot;README.md&quot;)</code> → <code>rd.count()</code></p>
-<p>  <img src="/%5BWindows%2010%5D%20Spark%20Installation%20and%20JAVA,%20hadoop%F0%9F%90%B1%E2%80%8D%20cca7ac82a6e34819a55b00c3f7c7ceba/30.png" alt="30.PNG"></p>
+<p>  <img src="/%5Cimages%5Cinstall%5CSpark%5C30.png" alt="30.PNG"></p>
 </li>
 </ul>
 <p>참조 출처 : <a target="_blank" rel="noopener" href="https://dschloe.github.io/python/python_edu/00_settings/spark_installation_windows_10/">https://dschloe.github.io/python/python_edu&#x2F;00_settings&#x2F;spark_installation_windows_10&#x2F;</a></p>
@@ -635,7 +1838,133 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/14/install/Spark/" data-id="cl2nhi02o000cikv19qf008fr" data-title="[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/18/install/Spark/" data-id="cl2oaoezq000crov1242pgmok" data-title="[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-install/GitBash" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/15/install/GitBash/" class="article-date">
+  <time class="dt-published" datetime="2022-04-15T00:00:00.000Z" itemprop="datePublished">2022-04-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/15/install/GitBash/">[Windows 10] Git bash 가상 환경✨</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Step-01-폴더-만들고-기본-경로-설정"><a href="#Step-01-폴더-만들고-기본-경로-설정" class="headerlink" title="Step 01_폴더 만들고 기본 경로 설정"></a>Step 01_폴더 만들고 기본 경로 설정</h3><ul>
+<li>경로 찾기<br>which python</li>
+<li>아래와 같이 경로 값이 나오면 된다.</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5CGitBash%5Cwhich_python.png" alt="which python.PNG"></p>
+<h3 id="Step-02-vs-code-가상-환경-실행"><a href="#Step-02-vs-code-가상-환경-실행" class="headerlink" title="Step 02_vs code 가상 환경 실행"></a>Step 02_vs code 가상 환경 실행</h3><ul>
+<li><p>code .  → 터미널에서 git bash 선택. → 만들어 놓은 폴더 경로 설정.</p>
+</li>
+<li><p>virtualenv venv  입력<br>bash: virtualenv: command not found 뜨면, **pip install virtualenv(**가상 환경 설치)</p>
+<p>  <img src="/%5Cimages%5Cinstall%5CGitBash%5Cgit_bash_not_found_error.png" alt="git bash not found error.PNG"></p>
+</li>
+<li><p>가상 환경 활성화<br>source venv&#x2F;Scripts&#x2F;activate 입력 하면, 아래와 같이 활성화가 된 모습이 확인 된다.</p>
+</li>
+<li><p>필요에 따라 라이브러리 설치(pandas, numpy ….)</p>
+<p>  <img src="/%5Cimages%5Cinstall%5CGitBash%5C3.png" alt="3.PNG"></p>
+</li>
+<li><p>pip install 했을 때, 만들어 놓은 폴더 - venv 폴더 - Lib 폴더에 새로운 라이브러리가 잘 설치되고 있는지 확인을 해줘야 한다.</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/04/15/install/GitBash/" data-id="cl2oaoezk0008rov1cbal07r2" data-title="[Windows 10] Git bash 가상 환경✨" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Error/Airflow_web_scheduler" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/14/Error/Airflow_web_scheduler/" class="article-date">
+  <time class="dt-published" datetime="2022-04-14T00:00:00.000Z" itemprop="datePublished">2022-04-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/14/Error/Airflow_web_scheduler/">[Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결✨</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="airflow-webserver-p-8081-airflow-scheduler-오류✨"><a href="#airflow-webserver-p-8081-airflow-scheduler-오류✨" class="headerlink" title="airflow webserver -p 8081 + airflow scheduler 오류✨"></a>airflow webserver -p 8081 + airflow scheduler 오류✨</h2><ul>
+<li>두 개를 동시에 열어야 하기 때문에 하나라도 안되면 결과 값이 뜨지 않는다.</li>
+</ul>
+<ol>
+<li><strong>오류 확인.</strong></li>
+</ol>
+<ul>
+<li>코드와 데이터 모두 맞게 작성 하고 웹 서버를 실행 했으나, 아무것도 뜨지 않는다.</li>
+<li>원래 가상 환경이 아닌 환경에서 되면 안되는데, 실행이 되지 않아 다른 방법을 썼다.</li>
+</ul>
+<hr>
+<ol>
+<li>각 <strong>webserver 리눅스와 scheduler 리눅스에서 확인.</strong></li>
+</ol>
+<ul>
+<li>vi ~&#x2F;.bashrc 환경 변수 편집 열어 내가 작업 중인 폴더와 이름이 같은지 확인.</li>
+<li>echo $AIRFLOW_HOME 입력 하였으나 아무것도 뜨지 않는다면, source ~&#x2F;.bashrc 환경 변수를 적용해주는 코드를 적고 다시 echo $AIRFLOW_HOME 확인.</li>
+<li>제대로 뜬다면, 각 리눅스 환경에서 웹 서버 번호와 scheduler 실행, 뜬다면 성공!</li>
+</ul>
+<p><img src="/%5Cimages%5CError%5Cerror.png" alt="스케쥴러 오류 날 시.PNG"></p>
+<hr>
+<ol>
+<li>기타</li>
+</ol>
+<ul>
+<li>나는 기존에 저장 되어 있던 폴더(aiflow_test) 말고 다른 폴더로 변경 하였다. 그래서 환경 변수에서  $AIRFLOW_HOME&#x3D;&#x2F;mnt&#x2F;c&#x2F;airflow_t 저장해 놓았다. 작업하려는 폴더와 현재 폴더에 따라서 변경을 해줘야 한다.</li>
+<li>확인 코드 </li>
+<li>vi ~&#x2F;.bashrc(편집)</li>
+<li>echo $AIRFLOW_HOME(확인)_값이 잘 떴음. 안 뜰 경우 오타 확인 </li>
+<li>source ~&#x2F;.bashrc(적용)</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/04/14/Error/Airflow_web_scheduler/" data-id="cl2oaoevq0000rov1ax4d6uj4" data-title="[Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결✨" class="article-share-link">Share</a>
       
       
       
@@ -661,7 +1990,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/04/12/install/PostgreSQL/">[Windows 10] PostgreSQL Installation on WSL2 and Windows✨</a>
+      <a class="p-name article-title" href="/2022/04/12/install/PostgreSQL/">[Windows 10] PostgreSQL Installation on WSL2 and Windows🐱‍🏍</a>
     </h1>
   
 
@@ -671,7 +2000,7 @@
       
         <p>주의할 점! 절대 PostgreSQL 14라고 따로 웹사이트에서 다운 받아 놓지 말자! 다운 받아 놓고 WSL2에서 설치 후 paAdmin에서 설정 시 오류가 난다. (이유 : 컴퓨터가 윈도우에 깔린 파일을 일순위로 잡아버리기 때문이다.) </p>
 <p>!!!!!!! 시작하기 전, ls → cd .. → ls 적고 아래와 같이 두 줄 나오면!!!!!!!!</p>
-<p><img src="/%5BWindows%2010%5D%20PostgreSQL%20Installation%20on%20WSL2%20and%20W%20525b7edb00df4156a8ef911a32397620/%EC%9C%84%EC%B9%98%EC%9E%A1%EA%B8%B0.png" alt="위치잡기.PNG"></p>
+<p><img src="/%5Cimages%5Cinstall%5CPostgreSQL%5C1.png" alt="위치잡기.PNG"></p>
 <p>sudo apt-get update &amp;&amp; sudo apt-get upgrade 입력!! &lt;항상 설치하거나, 시작할 때 해주기&gt;</p>
 <ol>
 <li>sudo apt install postgresql postgresql-contrib</li>
@@ -736,7 +2065,7 @@
 <h3 id="pgAdmin-Installation-on-Windows"><a href="#pgAdmin-Installation-on-Windows" class="headerlink" title="pgAdmin Installation on Windows"></a>pgAdmin Installation on Windows</h3><p>pgAdmin 설치 : <strong><a target="_blank" rel="noopener" href="https://www.pgadmin.org/download/pgadmin-4-windows/">https://www.pgadmin.org/download/pgadmin-4-windows/</a><br>→ 최신 버전으로 설치 해 줄 것</strong></p>
 <ul>
 <li><p>설치 시 아래와 같이 선택.</p>
-<p>  <img src="/%5BWindows%2010%5D%20PostgreSQL%20Installation%20on%20WSL2%20and%20W%20525b7edb00df4156a8ef911a32397620/%EC%BA%A1%EC%B2%98000.png" alt="캡처000.PNG"></p>
+<p>  <img src="/%5Cimages%5Cinstall%5CPostgreSQL%5C2.png" alt="캡처000.PNG"></p>
 </li>
 </ul>
 <ol>
@@ -748,7 +2077,7 @@
 <li>Connection Host name&#x2F;address 는 127.0.0.1 입력 → username 는 postgres 입력 → password 는 설정한 비밀번호 입력.(필자 1234) → Save 누르기</li>
 <li>서버 설정 했는데 오류 메시지가 아래와 같이 뜰 때</li>
 </ol>
-<p><img src="/%5BWindows%2010%5D%20PostgreSQL%20Installation%20on%20WSL2%20and%20W%20525b7edb00df4156a8ef911a32397620/%EC%98%A4%EB%A5%98.png" alt="오류.PNG"></p>
+<p><img src="/%5Cimages%5Cinstall%5CPostgreSQL%5C3.png" alt="오류.PNG"></p>
 <p>→ WSL2에  <code>sudo -u postgres psql -c &quot;ALTER USER postgres PASSWORD &#39;postgres&#39;;&quot;</code>  입력.<br>(<code>&#39;postgres&#39;</code> 따옴표 사이의 비밀번호는 원하는 걸로 변경 가능. 필자는 postgres 설정)</p>
 <ol>
 <li>위 설정이 끝난 뒤, 재 접속하면 정상적으로 접근이 되는 것을 확인.</li>
@@ -764,7 +2093,7 @@
 <li>생성된 dataengineering 노드 중 shemas 확장 → public 확장 → Tables(마우스 우 클릭) → create → Table 클릭.</li>
 <li>General → Name - users 입력 → Columns 탭에 추가.</li>
 </ol>
-<p><img src="/%5BWindows%2010%5D%20PostgreSQL%20Installation%20on%20WSL2%20and%20W%20525b7edb00df4156a8ef911a32397620/%EC%BB%AC%EB%9F%BC.png" alt="컬럼.PNG"></p>
+<p><img src="/%5Cimages%5Cinstall%5CPostgreSQL%5C4.png" alt="컬럼.PNG"></p>
 <ol>
 <li>우분투로 다시 돌아와 psql에 접속 후 dataengineering와 생성된 테이블을 조화하는 쿼리 실행</li>
 </ol>
@@ -777,7 +2106,7 @@
 <ol>
 <li>\l (영문 l 이다. 숫자 아니다.)입력 했을 때 생성한 dataengineering 뜨면 성공!!</li>
 </ol>
-<p><img src="/%5BWindows%2010%5D%20PostgreSQL%20Installation%20on%20WSL2%20and%20W%20525b7edb00df4156a8ef911a32397620/%EA%B2%B0%EA%B3%BC.png" alt="결과.PNG"></p>
+<p><img src="/%5Cimages%5Cinstall%5CPostgreSQL%5C5.png" alt="결과.PNG"></p>
 <ol>
 <li>기 생성된 dataengineering DB에 연결 후, 테이블을 조회.</li>
 </ol>
@@ -785,7 +2114,7 @@
 <li>\c dataengineering 입력.</li>
 <li>생성 된 dataengineering&#x3D;# 에  \dt 입력 하면 아래 와 같이 결과가 뜨면 성공!!</li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20PostgreSQL%20Installation%20on%20WSL2%20and%20W%20525b7edb00df4156a8ef911a32397620/%EA%B2%B0%EA%B3%BC_2.png" alt="결과 2.PNG"></p>
+<p><img src="/%5Cimages%5Cinstall%5CPostgreSQL%5C6.png" alt="결과 2.PNG"></p>
 <ol>
 <li>확인이 다 되었다면, \q 입력하고 나오기.</li>
 </ol>
@@ -802,115 +2131,12 @@
 <ul>
 <li>우분투에서 sudo service postgresql stop(활성화 종료) → sudo service postgresql status(down 확인)</li>
 </ul>
-<h3 id="반드시-서버를-이용하고-사용-하지-않을-때는-서버를-종료-해주는-걸-입력한다-종료-하지-않으면-요금-폭탄을-받을-수-있다"><a href="#반드시-서버를-이용하고-사용-하지-않을-때는-서버를-종료-해주는-걸-입력한다-종료-하지-않으면-요금-폭탄을-받을-수-있다" class="headerlink" title="반드시!!! 서버를 이용하고 사용 하지 않을 때는 서버를 종료 해주는 걸 입력한다. 종료 하지 않으면 요금 폭탄을 받을 수 있다."></a>반드시!!! 서버를 이용하고 사용 하지 않을 때는 서버를 종료 해주는 걸 입력한다. 종료 하지 않으면 요금 폭탄을 받을 수 있다.</h3><p>출처 및 참조 : 강사님 &#x2F; <a target="_blank" rel="noopener" href="https://dschloe.github.io/sql/postgreslq_wsl2/">https://dschloe.github.io/sql/postgreslq_wsl2&#x2F;</a></p>
-<p>우분투 apt-get 속도 향상 방법  <a target="_blank" rel="noopener" href="https://mungiyo.tistory.com/15">https://mungiyo.tistory.com/15</a></p>
+<h3 id="반드시-서버를-이용하고-사용-하지-않을-때는-서버를-종료-해주는-걸-입력한다-종료-하지-않으면-요금-폭탄을-받을-수-있다"><a href="#반드시-서버를-이용하고-사용-하지-않을-때는-서버를-종료-해주는-걸-입력한다-종료-하지-않으면-요금-폭탄을-받을-수-있다" class="headerlink" title="반드시!!! 서버를 이용하고 사용 하지 않을 때는 서버를 종료 해주는 걸 입력한다. 종료 하지 않으면 요금 폭탄을 받을 수 있다."></a>반드시!!! 서버를 이용하고 사용 하지 않을 때는 서버를 종료 해주는 걸 입력한다. 종료 하지 않으면 요금 폭탄을 받을 수 있다.</h3><p><a target="_blank" rel="noopener" href="https://dschloe.github.io/sql/postgreslq_wsl2/">출처 및 참조</a><br><a target="_blank" rel="noopener" href="https://mungiyo.tistory.com/15">우분투 apt-get 속도 향상 방법</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/12/install/PostgreSQL/" data-id="cl2nhi02l000aikv14kl7h33o" data-title="[Windows 10] PostgreSQL Installation on WSL2 and Windows✨" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-install/vscodeWLS" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/04/11/install/vscodeWLS/" class="article-date">
-  <time class="dt-published" datetime="2022-04-11T00:00:00.000Z" itemprop="datePublished">2022-04-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/04/11/install/vscodeWLS/">[Windows 10] VSCode WLS 연동✨</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="✨설치-전-airflow-설치-후-진행-✨"><a href="#✨설치-전-airflow-설치-후-진행-✨" class="headerlink" title="✨설치 전, airflow 설치 후 진행.✨"></a>✨설치 전, airflow 설치 후 진행.✨</h3><ol>
-<li><strong><strong>VSCode 설치</strong></strong></li>
-</ol>
-<ul>
-<li><p>• URL : <strong><a target="_blank" rel="noopener" href="https://code.visualstudio.com/download">https://code.visualstudio.com/download</a></strong></p>
-</li>
-<li><p>관리자로 실행할 것이기 때문에 System Installer 다운로드.</p>
-</li>
-<li><p>본인 컴퓨터 사양 확인 후 다운로드.</p>
-<p>  <img src="/%5BWindows%2010%5D%20VSCode%20Remote%20WLS%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%83%E1%85%A9%E1%86%BC%E2%9C%A8%20d4dfbee3d05344bdbdea5956c8826099/vcord.png" alt="vcord.PNG"></p>
-</li>
-</ul>
-<ol>
-<li><p>설치 시, 환경 변수 체크란 잘 확인 할 것.</p>
-<p> <img src="/%5BWindows%2010%5D%20VSCode%20Remote%20WLS%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%83%E1%85%A9%E1%86%BC%E2%9C%A8%20d4dfbee3d05344bdbdea5956c8826099/vcord_%EC%84%A4%EC%B9%98%EC%B2%B4%ED%81%AC%EB%9E%80.png" alt="vcord 설치체크란.PNG"></p>
-</li>
-</ol>
-<h3 id="Remote-WSL-연동"><a href="#Remote-WSL-연동" class="headerlink" title="Remote WSL 연동"></a><strong><strong>Remote WSL 연동</strong></strong></h3><ol>
-<li><p>visual studio code 관리자 모드로 실행</p>
-</li>
-<li><p>Extension 버튼 클릭 → Remote WSL 검색하고 설치 → 모두 체크 후, Mark Done 선택.</p>
-</li>
-<li><p>open folder 클릭 → WSL에서  C 드라이브(저장 되어 있는 드라이브)에 저장 했던 airflow-test 폴더 선택.</p>
-</li>
-<li><p>해당 프로젝트가 화면 왼쪽에 열려 있는 것을 확인.</p>
-</li>
-<li><p>메뉴 바에 Terminal 선택. → New Terminal 선택.</p>
-<p> <img src="/%5BWindows%2010%5D%20VSCode%20Remote%20WLS%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%83%E1%85%A9%E1%86%BC%E2%9C%A8%20d4dfbee3d05344bdbdea5956c8826099/%ED%84%B0%EB%AF%B8%EB%84%90.png" alt="터미널.PNG"></p>
-</li>
-<li><p>생성된 터미널에  WSL이 있는지 확인.</p>
-<p> <img src="/%5BWindows%2010%5D%20VSCode%20Remote%20WLS%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%83%E1%85%A9%E1%86%BC%E2%9C%A8%20d4dfbee3d05344bdbdea5956c8826099/d.png" alt="d.png"></p>
-</li>
-<li><p>생성된 WSL 에 필요한 데이터 다운로드.(p. 45)</p>
-</li>
-</ol>
-<ul>
-<li>pip3 install faker, pip3 install pandas</li>
-</ul>
-<h3 id="간단하게-python-파일-실행"><a href="#간단하게-python-파일-실행" class="headerlink" title="간단하게 python 파일 실행."></a>간단하게 python 파일 실행.</h3><ol>
-<li><p>AIRFLOW-TEST 클릭 → 새로운 폴더(chapter03) → 새로운 파일(step01_wirtecsv.py)생성</p>
-<p> <img src="/%5BWindows%2010%5D%20VSCode%20Remote%20WLS%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%83%E1%85%A9%E1%86%BC%E2%9C%A8%20d4dfbee3d05344bdbdea5956c8826099/Inked%EC%BA%A1%EC%B2%98_LI.png" alt="Inked캡처_LI.png"></p>
-</li>
-<li><p>생성된 파일 열고 print(“dddd”) 적고 ctrl + s 눌러서 저장</p>
-</li>
-</ol>
-<ul>
-<li>반드시!!! 작성하고 나서 <strong>저장</strong>을 해야지 터미널에서 출력이 된다.</li>
-</ul>
-<ol>
-<li>그림과 같이 순서대로 세팅 후 진행.</li>
-</ol>
-<p><img src="/%5BWindows%2010%5D%20VSCode%20Remote%20WLS%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%83%E1%85%A9%E1%86%BC%E2%9C%A8%20d4dfbee3d05344bdbdea5956c8826099/%EC%88%9C%EC%84%9C%EB%8C%80%EB%A1%9C_%EC%9E%91%EC%84%B1_%ED%9B%84_%EC%A7%84%ED%96%89.png" alt="순서대로 작성 후 진행.PNG"></p>
-<ol>
-<li>python3 step01_writecsv.py 입력.</li>
-</ol>
-<ul>
-<li>출력을 할 경우 앞에 python3를 붙여줘야 하며, 파일이 많을 경우 특정 앞 문자만 적고 TAB 버튼을 눌러 자동 완성 시키자. step01_(TAB)writecsv.py</li>
-<li>TAB 눌러 주는 건 내가 제대로 파일을 잘 생성한 것 인지에 대한 확인도 가능.</li>
-</ul>
-<p><img src="/%5BWindows%2010%5D%20VSCode%20Remote%20WLS%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%83%E1%85%A9%E1%86%BC%E2%9C%A8%20d4dfbee3d05344bdbdea5956c8826099/%EC%BA%A1%EC%B2%9811.png" alt="캡처11.PNG"></p>
-<ol>
-<li>출력 된 값 확인.</li>
-</ol>
-<p>출처 및 참조 : 강사님  <a target="_blank" rel="noopener" href="https://dschloe.github.io/settings/vscode_wsl2/">https://dschloe.github.io/settings/vscode_wsl2&#x2F;</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/11/install/vscodeWLS/" data-id="cl2nhi03e000eikv1c7vygow3" data-title="[Windows 10] VSCode WLS 연동✨" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/12/install/PostgreSQL/" data-id="cl2oaoezr000drov1cy0c6xpb" data-title="[Windows 10] PostgreSQL Installation on WSL2 and Windows🐱‍🏍" class="article-share-link">Share</a>
       
       
       
@@ -924,8 +2150,8 @@
   
     <article id="post-install/Airflow" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/04/10/install/Airflow/" class="article-date">
-  <time class="dt-published" datetime="2022-04-10T00:00:00.000Z" itemprop="datePublished">2022-04-10</time>
+    <a href="/2022/04/11/install/Airflow/" class="article-date">
+  <time class="dt-published" datetime="2022-04-11T00:00:00.000Z" itemprop="datePublished">2022-04-11</time>
 </a>
     
   </div>
@@ -936,7 +2162,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/04/10/install/Airflow/">[Windows 10]</a>
+      <a class="p-name article-title" href="/2022/04/11/install/Airflow/">[Windows 10] Setting up Apache-Airflow in Windows using WSL2🐱‍🏍</a>
     </h1>
   
 
@@ -944,7 +2170,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="Windows-10-Setting-up-Apache-Airflow-in-Windows-using-WSL2✨"><a href="#Windows-10-Setting-up-Apache-Airflow-in-Windows-using-WSL2✨" class="headerlink" title="[Windows 10] Setting up Apache-Airflow in Windows using WSL2✨"></a>[Windows 10] Setting up Apache-Airflow in Windows using WSL2✨</h1><h3 id="✨설치-전-WSL2-설치-필수-✨"><a href="#✨설치-전-WSL2-설치-필수-✨" class="headerlink" title="✨설치 전, WSL2 설치 필수.✨"></a>✨설치 전, WSL2 설치 필수.✨</h3><h3 id="01-Install-pip-on-WSL"><a href="#01-Install-pip-on-WSL" class="headerlink" title="01. Install pip on WSL"></a>01. Install pip on WSL</h3><ol>
+        <h3 id="✨설치-전-WSL2-설치-필수-✨"><a href="#✨설치-전-WSL2-설치-필수-✨" class="headerlink" title="✨설치 전, WSL2 설치 필수.✨"></a>✨설치 전, WSL2 설치 필수.✨</h3><h3 id="01-Install-pip-on-WSL"><a href="#01-Install-pip-on-WSL" class="headerlink" title="01. Install pip on WSL"></a>01. Install pip on WSL</h3><ol>
 <li>airflow 설치하기 위해 pip 설치</li>
 <li><code>sudo apt install python3-pip</code></li>
 </ol>
@@ -1016,7 +2242,7 @@
 </ol>
 <ul>
 <li><p><strong><a target="_blank" rel="noopener" href="http://localhost:8081/login/">http://localhost:8081/login/</a></strong></p>
-<p>  <img src="/%5BWindows%2010%5D%20Setting%20up%20Apache-Airflow%20in%20Windows%20%203e8868c484fd45dda251baa160654b51/%EC%97%90%EC%96%B4%ED%94%8C%EB%A1%9C.png" alt="에어플로.PNG"></p>
+<p>  <img src="/%5Cimages%5Cinstall%5CAirflow%5C1.png" alt="에어플로.PNG"></p>
 </li>
 </ul>
 <ol>
@@ -1029,192 +2255,13 @@
 <ol>
 <li>다시 링크 접속 후 생성된 username, password 적고 접속. 아래 와 같이 뜬다면 성공!</li>
 </ol>
-<p><img src="/%5BWindows%2010%5D%20Setting%20up%20Apache-Airflow%20in%20Windows%20%203e8868c484fd45dda251baa160654b51/%EC%BA%A1%EC%B2%98dd.png" alt="캡처dd.PNG"></p>
+<p><img src="/%5Cimages%5Cinstall%5CAirflow%5C2.png" alt="캡처dd.PNG"></p>
 <p>출처 및 참조 : 강사님  <a target="_blank" rel="noopener" href="https://dschloe.github.io/settings/apache_airflow_using_wsl2/">https://dschloe.github.io/settings/apache_airflow_using_wsl2&#x2F;</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/10/install/Airflow/" data-id="cl2nhi02e0006ikv1bojf7l3z" data-title="[Windows 10]" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-install/Github (2)" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/04/10/install/Github%20(2)/" class="article-date">
-  <time class="dt-published" datetime="2022-04-10T00:00:00.000Z" itemprop="datePublished">2022-04-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/04/10/install/Github%20(2)/">[Windows 10] GitHub 설정</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="Step-01-설치"><a href="#Step-01-설치" class="headerlink" title="Step 01_설치"></a>Step 01_설치</h3><ul>
-<li>Git bash, node .js, vs code 설치를 전제로 진행</li>
-<li>마우스 우 클릭 git bash 열기</li>
-<li>hexo init 깃허브 생성해 놓은 이름(ex. hexo init myblog)</li>
-<li>Git bash 에서 생성 된 myblog 폴더가 있는 곳으로 경로 설정</li>
-<li>code . 입력하여 vs code 실행</li>
-</ul>
-<h3 id="Step-02-git-blog-생성"><a href="#Step-02-git-blog-생성" class="headerlink" title="Step 02_git blog 생성"></a>Step 02_git blog 생성</h3><ul>
-<li>github에  뜬 방법 복사 붙이기</li>
-<li>git add . (모든 파일 올리기.) or git add .github_new(파일이름)</li>
-<li>git commit -m “설정 이름(영어로, ex. ”updated”)</li>
-<li>git push (업로드)</li>
-<li>GitHub 사이트에서 새로 고침 하여 올라간 파일 확인.</li>
-<li>3가지 명령어를 순차적으로 install(맨 앞에 공백 없이)</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br><span class="line">$ npm install hexo-server --save</span><br><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>GitHub에 새로운 아이디 생성하기 위해 config.yml 에서 수정.</li>
-<li><code>url:  [https://kjm12misa.github.io](https://kjm12misa.github.io)</code> 수정</li>
-</ul>
-<p><img src="/GitHub%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC%20f8510ef29d394907b5e2ab3f3098c8cf/Untitled.png" alt="Untitled"></p>
-<ul>
-<li>아래와 같이 설정 해 줄 것</li>
-<li>type: git<br>repo: <a target="_blank" rel="noopener" href="https://github.com/kjm12misa/kjm12misa.github.io.git">https://github.com/kjm12misa/kjm12misa.github.io.git</a><br>branch: main</li>
-</ul>
-<p><img src="/GitHub%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC%20f8510ef29d394907b5e2ab3f3098c8cf/Untitled%201.png" alt="Untitled"></p>
-<ul>
-<li>아래와 같이 설정이 된 것을 확인</li>
-</ul>
-<p><img src="/GitHub%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC%20f8510ef29d394907b5e2ab3f3098c8cf/Untitled%202.png" alt="Untitled"></p>
-<ul>
-<li>“branch : main” 을 잘못 적거나 정해 놓지 않은 이름을 적으면 오류가 난다.<br>다른 이름으로도 설정이 가능하다.</li>
-</ul>
-<h3 id="Step-03-GitHub-파일-업로드"><a href="#Step-03-GitHub-파일-업로드" class="headerlink" title="Step 03_GitHub 파일 업로드"></a>Step 03_GitHub 파일 업로드</h3><ul>
-<li>hexo generate —deploy(파일 업로드) or hexo generate → hexo server(서버 확인)</li>
-</ul>
-<h3 id="Step-04-source-posts-파일-생성"><a href="#Step-04-source-posts-파일-생성" class="headerlink" title="Step 04_source-posts 파일 생성"></a>Step 04_source-posts 파일 생성</h3><ul>
-<li>hexo new “영어로 파일 이름 작성“</li>
-<li><code>Ex) hexo new &quot;My New Post&quot;</code></li>
-</ul>
-<h3 id="Step-05-기타"><a href="#Step-05-기타" class="headerlink" title="Step 05_기타"></a>Step 05_기타</h3><ul>
-<li><p>hexo clean 해주기. (쿠키 등 없애줌)</p>
-</li>
-<li><p>참고 사이트 : <a target="_blank" rel="noopener" href="https://dschloe.github.io/settings/hexo_blog/">https://dschloe.github.io/settings/hexo_blog&#x2F;</a></p>
-</li>
-<li><p>github 배포 문제점 확인 : <a target="_blank" rel="noopener" href="https://www.githubstatus.com/">https://www.githubstatus.com/</a></p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/10/install/Github%20(2)/" data-id="cl2nhi02i0009ikv100i864lz" data-title="[Windows 10] GitHub 설정" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-install/WLS2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/04/10/install/WLS2/" class="article-date">
-  <time class="dt-published" datetime="2022-04-10T00:00:00.000Z" itemprop="datePublished">2022-04-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/04/10/install/WLS2/">[Windows 10] WSL2 설치 및 사용법✨</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="✨첫-번째로-설치-✨"><a href="#✨첫-번째로-설치-✨" class="headerlink" title="✨첫 번째로 설치.✨"></a>✨첫 번째로 설치.✨</h3><h3 id="필요-항목-설치-및-준비"><a href="#필요-항목-설치-및-준비" class="headerlink" title="필요 항목 설치 및 준비"></a>필요 항목 설치 및 준비</h3><ol>
-<li>pc 정보 → windows 사양 → 버전 확인(20H1, 20H2, 21H1 ..)</li>
-<li>버전이 낮으면 windows update 설정을 열어 최신 버전으로 업데이트.</li>
-<li>WSL2를 설치 하기 위해서는 가상 터미널을 사용해야 한다. Windows Terminal 사용 추천.<br>powershell 사용해도 되지만 windows Terminal 에서 WSL2를 바로 실행하는 것도 가능하기 때문에 미리 설치해두는 것 추천!</li>
-</ol>
-<h3 id="ubuntu-및-WSL2-Linux-설치"><a href="#ubuntu-및-WSL2-Linux-설치" class="headerlink" title="ubuntu 및 WSL2 Linux 설치"></a>ubuntu 및 WSL2 Linux 설치</h3><ol>
-<li>Windows Terminal 관리자로 실행</li>
-<li>dism.exe &#x2F;online &#x2F;enable-feature &#x2F;featurename:Microsoft-Windows-Subsystem-Linux &#x2F;all &#x2F;norestart 입력.  → 아래와 같이 출력.</li>
-</ol>
-<p><img src="/%5BWindows%2010%5D%20WSL2%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%20%E1%84%86%E1%85%B5%E1%86%BE%20%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8%E2%9C%A8%2039132bb568854aa785612cdaf787ce71/%EC%9A%B0%EB%B6%84%ED%88%AC1.png" alt="우분투1.PNG"></p>
-<ol>
-<li>dism.exe &#x2F;online &#x2F;enable-feature &#x2F;featurename:VirtualMachinePlatform &#x2F;all &#x2F;norestart 입력. → 아래와 같이 출력.</li>
-</ol>
-<ul>
-<li>작업을 완료했습니다. 메시지를 꼭 확인할 것. 작업이 정상적으로 완료 되었다면, 재부팅 한 번 하기.</li>
-</ul>
-<p><img src="/%5BWindows%2010%5D%20WSL2%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%20%E1%84%86%E1%85%B5%E1%86%BE%20%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8%E2%9C%A8%2039132bb568854aa785612cdaf787ce71/%EC%9A%B0%EB%B6%84%ED%88%AC_2.png" alt="우분투 2.PNG"></p>
-<h3 id="WSl2-Linux-커널-업데이트"><a href="#WSl2-Linux-커널-업데이트" class="headerlink" title="WSl2 Linux 커널 업데이트"></a>WSl2 Linux 커널 업데이트</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi</a>  (x64 머신용 최신 WSL2 Linux 커널 업데이트 패키지) 다운로드.</li>
-<li>windows Terminal에 다음 명령어 입력. 기본적으로 사용할 WSL 버전을 2로 변경 해줍니다.</li>
-<li>wsl –set-default-version 2</li>
-</ul>
-<h3 id="마이크로소프트-스토어에서-리눅스-설치"><a href="#마이크로소프트-스토어에서-리눅스-설치" class="headerlink" title="마이크로소프트 스토어에서 리눅스 설치"></a>마이크로소프트 스토어에서 리눅스 설치</h3><p><img src="/%5BWindows%2010%5D%20WSL2%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%20%E1%84%86%E1%85%B5%E1%86%BE%20%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8%E2%9C%A8%2039132bb568854aa785612cdaf787ce71/%EC%9A%B0%EB%B6%84%ED%88%AC%ED%88%AC.png" alt="우분투투.PNG"></p>
-<ol>
-<li>관리자 모드로 실행 후 처음 ‘Installing. this may take few minutes…’ 메시지가 나오고, 시간이 지나면 사용자 이름과 패스워드를 지정하는 입력 창이 나타난다. 사용하고자 하는 사용자 이름 , 패스워드 지정.</li>
-</ol>
-<h3 id="이-때-메시지가-뜨지-않는다면"><a href="#이-때-메시지가-뜨지-않는다면" class="headerlink" title="이 때, 메시지가 뜨지 않는다면 !!!"></a>이 때, 메시지가 뜨지 않는다면 !!!</h3><ul>
-<li>윈도우에 검색 → windows 기능 켜기&#x2F;끄기에서 체크 해제 후 재 부팅 → 다시 체크 확인 후 재 부팅 → 우분투 다시 관리자 모드로 실행 후 메시지가 뜬다면 성공!</li>
-</ul>
-<p><img src="/%5BWindows%2010%5D%20WSL2%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%20%E1%84%86%E1%85%B5%E1%86%BE%20%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8%E2%9C%A8%2039132bb568854aa785612cdaf787ce71/%EC%9C%88%EB%8F%84%EC%9A%B0.png" alt="윈도우.PNG"></p>
-<ol>
-<li>wsl -l -v 입력</li>
-</ol>
-<ul>
-<li>현재 설치된 리눅스 버전 확인</li>
-<li>버전에 2가 출력이 된다면 그대로 진행. 1이 뜬다면 2번을 입력.</li>
-</ul>
-<p><img src="/%5BWindows%2010%5D%20WSL2%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%20%E1%84%86%E1%85%B5%E1%86%BE%20%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8%E2%9C%A8%2039132bb568854aa785612cdaf787ce71/ghkrdl.png" alt="ghkrdl.PNG"></p>
-<ol>
-<li>wsl –set-version Ubuntu 2</li>
-</ol>
-<ul>
-<li>아래와 같이 ‘변환이 완료 되었습니다.’ 라는 메시지가 뜰 때 까지 기다린다.</li>
-</ul>
-<p><img src="/%5BWindows%2010%5D%20WSL2%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%20%E1%84%86%E1%85%B5%E1%86%BE%20%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8%E2%9C%A8%2039132bb568854aa785612cdaf787ce71/qusghks.png" alt="qusghks.PNG"></p>
-<ol>
-<li>wsl -l -v 입력</li>
-</ol>
-<ul>
-<li>다시 설치된 리눅스 버전 확인</li>
-<li>버전에 2가 뜬다면 설치 완료!</li>
-</ul>
-<p><img src="/%5BWindows%2010%5D%20WSL2%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%20%E1%84%86%E1%85%B5%E1%86%BE%20%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8%E2%9C%A8%2039132bb568854aa785612cdaf787ce71/1.png" alt="1.PNG"></p>
-<p>출처 및 참조 : 강사님  <a target="_blank" rel="noopener" href="https://www.lainyzine.com/ko/article/how-to-install-wsl2-and-use-linux-on-windows-10/#google_vignette">https://www.lainyzine.com/ko/article/how-to-install-wsl2-and-use-linux-on-windows-10/#google_vignette</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/10/install/WLS2/" data-id="cl2nhi03c000dikv149nlb4ow" data-title="[Windows 10] WSL2 설치 및 사용법✨" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/11/install/Airflow/" data-id="cl2oaoezj0007rov13eui6tnq" data-title="[Windows 10] Setting up Apache-Airflow in Windows using WSL2🐱‍🏍" class="article-share-link">Share</a>
       
       
       
@@ -1262,23 +2309,23 @@
       <ul>
         
           <li>
-            <a href="/2022/05/01/install/GitHub/">(no title)</a>
+            <a href="/2022/05/02/Oracle/Chapter04/">🎈OracleSQL_Chapter 04</a>
           </li>
         
           <li>
-            <a href="/2022/04/24/Error/Airflow_web_scheduler/">[Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결🐱‍🏍</a>
+            <a href="/2022/04/27/Oracle/chapter03/">🎈OracleSQL_Chapter 03</a>
           </li>
         
           <li>
-            <a href="/2022/04/19/install/Oracle/">[Windows 10] Oracle Install🎊</a>
+            <a href="/2022/04/25/Oracle/chapter02/">🎈OracleSQL_Chapter 02</a>
           </li>
         
           <li>
-            <a href="/2022/04/17/install/vscodeMac/">[Mac M1] Installation VSCode✨</a>
+            <a href="/2022/04/20/install/vscodeMac/">[Mac M1] Installation VSCode🐱‍🏍</a>
           </li>
         
           <li>
-            <a href="/2022/04/14/install/Spark/">[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍</a>
+            <a href="/2022/04/18/install/Oracle/">[Windows 10] Oracle Install🐱‍🏍</a>
           </li>
         
       </ul>

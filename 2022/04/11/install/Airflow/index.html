@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>[Windows 10] Setting up Apache-Airflow in Windows using WSL2🐱‍🏍 | myblog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="✨설치 전, WSL2 설치 필수.✨01. Install pip on WSL airflow 설치하기 위해 pip 설치 sudo apt install python3-pip  02. Install virtualenv package virtualenv 라이브러리 설치 sudo pip3 install virtualenv  03. Create a virtual env">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Windows 10] Setting up Apache-Airflow in Windows using WSL2🐱‍🏍">
+<meta property="og:url" content="https://kjm12misa.github.io/2022/04/11/install/Airflow/index.html">
+<meta property="og:site_name" content="myblog">
+<meta property="og:description" content="✨설치 전, WSL2 설치 필수.✨01. Install pip on WSL airflow 설치하기 위해 pip 설치 sudo apt install python3-pip  02. Install virtualenv package virtualenv 라이브러리 설치 sudo pip3 install virtualenv  03. Create a virtual env">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5Cinstall%5CAirflow%5C1.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5Cinstall%5CAirflow%5C2.png">
+<meta property="article:published_time" content="2022-04-11T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-02T06:52:22.819Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kjm12misa.github.io/%5Cimages%5Cinstall%5CAirflow%5C1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="myblog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">myblog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kjm12misa.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-install/Airflow" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/11/install/Airflow/" class="article-date">
+  <time class="dt-published" datetime="2022-04-11T00:00:00.000Z" itemprop="datePublished">2022-04-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      [Windows 10] Setting up Apache-Airflow in Windows using WSL2🐱‍🏍
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="✨설치-전-WSL2-설치-필수-✨"><a href="#✨설치-전-WSL2-설치-필수-✨" class="headerlink" title="✨설치 전, WSL2 설치 필수.✨"></a>✨설치 전, WSL2 설치 필수.✨</h3><h3 id="01-Install-pip-on-WSL"><a href="#01-Install-pip-on-WSL" class="headerlink" title="01. Install pip on WSL"></a>01. Install pip on WSL</h3><ol>
+<li>airflow 설치하기 위해 pip 설치</li>
+<li><code>sudo apt install python3-pip</code></li>
+</ol>
+<h3 id="02-Install-virtualenv-package"><a href="#02-Install-virtualenv-package" class="headerlink" title="02. Install virtualenv package"></a>02. Install virtualenv package</h3><ol>
+<li>virtualenv 라이브러리 설치</li>
+<li><code>sudo pip3 install virtualenv</code></li>
+</ol>
+<h3 id="03-Create-a-virtual-environment"><a href="#03-Create-a-virtual-environment" class="headerlink" title="03. Create a virtual environment"></a>03. Create a virtual environment</h3><ol>
+<li>C 드라이브에 airflow-test 폴더 생성</li>
+<li>mkdir 입력하고 생성 폴더 이름 적기</li>
+</ol>
+<ul>
+<li>ex. mkdir airflow-test 이렇게 적으면 현재 내 위치에 폴더가 생성된다.(내 위치 : mnt&#x2F;c:)</li>
+</ul>
+<ol>
+<li>가상 환경 생성</li>
+</ol>
+<ul>
+<li><code>virtualenv venv</code></li>
+</ul>
+<ol>
+<li>가상 환경 접속</li>
+</ol>
+<ul>
+<li><code>source venv/bin/activate</code></li>
+</ul>
+<ol>
+<li>환경 변수 열고 코드 추가</li>
+</ol>
+<ul>
+<li><code>vi ~/.bashrc</code> ——→ <code>export AIRFLOW_HOME=/mnt/c/airflow-test</code></li>
+<li>환경 변수를 열고 코드 추가하기 위해서는 <strong>esc</strong> + <strong>i</strong> 눌러 작성.</li>
+<li>코드를 맞게 적었다면,   <strong>:wq!</strong>  ———→ 단축키 : 저장하고 나가기.</li>
+<li>저장 안하고 나간다면 그냥 q! 적기.</li>
+</ul>
+<ol>
+<li>수정 된 코드를 업데이트 하기 위한 코드</li>
+</ol>
+<ul>
+<li><code>source ~/.bashrc</code></li>
+</ul>
+<ol>
+<li>실제 코드가 반영되었는지 확인 하기 위한 코드</li>
+</ol>
+<ul>
+<li><code>echo $AIRFLOW_HOME</code>    —(결과)—&gt; <code>/mnt/c/airflow-test</code></li>
+</ul>
+<h3 id="04-Apache-Airflow-설치"><a href="#04-Apache-Airflow-설치" class="headerlink" title="04. Apache Airflow 설치"></a>04. Apache Airflow 설치</h3><ol>
+<li>PostgreSQL, Slack, Celery 패키지를 동시에 설치하는 코드를 작성</li>
+</ol>
+<ul>
+<li><code>pip3 install &#39;apache-airflow[postgres, slack, celery]&#39;</code></li>
+</ul>
+<ol>
+<li>airflow 설치 위해 DB 초기화 해줘야 한다.</li>
+</ol>
+<ul>
+<li><code>airflow db init</code></li>
+</ul>
+<ol>
+<li>실제로 잘 구현이 되었는지 확인하기 위해 webserver 실행</li>
+</ol>
+<ul>
+<li><code>airflow webserver -p 8081</code></li>
+<li>뒤에 번호는 때에 따라서 달라질 수 있음.</li>
+</ul>
+<ol>
+<li>링크에 접속하여 아래와 같은 화면이 나타나지는 확인 한다.</li>
+</ol>
+<ul>
+<li><p><strong><a target="_blank" rel="noopener" href="http://localhost:8081/login/">http://localhost:8081/login/</a></strong></p>
+<p>  <img src="/%5Cimages%5Cinstall%5CAirflow%5C1.png" alt="에어플로.PNG"></p>
+</li>
+</ul>
+<ol>
+<li>username 생성을 하지 않았다.  아래와 같이 추가 하는 코드 작성.</li>
+</ol>
+<ul>
+<li><code>airflow users create --username airflow --password airflow --firstname evan --lastname airflow --role Admin --email your_email@some.com</code></li>
+<li>각 해당 목록 마다 본인 걸로 지정.</li>
+</ul>
+<ol>
+<li>다시 링크 접속 후 생성된 username, password 적고 접속. 아래 와 같이 뜬다면 성공!</li>
+</ol>
+<p><img src="/%5Cimages%5Cinstall%5CAirflow%5C2.png" alt="캡처dd.PNG"></p>
+<p>출처 및 참조 : 강사님  <a target="_blank" rel="noopener" href="https://dschloe.github.io/settings/apache_airflow_using_wsl2/">https://dschloe.github.io/settings/apache_airflow_using_wsl2&#x2F;</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/04/11/install/Airflow/" data-id="cl2oaoezj0007rov13eui6tnq" data-title="[Windows 10] Setting up Apache-Airflow in Windows using WSL2🐱‍🏍" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/04/12/install/PostgreSQL/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          [Windows 10] PostgreSQL Installation on WSL2 and Windows🐱‍🏍
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/04/11/install/vscodeWLS/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">[Windows 10] VSCode WLS 연동🐱‍🏍</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/02/Oracle/Chapter04/">🎈OracleSQL_Chapter 04</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/27/Oracle/chapter03/">🎈OracleSQL_Chapter 03</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/25/Oracle/chapter02/">🎈OracleSQL_Chapter 02</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/20/install/vscodeMac/">[Mac M1] Installation VSCode🐱‍🏍</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/18/install/Oracle/">[Windows 10] Oracle Install🐱‍🏍</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

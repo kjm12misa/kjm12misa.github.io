@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>🎈OracleSQL_Chapter 04 | myblog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Chapter 0401. 숫자 함수 수식 연산을 하는 함수로 연산 대상 즉, 매개변수나 반환 값이 대부분 숫자 형태   ABS(n)   절대 값 반환 하는 함수  123456SELECT    ABS(10)    , ABS(-10)    , ABS(10.123)    , ABS(-10.123)FROM DUAL;   결과       CEIL &amp; FLOO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="🎈OracleSQL_Chapter 04">
+<meta property="og:url" content="https://kjm12misa.github.io/2022/05/02/Oracle/Chapter04/index.html">
+<meta property="og:site_name" content="myblog">
+<meta property="og:description" content="Chapter 0401. 숫자 함수 수식 연산을 하는 함수로 연산 대상 즉, 매개변수나 반환 값이 대부분 숫자 형태   ABS(n)   절대 값 반환 하는 함수  123456SELECT    ABS(10)    , ABS(-10)    , ABS(10.123)    , ABS(-10.123)FROM DUAL;   결과       CEIL &amp; FLOO">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%201.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%202.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%203.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%204.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%205.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%206.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%207.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%208.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%209.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%2010.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%2011.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%2012.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%2013.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%2014.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%2015.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%2016.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%2017.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%2018.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%2019.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%2020.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%2021.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%2022.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%2023.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%2024.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%2025.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%2026.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%2027.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled%2028.png">
+<meta property="article:published_time" content="2022-05-02T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-02T11:54:22.844Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5CChapter04%5CUntitled.png">
+  
+    <link rel="alternate" href="/atom.xml" title="myblog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">myblog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kjm12misa.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Oracle/Chapter04" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/05/02/Oracle/Chapter04/" class="article-date">
+  <time class="dt-published" datetime="2022-05-02T00:00:00.000Z" itemprop="datePublished">2022-05-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      🎈OracleSQL_Chapter 04
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Chapter-04"><a href="#Chapter-04" class="headerlink" title="Chapter 04"></a>Chapter 04</h1><h3 id="01-숫자-함수"><a href="#01-숫자-함수" class="headerlink" title="01. 숫자 함수"></a>01. 숫자 함수</h3><ul>
+<li>수식 연산을 하는 함수로 연산 대상 즉, 매개변수나 반환 값이 대부분 숫자 형태</li>
+</ul>
+<ol>
+<li><strong>ABS(n)</strong></li>
+</ol>
+<ul>
+<li>절대 값 반환 하는 함수</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    <span class="built_in">ABS</span>(<span class="number">10</span>)</span><br><span class="line">    , <span class="built_in">ABS</span>(<span class="number">-10</span>)</span><br><span class="line">    , <span class="built_in">ABS</span>(<span class="number">10.123</span>)</span><br><span class="line">    , <span class="built_in">ABS</span>(<span class="number">-10.123</span>)</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>CEIL &amp; FLOOR</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CEIL(n)</td>
+<td></td>
+</tr>
+<tr>
+<td>(올림한 정수)</td>
+<td>n과 같거나 가장 큰 정수 반환</td>
+</tr>
+<tr>
+<td>영어로 ‘천장’ 이라는 의미로 가장 가까운 정수를 올림</td>
+<td></td>
+</tr>
+<tr>
+<td>FLOOR(n)</td>
+<td></td>
+</tr>
+<tr>
+<td>(버림 함수)</td>
+<td>n보다 작거나 가장 큰 정수 반환</td>
+</tr>
+<tr>
+<td>영어로 ‘바닥’ 이라는 의미로 실수의 경우 더 낮은 정수로 내림(버림)</td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    <span class="built_in">CEIL</span>(<span class="number">10.123</span>)</span><br><span class="line">    , <span class="built_in">CEIL</span>(<span class="number">-10.123</span>)</span><br><span class="line">    , <span class="built_in">FLOOR</span>(<span class="number">10.123</span>)</span><br><span class="line">    , <span class="built_in">FLOOR</span>(<span class="number">-10.123</span>)</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%201.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>ROUND &amp; TRUNC</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ROUND(n, i)</td>
+<td></td>
+</tr>
+<tr>
+<td>반올림</td>
+<td>실수, 소수점 이하 자리 수</td>
+</tr>
+<tr>
+<td>n을 소수점 기준 (i+1) 번째에서 반올림한 결과 반환(i는 생략 가능)</td>
+<td></td>
+</tr>
+<tr>
+<td>TRUNC(n1, n2)</td>
+<td></td>
+</tr>
+<tr>
+<td>내림(버림)</td>
+<td>실수, 소수점 이하 자리 수</td>
+</tr>
+<tr>
+<td>n1을 소수점 기준 n2 자리에서 무조건 잘라낸 결과 반환</td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>ROUND(n) 예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    ROUND(<span class="number">10.154</span>)</span><br><span class="line">    , ROUND(<span class="number">11.001</span>)</span><br><span class="line">    , ROUND(<span class="number">-10.154</span>)</span><br><span class="line">    , ROUND(<span class="number">-10.001</span>)</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%202.png" alt="Untitled"></p>
+</li>
+<li><p>ROUND(n, i) 예제&lt;i 가 양수 일 때&gt;</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    ROUND(<span class="number">10.154</span>, <span class="number">1</span>)</span><br><span class="line">    , ROUND(<span class="number">10.131</span>, <span class="number">2</span>)</span><br><span class="line">    , ROUND(<span class="number">11.001</span>, <span class="number">1</span>)</span><br><span class="line">    , ROUND(<span class="number">-10.154</span>, <span class="number">2</span>)</span><br><span class="line">    , ROUND(<span class="number">-10.131</span>, <span class="number">1</span>)</span><br><span class="line">    , ROUND(<span class="number">-10.001</span>, <span class="number">2</span>)</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>i1 일 경우 소수점 기준 오른쪽 두 번째 반올림</p>
+</li>
+<li><p>2 일 경우 소수점 기준 오른쪽 세 번째에서 반올림</p>
+</li>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%203.png" alt="Untitled"></p>
+</li>
+<li><p>ROUND(n, -i) 예제&lt;i 가 음수 일 때&gt;</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    ROUND(<span class="number">0</span>, <span class="number">3</span>)</span><br><span class="line">    , ROUND(<span class="number">115.155</span>, <span class="number">-1</span>)</span><br><span class="line">    , ROUND(<span class="number">115.155</span>, <span class="number">-2</span>)</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>-1은 소수점 기준 왼쪽 첫 번째에서 올림, 남은 뒤 값은 0</p>
+</li>
+<li><p>-2는 소수점 기준 왼쪽 두 번째에서 올림, 남은 뒤 값은 0</p>
+</li>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%204.png" alt="Untitled"></p>
+</li>
+<li><p>TRUNC(n1, n2) 예제</p>
+</li>
+<li><p>양수는 소수점 기준 오른쪽부터 절삭, 음수는 기준 왼쪽부터 절삭</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    TRUNC(<span class="number">115.155</span>)<span class="comment">-- 소수점 자리 뒤로 X</span></span><br><span class="line">    , TRUNC(<span class="number">115.155</span>, <span class="number">1</span>)<span class="comment">-- 두 번째 자리 부터 X</span></span><br><span class="line">    , TRUNC(<span class="number">115.155</span>, <span class="number">2</span>)<span class="comment">-- 세 번째 자리 부터 절삭 X</span></span><br><span class="line">    , TRUNC(<span class="number">115.155</span>, <span class="number">-2</span>)<span class="comment">--두 번째 자리 X</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%205.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>POWER &amp; SQRT</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>POWER(n2, n1)</td>
+<td></td>
+</tr>
+<tr>
+<td>제곱</td>
+<td>n2를 n1 제곱한 결과 반환한다. n1은 정수, 실수 모두 올 수 있는데 n2가 음수일 때 n1은 정수만 가능.</td>
+</tr>
+<tr>
+<td>SQRT(n)</td>
+<td></td>
+</tr>
+<tr>
+<td>제곱근</td>
+<td>n의 제곱근을 반환</td>
+</tr>
+</tbody></table>
+<ul>
+<li>제곱 &amp; 제곱근 예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    <span class="built_in">POWER</span>(<span class="number">3</span>, <span class="number">2</span>)</span><br><span class="line">    , <span class="built_in">POWER</span>(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">    , <span class="built_in">SQRT</span>(<span class="number">9</span>)</span><br><span class="line">    , <span class="built_in">SQRT</span>(<span class="number">8</span>)</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%206.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>MOD &amp; REMAINDER</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MOD(n2, n1)</td>
+<td></td>
+</tr>
+<tr>
+<td>- n2를 n1으로 나눈 나머지 값 반환하는데, 나머지 계산 시 FLOOR 함수 사용</td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>‘0으로 나누기’ 오류를 방지하기 위해 분모가 0인 경우 분자 값 반환</li>
+<li>계산식은 n2 - (n1 * FLOOR(n2&#x2F;n1)) |<br>|</li>
+</ul>
+<p>REMAINDER(n2, n1) | - n2를 n1으로 나눈 나머지 값 반환하는데, 나머지 계산 시 ROUND 함수 사용</p>
+<ul>
+<li>n2는 무한대, 데이터 타입이 n이면 오류를 반환,  binary_float 또는 binary_double이면 NaN 반환</li>
+<li>n2가 부동 소수점이고 나머지 값이 0이면, 나머지 부호는 n2의 부호</li>
+<li>n1 ≠ 0이면, 계산식은 n2 - (n1 * ROUND(n2&#x2F;n1)) |</li>
+<li>예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    <span class="built_in">MOD</span>(<span class="number">19</span>, <span class="number">4</span>)</span><br><span class="line">    , REMAINDER(<span class="number">19</span>, <span class="number">4</span>)</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>MOD 결과 값 3 나온 이유를 계산식에 대입해 보면,</p>
+<ul>
+<li>19 - (4*(FLOOR(19&#x2F;4)) → 19 - 4*(4) → 19 - 16 &#x3D; 3</li>
+</ul>
+</li>
+<li><p>REMAINDER 결과 값 -1 나온 이유를 계산식에 대입해 보면,</p>
+<ul>
+<li>19 - (4<em>ROUND(19&#x2F;4)) → 19 - (4</em>5) → 19 - 20 &#x3D; -1</li>
+</ul>
+</li>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%207.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li>EXP, LN &amp; LOG</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>EXP(n)</td>
+<td>지수 함수로 e(e&#x3D;2.71828183…)의 n제곱 값을 반환</td>
+</tr>
+<tr>
+<td>LN(n)</td>
+<td>자연 로그 함수로 밑 수가 e인 로그 함수</td>
+</tr>
+<tr>
+<td>LOG(n2, n1)</td>
+<td>n2를 밑수로 하는 n1의 로그 값을 반환</td>
+</tr>
+</tbody></table>
+<ul>
+<li>예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    <span class="built_in">EXP</span>(<span class="number">2</span>)</span><br><span class="line">    , <span class="built_in">LN</span>(<span class="number">2.713</span>)</span><br><span class="line">    , <span class="built_in">LOG</span>(<span class="number">10</span>, <span class="number">100</span>)</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%208.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="02-문자-함수"><a href="#02-문자-함수" class="headerlink" title="02. 문자 함수"></a>02. 문자 함수</h3><ul>
+<li>연산 대상이 문자이며 반환 값은 함수에 따라 문자나 숫자를 반환</li>
+</ul>
+<ol>
+<li>INITCAP, LOWER, UPPER</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>INITCAP(char)</td>
+<td>영문 단어의 첫 번째 문자를 대문자로 나머지는 소문자로 변환</td>
+</tr>
+<tr>
+<td>LOWER(char)</td>
+<td>소문자 변환</td>
+</tr>
+<tr>
+<td>UPPER(char)</td>
+<td>대문자 변환</td>
+</tr>
+</tbody></table>
+<ul>
+<li>간단한 예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    INITCAP(<span class="string">&#x27;apple&#x27;</span>) <span class="comment">--Apple</span></span><br><span class="line">    , <span class="built_in">LOWER</span>(<span class="string">&#x27;APPLE&#x27;</span>) <span class="comment">-- apple</span></span><br><span class="line">    , <span class="built_in">UPPER</span>(<span class="string">&#x27;apple&#x27;</span>) <span class="comment">-- APPLE</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>INITCAP 예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    INITCAP(<span class="string">&#x27;john&#x27;</span>) result1</span><br><span class="line">    , INITCAP(<span class="string">&#x27;JOHN&#x27;</span>) result2</span><br><span class="line">    , INITCAP(<span class="string">&#x27;john chen&#x27;</span>) result3</span><br><span class="line">    , INITCAP(<span class="string">&#x27;john russell&#x27;</span>) result4</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%209.png" alt="Untitled"></p>
+</li>
+<li><p>LOWER 예제</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    job_id <span class="comment">-- 원래 값</span></span><br><span class="line">    , <span class="built_in">LOWER</span>(job_id) job_id <span class="comment">-- 소문자 변환 값</span></span><br><span class="line"><span class="keyword">FROM</span> employees</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2010.png" alt="Untitled"></p>
+</li>
+<li><p>UPPER 예제</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    job_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> <span class="built_in">UPPER</span>(job_id) <span class="keyword">LIKE</span> <span class="string">&#x27;%&#x27;</span> <span class="operator">||</span> <span class="built_in">UPPER</span>(<span class="string">&#x27;sa&#x27;</span>) <span class="operator">||</span> <span class="string">&#x27;%&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2011.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li>CONCAT**, SUBSTR,** SUBSTRB</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>중요도</th>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-</td>
+<td>CONCAT(char1, char2)</td>
+<td>‘</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>★★★★</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SUBSTR(char, pos, len)</td>
+<td>- 잘라올 문자열인 char의 pos번째 문자부터 len길이만큼 잘라낸 결과를 반환하는 함수</td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>하나의 필드 데이터의 일부를 읽는데 사용 |<br>| </li>
+<li>|<br>SUBSTRB(char, pos, len) | - 문자열의 바이트 수만큼, 맨 끝자인 ‘B’는 BYTE</li>
+<li>UTF-8 타입은 3바이트로 인식</li>
+<li>한글 인코딩 타입에 따라 2바이트 이거나 3바이트로 인식 될 수 있다. |</li>
+<li>CONCAT 예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    CONCAT(<span class="string">&#x27;I Have&#x27;</span>, <span class="string">&#x27; A Dream&#x27;</span>),</span><br><span class="line">    <span class="string">&#x27;I Have&#x27;</span> <span class="operator">||</span> <span class="string">&#x27; A Dream&#x27;</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2012.png" alt="Untitled"></p>
+</li>
+<li><p>CONCAT 활용 예제</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    employee_id <span class="keyword">AS</span> emp_id</span><br><span class="line">    , emp_name</span><br><span class="line">    , job_id</span><br><span class="line">    , CONCAT(emp_name, job_id)</span><br><span class="line">    , CONCAT(CONCAT(emp_name, <span class="string">&#x27;/&#x27;</span>), job_id)</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> employee_id <span class="keyword">IN</span> (<span class="string">&#x27;124&#x27;</span>, <span class="string">&#x27;125&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2013.png" alt="Untitled"></p>
+</li>
+<li><p>SUBSTR 예제</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    SUBSTR(<span class="string">&#x27;ABCDEFG&#x27;</span>, <span class="number">1</span>, <span class="number">2</span>) <span class="comment">-- 앞에서 1 번째 자리부터 길이 2만큼 값 출력</span></span><br><span class="line">    , SUBSTR(<span class="string">&#x27;ABCDEFG&#x27;</span>, <span class="number">-3</span>, <span class="number">2</span>) <span class="comment">-- 뒤에서 3 번째 자리부터 길이 2만큼 값 출력</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2014.png" alt="Untitled"></p>
+</li>
+<li><p>SUBSTRB 예제</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    SUBSTRB(<span class="string">&#x27;ABCDEFG&#x27;</span>, <span class="number">1</span>, <span class="number">4</span>) <span class="keyword">AS</span> result1</span><br><span class="line">    , SUBSTRB(<span class="string">&#x27;홍길동은내친구!&#x27;</span>, <span class="number">2</span>, <span class="number">5</span>) <span class="keyword">AS</span> result2</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2015.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>LTRIM, RTRIM</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LTRIM(char, set)</td>
+<td>문자열 왼쪽 공백 제거와 왼쪽 반복 적인 문자 제거</td>
+</tr>
+<tr>
+<td>RTRIM(char, set)</td>
+<td>문자열 오른쪽 공백 제거와 오른쪽 반복 적인 문자 제거</td>
+</tr>
+</tbody></table>
+<ul>
+<li>예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    LTRIM(<span class="string">&#x27;ASDFGHJKL&#x27;</span>, <span class="string">&#x27;ASD&#x27;</span>) <span class="keyword">AS</span> L_result1</span><br><span class="line">    , LTRIM(<span class="string">&#x27;봄이왔구나&#x27;</span>, <span class="string">&#x27;봄&#x27;</span>) <span class="keyword">AS</span> L_result2</span><br><span class="line">    , RTRIM(<span class="string">&#x27;ASDFGHJKL&#x27;</span>, <span class="string">&#x27;ASD&#x27;</span>) <span class="keyword">AS</span> R_result1</span><br><span class="line">    , RTRIM(<span class="string">&#x27;봄이왔구나&#x27;</span>, <span class="string">&#x27;나&#x27;</span>) <span class="keyword">AS</span> R_result2</span><br><span class="line"><span class="keyword">FROM</span> DUAL;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2016.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>LPAD, RPAD</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LPAD(expr1, n, expr2)</td>
+<td>expr2 문자열(생략할 때 디폴트는 공백 한 문자)을 n자리만큼 왼쪽부터 채워 expr1을 반환</td>
+</tr>
+<tr>
+<td>RPAD(expr1, n, expr2)</td>
+<td>expr2 문자열(생략할 때 디폴트는 공백 한 문자)을 n자리만큼 오른쪽부터 채워 expr1을 반환</td>
+</tr>
+</tbody></table>
+<ul>
+<li>LPAD 예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 테이블 생성</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> ex4_1 (</span><br><span class="line">    phone_num VARCHAR2(<span class="number">30</span>)</span><br><span class="line">);</span><br><span class="line"><span class="comment">-- 데이터 추가</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> ex4_1 <span class="keyword">VALUES</span>(<span class="string">&#x27;111-1111&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> ex4_1 <span class="keyword">VALUES</span>(<span class="string">&#x27;111-2222&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> ex4_1 <span class="keyword">VALUES</span>(<span class="string">&#x27;111-3333&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> LPAD(phone_num, <span class="number">12</span>, <span class="string">&#x27;(02)&#x27;</span>)</span><br><span class="line"><span class="keyword">FROM</span> ex4_1;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2017.png" alt="Untitled"></p>
+</li>
+<li><p>RPAD 예제</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> RPAD(phone_num, <span class="number">12</span>, <span class="string">&#x27;(02)&#x27;</span>)</span><br><span class="line"><span class="keyword">FROM</span> ex4_1;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2018.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>REPLACE,</strong> TRANSLATE</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>REPLACE</td>
+<td></td>
+</tr>
+<tr>
+<td>(char, search_str, replace_str)</td>
+<td>- char 문자열에서 search_str 문자열을 찾아 이를 replace_str 문자열로 대체한 결과를 반환</td>
+</tr>
+<tr>
+<td>TRANSLATE</td>
+<td></td>
+</tr>
+<tr>
+<td>(expr, FROM_str, to_str)</td>
+<td>- expr 문자열에서 FROM_str에 해당하는 문자를 찾아 to_str로 바꾼 결과를 반환</td>
+</tr>
+</tbody></table>
+<ul>
+<li>문자열 자체가 아닌 문자 한 글자씩 매핑해 바꾼 결과를 반환 |</li>
+<li>REPLACE 예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    REPLACE(<span class="string">&#x27;간장공장 공장장은 강 공장장이고&#x27;</span>, <span class="string">&#x27;장장&#x27;</span>, <span class="string">&#x27;된장&#x27;</span>) <span class="keyword">AS</span> rep</span><br><span class="line">    , <span class="built_in">TRANSLATE</span>(<span class="string">&#x27;간장공장 공장장은 강 공장장이고&#x27;</span>, <span class="string">&#x27;장공&#x27;</span>, <span class="string">&#x27;된장&#x27;</span>) <span class="keyword">AS</span> trn</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<ul>
+<li>replace는 ‘장장’ → ‘된장’&#x2F;translate는 ’장 → 된’, ‘공 → 장’</li>
+</ul>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2019.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="03-날짜-함수"><a href="#03-날짜-함수" class="headerlink" title="03. 날짜 함수"></a>03. 날짜 함수</h3><ol>
+<li><strong>SYSDATE, SYSTIMESTAMP</strong></li>
+</ol>
+<ul>
+<li>SYSDATE 와 SYSTIMESTAMP(날, 시간, 분, 초) 현재 날짜 시간을 각각 DATE, TIMESTAMP 형으로 반환</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    SYSDATE <span class="comment">-- 결과 : 22/05/01</span></span><br><span class="line">    , SYSTIMESTAMP <span class="comment">-- 결과 : 22/05/01 20:00:13.417000000 09:00</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>ADD_MONTH(date, integer)</strong></li>
+</ol>
+<ul>
+<li>매개변수로 들어온 날짜에 interger 만큼의 월을 더한 날짜를 반환</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    ADD_MONTHS(SYSDATE, <span class="number">1</span>) <span class="keyword">AS</span> result1 <span class="comment">-- 현재 달에서 +1 22/06/01</span></span><br><span class="line">    , ADD_MONTHS(SYSDATE, <span class="number">-1</span>) <span class="keyword">AS</span> result2 <span class="comment">-- 현재 달에서 -1 22/04/01</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>MONTHS_BETWEEN(date1, date2)</strong></li>
+</ol>
+<ul>
+<li>두 날짜 사이의 개월 수가 얼마인지 반환</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    MONTHS_BETWEEN(SYSDATE, ADD_MONTHS(SYSDATE, <span class="number">1</span>)) mon1 <span class="comment">-- 결과 : -1</span></span><br><span class="line">    , MONTHS_BETWEEN(ADD_MONTHS(SYSDATE, <span class="number">1</span>), SYSDATE) mon2 <span class="comment">-- 결과 : 1</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>LAST_DAY(date)</strong></li>
+</ol>
+<ul>
+<li>date 날짜를 기준으로 해당 월의 마지막 일자 출력</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">LAST_DAY(SYSDATE)</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br><span class="line"><span class="comment">-- 예제 2</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">LAST_DAY(SYSDATE) <span class="comment">-- 결과 : 22/05/31</span></span><br><span class="line">, LAST_DAY(ADD_MONTHS(SYSDATE, <span class="number">1</span>)) <span class="comment">-- 결과 : 22/06/30</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>ROUND(date, format) &amp; TRUNC(date, format)</strong></li>
+</ol>
+<ul>
+<li>ROUND 반올림한 날짜, TRUNC 잘라낸 날짜 반환.</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">SYSDATE <span class="comment">-- 결과 : 22/05/02</span></span><br><span class="line">, ROUND(SYSDATE, <span class="string">&#x27;month&#x27;</span>) <span class="comment">-- 결과 : 22/05/01 </span></span><br><span class="line">, TRUNC(SYSDATE, <span class="string">&#x27;month&#x27;</span>) <span class="comment">-- 결과 : 22/05/01</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>NEXT_DAY (date, char)</strong></li>
+</ol>
+<ul>
+<li>지정한 해당 요일의 날짜를 출력</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> NEXT_DAY(SYSDATE, <span class="string">&#x27;금요일&#x27;</span>) <span class="comment">-- 결과 : 22/05/06</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<h3 id="04-변환-함수"><a href="#04-변환-함수" class="headerlink" title="04. 변환 함수"></a>04. 변환 함수</h3><ul>
+<li><p>서로 다른 유형의 데이터 타입으로 변환해 결과를 반환하는 함수</p>
+</li>
+<li><p>날짜 변환 형식</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2020.png" alt="Untitled"></p>
+</li>
+<li><p>숫자 변환 형식</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2021.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>TO_CHAR(숫자 혹은 날짜, format)</strong></li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> TO_CHAR(<span class="number">123456789</span>, <span class="string">&#x27;999,999,999&#x27;</span>) <span class="comment">-- 결과 : 123,456,789</span></span><br><span class="line"><span class="keyword">FROM</span> DURL;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 날짜 변환 형식</span></span><br><span class="line"><span class="keyword">SELECT</span> TO_CHAR(SYSDATE, <span class="string">&#x27;YYYY-MM-DD&#x27;</span>) <span class="comment">-- 결과 : 2022-05-02</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>TO_NUMBER(expr, format), TO_DATE(char, format)</strong></li>
+</ol>
+<ul>
+<li>문자나 다른 유형의 숫자를 NUMBER 형으로 변환하는 함수</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> TO_NUMBER(<span class="string">&#x27;123456&#x27;</span>) <span class="comment">-- 결과 : 123456</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br><span class="line"><span class="comment">-- TO_DATE, TO_TIMESTAMP</span></span><br><span class="line"><span class="keyword">SELECT</span> TO_DATE(<span class="string">&#x27;20140101&#x27;</span>, <span class="string">&#x27;YYYY-MM-DD&#x27;</span>) <span class="comment">-- 결과 : 14/01/01</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br><span class="line"><span class="keyword">SELECT</span> TO_DATE(<span class="string">&#x27;20220427 14:06:20&#x27;</span>, <span class="string">&#x27;YYYY-MM-DD HH24:MI:SS&#x27;</span>) <span class="comment">-- 결과 : 22/04/27</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<h3 id="05-NULL-관련-함수"><a href="#05-NULL-관련-함수" class="headerlink" title="05. NULL 관련 함수"></a>05. NULL 관련 함수</h3><ul>
+<li>NULL을 비교할 때는 IS NULL이나 IS NOT NULL 구문을 사용하였는데, 오라클에서는 NULL을 연산 대상으로 처리하는 SQL 함수를 제공</li>
+</ul>
+<ol>
+<li><strong>NVL, NVL2</strong></li>
+</ol>
+<ul>
+<li>NVL(expr1, expr2)<ul>
+<li>expr1 이 null 일 때 expr2를 반환</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">NVL(manager_id, employee_id) <span class="comment">-- 결과 : 100</span></span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> manager_id <span class="keyword">IS</span> <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>NVL2(expr1, expr2, expr3)<ul>
+<li>expr1 이 null이 아니면 expr2를, null이면 expr3를 반환</li>
+<li>null 값이 많은 commission!</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">employee_id</span><br><span class="line">, commission_pct</span><br><span class="line">, salary</span><br><span class="line">, NVL2(commission_pct <span class="comment">-- null이 존재하는 컬럼</span></span><br><span class="line">, salary <span class="operator">+</span> (salary <span class="operator">+</span> commission_pct)<span class="comment">-- null이면 저거 아니면 이거 실행</span></span><br><span class="line">, salary) <span class="keyword">as</span> final_salary</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2022.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>COALESCE(expr1, expr2, ….)</strong></li>
+</ol>
+<ul>
+<li>매개변수로 들어오는 표현식에서 NULL이 아닌 첫 번째 표현식 반환</li>
+<li>아직 NULL 값이 존재 한다는 걸 인지하고 있어야 한다.</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">employee_id</span><br><span class="line">, salary</span><br><span class="line">, commission_pct</span><br><span class="line">, <span class="built_in">COALESCE</span>(salary <span class="operator">*</span> commission_pct, salary) <span class="keyword">AS</span> salary2</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2023.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>LNNVL</strong></li>
+</ol>
+<ul>
+<li>매개변수로 들어오는 조건식의 결과 FALSE나 UNKNOWN –&gt; TRUE 반환</li>
+<li>결과가 TRUE 면 → FALSE로 반환</li>
+<li>commission_pct가 0.2 이하인 값만 조회.</li>
+<li>기본 문법</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">employee_id</span><br><span class="line">, commission_pct</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> commission_pct <span class="operator">&lt;</span> <span class="number">0.2</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>커미션이 NULL인 사원도 0.2 이하라고 봐야 하는데 쿼리 결과에는 조회 되지 않았다.</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2024.png" alt="Untitled"></p>
+</li>
+<li><p>null 인 사원도 반환</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line"><span class="comment">-- COUNT(*)</span></span><br><span class="line">employee_id</span><br><span class="line">, commission_pct</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> NVL(commission_pct, <span class="number">0</span>) <span class="operator">&lt;</span> <span class="number">0.2</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2025.png" alt="Untitled"></p>
+</li>
+</ul>
+<p>3_1. COUNT </p>
+<ul>
+<li>행의 개 수 반환</li>
+<li>NVL 함수를 써서 커미션이 NULL인 사원은 0을 반환</li>
+<li>LNV &amp; LNNVL 함수 예제_결과 값은 동일</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- LNV</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="comment">-- 결과 : 83</span></span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> NVL(commission_pct, <span class="number">0</span>) <span class="operator">&lt;</span> <span class="number">0.2</span>;</span><br><span class="line"><span class="comment">-- LNNVL</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="built_in">count</span>(<span class="operator">*</span>) <span class="comment">-- 결과 : 83</span></span><br><span class="line"><span class="comment">-- employee_id</span></span><br><span class="line"><span class="comment">--, commission_pct</span></span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> LNNVL(commission_pct <span class="operator">&gt;=</span> <span class="number">0.2</span>);</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>NULLIF(expr1, expr2)</li>
+</ol>
+<ul>
+<li>expr1과 expr2을 비교해 같으면 NULL을, 같지 않으면 expr1을 반환</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	employee_id</span><br><span class="line">	, TO_CHAR(start_date, <span class="string">&#x27;YYYY&#x27;</span>) start_year</span><br><span class="line">	, TO_CHAR(end_date, <span class="string">&#x27;YYYY&#x27;</span>) end_year</span><br><span class="line">	, <span class="built_in">NULLIF</span>(TO_CHAR(end_date, <span class="string">&#x27;YYYY&#x27;</span>), TO_CHAR(start_date, <span class="string">&#x27;YYYY&#x27;</span>)) nullif_year</span><br><span class="line"><span class="keyword">FROM</span> job_history;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2026.png" alt="Untitled"></p>
+</li>
+</ul>
+<h3 id="06-기타-함수"><a href="#06-기타-함수" class="headerlink" title="06. 기타 함수"></a>06. 기타 함수</h3><ol>
+<li>GREATEST, LEAST</li>
+</ol>
+<ul>
+<li>GREATEST(expr1, expr2, ….)</li>
+<li>매개변수로 들어오는 표현식에서 가장 큰 값을, LEAST는 가장 작은 값을 반환</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 숫자형</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	GREATEST(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>) <span class="comment">-- 결과 : 3</span></span><br><span class="line">	, LEAST(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>) <span class="comment">-- 결과 : 1</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br><span class="line"><span class="comment">-- 문자형</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    GREATEST(<span class="string">&#x27;이순신&#x27;</span>, <span class="string">&#x27;강감찬&#x27;</span>, <span class="string">&#x27;세종대왕&#x27;</span>) <span class="comment">-- 결과 : 이순신</span></span><br><span class="line">    , LEAST(<span class="string">&#x27;이순신&#x27;</span>, <span class="string">&#x27;강감찬&#x27;</span>, <span class="string">&#x27;세종대왕&#x27;</span>) <span class="comment">-- 결과 : 강감찬</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>DECODE (expr, search1, result1, search2, result2, …, default)</strong></li>
+</ol>
+<ul>
+<li>IF-ELIF-ELIF-ELIF-ELSE 파이썬의 문법과 비슷.</li>
+<li>expr과 search1을 비교해 두 값이 같으면 result1을, 같지 않으면 다시 search2와 비교해 값이 같으면 result2를 반환</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> sales;</span><br><span class="line"><span class="comment">-- 1. 한번에 적지 말고 순차적으로 껴 넣기</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line"><span class="keyword">UNIQUE</span>(channel_id)</span><br><span class="line"><span class="keyword">FROM</span> sales;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 2. 두 개의 컬럼에서 prod_id가 &#x27;125&#x27;인 사원 조회</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	prod_id</span><br><span class="line">	, channel_id</span><br><span class="line"><span class="keyword">FROM</span> sales</span><br><span class="line"><span class="keyword">WHERE</span> prod_id <span class="operator">=</span> <span class="number">125</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2027.png" alt="Untitled"></p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 3. DECODE() 안에 검색할 값 넣기</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	prod_id</span><br><span class="line">	, channel_id</span><br><span class="line">	, DECODE(channel_id, <span class="number">3</span>, <span class="string">&#x27;Direct&#x27;</span>, <span class="comment">-- 조건</span></span><br><span class="line">												<span class="number">9</span>, <span class="string">&#x27;Direct&#x27;</span>,</span><br><span class="line">												<span class="number">5</span>, <span class="string">&#x27;Indirect&#x27;</span>,</span><br><span class="line">												<span class="number">4</span>, <span class="string">&#x27;Indirect&#x27;</span>,</span><br><span class="line">														<span class="string">&#x27;Others&#x27;</span>) decodes</span><br><span class="line"><span class="keyword">FROM</span> sales</span><br><span class="line"><span class="keyword">WHERE</span> prod_id <span class="operator">=</span> <span class="number">125</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5CChapter04%5CUntitled%2028.png" alt="Untitled"></p>
+</li>
+<li><p>ALTER SESSION SET NLS_DATE_FORMAT &#x3D; ‘YYYY-MM-DD HH24:MI:SS’;</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/05/02/Oracle/Chapter04/" data-id="cl2onvswy000lrov167l58b63" data-title="🎈OracleSQL_Chapter 04" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/04/27/Oracle/chapter03/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">🎈OracleSQL_Chapter 03</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/02/Oracle/Chapter04/">🎈OracleSQL_Chapter 04</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/27/Oracle/chapter03/">🎈OracleSQL_Chapter 03</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/25/Oracle/chapter02/">🎈OracleSQL_Chapter 02</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/20/install/vscodeMac/">[Mac M1] Installation VSCode🐱‍🏍</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/18/install/Oracle/">[Windows 10] Oracle Install🐱‍🏍</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

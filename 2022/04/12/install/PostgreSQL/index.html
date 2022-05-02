@@ -4,26 +4,26 @@
   <meta charset="utf-8">
   
   
-  <title>[Windows 10] PostgreSQL Installation on WSL2 and Windows✨ | myblog</title>
+  <title>[Windows 10] PostgreSQL Installation on WSL2 and Windows🐱‍🏍 | myblog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="주의할 점! 절대 PostgreSQL 14라고 따로 웹사이트에서 다운 받아 놓지 말자! 다운 받아 놓고 WSL2에서 설치 후 paAdmin에서 설정 시 오류가 난다. (이유 : 컴퓨터가 윈도우에 깔린 파일을 일순위로 잡아버리기 때문이다.)  !!!!!!! 시작하기 전, ls → cd .. → ls 적고 아래와 같이 두 줄 나오면!!!!!!!!  sudo a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[Windows 10] PostgreSQL Installation on WSL2 and Windows✨">
+<meta property="og:title" content="[Windows 10] PostgreSQL Installation on WSL2 and Windows🐱‍🏍">
 <meta property="og:url" content="https://kjm12misa.github.io/2022/04/12/install/PostgreSQL/index.html">
 <meta property="og:site_name" content="myblog">
 <meta property="og:description" content="주의할 점! 절대 PostgreSQL 14라고 따로 웹사이트에서 다운 받아 놓지 말자! 다운 받아 놓고 WSL2에서 설치 후 paAdmin에서 설정 시 오류가 난다. (이유 : 컴퓨터가 윈도우에 깔린 파일을 일순위로 잡아버리기 때문이다.)  !!!!!!! 시작하기 전, ls → cd .. → ls 적고 아래와 같이 두 줄 나오면!!!!!!!!  sudo a">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20PostgreSQL%20Installation%20on%20WSL2%20and%20W%20525b7edb00df4156a8ef911a32397620/%EC%9C%84%EC%B9%98%EC%9E%A1%EA%B8%B0.png">
-<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20PostgreSQL%20Installation%20on%20WSL2%20and%20W%20525b7edb00df4156a8ef911a32397620/%EC%BA%A1%EC%B2%98000.png">
-<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20PostgreSQL%20Installation%20on%20WSL2%20and%20W%20525b7edb00df4156a8ef911a32397620/%EC%98%A4%EB%A5%98.png">
-<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20PostgreSQL%20Installation%20on%20WSL2%20and%20W%20525b7edb00df4156a8ef911a32397620/%EC%BB%AC%EB%9F%BC.png">
-<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20PostgreSQL%20Installation%20on%20WSL2%20and%20W%20525b7edb00df4156a8ef911a32397620/%EA%B2%B0%EA%B3%BC.png">
-<meta property="og:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20PostgreSQL%20Installation%20on%20WSL2%20and%20W%20525b7edb00df4156a8ef911a32397620/%EA%B2%B0%EA%B3%BC_2.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5Cinstall%5CPostgreSQL%5C1.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5Cinstall%5CPostgreSQL%5C2.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5Cinstall%5CPostgreSQL%5C3.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5Cinstall%5CPostgreSQL%5C4.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5Cinstall%5CPostgreSQL%5C5.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5Cinstall%5CPostgreSQL%5C6.png">
 <meta property="article:published_time" content="2022-04-12T00:00:00.000Z">
-<meta property="article:modified_time" content="2022-05-01T16:12:53.388Z">
+<meta property="article:modified_time" content="2022-05-02T06:57:14.042Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://kjm12misa.github.io/%5BWindows%2010%5D%20PostgreSQL%20Installation%20on%20WSL2%20and%20W%20525b7edb00df4156a8ef911a32397620/%EC%9C%84%EC%B9%98%EC%9E%A1%EA%B8%B0.png">
+<meta name="twitter:image" content="https://kjm12misa.github.io/%5Cimages%5Cinstall%5CPostgreSQL%5C1.png">
   
     <link rel="alternate" href="/atom.xml" title="myblog" type="application/atom+xml">
   
@@ -94,7 +94,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      [Windows 10] PostgreSQL Installation on WSL2 and Windows✨
+      [Windows 10] PostgreSQL Installation on WSL2 and Windows🐱‍🏍
     </h1>
   
 
@@ -104,7 +104,7 @@
       
         <p>주의할 점! 절대 PostgreSQL 14라고 따로 웹사이트에서 다운 받아 놓지 말자! 다운 받아 놓고 WSL2에서 설치 후 paAdmin에서 설정 시 오류가 난다. (이유 : 컴퓨터가 윈도우에 깔린 파일을 일순위로 잡아버리기 때문이다.) </p>
 <p>!!!!!!! 시작하기 전, ls → cd .. → ls 적고 아래와 같이 두 줄 나오면!!!!!!!!</p>
-<p><img src="/%5BWindows%2010%5D%20PostgreSQL%20Installation%20on%20WSL2%20and%20W%20525b7edb00df4156a8ef911a32397620/%EC%9C%84%EC%B9%98%EC%9E%A1%EA%B8%B0.png" alt="위치잡기.PNG"></p>
+<p><img src="/%5Cimages%5Cinstall%5CPostgreSQL%5C1.png" alt="위치잡기.PNG"></p>
 <p>sudo apt-get update &amp;&amp; sudo apt-get upgrade 입력!! &lt;항상 설치하거나, 시작할 때 해주기&gt;</p>
 <ol>
 <li>sudo apt install postgresql postgresql-contrib</li>
@@ -169,7 +169,7 @@
 <h3 id="pgAdmin-Installation-on-Windows"><a href="#pgAdmin-Installation-on-Windows" class="headerlink" title="pgAdmin Installation on Windows"></a>pgAdmin Installation on Windows</h3><p>pgAdmin 설치 : <strong><a target="_blank" rel="noopener" href="https://www.pgadmin.org/download/pgadmin-4-windows/">https://www.pgadmin.org/download/pgadmin-4-windows/</a><br>→ 최신 버전으로 설치 해 줄 것</strong></p>
 <ul>
 <li><p>설치 시 아래와 같이 선택.</p>
-<p>  <img src="/%5BWindows%2010%5D%20PostgreSQL%20Installation%20on%20WSL2%20and%20W%20525b7edb00df4156a8ef911a32397620/%EC%BA%A1%EC%B2%98000.png" alt="캡처000.PNG"></p>
+<p>  <img src="/%5Cimages%5Cinstall%5CPostgreSQL%5C2.png" alt="캡처000.PNG"></p>
 </li>
 </ul>
 <ol>
@@ -181,7 +181,7 @@
 <li>Connection Host name&#x2F;address 는 127.0.0.1 입력 → username 는 postgres 입력 → password 는 설정한 비밀번호 입력.(필자 1234) → Save 누르기</li>
 <li>서버 설정 했는데 오류 메시지가 아래와 같이 뜰 때</li>
 </ol>
-<p><img src="/%5BWindows%2010%5D%20PostgreSQL%20Installation%20on%20WSL2%20and%20W%20525b7edb00df4156a8ef911a32397620/%EC%98%A4%EB%A5%98.png" alt="오류.PNG"></p>
+<p><img src="/%5Cimages%5Cinstall%5CPostgreSQL%5C3.png" alt="오류.PNG"></p>
 <p>→ WSL2에  <code>sudo -u postgres psql -c &quot;ALTER USER postgres PASSWORD &#39;postgres&#39;;&quot;</code>  입력.<br>(<code>&#39;postgres&#39;</code> 따옴표 사이의 비밀번호는 원하는 걸로 변경 가능. 필자는 postgres 설정)</p>
 <ol>
 <li>위 설정이 끝난 뒤, 재 접속하면 정상적으로 접근이 되는 것을 확인.</li>
@@ -197,7 +197,7 @@
 <li>생성된 dataengineering 노드 중 shemas 확장 → public 확장 → Tables(마우스 우 클릭) → create → Table 클릭.</li>
 <li>General → Name - users 입력 → Columns 탭에 추가.</li>
 </ol>
-<p><img src="/%5BWindows%2010%5D%20PostgreSQL%20Installation%20on%20WSL2%20and%20W%20525b7edb00df4156a8ef911a32397620/%EC%BB%AC%EB%9F%BC.png" alt="컬럼.PNG"></p>
+<p><img src="/%5Cimages%5Cinstall%5CPostgreSQL%5C4.png" alt="컬럼.PNG"></p>
 <ol>
 <li>우분투로 다시 돌아와 psql에 접속 후 dataengineering와 생성된 테이블을 조화하는 쿼리 실행</li>
 </ol>
@@ -210,7 +210,7 @@
 <ol>
 <li>\l (영문 l 이다. 숫자 아니다.)입력 했을 때 생성한 dataengineering 뜨면 성공!!</li>
 </ol>
-<p><img src="/%5BWindows%2010%5D%20PostgreSQL%20Installation%20on%20WSL2%20and%20W%20525b7edb00df4156a8ef911a32397620/%EA%B2%B0%EA%B3%BC.png" alt="결과.PNG"></p>
+<p><img src="/%5Cimages%5Cinstall%5CPostgreSQL%5C5.png" alt="결과.PNG"></p>
 <ol>
 <li>기 생성된 dataengineering DB에 연결 후, 테이블을 조회.</li>
 </ol>
@@ -218,7 +218,7 @@
 <li>\c dataengineering 입력.</li>
 <li>생성 된 dataengineering&#x3D;# 에  \dt 입력 하면 아래 와 같이 결과가 뜨면 성공!!</li>
 </ul>
-<p><img src="/%5BWindows%2010%5D%20PostgreSQL%20Installation%20on%20WSL2%20and%20W%20525b7edb00df4156a8ef911a32397620/%EA%B2%B0%EA%B3%BC_2.png" alt="결과 2.PNG"></p>
+<p><img src="/%5Cimages%5Cinstall%5CPostgreSQL%5C6.png" alt="결과 2.PNG"></p>
 <ol>
 <li>확인이 다 되었다면, \q 입력하고 나오기.</li>
 </ol>
@@ -235,13 +235,12 @@
 <ul>
 <li>우분투에서 sudo service postgresql stop(활성화 종료) → sudo service postgresql status(down 확인)</li>
 </ul>
-<h3 id="반드시-서버를-이용하고-사용-하지-않을-때는-서버를-종료-해주는-걸-입력한다-종료-하지-않으면-요금-폭탄을-받을-수-있다"><a href="#반드시-서버를-이용하고-사용-하지-않을-때는-서버를-종료-해주는-걸-입력한다-종료-하지-않으면-요금-폭탄을-받을-수-있다" class="headerlink" title="반드시!!! 서버를 이용하고 사용 하지 않을 때는 서버를 종료 해주는 걸 입력한다. 종료 하지 않으면 요금 폭탄을 받을 수 있다."></a>반드시!!! 서버를 이용하고 사용 하지 않을 때는 서버를 종료 해주는 걸 입력한다. 종료 하지 않으면 요금 폭탄을 받을 수 있다.</h3><p>출처 및 참조 : 강사님 &#x2F; <a target="_blank" rel="noopener" href="https://dschloe.github.io/sql/postgreslq_wsl2/">https://dschloe.github.io/sql/postgreslq_wsl2&#x2F;</a></p>
-<p>우분투 apt-get 속도 향상 방법  <a target="_blank" rel="noopener" href="https://mungiyo.tistory.com/15">https://mungiyo.tistory.com/15</a></p>
+<h3 id="반드시-서버를-이용하고-사용-하지-않을-때는-서버를-종료-해주는-걸-입력한다-종료-하지-않으면-요금-폭탄을-받을-수-있다"><a href="#반드시-서버를-이용하고-사용-하지-않을-때는-서버를-종료-해주는-걸-입력한다-종료-하지-않으면-요금-폭탄을-받을-수-있다" class="headerlink" title="반드시!!! 서버를 이용하고 사용 하지 않을 때는 서버를 종료 해주는 걸 입력한다. 종료 하지 않으면 요금 폭탄을 받을 수 있다."></a>반드시!!! 서버를 이용하고 사용 하지 않을 때는 서버를 종료 해주는 걸 입력한다. 종료 하지 않으면 요금 폭탄을 받을 수 있다.</h3><p><a target="_blank" rel="noopener" href="https://dschloe.github.io/sql/postgreslq_wsl2/">출처 및 참조</a><br><a target="_blank" rel="noopener" href="https://mungiyo.tistory.com/15">우분투 apt-get 속도 향상 방법</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/12/install/PostgreSQL/" data-id="cl2nhi02l000aikv14kl7h33o" data-title="[Windows 10] PostgreSQL Installation on WSL2 and Windows✨" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/12/install/PostgreSQL/" data-id="cl2oaoezr000drov1cy0c6xpb" data-title="[Windows 10] PostgreSQL Installation on WSL2 and Windows🐱‍🏍" class="article-share-link">Share</a>
       
       
       
@@ -251,19 +250,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2022/04/14/install/Spark/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/04/14/Error/Airflow_web_scheduler/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          [Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍
+          [Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결✨
         
       </div>
     </a>
   
   
-    <a href="/2022/04/11/install/vscodeWLS/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/04/11/install/Airflow/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">[Windows 10] VSCode WLS 연동✨</div>
+      <div class="article-nav-title">[Windows 10] Setting up Apache-Airflow in Windows using WSL2🐱‍🏍</div>
     </a>
   
 </nav>
@@ -301,23 +300,23 @@
       <ul>
         
           <li>
-            <a href="/2022/05/01/install/GitHub/">(no title)</a>
+            <a href="/2022/05/02/Oracle/Chapter04/">🎈OracleSQL_Chapter 04</a>
           </li>
         
           <li>
-            <a href="/2022/04/24/Error/Airflow_web_scheduler/">[Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결🐱‍🏍</a>
+            <a href="/2022/04/27/Oracle/chapter03/">🎈OracleSQL_Chapter 03</a>
           </li>
         
           <li>
-            <a href="/2022/04/19/install/Oracle/">[Windows 10] Oracle Install🎊</a>
+            <a href="/2022/04/25/Oracle/chapter02/">🎈OracleSQL_Chapter 02</a>
           </li>
         
           <li>
-            <a href="/2022/04/17/install/vscodeMac/">[Mac M1] Installation VSCode✨</a>
+            <a href="/2022/04/20/install/vscodeMac/">[Mac M1] Installation VSCode🐱‍🏍</a>
           </li>
         
           <li>
-            <a href="/2022/04/14/install/Spark/">[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍</a>
+            <a href="/2022/04/18/install/Oracle/">[Windows 10] Oracle Install🐱‍🏍</a>
           </li>
         
       </ul>
