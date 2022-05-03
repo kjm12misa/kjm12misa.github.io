@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>🎈Oracle PL/SQL_Chapter 05 | myblog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="01. 기본 집계 함수(p.152) 대상 데이터를 특정 그룹으로 묶은 다음 이 그룹에 대해 총합, 평균, 최댓값, 최솟값 등을 구하는 함수     집계 함수 설명    Count(expr) 쿼리 결과 건수, 즉 전체 row 수를 반환(행 갯수)   SUM(expr) expr의 전체 합계를 반환하는 함수로 매개변수 expr에는 숫자형만 올 수 있음   AVG">
+<meta property="og:type" content="article">
+<meta property="og:title" content="🎈Oracle PL&#x2F;SQL_Chapter 05">
+<meta property="og:url" content="https://kjm12misa.github.io/2022/04/27/Oracle/chapter05/index.html">
+<meta property="og:site_name" content="myblog">
+<meta property="og:description" content="01. 기본 집계 함수(p.152) 대상 데이터를 특정 그룹으로 묶은 다음 이 그룹에 대해 총합, 평균, 최댓값, 최솟값 등을 구하는 함수     집계 함수 설명    Count(expr) 쿼리 결과 건수, 즉 전체 row 수를 반환(행 갯수)   SUM(expr) expr의 전체 합계를 반환하는 함수로 매개변수 expr에는 숫자형만 올 수 있음   AVG">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter05%5CUntitled.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter05%5CUntitled%201.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter05%5CUntitled%202.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter05%5CUntitled%203.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter05%5CUntitled%204.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter05%5CUntitled%205.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter05%5CUntitled%206.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter05%5CUntitled%207.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter05%5CUntitled%208.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter05%5CUntitled%209.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter05%5CUntitled%2010.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter05%5CUntitled%2011.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter05%5CUntitled%2012.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter05%5CUntitled%2013.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter05%5CUntitled%2014.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter05%5CUntitled%2015.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter05%5CUntitled%2016.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter05%5CUntitled%2017.png">
+<meta property="og:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter05%5CUntitled%2018.png">
+<meta property="article:published_time" content="2022-04-27T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-03T12:38:47.488Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kjm12misa.github.io/%5Cimages%5COracle%5Cchapter05%5CUntitled.png">
+  
+    <link rel="alternate" href="/atom.xml" title="myblog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">myblog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kjm12misa.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Oracle/chapter05" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/27/Oracle/chapter05/" class="article-date">
+  <time class="dt-published" datetime="2022-04-27T00:00:00.000Z" itemprop="datePublished">2022-04-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      🎈Oracle PL/SQL_Chapter 05
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="01-기본-집계-함수-p-152"><a href="#01-기본-집계-함수-p-152" class="headerlink" title="01. 기본 집계 함수(p.152)"></a>01. 기본 집계 함수(p.152)</h2><ul>
+<li>대상 데이터를 특정 그룹으로 묶은 다음 이 그룹에 대해 총합, 평균, 최댓값, 최솟값 등을 구하는 함수</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>집계 함수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Count(expr)</td>
+<td>쿼리 결과 건수, 즉 전체 row 수를 반환(행 갯수)</td>
+</tr>
+<tr>
+<td>SUM(expr)</td>
+<td>expr의 전체 합계를 반환하는 함수로 매개변수 expr에는 숫자형만 올 수 있음</td>
+</tr>
+<tr>
+<td>AVG(expr)</td>
+<td>평균 값</td>
+</tr>
+<tr>
+<td>MIN(expr), MAX(expr)</td>
+<td>최솟값과 최댓값을 반환</td>
+</tr>
+<tr>
+<td>VARIANCE(expr)_분산</td>
+<td></td>
+</tr>
+<tr>
+<td>STDDEV(expr)_표준편차</td>
+<td>주어진 범위의 개별 값과 평균값과의 차이인 편차를 구해 이를 제곱 해서 평균한 값</td>
+</tr>
+<tr>
+<td>분산 값의 제곱근</td>
+<td></td>
+</tr>
+</tbody></table>
+<ol>
+<li><strong>Count 예제</strong></li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> employees; <span class="comment">-- 결과 : 107</span></span><br><span class="line"><span class="comment">-- &#x27;*&#x27; 대신 컬럼명을 쓰기도 함.</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">count</span>(employee_id) <span class="keyword">FROM</span> employees; <span class="comment">-- 결과 : 107</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>NULL값은 count() 함수에 계산 안됨</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">count</span>(department_id) <span class="keyword">FROM</span> employees; <span class="comment">-- 결과 : 106</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>DISTINCT를 붙이면 뒤에 따라 나오는 컬럼에 있는 유일한 값만 조회.</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">count</span>(<span class="keyword">DISTINCT</span> department_id) <span class="keyword">FROM</span> employees; <span class="comment">-- 결과 : 11</span></span><br><span class="line"><span class="comment">-- 사원 테이블에 있는 부서번호는 종류별로 총 11건이 있다는 뜻.</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>DISTINCT 활용 예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> department_id <span class="comment">-- 결과 : 12개의 행 선택됨.</span></span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="number">1</span>;</span><br><span class="line"><span class="comment">-- 결과가 12건이 나온 이유는 null 값까지 포함되었기 때문이다.</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter05%5CUntitled.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>SUM 예제</strong></li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">SUM</span>(salary) <span class="keyword">FROM</span> employees; <span class="comment">-- 결과 : 691416</span></span><br><span class="line"><span class="comment">-- DISTINCT 활용 예제 : 중복된 급여는 1번만 셈해진 전체 합계를 반환</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="built_in">SUM</span>(salary) <span class="comment">-- 결과 : 691416</span></span><br><span class="line">	, <span class="built_in">SUM</span>(<span class="keyword">DISTINCT</span> salary) <span class="comment">-- 결과 : 409908</span></span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>AVG 예제</strong></li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="built_in">AVG</span>(salary) <span class="comment">-- 결과 : 6461.831775700934579439252336448598130841</span></span><br><span class="line">	, <span class="built_in">AVG</span>(<span class="keyword">DISTINCT</span> salary) <span class="comment">-- 결과 : 7067.379310344827586206896551724137931034</span></span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>MIN, MAX 예제</strong></li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="built_in">MIN</span>(salary) <span class="comment">-- 결과 : 2100</span></span><br><span class="line">	, <span class="built_in">MAX</span>(salary) <span class="comment">-- 결과 : 24000</span></span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>VARIANCE, STDDEV 예제</strong></li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	VARIANCE(salary) <span class="comment">-- 결과 : 15284813.66954681713983424440134015164874</span></span><br><span class="line">	, STDDEV(salary) <span class="comment">-- 결과 : 3909.579730552481921059198878167256201202</span></span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+<h2 id="02-GROUP-BY-x2F-HAVING"><a href="#02-GROUP-BY-x2F-HAVING" class="headerlink" title="02. GROUP BY &#x2F; HAVING"></a>02. GROUP BY &#x2F; HAVING</h2><ol>
+<li><strong>GROUP BY 예제</strong></li>
+</ol>
+<ul>
+<li>그룹으로 묶을 컬럼명이나 표현식을 GROUP BY 절에 명시해서 사용</li>
+<li>GROUP BY 구문은 WHERE와 ORDER BY절 사이에 위치</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	department_id</span><br><span class="line">	, <span class="built_in">SUM</span>(salary)</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> department_id;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter05%5CUntitled%201.png" alt="Untitled"></p>
+</li>
+<li><p>2013년 지역 별 가계 대출 총 잔액 조회</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="keyword">period</span></span><br><span class="line">	, region</span><br><span class="line">	, <span class="built_in">SUM</span>(loan_jan_amt) totl_jan</span><br><span class="line"><span class="keyword">FROM</span> kor_loan_status</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">period</span> <span class="keyword">LIKE</span> <span class="string">&#x27;2013%&#x27;</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">period</span>, region</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">period</span>, region;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter05%5CUntitled%202.png" alt="Untitled"></p>
+</li>
+<li><p>2013년 11월 총 잔액만 구한다.</p>
+</li>
+<li><p>잘못된 식 예제와 오류 원인</p>
+<ul>
+<li>그룹 쿼리를 사용하면 SELECT 리스트에 있는 컬럼명이나 표현식 중 집계 함수를 제외하고는 모두 GROUP BY절에 명시해야 하는데, 앞의 쿼리는 period 컬럼을 명시하지 않아 오류가 난 것</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="keyword">period</span></span><br><span class="line">	, region</span><br><span class="line">	, <span class="built_in">SUM</span>(loan_jan_amt) totl_jan</span><br><span class="line"><span class="keyword">FROM</span> kor_loan_status</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">period</span> <span class="operator">=</span> <span class="string">&#x27;201311&#x27;</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> region</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> region;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 결과 : SQL 오류: ORA-00979: GROUP BY 표현식이 아닙니다.</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>잘 된 예제 with HAVING</strong></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="keyword">period</span></span><br><span class="line">	, region</span><br><span class="line">	, <span class="built_in">SUM</span>(loan_jan_amt) totl_jan</span><br><span class="line"><span class="keyword">FROM</span> kor_loan_status</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">period</span> <span class="operator">=</span> <span class="string">&#x27;201311&#x27;</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">period</span>, region</span><br><span class="line"><span class="keyword">HAVING</span> <span class="built_in">SUM</span>(loan_jan_amt) <span class="operator">&gt;</span> <span class="number">100000</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> region;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter05%5CUntitled%203.png" alt="Untitled"></p>
+</li>
+</ul>
+<h2 id="03-ROLLUP절과-CUBE절-GROUPING-SETS"><a href="#03-ROLLUP절과-CUBE절-GROUPING-SETS" class="headerlink" title="03. ROLLUP절과 CUBE절, GROUPING SETS"></a>03. ROLLUP절과 CUBE절, GROUPING SETS</h2><ul>
+<li><p>ROLLUP와 CUBE 집계</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter05%5CUntitled%204.png" alt="Untitled"></p>
+</li>
+<li><p>소 그룹 간의 합계를 계산</p>
+</li>
+</ul>
+<ol>
+<li><strong>ROLLUP(expr1, expr2, …)</strong><ul>
+<li>조건 컬럼의 중간 소계와 총 합계를 만들어주는 함수</li>
+<li>ROLLUP이 “말아 올린다”라는 의미이므로, ROLLUP에 명시한 표현식 개수에 따라 레벨이 정해지고 하위 레벨부터 상위 레벨로 “말아 올려진” 집계 결과가 계산된다고 생각하자.</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>기본 문법</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 2013년도 대출 종류 별 총 잔액</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="keyword">period</span></span><br><span class="line">	, gubun</span><br><span class="line">	, <span class="built_in">SUM</span>(loan_jan_amt) totl_jan</span><br><span class="line"><span class="keyword">FROM</span> kor_loan_status</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">period</span> <span class="keyword">LIKE</span> <span class="string">&#x27;2013%&#x27;</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">period</span>, gubun</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">period</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter05%5CUntitled%205.png" alt="Untitled"></p>
+</li>
+<li><p>ROLLUP 사용 예제 with GROUP BY(expr1, expr2)</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="keyword">period</span></span><br><span class="line">	, gubun</span><br><span class="line">	, <span class="built_in">SUM</span>(loan_jan_amt) totl_jan</span><br><span class="line"><span class="keyword">FROM</span> kor_loan_status</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">period</span> <span class="keyword">LIKE</span> <span class="string">&#x27;2013%&#x27;</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">ROLLUP</span>(<span class="keyword">period</span>, gubun);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  ③ 레벨은 월과 대출 종류(period, gubun), ② 레벨은 월(period), ① 레벨은 전체 합계가 집계된 것을 확인</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter05%5CUntitled%206.png" alt="Untitled"></p>
+</li>
+<li><p>ROLLUP 사용 예제 with GROUP BY expr1, ROLLUP(expr2)</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="keyword">period</span></span><br><span class="line">	, gubun</span><br><span class="line">	, <span class="built_in">SUM</span>(loan_jan_amt) totl_jan</span><br><span class="line"><span class="keyword">FROM</span> kor_loan_status</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">period</span> <span class="keyword">LIKE</span> <span class="string">&#x27;2013%&#x27;</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">period</span>, <span class="keyword">ROLLUP</span>(gubun);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  GROUP BY 절에 period, ROLLUP(gubun)을 명시했으므로 전체 레벨은 ‘1+1&#x3D;2’가 되는데, (period, gubun)이 ② 레벨, (period)가 ① 레벨로 집계</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter05%5CUntitled%207.png" alt="Untitled"></p>
+</li>
+<li><p>ROLLUP 사용 예제 with GROUP BY ROLLUP(expr1), expr2</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="keyword">period</span></span><br><span class="line">	, gubun</span><br><span class="line">	, <span class="built_in">SUM</span>(loan_jan_amt) totl_jan</span><br><span class="line"><span class="keyword">FROM</span> kor_loan_status</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">period</span> <span class="keyword">LIKE</span> <span class="string">&#x27;2013%&#x27;</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">ROLLUP</span>(<span class="keyword">period</span>), gubun ;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  ROLLUP(period), gubun 형태이므로 (gubun, period)가 2 레벨, (gubun)이 1 레벨이 되어 집계</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter05%5CUntitled%208.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>CUBE(expr1, expr2, …)</strong></li>
+</ol>
+<ul>
+<li>명시한 표현식 개수에 따라 가능한 모든 조합별로 집계한 결과를 반환</li>
+<li>예제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="keyword">period</span></span><br><span class="line">	, gubun</span><br><span class="line">	, <span class="built_in">SUM</span>(loan_jan_amt) totl_jan</span><br><span class="line"><span class="keyword">FROM</span> kor_loan_status</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">period</span> <span class="keyword">LIKE</span> <span class="string">&#x27;2013%&#x27;</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">CUBE</span>(<span class="keyword">period</span>, gubun);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  expr 수가 2이므로 2^2^ &#x3D; 4가 되어 총 네 가지 유형으로 집계가 되는데, 위 결과를 보면 전체(①), 대출종류별(②), 월 별 (③), 월별 대출 종류별(④)로 잔액이 집계되었다.</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter05%5CUntitled%209.png" alt="Untitled"></p>
+</li>
+<li><p>예제 with GROUP BY expr1, CUBE(expr2)</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">period</span>, gubun, <span class="built_in">SUM</span>(loan_jan_amt) totl_jan</span><br><span class="line"><span class="keyword">FROM</span> kor_loan_status</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">period</span> <span class="keyword">LIKE</span> <span class="string">&#x27;2013%&#x27;</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">period</span>, <span class="keyword">CUBE</span>( gubun );</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter05%5CUntitled%2010.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>GROUPING SETS</strong></li>
+</ol>
+<ul>
+<li>특정 항목에 대한 소계를 계산하는 함수</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line"><span class="keyword">period</span></span><br><span class="line">, gubun</span><br><span class="line">, <span class="built_in">SUM</span>(loan_jan_amt) totl_jan</span><br><span class="line"><span class="keyword">FROM</span> kor_loan_status</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">period</span> <span class="keyword">LIKE</span> <span class="string">&#x27;2013%&#x27;</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">GROUPING</span> SETS(<span class="keyword">period</span>, gubun);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter05%5CUntitled%2011.png" alt="Untitled"></p>
+</li>
+</ul>
+<h2 id="04-집합-연산자"><a href="#04-집합-연산자" class="headerlink" title="04. 집합 연산자"></a>04. 집합 연산자</h2><ul>
+<li>테이블 생성 및 데이터 추가</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> exp_goods_asia (</span><br><span class="line">country VARCHAR2(<span class="number">10</span>),</span><br><span class="line">seq NUMBER,</span><br><span class="line">goods VARCHAR2(<span class="number">80</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> exp_goods_asia <span class="keyword">VALUES</span> (<span class="string">&#x27;한국&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;원유제외 석유류&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> exp_goods_asia <span class="keyword">VALUES</span> (<span class="string">&#x27;한국&#x27;</span>, <span class="number">2</span>, <span class="string">&#x27;자동차&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> exp_goods_asia <span class="keyword">VALUES</span> (<span class="string">&#x27;한국&#x27;</span>, <span class="number">3</span>, <span class="string">&#x27;전자집적회로&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> exp_goods_asia <span class="keyword">VALUES</span> (<span class="string">&#x27;한국&#x27;</span>, <span class="number">4</span>, <span class="string">&#x27;선박&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> exp_goods_asia <span class="keyword">VALUES</span> (<span class="string">&#x27;한국&#x27;</span>, <span class="number">5</span>,  <span class="string">&#x27;LCD&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> exp_goods_asia <span class="keyword">VALUES</span> (<span class="string">&#x27;한국&#x27;</span>, <span class="number">6</span>,  <span class="string">&#x27;자동차부품&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> exp_goods_asia <span class="keyword">VALUES</span> (<span class="string">&#x27;한국&#x27;</span>, <span class="number">7</span>,  <span class="string">&#x27;휴대전화&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> exp_goods_asia <span class="keyword">VALUES</span> (<span class="string">&#x27;한국&#x27;</span>, <span class="number">8</span>,  <span class="string">&#x27;환식탄화수소&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> exp_goods_asia <span class="keyword">VALUES</span> (<span class="string">&#x27;한국&#x27;</span>, <span class="number">9</span>,  <span class="string">&#x27;무선송신기 디스플레이 부속품&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> exp_goods_asia <span class="keyword">VALUES</span> (<span class="string">&#x27;한국&#x27;</span>, <span class="number">10</span>,  <span class="string">&#x27;철 또는 비합금강&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> exp_goods_asia <span class="keyword">VALUES</span> (<span class="string">&#x27;일본&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;자동차&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> exp_goods_asia <span class="keyword">VALUES</span> (<span class="string">&#x27;일본&#x27;</span>, <span class="number">2</span>, <span class="string">&#x27;자동차부품&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> exp_goods_asia <span class="keyword">VALUES</span> (<span class="string">&#x27;일본&#x27;</span>, <span class="number">3</span>, <span class="string">&#x27;전자집적회로&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> exp_goods_asia <span class="keyword">VALUES</span> (<span class="string">&#x27;일본&#x27;</span>, <span class="number">4</span>, <span class="string">&#x27;선박&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> exp_goods_asia <span class="keyword">VALUES</span> (<span class="string">&#x27;일본&#x27;</span>, <span class="number">5</span>, <span class="string">&#x27;반도체웨이퍼&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> exp_goods_asia <span class="keyword">VALUES</span> (<span class="string">&#x27;일본&#x27;</span>, <span class="number">6</span>, <span class="string">&#x27;화물차&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> exp_goods_asia <span class="keyword">VALUES</span> (<span class="string">&#x27;일본&#x27;</span>, <span class="number">7</span>, <span class="string">&#x27;원유제외 석유류&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> exp_goods_asia <span class="keyword">VALUES</span> (<span class="string">&#x27;일본&#x27;</span>, <span class="number">8</span>, <span class="string">&#x27;건설기계&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> exp_goods_asia <span class="keyword">VALUES</span> (<span class="string">&#x27;일본&#x27;</span>, <span class="number">9</span>, <span class="string">&#x27;다이오드, 트랜지스터&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> exp_goods_asia <span class="keyword">VALUES</span> (<span class="string">&#x27;일본&#x27;</span>, <span class="number">10</span>, <span class="string">&#x27;기계류&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">COMMIT</span>;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>UNION(합집합)</strong></li>
+</ol>
+<ul>
+<li>두 개의 데이터 집합에서 출력</li>
+<li>기본 문법</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> goods</span><br><span class="line"><span class="keyword">FROM</span> exp_goods_asia</span><br><span class="line"><span class="keyword">WHERE</span> country <span class="operator">=</span> <span class="string">&#x27;한국&#x27;</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> seq;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  한국의 수출품 조회</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter05%5CUntitled%2012.png" alt="Untitled"></p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> goods</span><br><span class="line"><span class="keyword">FROM</span> exp_goods_asia</span><br><span class="line"><span class="keyword">WHERE</span> country <span class="operator">=</span> <span class="string">&#x27;일본&#x27;</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> seq;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  일본의 수출품 조회</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter05%5CUntitled%2013.png" alt="Untitled"></p>
+</li>
+<li><p>두 국가의 겹치는 수출품 품목 조회</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> goods</span><br><span class="line"><span class="keyword">FROM</span> exp_goods_asia</span><br><span class="line"><span class="keyword">WHERE</span> country <span class="operator">=</span> <span class="string">&#x27;한국&#x27;</span></span><br><span class="line"><span class="keyword">UNION</span> <span class="comment">-- 합집합 개념 적용</span></span><br><span class="line"><span class="keyword">SELECT</span> goods</span><br><span class="line"><span class="keyword">FROM</span> exp_goods_asia</span><br><span class="line"><span class="keyword">WHERE</span> country <span class="operator">=</span> <span class="string">&#x27;일본&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter05%5CUntitled%2014.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>UNION ALL</strong></li>
+</ol>
+<ul>
+<li>중복 된 항목도 모두 조회</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> goods</span><br><span class="line"><span class="keyword">FROM</span> exp_goods_asia</span><br><span class="line"><span class="keyword">WHERE</span> country <span class="operator">=</span> <span class="string">&#x27;한국&#x27;</span></span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">ALL</span> <span class="comment">-- 합집합 개념 적용</span></span><br><span class="line"><span class="keyword">SELECT</span> goods</span><br><span class="line"><span class="keyword">FROM</span> exp_goods_asia</span><br><span class="line"><span class="keyword">WHERE</span> country <span class="operator">=</span> <span class="string">&#x27;일본&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter05%5CUntitled%2015.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>INTERSECT(교집합)</strong></li>
+</ol>
+<ul>
+<li>공통된 항목만 추출</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> goods</span><br><span class="line"><span class="keyword">FROM</span> exp_goods_asia</span><br><span class="line"><span class="keyword">WHERE</span> country <span class="operator">=</span> <span class="string">&#x27;한국&#x27;</span></span><br><span class="line"><span class="keyword">INTERSECT</span> <span class="comment">-- 교집합 개념 적용</span></span><br><span class="line"><span class="keyword">SELECT</span> goods</span><br><span class="line"><span class="keyword">FROM</span> exp_goods_asia</span><br><span class="line"><span class="keyword">WHERE</span> country <span class="operator">=</span> <span class="string">&#x27;일본&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter05%5CUntitled%2016.png" alt="Untitled"></p>
+</li>
+</ul>
+<ol>
+<li><strong>MINUS(차집합)</strong></li>
+</ol>
+<ul>
+<li>공통된 항목을 <strong>제외</strong>한 결과만 추출</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> goods</span><br><span class="line"><span class="keyword">FROM</span> exp_goods_asia</span><br><span class="line"><span class="keyword">WHERE</span> country <span class="operator">=</span> <span class="string">&#x27;한국&#x27;</span></span><br><span class="line">MINUS <span class="comment">-- 차집합 개념 적용</span></span><br><span class="line"><span class="keyword">SELECT</span> goods</span><br><span class="line"><span class="keyword">FROM</span> exp_goods_asia</span><br><span class="line"><span class="keyword">WHERE</span> country <span class="operator">=</span> <span class="string">&#x27;일본&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<ul>
+<li>한국에는 있지만 일본에는 없는 수출품 목록을 조회</li>
+</ul>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter05%5CUntitled%2017.png" alt="Untitled">
+  </p>
+</li>
+<li><p>반대로 조회</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> goods</span><br><span class="line"><span class="keyword">FROM</span> exp_goods_asia</span><br><span class="line"><span class="keyword">WHERE</span> country <span class="operator">=</span> <span class="string">&#x27;일본&#x27;</span></span><br><span class="line">MINUS</span><br><span class="line"><span class="keyword">SELECT</span> goods</span><br><span class="line"><span class="keyword">FROM</span> exp_goods_asia</span><br><span class="line"><span class="keyword">WHERE</span> country <span class="operator">=</span> <span class="string">&#x27;한국&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>결과</p>
+<ul>
+<li>일본에는 있지만 한국에는 없는 수출품 목록 조회</li>
+</ul>
+<p>  <img src="/%5Cimages%5COracle%5Cchapter05%5CUntitled%2018.png" alt="Untitled"></p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/04/27/Oracle/chapter05/" data-id="cl2q53xxa0000ssv14a5tckc2" data-title="🎈Oracle PL/SQL_Chapter 05" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/04/27/Oracle/chapter03/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          🎈OracleSQL_Chapter 03
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/04/25/Oracle/chapter02/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">🎈OracleSQL_Chapter 02</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/03/Oracle/chapter09/">🎈Oracle PL/SQL_Chapter 09</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/02/Oracle/Chapter04/">🎈OracleSQL_Chapter 04</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/27/Oracle/chapter03/">🎈OracleSQL_Chapter 03</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/27/Oracle/chapter05/">🎈Oracle PL/SQL_Chapter 05</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/25/Oracle/chapter02/">🎈OracleSQL_Chapter 02</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

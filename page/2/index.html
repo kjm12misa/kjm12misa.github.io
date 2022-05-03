@@ -71,6 +71,178 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-install/PostgreSQL" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/12/install/PostgreSQL/" class="article-date">
+  <time class="dt-published" datetime="2022-04-12T00:00:00.000Z" itemprop="datePublished">2022-04-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/12/install/PostgreSQL/">[Windows 10] PostgreSQL Installation on WSL2 and Windows🐱‍🏍</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>주의할 점! 절대 PostgreSQL 14라고 따로 웹사이트에서 다운 받아 놓지 말자! 다운 받아 놓고 WSL2에서 설치 후 paAdmin에서 설정 시 오류가 난다. (이유 : 컴퓨터가 윈도우에 깔린 파일을 일순위로 잡아버리기 때문이다.) </p>
+<p>!!!!!!! 시작하기 전, ls → cd .. → ls 적고 아래와 같이 두 줄 나오면!!!!!!!!</p>
+<p><img src="/%5Cimages%5Cinstall%5CPostgreSQL%5C1.png" alt="위치잡기.PNG"></p>
+<p>sudo apt-get update &amp;&amp; sudo apt-get upgrade 입력!! &lt;항상 설치하거나, 시작할 때 해주기&gt;</p>
+<ol>
+<li>sudo apt install postgresql postgresql-contrib</li>
+</ol>
+<ul>
+<li>WSL2에 postgreSQL 설치.</li>
+</ul>
+<ol start="2">
+<li>psql —version</li>
+</ol>
+<ul>
+<li>버전 확인</li>
+</ul>
+<ol start="3">
+<li>sudo service pstgresql status</li>
+</ol>
+<ul>
+<li>설치 후 Database에 접근하도록 활성화 해야 한다.</li>
+<li>입력하면 12&#x2F;main (port 5432): down → 포트가 활성화 되어 있지 않았다는 의미.</li>
+</ul>
+<ol start="4">
+<li>sudo service postgresql start</li>
+</ol>
+<ul>
+<li>활성화 시키기</li>
+</ul>
+<ol start="5">
+<li>sudo service postgresql status</li>
+</ol>
+<ul>
+<li>12&#x2F;main (port 5432): online → 활성화가 되었다는 의미.</li>
+</ul>
+<ol start="6">
+<li>sudo service postgresql stop</li>
+</ol>
+<ul>
+<li>Database 가 종료 됨.</li>
+</ul>
+<ol start="7">
+<li>sudo service postgresql status</li>
+</ol>
+<ul>
+<li>12&#x2F;main (port 5432): down → 활성화가 종료(또는 되어 있지 않은) 되었다는 의미.</li>
+</ul>
+<h3 id="사용자-계정-Password-설정"><a href="#사용자-계정-Password-설정" class="headerlink" title="사용자 계정 Password 설정"></a>사용자 계정 Password 설정</h3><p>기본적으로  admin 사용자로 등록 되어 있다. 보통 DB 초기 세팅 시 패스워드를 입력 받아야 한다.</p>
+<ol>
+<li>sudo passwd postgres</li>
+</ol>
+<ul>
+<li>New password:</li>
+<li>Retype new password:</li>
+<li>passwd: password updated successfully<br>→  패스워드 입력에 필자는 1234으로 적어준다. 자신이 원하는 패스워드로 설정.</li>
+</ul>
+<p>비밀 번호를 모두 설정 하였다면, </p>
+<ol>
+<li>WSL2에서 sudo service postgresql start (활성화) → sudo service postgresql status(활성화 확인: online)</li>
+</ol>
+<ul>
+<li><strong>활성화가 되어 있는 상태에서 pgAdmin 열기.</strong></li>
+</ul>
+<p>이렇게 WSL2에서 설치를 끝 마치고 다음으로 넘어가 pgAdmin 설치 하기</p>
+<h3 id="pgAdmin-Installation-on-Windows"><a href="#pgAdmin-Installation-on-Windows" class="headerlink" title="pgAdmin Installation on Windows"></a>pgAdmin Installation on Windows</h3><p>pgAdmin 설치 : <strong><a target="_blank" rel="noopener" href="https://www.pgadmin.org/download/pgadmin-4-windows/">https://www.pgadmin.org/download/pgadmin-4-windows/</a><br>→ 최신 버전으로 설치 해 줄 것</strong></p>
+<ul>
+<li><p>설치 시 아래와 같이 선택.</p>
+<p>  <img src="/%5Cimages%5Cinstall%5CPostgreSQL%5C2.png" alt="캡처000.PNG"></p>
+</li>
+</ul>
+<ol>
+<li>설치 후 검색에서 pgAdmin 가 설치 되어 있는지 확인.</li>
+<li>WSL2에서 psql이 활성화가 되어 있다면, pgAdmin 실행 시 WSL2에서 입력한 Password 입력해 준다. (비밀번호가 헷갈린다면 우분투에서 설정한 것과 동일하게 적자) </li>
+<li>서버 설정</li>
+<li>Browser - Servers → Register → server 클릭</li>
+<li>General Name 는 test 입력.</li>
+<li>Connection Host name&#x2F;address 는 127.0.0.1 입력 → username 는 postgres 입력 → password 는 설정한 비밀번호 입력.(필자 1234) → Save 누르기</li>
+<li>서버 설정 했는데 오류 메시지가 아래와 같이 뜰 때</li>
+</ol>
+<p><img src="/%5Cimages%5Cinstall%5CPostgreSQL%5C3.png" alt="오류.PNG"></p>
+<p>→ WSL2에  <code>sudo -u postgres psql -c &quot;ALTER USER postgres PASSWORD &#39;postgres&#39;;&quot;</code>  입력.<br>(<code>&#39;postgres&#39;</code> 따옴표 사이의 비밀번호는 원하는 걸로 변경 가능. 필자는 postgres 설정)</p>
+<ol>
+<li>위 설정이 끝난 뒤, 재 접속하면 정상적으로 접근이 되는 것을 확인.</li>
+<li>정상적으로 접근 안되면, 다시 다 삭제 하고 처음부터 시작</li>
+</ol>
+<ul>
+<li>삭제 하고자 하는 폴더 지정 후 우분투에 rm -rf * 입력.</li>
+</ul>
+<h3 id="DB-생성-및-확인"><a href="#DB-생성-및-확인" class="headerlink" title="DB 생성 및 확인"></a>DB 생성 및 확인</h3><p>test 서버 만들었다면,</p>
+<ol>
+<li>test → Database(마우스 우 클릭) → create → Database 클릭.</li>
+<li>General → Database - dataengineering 입력 → Save.</li>
+<li>생성된 dataengineering 노드 중 shemas 확장 → public 확장 → Tables(마우스 우 클릭) → create → Table 클릭.</li>
+<li>General → Name - users 입력 → Columns 탭에 추가.</li>
+</ol>
+<p><img src="/%5Cimages%5Cinstall%5CPostgreSQL%5C4.png" alt="컬럼.PNG"></p>
+<ol>
+<li>우분투로 다시 돌아와 psql에 접속 후 dataengineering와 생성된 테이블을 조화하는 쿼리 실행</li>
+</ol>
+<ul>
+<li>dataengineering 테이블이 조회 되는지 확인.</li>
+<li><code>sudo -u postgres psql</code> 입력. → 아래는 결과.</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">psql (12.9 (Ubuntu 12.9-0ubuntu0.20.04.1))</span><br><span class="line">Type &quot;help&quot; for help.</span><br><span class="line"></span><br><span class="line">postgres=#</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>\l (영문 l 이다. 숫자 아니다.)입력 했을 때 생성한 dataengineering 뜨면 성공!!</li>
+</ol>
+<p><img src="/%5Cimages%5Cinstall%5CPostgreSQL%5C5.png" alt="결과.PNG"></p>
+<ol>
+<li>기 생성된 dataengineering DB에 연결 후, 테이블을 조회.</li>
+</ol>
+<ul>
+<li>\c dataengineering 입력.</li>
+<li>생성 된 dataengineering&#x3D;# 에  \dt 입력 하면 아래 와 같이 결과가 뜨면 성공!!</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5CPostgreSQL%5C6.png" alt="결과 2.PNG"></p>
+<ol>
+<li>확인이 다 되었다면, \q 입력하고 나오기.</li>
+</ol>
+<h3 id="다시-재-접속-할-때"><a href="#다시-재-접속-할-때" class="headerlink" title="다시 재 접속 할 때"></a>다시 재 접속 할 때</h3><ol>
+<li>활성화 할 때</li>
+</ol>
+<ul>
+<li>우분투에서 ls → cd .. → ls → sudo 업데이트 &amp;&amp; 업그레이드 → sudo service postgresql start(활성화) → sudo service postgresql status (online 확인)</li>
+</ul>
+<ol start="2">
+<li>pgAdmin 실행 → 서버 비밀번호(25**) → 생성 해 놓은 서버 test 클릭 →  test 서버 때 설정한 비밀번호(po******) 접속!!</li>
+<li>종료 할 때</li>
+</ol>
+<ul>
+<li>우분투에서 sudo service postgresql stop(활성화 종료) → sudo service postgresql status(down 확인)</li>
+</ul>
+<h3 id="반드시-서버를-이용하고-사용-하지-않을-때는-서버를-종료-해주는-걸-입력한다-종료-하지-않으면-요금-폭탄을-받을-수-있다"><a href="#반드시-서버를-이용하고-사용-하지-않을-때는-서버를-종료-해주는-걸-입력한다-종료-하지-않으면-요금-폭탄을-받을-수-있다" class="headerlink" title="반드시!!! 서버를 이용하고 사용 하지 않을 때는 서버를 종료 해주는 걸 입력한다. 종료 하지 않으면 요금 폭탄을 받을 수 있다."></a>반드시!!! 서버를 이용하고 사용 하지 않을 때는 서버를 종료 해주는 걸 입력한다. 종료 하지 않으면 요금 폭탄을 받을 수 있다.</h3><p><a target="_blank" rel="noopener" href="https://dschloe.github.io/sql/postgreslq_wsl2/">출처 및 참조</a><br><a target="_blank" rel="noopener" href="https://mungiyo.tistory.com/15">우분투 apt-get 속도 향상 방법</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/04/12/install/PostgreSQL/" data-id="cl2q2s65m000e3wv19v7jhm1l" data-title="[Windows 10] PostgreSQL Installation on WSL2 and Windows🐱‍🏍" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-install/Airflow" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/04/11/install/Airflow/" class="article-date">
@@ -1105,85 +1277,11 @@
 
 
   
-    <article id="post-R/class_03" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/11/R/class_03/" class="article-date">
-  <time class="dt-published" datetime="2022-03-11T00:00:00.000Z" itemprop="datePublished">2022-03-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/03/11/R/class_03/">class</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>install.packages(dplyr)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">library(dplyr)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>이름 &lt;- c(“rain”, “구름”, “하늘”)<br>나이 &lt;- c(30, 70, 20)<br>지각 &lt;- c(TRUE, FALSE, TRUE)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">students &lt;- data.frame(name = 이름,</span><br><span class="line">                        age = 나이,</span><br><span class="line">                       atte = 지각)</span><br></pre></td></tr></table></figure>
-
-<p>str(students)</p>
-<ul>
-<li><p>경로 확인</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getwd()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>파일 저장</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">write.csv(x = students, file = &quot;학생.csv&quot;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>엑셀로 내보내기</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">library(writexl)</span><br><span class="line">write_xlsx(x = students, path = &quot;학생.xlsx&quot;)</span><br></pre></td></tr></table></figure>
-
-</li>
-<li><p>모두 지우기</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm(list = ls())</span><br></pre></td></tr></table></figure>
-
-<p>students &lt;- read.csv(“학생.csv”)</p>
-<ul>
-<li>엑셀 파일 불러오기<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">library(readxl)</span><br><span class="line">students2 &lt;- read_xlsx(&quot;학생.xlsx&quot;, sheet = 1)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>iris &lt;- iris<br>str(iris)</p>
-<ul>
-<li>파이프 라인</li>
-</ul>
-<p>iris %&gt;% # ~에서 150개, 5개의 변수<br>  select(Sepal.Length, Sepal.Width) %&gt;% #150개, 2개의 변수<br>  filter(Sepal.Length &gt; 6) %&gt;% #61개, 2개의 변수<br>  head(10) -&gt; iris2 #10개, 2개의 변수</p>
-<ul>
-<li>help</li>
-</ul>
-<p>?head()</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/03/11/R/class_03/" data-id="cl2q2s65d00073wv1efsk3iv0" data-title="class" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -1227,11 +1325,11 @@
           </li>
         
           <li>
-            <a href="/2022/04/25/Oracle/chapter02/">🎈OracleSQL_Chapter 02</a>
+            <a href="/2022/04/27/Oracle/chapter05/">🎈Oracle PL/SQL_Chapter 05</a>
           </li>
         
           <li>
-            <a href="/2022/04/20/install/vscodeMac/">[Mac M1] Installation VSCode🐱‍🏍</a>
+            <a href="/2022/04/25/Oracle/chapter02/">🎈OracleSQL_Chapter 02</a>
           </li>
         
       </ul>

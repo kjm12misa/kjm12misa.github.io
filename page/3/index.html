@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   
   
-  <title>Archives: 2022/3 | myblog</title>
+  <title>myblog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta property="og:type" content="website">
 <meta property="og:title" content="myblog">
-<meta property="og:url" content="https://kjm12misa.github.io/archives/2022/03/index.html">
+<meta property="og:url" content="https://kjm12misa.github.io/page/3/index.html">
 <meta property="og:site_name" content="myblog">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="John Doe">
@@ -71,133 +71,86 @@
       <div class="outer">
         <section id="main">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/03/16/R/03.16-study/" class="archive-article-date">
-  <time class="dt-published" datetime="2022-03-16T00:00:00.000Z" itemprop="datePublished">Mar 16</time>
+    <article id="post-R/class_03" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/11/R/class_03/" class="article-date">
+  <time class="dt-published" datetime="2022-03-11T00:00:00.000Z" itemprop="datePublished">2022-03-11</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/03/16/R/03.16-study/">study</a>
+      <a class="p-name article-title" href="/2022/03/11/R/class_03/">class</a>
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/03/15/R/Descriptive-Analysis/" class="archive-article-date">
-  <time class="dt-published" datetime="2022-03-15T00:00:00.000Z" itemprop="datePublished">Mar 15</time>
-</a>
+    <div class="e-content article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/03/15/R/Descriptive-Analysis/">Descriptive Analysis</a>
-    </h1>
-  
+        <ul>
+<li>install.packages(dplyr)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">library(dplyr)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>이름 &lt;- c(“rain”, “구름”, “하늘”)<br>나이 &lt;- c(30, 70, 20)<br>지각 &lt;- c(TRUE, FALSE, TRUE)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">students &lt;- data.frame(name = 이름,</span><br><span class="line">                        age = 나이,</span><br><span class="line">                       atte = 지각)</span><br></pre></td></tr></table></figure>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/03/15/R/chapter_8/" class="archive-article-date">
-  <time class="dt-published" datetime="2022-03-15T00:00:00.000Z" itemprop="datePublished">Mar 15</time>
-</a>
+<p>str(students)</p>
+<ul>
+<li><p>경로 확인</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getwd()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>파일 저장</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">write.csv(x = students, file = &quot;학생.csv&quot;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>엑셀로 내보내기</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">library(writexl)</span><br><span class="line">write_xlsx(x = students, path = &quot;학생.xlsx&quot;)</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>모두 지우기</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm(list = ls())</span><br></pre></td></tr></table></figure>
+
+<p>students &lt;- read.csv(“학생.csv”)</p>
+<ul>
+<li>엑셀 파일 불러오기<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">library(readxl)</span><br><span class="line">students2 &lt;- read_xlsx(&quot;학생.xlsx&quot;, sheet = 1)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>iris &lt;- iris<br>str(iris)</p>
+<ul>
+<li>파이프 라인</li>
+</ul>
+<p>iris %&gt;% # ~에서 150개, 5개의 변수<br>  select(Sepal.Length, Sepal.Width) %&gt;% #150개, 2개의 변수<br>  filter(Sepal.Length &gt; 6) %&gt;% #61개, 2개의 변수<br>  head(10) -&gt; iris2 #10개, 2개의 변수</p>
+<ul>
+<li>help</li>
+</ul>
+<p>?head()</p>
+
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/03/15/R/chapter_8/">chapter_8</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/03/15/R/z-score.03/" class="archive-article-date">
-  <time class="dt-published" datetime="2022-03-15T00:00:00.000Z" itemprop="datePublished">Mar 15</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/03/11/R/class_03/" data-id="cl2q2s65d00073wv1efsk3iv0" data-title="class" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/03/15/R/z-score.03/">z-score</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/03/12/R/foodshop/" class="archive-article-date">
-  <time class="dt-published" datetime="2022-03-12T00:00:00.000Z" itemprop="datePublished">Mar 12</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/03/12/R/foodshop/">Food shop</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/03/11/R/class_03/" class="archive-article-date">
-  <time class="dt-published" datetime="2022-03-11T00:00:00.000Z" itemprop="datePublished">Mar 11</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/03/11/R/class_03/">class</a>
-    </h1>
-  
-
-    </header>
+    </footer>
   </div>
+  
 </article>
-  
-  
-    </div></section>
+
+
+
   
 
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
 
 </section>
         
