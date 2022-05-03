@@ -71,6 +71,131 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-install/Airflow" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/11/install/Airflow/" class="article-date">
+  <time class="dt-published" datetime="2022-04-11T00:00:00.000Z" itemprop="datePublished">2022-04-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/11/install/Airflow/">[Windows 10] Setting up Apache-Airflow in Windows using WSL2🐱‍🏍</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="✨설치-전-WSL2-설치-필수-✨"><a href="#✨설치-전-WSL2-설치-필수-✨" class="headerlink" title="✨설치 전, WSL2 설치 필수.✨"></a>✨설치 전, WSL2 설치 필수.✨</h3><h3 id="01-Install-pip-on-WSL"><a href="#01-Install-pip-on-WSL" class="headerlink" title="01. Install pip on WSL"></a>01. Install pip on WSL</h3><ol>
+<li>airflow 설치하기 위해 pip 설치</li>
+<li><code>sudo apt install python3-pip</code></li>
+</ol>
+<h3 id="02-Install-virtualenv-package"><a href="#02-Install-virtualenv-package" class="headerlink" title="02. Install virtualenv package"></a>02. Install virtualenv package</h3><ol>
+<li>virtualenv 라이브러리 설치</li>
+<li><code>sudo pip3 install virtualenv</code></li>
+</ol>
+<h3 id="03-Create-a-virtual-environment"><a href="#03-Create-a-virtual-environment" class="headerlink" title="03. Create a virtual environment"></a>03. Create a virtual environment</h3><ol>
+<li>C 드라이브에 airflow-test 폴더 생성</li>
+<li>mkdir 입력하고 생성 폴더 이름 적기</li>
+</ol>
+<ul>
+<li>ex. mkdir airflow-test 이렇게 적으면 현재 내 위치에 폴더가 생성된다.(내 위치 : mnt&#x2F;c:)</li>
+</ul>
+<ol>
+<li>가상 환경 생성</li>
+</ol>
+<ul>
+<li><code>virtualenv venv</code></li>
+</ul>
+<ol>
+<li>가상 환경 접속</li>
+</ol>
+<ul>
+<li><code>source venv/bin/activate</code></li>
+</ul>
+<ol>
+<li>환경 변수 열고 코드 추가</li>
+</ol>
+<ul>
+<li><code>vi ~/.bashrc</code> ——→ <code>export AIRFLOW_HOME=/mnt/c/airflow-test</code></li>
+<li>환경 변수를 열고 코드 추가하기 위해서는 <strong>esc</strong> + <strong>i</strong> 눌러 작성.</li>
+<li>코드를 맞게 적었다면,   <strong>:wq!</strong>  ———→ 단축키 : 저장하고 나가기.</li>
+<li>저장 안하고 나간다면 그냥 q! 적기.</li>
+</ul>
+<ol>
+<li>수정 된 코드를 업데이트 하기 위한 코드</li>
+</ol>
+<ul>
+<li><code>source ~/.bashrc</code></li>
+</ul>
+<ol>
+<li>실제 코드가 반영되었는지 확인 하기 위한 코드</li>
+</ol>
+<ul>
+<li><code>echo $AIRFLOW_HOME</code>    —(결과)—&gt; <code>/mnt/c/airflow-test</code></li>
+</ul>
+<h3 id="04-Apache-Airflow-설치"><a href="#04-Apache-Airflow-설치" class="headerlink" title="04. Apache Airflow 설치"></a>04. Apache Airflow 설치</h3><ol>
+<li>PostgreSQL, Slack, Celery 패키지를 동시에 설치하는 코드를 작성</li>
+</ol>
+<ul>
+<li><code>pip3 install &#39;apache-airflow[postgres, slack, celery]&#39;</code></li>
+</ul>
+<ol>
+<li>airflow 설치 위해 DB 초기화 해줘야 한다.</li>
+</ol>
+<ul>
+<li><code>airflow db init</code></li>
+</ul>
+<ol>
+<li>실제로 잘 구현이 되었는지 확인하기 위해 webserver 실행</li>
+</ol>
+<ul>
+<li><code>airflow webserver -p 8081</code></li>
+<li>뒤에 번호는 때에 따라서 달라질 수 있음.</li>
+</ul>
+<ol>
+<li>링크에 접속하여 아래와 같은 화면이 나타나지는 확인 한다.</li>
+</ol>
+<ul>
+<li><p><strong><a target="_blank" rel="noopener" href="http://localhost:8081/login/">http://localhost:8081/login/</a></strong></p>
+<p>  <img src="/%5Cimages%5Cinstall%5CAirflow%5C1.png" alt="에어플로.PNG"></p>
+</li>
+</ul>
+<ol>
+<li>username 생성을 하지 않았다.  아래와 같이 추가 하는 코드 작성.</li>
+</ol>
+<ul>
+<li><code>airflow users create --username airflow --password airflow --firstname evan --lastname airflow --role Admin --email your_email@some.com</code></li>
+<li>각 해당 목록 마다 본인 걸로 지정.</li>
+</ul>
+<ol>
+<li>다시 링크 접속 후 생성된 username, password 적고 접속. 아래 와 같이 뜬다면 성공!</li>
+</ol>
+<p><img src="/%5Cimages%5Cinstall%5CAirflow%5C2.png" alt="캡처dd.PNG"></p>
+<p>출처 및 참조 : 강사님  <a target="_blank" rel="noopener" href="https://dschloe.github.io/settings/apache_airflow_using_wsl2/">https://dschloe.github.io/settings/apache_airflow_using_wsl2&#x2F;</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/04/11/install/Airflow/" data-id="cl2q2s65h000a3wv1a8t5cmgj" data-title="[Windows 10] Setting up Apache-Airflow in Windows using WSL2🐱‍🏍" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-install/vscodeWLS" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/04/11/install/vscodeWLS/" class="article-date">
@@ -158,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/11/install/vscodeWLS/" data-id="cl2oaoezu000frov1gsxdb148" data-title="[Windows 10] VSCode WLS 연동🐱‍🏍" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/11/install/vscodeWLS/" data-id="cl2q2s65q000j3wv140nl4svb" data-title="[Windows 10] VSCode WLS 연동🐱‍🏍" class="article-share-link">Share</a>
       
       
       
@@ -245,7 +370,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/10/install/Github%20(2)/" data-id="cl2oaoezp000brov18ezfdfqj" data-title="[Windows 10] GitHub blog 만들기✨" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/10/install/Github%20(2)/" data-id="cl2q2s65l000d3wv1ehuxh3nk" data-title="[Windows 10] GitHub blog 만들기✨" class="article-share-link">Share</a>
       
       
       
@@ -337,7 +462,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/08/install/WLS2/" data-id="cl2oaoezs000erov1fh76cbu3" data-title="[Windows 10] Install WSL2🐱‍🏍" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/08/install/WLS2/" data-id="cl2q2s65o000h3wv1b3xjdhph" data-title="[Windows 10] Install WSL2🐱‍🏍" class="article-share-link">Share</a>
       
       
       
@@ -423,7 +548,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/03/16/R/03.16-study/" data-id="cl2oaoeze0002rov1828ccqom" data-title="study" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/03/16/R/03.16-study/" data-id="cl2q2s65b00043wv13luk3c5l" data-title="study" class="article-share-link">Share</a>
       
       
       
@@ -566,7 +691,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/03/15/R/Descriptive-Analysis/" data-id="cl2oaoezb0001rov1glg52r72" data-title="Descriptive Analysis" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/03/15/R/Descriptive-Analysis/" data-id="cl2q2s65c00063wv14bmd40l2" data-title="Descriptive Analysis" class="article-share-link">Share</a>
       
       
       
@@ -744,7 +869,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/03/15/R/chapter_8/" data-id="cl2oaoezf0003rov13jvy6iy1" data-title="chapter_8" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/03/15/R/chapter_8/" data-id="cl2q2s65f00083wv1574c8uj4" data-title="chapter_8" class="article-share-link">Share</a>
       
       
       
@@ -817,7 +942,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/03/15/R/z-score.03/" data-id="cl2oaoezi0006rov1dhje2swr" data-title="z-score" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/03/15/R/z-score.03/" data-id="cl2q2s65j000b3wv1bj1u5oe0" data-title="z-score" class="article-share-link">Share</a>
       
       
       
@@ -968,7 +1093,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/03/12/R/foodshop/" data-id="cl2oaoezh0005rov1dvmp3krf" data-title="Food shop" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/03/12/R/foodshop/" data-id="cl2q2s65g00093wv1ahcc2vtu" data-title="Food shop" class="article-share-link">Share</a>
       
       
       
@@ -1042,7 +1167,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/03/11/R/class_03/" data-id="cl2oaoezg0004rov18hzh3n72" data-title="class" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/03/11/R/class_03/" data-id="cl2q2s65d00073wv1efsk3iv0" data-title="class" class="article-share-link">Share</a>
       
       
       
@@ -1090,6 +1215,10 @@
       <ul>
         
           <li>
+            <a href="/2022/05/03/Oracle/chapter09/">🎈Oracle PL/SQL_Chapter 09</a>
+          </li>
+        
+          <li>
             <a href="/2022/05/02/Oracle/Chapter04/">🎈OracleSQL_Chapter 04</a>
           </li>
         
@@ -1103,10 +1232,6 @@
         
           <li>
             <a href="/2022/04/20/install/vscodeMac/">[Mac M1] Installation VSCode🐱‍🏍</a>
-          </li>
-        
-          <li>
-            <a href="/2022/04/18/install/Oracle/">[Windows 10] Oracle Install🐱‍🏍</a>
           </li>
         
       </ul>
