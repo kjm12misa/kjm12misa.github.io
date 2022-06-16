@@ -71,6 +71,233 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JAVA/JAVA22.06.16" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/06/16/JAVA/JAVA22.06.16/" class="article-date">
+  <time class="dt-published" datetime="2022-06-15T15:00:00.000Z" itemprop="datePublished">2022-06-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/06/16/JAVA/JAVA22.06.16/">🎈JAVA_변수(variable)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="이것이-자바다"><a href="#이것이-자바다" class="headerlink" title="이것이 자바다."></a>이것이 자바다.</h3><h2 id="1-변수"><a href="#1-변수" class="headerlink" title="1. 변수"></a>1. 변수</h2><ul>
+<li>변수란, 하나의 값을 저장할 수 있는 메모리 공간.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> age; <span class="comment">// 정수(int)값을 저장할 수 있는 age 변수 선언</span></span><br><span class="line"><span class="type">double</span> value; <span class="comment">// 실수(double)값을 저장할 수 있는 value 변수 선언</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// int, double 는 타입</span></span><br><span class="line"><span class="comment">// age;, value; 는 변수 이름;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-1-작성-규칙"><a href="#1-1-작성-규칙" class="headerlink" title="1_1. 작성 규칙"></a>1_1. 작성 규칙</h3><table>
+<thead>
+<tr>
+<th>규칙</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>첫 글자로는 숫자X, 문자 또는 ‘$’, ‘_’로 지정 가능(필수)</td>
+<td>O : price, $price, _price</td>
+</tr>
+<tr>
+<td>X : 1price, @price, $#price</td>
+<td></td>
+</tr>
+<tr>
+<td>영어 대소문자 구분(필수)</td>
+<td>firstname과 firstName은 다른 변수</td>
+</tr>
+<tr>
+<td>첫 문자는 영어 소문자로 시작, 다른 단어가 붙는 경우 첫 문자는 대문자(관례)</td>
+<td>maxPrice, minPrice, firstName</td>
+</tr>
+<tr>
+<td>문자 수(길이)의 제한 없음.</td>
+<td></td>
+</tr>
+<tr>
+<td>자바 예약어는 사용X</td>
+<td>이유 :  예약어들로 변수 이름 지정 시 컴파일 에러 발생</td>
+</tr>
+</tbody></table>
+<h3 id="1-2-자바-예약어"><a href="#1-2-자바-예약어" class="headerlink" title="1_2. 자바 예약어"></a>1_2. 자바 예약어</h3><ul>
+<li>기본 데이터 타입<ul>
+<li>정수 타입 (byte, short, int, long)</li>
+<li>실수 타입 (float, double)</li>
+<li>문자 타입 (char)</li>
+<li>논리 타입 (boolean)<ul>
+<li>자료형, 타입, 메모리 사용 크기 정도는 기억할 것.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/%5Cimages%5CJAVA%5CJAVA22.06.16%5CUntitled.png" alt="Untitled"></p>
+<ul>
+<li><p>접근 지정자</p>
+<ul>
+<li><p>public : 모든 클래스의 접근 허용.</p>
+</li>
+<li><p>protected : 상속 받은 클래스 또는 같은 패키지에서만 접근 가능</p>
+</li>
+<li><p>private : 외부에서 접근 X, 같은 클래스 내에서만 접근 가능</p>
+<ul>
+<li>예시</li>
+</ul>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 변수;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> class 실습<span class="number">1</span> &#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="type">int</span> <span class="variable">data</span> <span class="operator">=</span> <span class="number">40</span>; <span class="comment">//private라는 지정자에 int(정수) data(변수 이름)의 값이 40;</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span> &#123;</span><br><span class="line">	System.out.println(<span class="string">&quot;Hello java&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Simple</span> &#123;	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String args[])</span> &#123;</span><br><span class="line">	실습<span class="number">1</span> obj = <span class="keyword">new</span> 실습<span class="number">1</span>();				</span><br><span class="line">	System.out.println(obj.data);		</span><br><span class="line">	obj.test();	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 값 : 40 Hello java</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>defult : 아무것도 붙이지 않아도 되고, 자신의 클래스 내부와 같은 패키지 내에서만 접근 가능</p>
+<ul>
+<li>예시</li>
+</ul>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 변수;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> class 실습<span class="number">1</span> &#123;</span><br><span class="line">	<span class="type">int</span> <span class="variable">data</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span> &#123;</span><br><span class="line">	System.out.println(<span class="string">&quot;Hello java~&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Simple</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String args[])</span> &#123;</span><br><span class="line">		실습<span class="number">1</span> obj = <span class="keyword">new</span> 실습<span class="number">1</span>();</span><br><span class="line"></span><br><span class="line">		System.out.println(obj.data);</span><br><span class="line">		obj.test();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 값 : 10 Hello java~</span></span><br></pre></td></tr></table></figure>
+<p>  }</p>
+<ul>
+<li>패키지란, 관련된 클래스 혹은 인터페이스들을 묶어 놓은 상자와 같음.</li>
+</ul>
+</li>
+</ul>
+<p>  <img src="/%5Cimages%5CJAVA%5CJAVA22.06.16%5CUntitled%201.png" alt="Untitled"></p>
+<ul>
+<li><strong>접근 지정자(접근 제한자) 사용</strong></li>
+<li>클래스 : public, default</li>
+<li>생성자 : public, protected, default, private</li>
+<li>멤버 변수 : public, protected, default, private</li>
+<li>멤버 메소드 : public, protected, default, private</li>
+<li>지역변수 : 접근 제한자 사용 불허</li>
+</ul>
+</li>
+<li><p>클래스와 관련된 것</p>
+<ul>
+<li>class, abstract(추상), interface, extends, implements, enum</li>
+</ul>
+</li>
+<li><p>객체 관련</p>
+<ul>
+<li>new, instanceof, this(자신), super(부모), null</li>
+</ul>
+</li>
+<li><p>메소드 관련</p>
+<ul>
+<li>void, return</li>
+</ul>
+</li>
+<li><p>제어문 관련</p>
+<ul>
+<li><p>if, else</p>
+</li>
+<li><p>switch : 어떤 변수의 값에 따라서 문장을 실행할 수 있도록 하는 제어문</p>
+<ul>
+<li>사용 키워드 : switch, case, default, break</li>
+</ul>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(변수)&#123;</span><br><span class="line">	<span class="keyword">case</span> 값<span class="number">1</span> :</span><br><span class="line">		실행문;</span><br><span class="line">	<span class="keyword">case</span> 값<span class="number">2</span> :</span><br><span class="line">		실행문;</span><br><span class="line">	<span class="keyword">case</span> 값<span class="number">3</span> :</span><br><span class="line">		실행문;</span><br><span class="line">	<span class="keyword">default</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 사용 예시</span></span><br><span class="line"><span class="keyword">package</span> 변수;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">java</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] arg)</span> &#123;</span><br><span class="line">    </span><br><span class="line">	<span class="type">int</span> <span class="variable">value</span> <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span>(value) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>: </span><br><span class="line">            System.out.println(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">            System.out.println(<span class="string">&quot;b&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">3</span> :</span><br><span class="line">            System.out.println(<span class="string">&quot;c&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span> :</span><br><span class="line">            System.out.println(<span class="string">&quot;그 외의 숫자&quot;</span>);</span><br><span class="line">    	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125; <span class="comment">// 값 : b (value에 2라고 적었기에 case 2의 값이 출력.</span></span><br><span class="line"><span class="comment">// break;를 제거하고 실행하면, a b c 그 외의 숫자 .모두 출력.</span></span><br><span class="line"><span class="comment">// 조건이 일치하는 case만 실행되기 원한다면 case 아래 break; 추가</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>case, default, for(반복문), do, while, break, continue</p>
+</li>
+</ul>
+</li>
+<li><p>논리 값(타입으로는 boolean만 가능)</p>
+<ul>
+<li>true, false</li>
+</ul>
+</li>
+<li><p>예외 처리와 관련</p>
+<ul>
+<li>try, catch, finally, throw, throws</li>
+</ul>
+</li>
+<li><p>기타</p>
+<ul>
+<li>transient, volatile, package, import, synchronized, native, final, static, strictfp, assert</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-3-변수의-사용"><a href="#1-3-변수의-사용" class="headerlink" title="1_3. 변수의 사용"></a>1_3. 변수의 사용</h3><ul>
+<li>변수에 값을 저장하고 읽는 행위</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> score; <span class="comment">// score 변수 선언 </span></span><br><span class="line">score = <span class="number">90</span>; <span class="comment">// score 변수에 90이라는 값을 저장</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 초기값은 변수를 선언함과 동시에 줄 수 있음.</span></span><br><span class="line"><span class="type">int</span> <span class="variable">score</span> <span class="operator">=</span> <span class="number">90</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>문자는 작은 따옴표(’)로 묶어 하나의 문자로 간주.</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">‘A’, ‘가’, ‘\t’, ‘\n’</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>지수와 가수 표현</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5E7</span> <span class="comment">//5 x 10의 7승,</span></span><br><span class="line"><span class="number">0.12E-5</span> <span class="comment">// 0.12 x 10의 -5승</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>이스케이프 문자(escape sequence)</p>
+<ul>
+<li>제어문들과 출력 되지 않는 문자들. 역슬래쉬()와 문자로 결합하여 사용.</li>
+</ul>
+<p>  <img src="/%5Cimages%5CJAVA%5CJAVA22.06.16%5CUntitled%202.png" alt="Untitled"></p>
+<ul>
+<li>예시</li>
+</ul>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 변수;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">java</span> &#123;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] arg)</span> &#123;</span><br><span class="line">System.out.println(<span class="string">&quot;\&#x27;&quot;</span>); <span class="comment">// &#x27; : 출력 작은 따옴표</span></span><br><span class="line">System.out.println(<span class="string">&quot;abcdef\tgood&quot;</span>); <span class="comment">//abcdef	good &quot; 사이에 Tab 한번 한 것 같이 출력</span></span><br><span class="line">System.out.println(<span class="string">&quot;\n&quot;</span>); <span class="comment">// 줄바꿈</span></span><br><span class="line">System.out.println(<span class="string">&quot;\&quot;Java\&quot;&quot;</span>); <span class="comment">//&quot;Java&quot; 큰따옴표 출력</span></span><br><span class="line">System.out.println(<span class="string">&quot;Hi\rEveryone&quot;</span>); <span class="comment">// Hi 줄바꿔서 Everyone 출력. </span></span><br><span class="line">System.out.println(<span class="string">&quot;Hih\bEveryone!&quot;</span>); <span class="comment">// Hi▥Everyone! 출력 : 바로 앞 문자 지워서 이상하게 출력.</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="1-4-기타"><a href="#1-4-기타" class="headerlink" title="1_4. 기타"></a>1_4. 기타</h3><ul>
+<li>클래스의 정의</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">접근 제어자 class 클래스 이름 &#123;</span><br><span class="line">	접근 제어자 필드1의 타입 필드1의 이름;</span><br><span class="line">	접근 제어자 필드2의 타입 필드2의 이름;</span><br><span class="line">....</span><br><span class="line">	접근 제어자 메소드1의 원형</span><br><span class="line">	접근 제어자 메소드2의 원형</span><br><span class="line">....</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Car라는 이름의 클래스 선언</li>
+</ul>
+<p><img src="/%5Cimages%5CJAVA%5CJAVA22.06.16%5CUntitled%203.png" alt="Untitled"></p>
+<ul>
+<li><p>메소드 정의</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">접근제어자 반환타입 메소드이름(매개변수목록) &#123;선언부</span><br><span class="line">	구현부</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>예제</li>
+</ul>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Car</span> &#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="type">int</span> maxSpeed;</span><br><span class="line">	<span class="keyword">private</span> <span class="type">int</span> minSpeed;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">minCar</span><span class="params">(<span class="type">int</span> speed, <span class="type">int</span> second)</span> &#123;<span class="comment">// minCar() 메소드를 정의하는 라인</span></span><br><span class="line">	<span class="comment">// 반환타입에는 어떠한 값도 반환하지 않는다는 의미의 void를 명시.</span></span><br><span class="line">	<span class="comment">// 메소드의 이름을 명시하고, 매개변수로 int형 변수인 speed와 second를 전달</span></span><br><span class="line">	System.out.println(second + <span class="string">&quot;최대 속도&quot;</span> + speed + <span class="string">&quot;측정됨&quot;</span>);</span><br><span class="line">    <span class="comment">// 구현부인 syso에서 이렇게 전달 받은 매개변수를 수행. </span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>메소드 호출</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 매개변수가 없는 메소드의 호출</span><br><span class="line">1. 객체참조변수이름.메소드이름();</span><br><span class="line"></span><br><span class="line">// 매개변수가 있는 메소드의 호출</span><br><span class="line">2. 객체참조변수이름.메소드이름(인수1, 인수2, ...);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>예시</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Car</span> <span class="variable">myCar</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Car</span>(); <span class="comment">// 객체 생성</span></span><br><span class="line">myCar.minCar(<span class="number">60</span>, <span class="number">3</span>);<span class="comment">// myCar 인스턴스의 minCar() 메소드를 호출.</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>인스턴스의 생성  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 클래스이름 객체참조변수이름;</span></span><br><span class="line">Car myCar;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>new 키워드를 사용하여 인스턴스를 생성, 해당 인스턴스의 주소를 미리 선언한 참조 변수에 저장하여 사용</li>
+</ul>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 객체참조변수이름 = new 클래스이름;</span></span><br><span class="line">myCar = <span class="keyword">new</span> <span class="title class_">Car</span>();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>참조 변수의 선언과 인스턴스의 생성 동시</li>
+</ul>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 클래스이름 객체참조변수이름 = new 클래스이름();</span></span><br><span class="line"><span class="type">Car</span> <span class="variable">myCar</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Car</span>();</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/06/16/JAVA/JAVA22.06.16/" data-id="cl4h4l71i000ob8v1f5ui46yw" data-title="🎈JAVA_변수(variable)" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Html/Html01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/05/05/Html/Html01/" class="article-date">
@@ -203,7 +430,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/05/05/Html/Html01/" data-id="cl2sq2k280000rwv1010q0wt5" data-title="🎉html 태그 기본 문법" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/05/05/Html/Html01/" data-id="cl4h4hvyq0000b8v10tbif4az" data-title="🎉html 태그 기본 문법" class="article-share-link">Share</a>
       
       
       
@@ -569,7 +796,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/05/03/Oracle/chapter09/" data-id="cl2sprvew0006e8v19c4qahn3" data-title="🎈Oracle PL/SQL_Chapter 09" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/05/03/Oracle/chapter09/" data-id="cl4h4hvz70008b8v1bnzhd1pv" data-title="🎈Oracle PL/SQL_Chapter 09" class="article-share-link">Share</a>
       
       
       
@@ -1304,7 +1531,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/05/02/Oracle/Chapter04/" data-id="cl2sprvep0002e8v179mnerez" data-title="🎈OracleSQL_Chapter 04" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/05/02/Oracle/Chapter04/" data-id="cl4h4hvz20003b8v1hzbec9bo" data-title="🎈OracleSQL_Chapter 04" class="article-share-link">Share</a>
       
       
       
@@ -1640,7 +1867,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/27/Oracle/chapter03/" data-id="cl2sprveu0004e8v17bc56xd2" data-title="🎈OracleSQL_Chapter 03" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/27/Oracle/chapter03/" data-id="cl4h4hvz40005b8v10sj54bbw" data-title="🎈OracleSQL_Chapter 03" class="article-share-link">Share</a>
       
       
       
@@ -1987,7 +2214,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/27/Oracle/chapter05/" data-id="cl2sprvev0005e8v16vym8thv" data-title="🎈Oracle SQL_Chapter 05" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/27/Oracle/chapter05/" data-id="cl4h4hvz50006b8v1c4d6518u" data-title="🎈Oracle SQL_Chapter 05" class="article-share-link">Share</a>
       
       
       
@@ -2219,7 +2446,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/25/Oracle/chapter02/" data-id="cl2sprves0003e8v1guwk8mpf" data-title="🎈OracleSQL_Chapter 02" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/25/Oracle/chapter02/" data-id="cl4h4hvz30004b8v10dyv4u96" data-title="🎈OracleSQL_Chapter 02" class="article-share-link">Share</a>
       
       
       
@@ -2286,7 +2513,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/20/install/vscodeMac/" data-id="cl2sprvfd000ke8v13jyc8jiq" data-title="[Mac M1] Installation VSCode🐱‍🏍" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/20/install/vscodeMac/" data-id="cl4h4hvzn000lb8v1etzxewxo" data-title="[Mac M1] Installation VSCode🐱‍🏍" class="article-share-link">Share</a>
       
       
       
@@ -2470,7 +2697,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/18/install/Oracle/" data-id="cl2sprvf7000ge8v16hz35jvg" data-title="[Windows 10] Oracle Install🐱‍🏍" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/18/install/Oracle/" data-id="cl4h4hvzh000hb8v1d8fdc5s0" data-title="[Windows 10] Oracle Install🐱‍🏍" class="article-share-link">Share</a>
       
       
       
@@ -2695,64 +2922,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/18/install/Spark/" data-id="cl2sprvfb000ie8v17t0w9yu8" data-title="[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-install/GitBash" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/04/15/install/GitBash/" class="article-date">
-  <time class="dt-published" datetime="2022-04-15T00:00:00.000Z" itemprop="datePublished">2022-04-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/04/15/install/GitBash/">[Windows 10] Git bash 가상 환경✨</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="Step-01-폴더-만들고-기본-경로-설정"><a href="#Step-01-폴더-만들고-기본-경로-설정" class="headerlink" title="Step 01_폴더 만들고 기본 경로 설정"></a>Step 01_폴더 만들고 기본 경로 설정</h3><ul>
-<li>경로 찾기<br>which python</li>
-<li>아래와 같이 경로 값이 나오면 된다.</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5CGitBash%5Cwhich_python.png" alt="which python.PNG"></p>
-<h3 id="Step-02-vs-code-가상-환경-실행"><a href="#Step-02-vs-code-가상-환경-실행" class="headerlink" title="Step 02_vs code 가상 환경 실행"></a>Step 02_vs code 가상 환경 실행</h3><ul>
-<li><p>code .  → 터미널에서 git bash 선택. → 만들어 놓은 폴더 경로 설정.</p>
-</li>
-<li><p>virtualenv venv  입력<br>bash: virtualenv: command not found 뜨면, **pip install virtualenv(**가상 환경 설치)</p>
-<p>  <img src="/%5Cimages%5Cinstall%5CGitBash%5Cgit_bash_not_found_error.png" alt="git bash not found error.PNG"></p>
-</li>
-<li><p>가상 환경 활성화<br>source venv&#x2F;Scripts&#x2F;activate 입력 하면, 아래와 같이 활성화가 된 모습이 확인 된다.</p>
-</li>
-<li><p>필요에 따라 라이브러리 설치(pandas, numpy ….)</p>
-<p>  <img src="/%5Cimages%5Cinstall%5CGitBash%5C3.png" alt="3.PNG"></p>
-</li>
-<li><p>pip install 했을 때, 만들어 놓은 폴더 - venv 폴더 - Lib 폴더에 새로운 라이브러리가 잘 설치되고 있는지 확인을 해줘야 한다.</p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/15/install/GitBash/" data-id="cl2sprvf4000ee8v129lnd0m1" data-title="[Windows 10] Git bash 가상 환경✨" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/18/install/Spark/" data-id="cl4h4hvzj000jb8v13lw63jai" data-title="[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍" class="article-share-link">Share</a>
       
       
       
@@ -2787,7 +2957,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
     </div>
   </div>
 
@@ -2798,6 +2968,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/06/16/JAVA/JAVA22.06.16/">🎈JAVA_변수(variable)</a>
+          </li>
         
           <li>
             <a href="/2022/05/05/Html/Html01/">🎉html 태그 기본 문법</a>
@@ -2813,10 +2987,6 @@
         
           <li>
             <a href="/2022/04/27/Oracle/chapter03/">🎈OracleSQL_Chapter 03</a>
-          </li>
-        
-          <li>
-            <a href="/2022/04/27/Oracle/chapter05/">🎈Oracle SQL_Chapter 05</a>
           </li>
         
       </ul>

@@ -71,6 +71,63 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-install/GitBash" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/15/install/GitBash/" class="article-date">
+  <time class="dt-published" datetime="2022-04-15T00:00:00.000Z" itemprop="datePublished">2022-04-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/15/install/GitBash/">[Windows 10] Git bash 가상 환경✨</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Step-01-폴더-만들고-기본-경로-설정"><a href="#Step-01-폴더-만들고-기본-경로-설정" class="headerlink" title="Step 01_폴더 만들고 기본 경로 설정"></a>Step 01_폴더 만들고 기본 경로 설정</h3><ul>
+<li>경로 찾기<br>which python</li>
+<li>아래와 같이 경로 값이 나오면 된다.</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5CGitBash%5Cwhich_python.png" alt="which python.PNG"></p>
+<h3 id="Step-02-vs-code-가상-환경-실행"><a href="#Step-02-vs-code-가상-환경-실행" class="headerlink" title="Step 02_vs code 가상 환경 실행"></a>Step 02_vs code 가상 환경 실행</h3><ul>
+<li><p>code .  → 터미널에서 git bash 선택. → 만들어 놓은 폴더 경로 설정.</p>
+</li>
+<li><p>virtualenv venv  입력<br>bash: virtualenv: command not found 뜨면, **pip install virtualenv(**가상 환경 설치)</p>
+<p>  <img src="/%5Cimages%5Cinstall%5CGitBash%5Cgit_bash_not_found_error.png" alt="git bash not found error.PNG"></p>
+</li>
+<li><p>가상 환경 활성화<br>source venv&#x2F;Scripts&#x2F;activate 입력 하면, 아래와 같이 활성화가 된 모습이 확인 된다.</p>
+</li>
+<li><p>필요에 따라 라이브러리 설치(pandas, numpy ….)</p>
+<p>  <img src="/%5Cimages%5Cinstall%5CGitBash%5C3.png" alt="3.PNG"></p>
+</li>
+<li><p>pip install 했을 때, 만들어 놓은 폴더 - venv 폴더 - Lib 폴더에 새로운 라이브러리가 잘 설치되고 있는지 확인을 해줘야 한다.</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/04/15/install/GitBash/" data-id="cl4h4hvzg000fb8v1eqw1g5ar" data-title="[Windows 10] Git bash 가상 환경✨" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Error/Airflow_web_scheduler" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/04/14/Error/Airflow_web_scheduler/" class="article-date">
@@ -128,7 +185,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/14/Error/Airflow_web_scheduler/" data-id="cl2sprvar0000e8v15jbafb3w" data-title="[Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결✨" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/14/Error/Airflow_web_scheduler/" data-id="cl4h4hvz10002b8v1dsjmbyph" data-title="[Windows 10]Airflow webserver + scheduler 안 뜨는 오류 해결✨" class="article-share-link">Share</a>
       
       
       
@@ -300,7 +357,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/12/install/PostgreSQL/" data-id="cl2sprvfa000he8v1460ecr7r" data-title="[Windows 10] PostgreSQL Installation on WSL2 and Windows🐱‍🏍" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/12/install/PostgreSQL/" data-id="cl4h4hvzi000ib8v176z1guxa" data-title="[Windows 10] PostgreSQL Installation on WSL2 and Windows🐱‍🏍" class="article-share-link">Share</a>
       
       
       
@@ -425,7 +482,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/11/install/Airflow/" data-id="cl2sprvf3000de8v1ca4i6azl" data-title="[Windows 10] Setting up Apache-Airflow in Windows using WSL2🐱‍🏍" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/11/install/Airflow/" data-id="cl4h4hvzf000eb8v1hdfhbtkn" data-title="[Windows 10] Setting up Apache-Airflow in Windows using WSL2🐱‍🏍" class="article-share-link">Share</a>
       
       
       
@@ -524,7 +581,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/11/install/vscodeWLS/" data-id="cl2sprvfd000le8v1f7cogsi1" data-title="[Windows 10] VSCode WLS 연동🐱‍🏍" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/11/install/vscodeWLS/" data-id="cl4h4hvzo000mb8v1ac6zh15w" data-title="[Windows 10] VSCode WLS 연동🐱‍🏍" class="article-share-link">Share</a>
       
       
       
@@ -611,7 +668,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/10/install/Github%20(2)/" data-id="cl2sprvf5000fe8v10n0kgwr7" data-title="[Windows 10] GitHub blog 만들기✨" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/10/install/Github%20(2)/" data-id="cl4h4hvzh000gb8v179sphlgf" data-title="[Windows 10] GitHub blog 만들기✨" class="article-share-link">Share</a>
       
       
       
@@ -703,7 +760,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/08/install/WLS2/" data-id="cl2sprvfc000je8v16f2q4pto" data-title="[Windows 10] Install WSL2🐱‍🏍" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/08/install/WLS2/" data-id="cl4h4hvzk000kb8v1fcn5ex4t" data-title="[Windows 10] Install WSL2🐱‍🏍" class="article-share-link">Share</a>
       
       
       
@@ -789,7 +846,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/03/16/R/03.16-study/" data-id="cl2sprvex0007e8v1doktgg4l" data-title="study" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/03/16/R/03.16-study/" data-id="cl4h4hvz60007b8v17memfaod" data-title="study" class="article-share-link">Share</a>
       
       
       
@@ -932,7 +989,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/03/15/R/Descriptive-Analysis/" data-id="cl2sprvey0008e8v132od2akt" data-title="Descriptive Analysis" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/03/15/R/Descriptive-Analysis/" data-id="cl4h4hvz80009b8v1dxw89qmt" data-title="Descriptive Analysis" class="article-share-link">Share</a>
       
       
       
@@ -1110,80 +1167,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/03/15/R/chapter_8/" data-id="cl2sprvez0009e8v1he5g85wx" data-title="chapter_8" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-R/z-score.03" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/15/R/z-score.03/" class="article-date">
-  <time class="dt-published" datetime="2022-03-15T00:00:00.000Z" itemprop="datePublished">2022-03-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/03/15/R/z-score.03/">z-score</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>표준편차 +평균활용 -&gt; 변동계수, z-score, 검정값 표준오차</p>
-</li>
-<li><p>모수검정</p>
-<ul>
-<li>핵심 : 두 그룹 간의 평균 차이 검정&#x2F;두 그룹의 차이가 우연이냐 유의미냐</li>
-<li>가정 : 데이터가 정규분포를 이룸</li>
-</ul>
-</li>
-<li><p>평균비교</p>
-<ul>
-<li><p>one sample T Test : 모집단의 평균~샘플(표본)의 평균</p>
-</li>
-<li><p>대응표본 : 사전 표본의 평균(정책, 신약 투여 등 시간이 지난 후) 사후 표본의 평균</p>
-</li>
-<li><p>독립표본 : A 그룹, B 그룹간의 평균 비교</p>
-</li>
-<li><p>귀무가설 : 두 그룹간의 00_평균 차이 없다</p>
-</li>
-<li><p>대립가설 : 두 그룹간의 평균 차이가 존재</p>
-</li>
-</ul>
-</li>
-<li><p>RISS 논문이 이를 인용한게 많음(스포츠, 의학 등) 데이터 수집 후 통계분석을 씀.</p>
-</li>
-<li><p>표준정규분포표를 보며 정함.</p>
-</li>
-<li><p>z-score</p>
-<ul>
-<li>특정 유치원 꽃잎반</li>
-</ul>
-</li>
-</ul>
-<p>data &#x3D; 120 -&gt; 임의의 데이터 한명 뽑음<br>mean &#x3D; 125 -&gt; 평균<br>sd &#x3D; 15<br>N &#x3D; 30</p>
-<p>z-value &#x3D; (mean - data) &#x2F; sd</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/03/15/R/z-score.03/" data-id="cl2sprvf2000ce8v150ilax5j" data-title="z-score" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/03/15/R/chapter_8/" data-id="cl4h4hvza000ab8v1h3ug70p6" data-title="chapter_8" class="article-share-link">Share</a>
       
       
       
@@ -1218,7 +1202,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
     </div>
   </div>
 
@@ -1229,6 +1213,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/06/16/JAVA/JAVA22.06.16/">🎈JAVA_변수(variable)</a>
+          </li>
         
           <li>
             <a href="/2022/05/05/Html/Html01/">🎉html 태그 기본 문법</a>
@@ -1244,10 +1232,6 @@
         
           <li>
             <a href="/2022/04/27/Oracle/chapter03/">🎈OracleSQL_Chapter 03</a>
-          </li>
-        
-          <li>
-            <a href="/2022/04/27/Oracle/chapter05/">🎈Oracle SQL_Chapter 05</a>
           </li>
         
       </ul>
