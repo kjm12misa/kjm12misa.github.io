@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>🎈JAVA_반복문(for, while, dowhile) | myblog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1. for문12반복 횟수를 알고 있을 때 주로 사용**실행될 명령문이 한 줄 뿐**이라면 중괄호(&amp;#123;&amp;#125;)를 생략 가능   문법  123**for** (초기식; 조건식; 증감식) &amp;#123;조건식의 결과가 참인 동안 반복적으로 실행하고자 하는 명령문;&amp;#125;   예제 1  123456789101112package 반복문;public cl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="🎈JAVA_반복문(for, while, dowhile)">
+<meta property="og:url" content="https://kjm12misa.github.io/2022/06/19/JAVA/JAVA22.06.19(for)/index.html">
+<meta property="og:site_name" content="myblog">
+<meta property="og:description" content="1. for문12반복 횟수를 알고 있을 때 주로 사용**실행될 명령문이 한 줄 뿐**이라면 중괄호(&amp;#123;&amp;#125;)를 생략 가능   문법  123**for** (초기식; 조건식; 증감식) &amp;#123;조건식의 결과가 참인 동안 반복적으로 실행하고자 하는 명령문;&amp;#125;   예제 1  123456789101112package 반복문;public cl">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-06-19T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-19T13:59:04.728Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="myblog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">myblog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kjm12misa.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-JAVA/JAVA22.06.19(for)" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/06/19/JAVA/JAVA22.06.19(for)/" class="article-date">
+  <time class="dt-published" datetime="2022-06-19T00:00:00.000Z" itemprop="datePublished">2022-06-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      🎈JAVA_반복문(for, while, dowhile)
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="1-for문"><a href="#1-for문" class="headerlink" title="1. for문"></a>1. for문</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">반복 횟수를 알고 있을 때 주로 사용</span><br><span class="line">**실행될 명령문이 한 줄 뿐**이라면 중괄호(&#123;&#125;)를 생략 가능</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>문법</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">**for** (초기식; 조건식; 증감식) &#123;</span><br><span class="line">조건식의 결과가 참인 동안 반복적으로 실행하고자 하는 명령문;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>예제 1</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 반복문;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">for</span>문 &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">	<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">6</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>; i&lt;<span class="number">5</span>; i++ ) &#123;</span><br><span class="line">		System.out.println(i + <span class="string">&quot;번째 실행중입니다.&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(<span class="string">&quot;값은&quot;</span> + i + <span class="string">&quot;입니다.&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>실행 결과</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">0번째 실행중입니다.</span><br><span class="line">1번째 실행중입니다.</span><br><span class="line">2번째 실행중입니다.</span><br><span class="line">3번째 실행중입니다.</span><br><span class="line">4번째 실행중입니다.</span><br><span class="line">값은5입니다.</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>예제 2</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 반복문;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">for</span>문 &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i&lt;<span class="number">5</span>; i++) &#123;</span><br><span class="line">System.out.println(<span class="string">&quot;리스트&quot;</span>+ i + <span class="string">&quot;번째 부터&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span><span class="number">0</span>; i&lt;<span class="number">5</span>; i++) &#123;	</span><br><span class="line">System.out.println(<span class="string">&quot;이제는&quot;</span> + (i+<span class="number">1</span>) + <span class="string">&quot;로&quot;</span>);	</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>설명</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">위의 예제에서 반복문을 종료시키기 위한 변수 i라는 이름의 int형 변수를</span><br><span class="line">프로그램에서 두 번이나 선언하고 있습니다.</span><br><span class="line">하지만 이렇게 두 번이나 선언해도 컴파일 오류가 발생하지 않는 이유는 </span><br><span class="line">for 문이 종료되면 for 문의 초기식에서 사용된 변수는 자동으로 소멸하기 때문</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>실행 결과</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">리스트0번째 부터</span><br><span class="line">리스트1번째 부터</span><br><span class="line">리스트2번째 부터</span><br><span class="line">리스트3번째 부터</span><br><span class="line">리스트4번째 부터</span><br><span class="line">이제는1로</span><br><span class="line">이제는2로</span><br><span class="line">이제는3로</span><br><span class="line">이제는4로</span><br><span class="line">이제는5로</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-while문"><a href="#2-while문" class="headerlink" title="2. while문"></a>2. <strong>while문</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">조건식이 true 일 경우에 계속해서 반복, false 일 경우 반복 종료</span><br><span class="line">**실행될 명령문이 한 줄 뿐이라면** 중괄호(&#123;&#125;)를 생략 가능.</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>문법</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">**while** (조건식) &#123;</span><br><span class="line">조건식의 결과가 참인 동안 반복적으로 실행하고자 하는 명령문;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>예제</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 반복문;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">while</span>문 &#123;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(num&lt;<span class="number">5</span>) &#123;</span><br><span class="line">		System.out.println(num + <span class="number">1</span> + <span class="string">&quot;번 째 실행 중입니다.&quot;</span>);</span><br><span class="line">		num++;<span class="comment">//무한루프에 빠지지 않기 위해 적어 주었다.</span></span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(num + <span class="string">&quot;번 째로 종료 되었습니다.&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>실행 결과</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1번 째 실행 중입니다.</span><br><span class="line">2번 째 실행 중입니다.</span><br><span class="line">3번 째 실행 중입니다.</span><br><span class="line">4번 째 실행 중입니다.</span><br><span class="line">5번 째 실행 중입니다.</span><br><span class="line">5번 째로 종료 되었습니다.</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-do-while문"><a href="#3-do-while문" class="headerlink" title="3. do-while문"></a>3. do-while문</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">조건에 따라 반복을 계속할지를 결정할 때 사용하는 것은 while 문과 동일.</span><br><span class="line">다만, 무조건 중괄호 &#123;&#125; 블럭을 한번 실행하고, 조건을 검사하여 반복을 결정</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>문법</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">**do** &#123;</span><br><span class="line">조건식의 결과가 참인 동안 반복적으로 실행하고자 하는 명령문;</span><br><span class="line">&#125; **while** (조건식);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>예제</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 반복문;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">dowhile</span>문 &#123;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">1</span>, num2 = <span class="number">5</span>;	</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(num&lt;<span class="number">3</span>) &#123;</span><br><span class="line">		System.out.println(num + <span class="string">&quot;번 째 반복중입니다.&quot;</span>);</span><br><span class="line">		num++;</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(<span class="string">&quot;num의 값은&quot;</span> + num + <span class="string">&quot;이고.&quot;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">do</span> &#123;</span><br><span class="line">		System.out.println(num + <span class="string">&quot;번 째 반복중입니다!!!!&quot;</span>);</span><br><span class="line">		num2++;</span><br><span class="line">	&#125;<span class="keyword">while</span>(num2&lt;<span class="number">1</span>);</span><br><span class="line">	System.out.println(<span class="string">&quot;num2의 값은&quot;</span> + num2 + <span class="string">&quot;입니다.&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>실행 결과</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1번 째 반복중입니다.</span><br><span class="line">2번 째 반복중입니다.</span><br><span class="line">num의 값은3이고.</span><br><span class="line">3번 째 반복중입니다!!!!</span><br><span class="line">num2의 값은6입니다.</span><br></pre></td></tr></table></figure>
+
+<p>코딩의 시작, TCP School : <a target="_blank" rel="noopener" href="http://www.tcpschool.com/java/java_control_loop">http://www.tcpschool.com/java/java_control_loop</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/06/19/JAVA/JAVA22.06.19(for)/" data-id="cl4ldkoyt0000vgv1hyl424mv" data-title="🎈JAVA_반복문(for, while, dowhile)" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/06/19/JAVA/JAVA22.06.19(IF)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          🎈JAVA_조건문(If, else, switch)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/06/16/JAVA/JAVA22.06.16/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">🎈JAVA_변수(variable)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/06/19/JAVA/JAVA22.06.19(IF)/">🎈JAVA_조건문(If, else, switch)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/19/JAVA/JAVA22.06.19(for)/">🎈JAVA_반복문(for, while, dowhile)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/16/JAVA/JAVA22.06.16/">🎈JAVA_변수(variable)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/05/Html/Html01/">🎉html 태그 기본 문법</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/03/Oracle/chapter09/">🎈Oracle PL/SQL_Chapter 09</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

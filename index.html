@@ -197,6 +197,111 @@
 
 
   
+    <article id="post-JAVA/JAVA22.06.19(for)" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/06/19/JAVA/JAVA22.06.19(for)/" class="article-date">
+  <time class="dt-published" datetime="2022-06-19T00:00:00.000Z" itemprop="datePublished">2022-06-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/06/19/JAVA/JAVA22.06.19(for)/">🎈JAVA_반복문(for, while, dowhile)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="1-for문"><a href="#1-for문" class="headerlink" title="1. for문"></a>1. for문</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">반복 횟수를 알고 있을 때 주로 사용</span><br><span class="line">**실행될 명령문이 한 줄 뿐**이라면 중괄호(&#123;&#125;)를 생략 가능</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>문법</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">**for** (초기식; 조건식; 증감식) &#123;</span><br><span class="line">조건식의 결과가 참인 동안 반복적으로 실행하고자 하는 명령문;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>예제 1</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 반복문;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">for</span>문 &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">	<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">6</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>; i&lt;<span class="number">5</span>; i++ ) &#123;</span><br><span class="line">		System.out.println(i + <span class="string">&quot;번째 실행중입니다.&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(<span class="string">&quot;값은&quot;</span> + i + <span class="string">&quot;입니다.&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>실행 결과</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">0번째 실행중입니다.</span><br><span class="line">1번째 실행중입니다.</span><br><span class="line">2번째 실행중입니다.</span><br><span class="line">3번째 실행중입니다.</span><br><span class="line">4번째 실행중입니다.</span><br><span class="line">값은5입니다.</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>예제 2</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 반복문;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">for</span>문 &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i&lt;<span class="number">5</span>; i++) &#123;</span><br><span class="line">System.out.println(<span class="string">&quot;리스트&quot;</span>+ i + <span class="string">&quot;번째 부터&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span><span class="number">0</span>; i&lt;<span class="number">5</span>; i++) &#123;	</span><br><span class="line">System.out.println(<span class="string">&quot;이제는&quot;</span> + (i+<span class="number">1</span>) + <span class="string">&quot;로&quot;</span>);	</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>설명</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">위의 예제에서 반복문을 종료시키기 위한 변수 i라는 이름의 int형 변수를</span><br><span class="line">프로그램에서 두 번이나 선언하고 있습니다.</span><br><span class="line">하지만 이렇게 두 번이나 선언해도 컴파일 오류가 발생하지 않는 이유는 </span><br><span class="line">for 문이 종료되면 for 문의 초기식에서 사용된 변수는 자동으로 소멸하기 때문</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>실행 결과</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">리스트0번째 부터</span><br><span class="line">리스트1번째 부터</span><br><span class="line">리스트2번째 부터</span><br><span class="line">리스트3번째 부터</span><br><span class="line">리스트4번째 부터</span><br><span class="line">이제는1로</span><br><span class="line">이제는2로</span><br><span class="line">이제는3로</span><br><span class="line">이제는4로</span><br><span class="line">이제는5로</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-while문"><a href="#2-while문" class="headerlink" title="2. while문"></a>2. <strong>while문</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">조건식이 true 일 경우에 계속해서 반복, false 일 경우 반복 종료</span><br><span class="line">**실행될 명령문이 한 줄 뿐이라면** 중괄호(&#123;&#125;)를 생략 가능.</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>문법</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">**while** (조건식) &#123;</span><br><span class="line">조건식의 결과가 참인 동안 반복적으로 실행하고자 하는 명령문;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>예제</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 반복문;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">while</span>문 &#123;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(num&lt;<span class="number">5</span>) &#123;</span><br><span class="line">		System.out.println(num + <span class="number">1</span> + <span class="string">&quot;번 째 실행 중입니다.&quot;</span>);</span><br><span class="line">		num++;<span class="comment">//무한루프에 빠지지 않기 위해 적어 주었다.</span></span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(num + <span class="string">&quot;번 째로 종료 되었습니다.&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>실행 결과</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1번 째 실행 중입니다.</span><br><span class="line">2번 째 실행 중입니다.</span><br><span class="line">3번 째 실행 중입니다.</span><br><span class="line">4번 째 실행 중입니다.</span><br><span class="line">5번 째 실행 중입니다.</span><br><span class="line">5번 째로 종료 되었습니다.</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-do-while문"><a href="#3-do-while문" class="headerlink" title="3. do-while문"></a>3. do-while문</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">조건에 따라 반복을 계속할지를 결정할 때 사용하는 것은 while 문과 동일.</span><br><span class="line">다만, 무조건 중괄호 &#123;&#125; 블럭을 한번 실행하고, 조건을 검사하여 반복을 결정</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>문법</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">**do** &#123;</span><br><span class="line">조건식의 결과가 참인 동안 반복적으로 실행하고자 하는 명령문;</span><br><span class="line">&#125; **while** (조건식);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>예제</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 반복문;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">dowhile</span>문 &#123;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">1</span>, num2 = <span class="number">5</span>;	</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(num&lt;<span class="number">3</span>) &#123;</span><br><span class="line">		System.out.println(num + <span class="string">&quot;번 째 반복중입니다.&quot;</span>);</span><br><span class="line">		num++;</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(<span class="string">&quot;num의 값은&quot;</span> + num + <span class="string">&quot;이고.&quot;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">do</span> &#123;</span><br><span class="line">		System.out.println(num + <span class="string">&quot;번 째 반복중입니다!!!!&quot;</span>);</span><br><span class="line">		num2++;</span><br><span class="line">	&#125;<span class="keyword">while</span>(num2&lt;<span class="number">1</span>);</span><br><span class="line">	System.out.println(<span class="string">&quot;num2의 값은&quot;</span> + num2 + <span class="string">&quot;입니다.&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>실행 결과</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1번 째 반복중입니다.</span><br><span class="line">2번 째 반복중입니다.</span><br><span class="line">num의 값은3이고.</span><br><span class="line">3번 째 반복중입니다!!!!</span><br><span class="line">num2의 값은6입니다.</span><br></pre></td></tr></table></figure>
+
+<p>코딩의 시작, TCP School : <a target="_blank" rel="noopener" href="http://www.tcpschool.com/java/java_control_loop">http://www.tcpschool.com/java/java_control_loop</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/06/19/JAVA/JAVA22.06.19(for)/" data-id="cl4ldkoyt0000vgv1hyl424mv" data-title="🎈JAVA_반복문(for, while, dowhile)" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-JAVA/JAVA22.06.16" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/06/16/JAVA/JAVA22.06.16/" class="article-date">
@@ -2651,190 +2756,6 @@
 
 
   
-    <article id="post-install/Oracle" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/04/18/install/Oracle/" class="article-date">
-  <time class="dt-published" datetime="2022-04-18T00:00:00.000Z" itemprop="datePublished">2022-04-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/04/18/install/Oracle/">[Windows 10] Oracle Install🐱‍🏍</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>Oracle은 저사양에서는 실행이 되지 않기 때문에 컴퓨터(노트북)사양 및 메모리 확인!!</li>
-</ul>
-<h3 id="Step-01-Oracle-파일-다운로드"><a href="#Step-01-Oracle-파일-다운로드" class="headerlink" title="Step 01_Oracle 파일 다운로드"></a>Step 01_Oracle 파일 다운로드</h3><ul>
-<li><strong>Oracle developer</strong> : <a target="_blank" rel="noopener" href="https://www.oracle.com/tools/downloads/sqldev-downloads.html">https://www.oracle.com/tools/downloads/sqldev-downloads.html</a></li>
-</ul>
-<p><strong>설치 파일 : sqldeveloper-21.4.3.063.0100-x64</strong></p>
-<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled.png" alt="Untitled"></p>
-<ul>
-<li><strong>Oracle Database 19<em>c</em> (19.3)</strong><br><a target="_blank" rel="noopener" href="https://www.oracle.com/database/technologies/oracle19c-windows-downloads.html">https://www.oracle.com/database/technologies/oracle19c-windows-downloads.html</a></li>
-</ul>
-<p><strong>설치 파일 : WINDOWS.X64_193000_db_home</strong></p>
-<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%201.png" alt="Untitled"></p>
-<h3 id="Step-02-설치"><a href="#Step-02-설치" class="headerlink" title="Step 02_설치"></a>Step 02_설치</h3><ul>
-<li>setup 응용 프로그램 - 관리자 권한으로 실행</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%202.png" alt="Untitled"></p>
-<h3 id="단일-인스턴트-데이터베이스-생성"><a href="#단일-인스턴트-데이터베이스-생성" class="headerlink" title="단일 인스턴트 데이터베이스 생성"></a><strong>단일 인스턴트 데이터베이스 생성</strong></h3><p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%203.png" alt="Untitled"></p>
-<ul>
-<li>아래와 같이 기본적을 설정되어 있는 대로 진행</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%204.png" alt="Untitled"></p>
-<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%205.png" alt="Untitled"></p>
-<ul>
-<li>컨테이너 데이터 베이스 생성 선택 해제</li>
-<li>이름 myoracle 비밀번호 1234</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%206.png" alt="Untitled"></p>
-<ul>
-<li>설정 후 뜨는 창에 예 하고 설치!</li>
-</ul>
-<h3 id="소프트웨어만-설정-단일-선택에서-비밀번호-오류가-날-때"><a href="#소프트웨어만-설정-단일-선택에서-비밀번호-오류가-날-때" class="headerlink" title="소프트웨어만 설정(단일 선택에서 비밀번호 오류가 날 때)"></a>소프트웨어만 설정(단일 선택에서 비밀번호 오류가 날 때)</h3><ul>
-<li>DB가 깔리지 않음.</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%207.png" alt="Untitled"></p>
-<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%208.png" alt="Untitled"></p>
-<ul>
-<li>cmd 관리자 실행<ul>
-<li>경로 설정은 oracle이 깔려 있는  폴더-파일 지정 후, dbca 설치 파일 실행</li>
-<li>C:\sql_lecture&gt;cd WINDOWS.X64_193000_db_home(필자의 현재 경로)</li>
-</ul>
-</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%209.png" alt="Untitled"></p>
-<ul>
-<li>저장 영역 유형 : <strong>ASM(자동 저장 영역 관리)</strong> 설정</li>
-<li>이름 : myoracle 비밀 번호 : 1234</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2010.png" alt="Untitled"></p>
-<ul>
-<li><strong>에러 나면,</strong> 저장 영역 유형에서 <strong>파일 시스템</strong>으로 지정</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2011.png" alt="Untitled"></p>
-<ul>
-<li>예를 누르고 창이 뜨면 완료 누르고 설치.</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2012.png" alt="Untitled"></p>
-<h3 id="Step-03-테이블-스페이스-생성"><a href="#Step-03-테이블-스페이스-생성" class="headerlink" title="Step 03_테이블 스페이스 생성"></a>Step 03_테이블 스페이스 생성</h3><ul>
-<li>윈도우 검색 창에 sqlplus 입력 → 관리자 권한 실행<ul>
-<li>사용자명 입력 : system 비밀번호 :  1234(oracle 설치 시 지정한 비번 동일하게)</li>
-</ul>
-</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2013.png" alt="Untitled"></p>
-<ul>
-<li>CREATE TABLESPACE myts DATAFILE ‘C:\app\oradata\MYORACLE\myts.dbf’ SIZE 100M AUTOEXTEND ON NEXT 5M;<ul>
-<li>빨간 부분만 변경.(C drive에 있는 폴더 이름으로 지정)</li>
-<li>필자는 sql_lecture 폴더가 지정되어 있음.</li>
-</ul>
-</li>
-<li><code>CREATE USER ora_user IDENTIFIED BY evan DEFAULT TABLESPACE MYTS TEMPORARY TABLESPACE TEMP;</code><ul>
-<li>빨간 부분 수정(본인 이름으로)</li>
-</ul>
-</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2014.png" alt="Untitled"></p>
-<ul>
-<li>GRANT DBA TO ora_user; → select user from dual; → connect ora_user&#x2F;evan; → select user from dual;</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2015.png" alt="Untitled"></p>
-<ul>
-<li>새로운 유저 추가</li>
-<li><code>CREATE USER ora_user2 IDENTIFIED BY evan DEFAULT TABLESPACE MYTS TEMPORARY TABLESPACE TEMP;</code></li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2016.png" alt="Untitled"></p>
-<ul>
-<li>위와 동일 하게 진행</li>
-</ul>
-<h3 id="Step-04-developer-설치"><a href="#Step-04-developer-설치" class="headerlink" title="Step 04_developer 설치"></a>Step 04_developer 설치</h3><ul>
-<li>응용프로그램 클릭 → 아니오 → 확인</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2017.png" alt="Untitled"></p>
-<ul>
-<li>초록색 플러스 누르고 Name, 이름, 비번, SID 설정</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2018.png" alt="Untitled"></p>
-<ul>
-<li>오류 난다면, Net Configuration Assistant 클릭</li>
-<li>lsnrctl status 입력</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2019.png" alt="Untitled"></p>
-<ul>
-<li>재 접속<ul>
-<li>Name, 이름, 비번(ora_user 생성 시 쓴 이름(evan)), SID 적고 테스트 → 접속</li>
-</ul>
-</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2020.png" alt="Untitled"></p>
-<ul>
-<li><p>완료 된 화면</p>
-<p>  <img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2021.png" alt="Untitled"></p>
-</li>
-<li><p>실행</p>
-</li>
-<li><p>도구 - 환경 설정 - 데이터 베이스 - NLS - 시간 기록 형식(YYYY&#x2F;MM&#x2F;DD HH24:MI:SS) 변경</p>
-</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2022.png" alt="Untitled"></p>
-<ul>
-<li><p>다운로드 :  <a target="_blank" rel="noopener" href="https://github.com/gilbutITbook/006696/tree/master/01%EC%9E%A5%20%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95">https://github.com/gilbutITbook/006696/tree/master/01장 환경설정</a></p>
-<p>  <img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2023.png" alt="Untitled"></p>
-</li>
-<li><p>C drive 에 backup 폴더 생성 후 다운 받은 파일 넣기</p>
-</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2024.png" alt="Untitled"></p>
-<ul>
-<li>cmd 에서 backup폴더로 경로 설정</li>
-<li>imp ora_user&#x2F;evan file&#x3D;expall.dmp log&#x3D;empall.log ignore&#x3D;y grants&#x3D;y rows&#x3D;y indexes&#x3D;y full&#x3D;y<ul>
-<li>빨간 부분 설정한 값으로 변경</li>
-</ul>
-</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2025.png" alt="Untitled"></p>
-<ul>
-<li>imp ora_user&#x2F;evan file&#x3D;expcust.dmp log&#x3D;expcust.log ignore&#x3D;y grants&#x3D;y rows&#x3D;y indexes&#x3D;y full&#x3D;y<ul>
-<li>빨간 부분 설정한 값으로 변경</li>
-</ul>
-</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2026.png" alt="Untitled"></p>
-<h3 id="Step-05-oracle-developer-테스트"><a href="#Step-05-oracle-developer-테스트" class="headerlink" title="Step 05_oracle developer 테스트"></a>Step 05_oracle developer 테스트</h3><ul>
-<li>SELECT table_name FROM user_tables; 입력</li>
-<li>아래와 같이 값이 뜨면 된다.</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2027.png" alt="Untitled"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/18/install/Oracle/" data-id="cl4lbikni000i60v1a75ba907" data-title="[Windows 10] Oracle Install🐱‍🏍" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -2875,6 +2796,10 @@
           </li>
         
           <li>
+            <a href="/2022/06/19/JAVA/JAVA22.06.19(for)/">🎈JAVA_반복문(for, while, dowhile)</a>
+          </li>
+        
+          <li>
             <a href="/2022/06/16/JAVA/JAVA22.06.16/">🎈JAVA_변수(variable)</a>
           </li>
         
@@ -2884,10 +2809,6 @@
         
           <li>
             <a href="/2022/05/03/Oracle/chapter09/">🎈Oracle PL/SQL_Chapter 09</a>
-          </li>
-        
-          <li>
-            <a href="/2022/05/02/Oracle/Chapter04/">🎈OracleSQL_Chapter 04</a>
           </li>
         
       </ul>

@@ -71,6 +71,190 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-install/Oracle" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/18/install/Oracle/" class="article-date">
+  <time class="dt-published" datetime="2022-04-18T00:00:00.000Z" itemprop="datePublished">2022-04-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/18/install/Oracle/">[Windows 10] Oracle Install🐱‍🏍</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>Oracle은 저사양에서는 실행이 되지 않기 때문에 컴퓨터(노트북)사양 및 메모리 확인!!</li>
+</ul>
+<h3 id="Step-01-Oracle-파일-다운로드"><a href="#Step-01-Oracle-파일-다운로드" class="headerlink" title="Step 01_Oracle 파일 다운로드"></a>Step 01_Oracle 파일 다운로드</h3><ul>
+<li><strong>Oracle developer</strong> : <a target="_blank" rel="noopener" href="https://www.oracle.com/tools/downloads/sqldev-downloads.html">https://www.oracle.com/tools/downloads/sqldev-downloads.html</a></li>
+</ul>
+<p><strong>설치 파일 : sqldeveloper-21.4.3.063.0100-x64</strong></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled.png" alt="Untitled"></p>
+<ul>
+<li><strong>Oracle Database 19<em>c</em> (19.3)</strong><br><a target="_blank" rel="noopener" href="https://www.oracle.com/database/technologies/oracle19c-windows-downloads.html">https://www.oracle.com/database/technologies/oracle19c-windows-downloads.html</a></li>
+</ul>
+<p><strong>설치 파일 : WINDOWS.X64_193000_db_home</strong></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%201.png" alt="Untitled"></p>
+<h3 id="Step-02-설치"><a href="#Step-02-설치" class="headerlink" title="Step 02_설치"></a>Step 02_설치</h3><ul>
+<li>setup 응용 프로그램 - 관리자 권한으로 실행</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%202.png" alt="Untitled"></p>
+<h3 id="단일-인스턴트-데이터베이스-생성"><a href="#단일-인스턴트-데이터베이스-생성" class="headerlink" title="단일 인스턴트 데이터베이스 생성"></a><strong>단일 인스턴트 데이터베이스 생성</strong></h3><p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%203.png" alt="Untitled"></p>
+<ul>
+<li>아래와 같이 기본적을 설정되어 있는 대로 진행</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%204.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%205.png" alt="Untitled"></p>
+<ul>
+<li>컨테이너 데이터 베이스 생성 선택 해제</li>
+<li>이름 myoracle 비밀번호 1234</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%206.png" alt="Untitled"></p>
+<ul>
+<li>설정 후 뜨는 창에 예 하고 설치!</li>
+</ul>
+<h3 id="소프트웨어만-설정-단일-선택에서-비밀번호-오류가-날-때"><a href="#소프트웨어만-설정-단일-선택에서-비밀번호-오류가-날-때" class="headerlink" title="소프트웨어만 설정(단일 선택에서 비밀번호 오류가 날 때)"></a>소프트웨어만 설정(단일 선택에서 비밀번호 오류가 날 때)</h3><ul>
+<li>DB가 깔리지 않음.</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%207.png" alt="Untitled"></p>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%208.png" alt="Untitled"></p>
+<ul>
+<li>cmd 관리자 실행<ul>
+<li>경로 설정은 oracle이 깔려 있는  폴더-파일 지정 후, dbca 설치 파일 실행</li>
+<li>C:\sql_lecture&gt;cd WINDOWS.X64_193000_db_home(필자의 현재 경로)</li>
+</ul>
+</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%209.png" alt="Untitled"></p>
+<ul>
+<li>저장 영역 유형 : <strong>ASM(자동 저장 영역 관리)</strong> 설정</li>
+<li>이름 : myoracle 비밀 번호 : 1234</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2010.png" alt="Untitled"></p>
+<ul>
+<li><strong>에러 나면,</strong> 저장 영역 유형에서 <strong>파일 시스템</strong>으로 지정</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2011.png" alt="Untitled"></p>
+<ul>
+<li>예를 누르고 창이 뜨면 완료 누르고 설치.</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2012.png" alt="Untitled"></p>
+<h3 id="Step-03-테이블-스페이스-생성"><a href="#Step-03-테이블-스페이스-생성" class="headerlink" title="Step 03_테이블 스페이스 생성"></a>Step 03_테이블 스페이스 생성</h3><ul>
+<li>윈도우 검색 창에 sqlplus 입력 → 관리자 권한 실행<ul>
+<li>사용자명 입력 : system 비밀번호 :  1234(oracle 설치 시 지정한 비번 동일하게)</li>
+</ul>
+</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2013.png" alt="Untitled"></p>
+<ul>
+<li>CREATE TABLESPACE myts DATAFILE ‘C:\app\oradata\MYORACLE\myts.dbf’ SIZE 100M AUTOEXTEND ON NEXT 5M;<ul>
+<li>빨간 부분만 변경.(C drive에 있는 폴더 이름으로 지정)</li>
+<li>필자는 sql_lecture 폴더가 지정되어 있음.</li>
+</ul>
+</li>
+<li><code>CREATE USER ora_user IDENTIFIED BY evan DEFAULT TABLESPACE MYTS TEMPORARY TABLESPACE TEMP;</code><ul>
+<li>빨간 부분 수정(본인 이름으로)</li>
+</ul>
+</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2014.png" alt="Untitled"></p>
+<ul>
+<li>GRANT DBA TO ora_user; → select user from dual; → connect ora_user&#x2F;evan; → select user from dual;</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2015.png" alt="Untitled"></p>
+<ul>
+<li>새로운 유저 추가</li>
+<li><code>CREATE USER ora_user2 IDENTIFIED BY evan DEFAULT TABLESPACE MYTS TEMPORARY TABLESPACE TEMP;</code></li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2016.png" alt="Untitled"></p>
+<ul>
+<li>위와 동일 하게 진행</li>
+</ul>
+<h3 id="Step-04-developer-설치"><a href="#Step-04-developer-설치" class="headerlink" title="Step 04_developer 설치"></a>Step 04_developer 설치</h3><ul>
+<li>응용프로그램 클릭 → 아니오 → 확인</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2017.png" alt="Untitled"></p>
+<ul>
+<li>초록색 플러스 누르고 Name, 이름, 비번, SID 설정</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2018.png" alt="Untitled"></p>
+<ul>
+<li>오류 난다면, Net Configuration Assistant 클릭</li>
+<li>lsnrctl status 입력</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2019.png" alt="Untitled"></p>
+<ul>
+<li>재 접속<ul>
+<li>Name, 이름, 비번(ora_user 생성 시 쓴 이름(evan)), SID 적고 테스트 → 접속</li>
+</ul>
+</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2020.png" alt="Untitled"></p>
+<ul>
+<li><p>완료 된 화면</p>
+<p>  <img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2021.png" alt="Untitled"></p>
+</li>
+<li><p>실행</p>
+</li>
+<li><p>도구 - 환경 설정 - 데이터 베이스 - NLS - 시간 기록 형식(YYYY&#x2F;MM&#x2F;DD HH24:MI:SS) 변경</p>
+</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2022.png" alt="Untitled"></p>
+<ul>
+<li><p>다운로드 :  <a target="_blank" rel="noopener" href="https://github.com/gilbutITbook/006696/tree/master/01%EC%9E%A5%20%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95">https://github.com/gilbutITbook/006696/tree/master/01장 환경설정</a></p>
+<p>  <img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2023.png" alt="Untitled"></p>
+</li>
+<li><p>C drive 에 backup 폴더 생성 후 다운 받은 파일 넣기</p>
+</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2024.png" alt="Untitled"></p>
+<ul>
+<li>cmd 에서 backup폴더로 경로 설정</li>
+<li>imp ora_user&#x2F;evan file&#x3D;expall.dmp log&#x3D;empall.log ignore&#x3D;y grants&#x3D;y rows&#x3D;y indexes&#x3D;y full&#x3D;y<ul>
+<li>빨간 부분 설정한 값으로 변경</li>
+</ul>
+</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2025.png" alt="Untitled"></p>
+<ul>
+<li>imp ora_user&#x2F;evan file&#x3D;expcust.dmp log&#x3D;expcust.log ignore&#x3D;y grants&#x3D;y rows&#x3D;y indexes&#x3D;y full&#x3D;y<ul>
+<li>빨간 부분 설정한 값으로 변경</li>
+</ul>
+</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2026.png" alt="Untitled"></p>
+<h3 id="Step-05-oracle-developer-테스트"><a href="#Step-05-oracle-developer-테스트" class="headerlink" title="Step 05_oracle developer 테스트"></a>Step 05_oracle developer 테스트</h3><ul>
+<li>SELECT table_name FROM user_tables; 입력</li>
+<li>아래와 같이 값이 뜨면 된다.</li>
+</ul>
+<p><img src="/%5Cimages%5Cinstall%5COracle%5CUntitled%2027.png" alt="Untitled"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/04/18/install/Oracle/" data-id="cl4lbikni000i60v1a75ba907" data-title="[Windows 10] Oracle Install🐱‍🏍" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-install/Spark" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/04/18/install/Spark/" class="article-date">
@@ -1083,149 +1267,6 @@
 
 
   
-    <article id="post-R/Descriptive-Analysis" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/15/R/Descriptive-Analysis/" class="article-date">
-  <time class="dt-published" datetime="2022-03-15T00:00:00.000Z" itemprop="datePublished">2022-03-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/03/15/R/Descriptive-Analysis/">Descriptive Analysis</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>모수와 통계량</p>
-</li>
-<li><p>파일 불러 오기.</p>
-</li>
-</ul>
-<p>albums &#x3D; read.csv(“2_day_stat_regression&#x2F;data&#x2F;album.csv”)</p>
-<ul>
-<li><p>앨범 판매량 데이터</p>
-<ul>
-<li>adverts : 광고 집행 비용</li>
-<li>sales : 판매량</li>
-</ul>
-</li>
-<li><p>기술 통계량 (Descriptive Analysis)<br>-최대, 최소, 평균, 중간값, 분산, 표준 편차</p>
-</li>
-</ul>
-<p>albums$sales<br>sort(albums$sales)</p>
-<ul>
-<li>최소값</li>
-</ul>
-<p>sort(albums$sales)<br>min(albums$sales)</p>
-<ul>
-<li>최대값</li>
-</ul>
-<p>sort(albums$sales)<br>max(albums$sales)</p>
-<ul>
-<li>최빈값</li>
-</ul>
-<p>table(albums$sales)<br>sort(table(albums$sales), decreasing &#x3D; TRUE)[1]</p>
-<ul>
-<li>평균과 중앙값</li>
-</ul>
-<p>mean(albums$sales)<br>median(albums$sales)</p>
-<ul>
-<li>결측치 데이터 추가</li>
-</ul>
-<p>sales2 &#x3D; c(albums$sales, NA)<br>tail(sales2)<br>mean(sales2)<br>mean(sales2, na.rm &#x3D; TRUE)</p>
-<ul>
-<li>평균의 가장 큰 단점</li>
-<li>극단 적인 값에 굉장히 민감 하게 반응</li>
-</ul>
-<p>sales3 &#x3D; c(albums$sales, 30000000000)<br>mean(sales3)<br>median(sales3)</p>
-<ul>
-<li><p>양 극단의 값에 민감 하게 반응 하지 않음</p>
-</li>
-<li><p>이러한 특징을 강건 하다(Robust)</p>
-</li>
-<li><p>분산</p>
-</li>
-</ul>
-<p>weight &#x3D; c(64, 68, 70, 72, 76)<br>weight_mean &#x3D; mean(weight)# 평균<br>weight_deviation &#x3D; weight - weight_mean # 편차 A - B<br>weight_deviation<br>sum(weight_deviation)</p>
-<p>weight_deviation_2 &#x3D; weight_deviation ^2<br>sum(weight_deviation_2)<br>mean(weight_deviation_2) </p>
-<ul>
-<li>표준 편차</li>
-</ul>
-<p>sqrt(mean(weight_deviation_2))</p>
-<p>var(weight) - 표본 분산<br>sd(weight) - 표본 표준 편차</p>
-<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
-<ul>
-<li><p>CV : Coefficient pf variation &#x3D; 변동계수</p>
-</li>
-<li><p>RCD : \</p>
-</li>
-<li><p>변동계수</p>
-</li>
-</ul>
-<p>cv &#x3D; sd(data) &#x2F; mean(data)</p>
-<ul>
-<li>주식 데이터<br>install.packages(“tidyquant”)<br>library(tidyquant)<br>library(quantmod)<br>library(purrr)<br>library(ggplot2)<br>library(tibble)</li>
-</ul>
-<p>tickers &#x3D; c(“AAPL”, “TSLA”)<br>getSymbols(tickers,<br>           from &#x3D; “2022-01-02”,<br>           to   &#x3D; “2022-01-30”)</p>
-<p>stock &lt;- map(tickers, function(x) Ad(get(x)))<br>stock &lt;- reduce(stock, merge)<br>colnames(stock) &lt;- tickers</p>
-<p>head(stock)</p>
-<p>stock_df &lt;- stock %&gt;% data.frame(date &#x3D; index(stock))<br>stock_df</p>
-<ul>
-<li>사용자 정의 함수</li>
-</ul>
-<p>cv_fun &lt;- function(data) {<br>  result &#x3D; sd(data) &#x2F; mean(data) * 100<br>  return(result)<br>}</p>
-<p>-&gt; 위와 같은 식을 알고리즘이라고 한다.</p>
-<p>cv_fun(stock_df$AAPL)<br>cv_fun(stock_df$TSLA)</p>
-<p>ggplot(stock_df, aes(x &#x3D; date)) +<br>  geom_line(aes(y &#x3D; AAPL, colour &#x3D; “Apple”)) +<br>  geom_line(aes(y &#x3D; TSLA, colour &#x3D; ‘Tesla’)) +<br>  scale_colour_manual(name &#x3D; “company”, values &#x3D; c(“Apple” &#x3D; “red”,<br>                                                   “Tesla” &#x3D; “blue”)) +<br>  theme_bw()</p>
-<ul>
-<li>사분위수 : 전체 자료를 균등하게 4개의 그룹으로 나눈 값(EX&gt;박스그래프)</li>
-<li>Q1 &#x3D; 1사분위(맨밑), Q2 &#x3D; 2사분위(중간), Q3 &#x3D; 3사분위(맨위라인)</li>
-<li>이상치판별</li>
-</ul>
-<p>qs_df &#x3D; quantile(albums$sales)<br>qs_df[4] - qs_df[2]<br>IQR(albums$sales) -&gt; 3사분위 - 1사분위</p>
-<p>boxplot(albums$sales)</p>
-<ul>
-<li>이상치 판별</li>
-</ul>
-<p>sales2 &#x3D; c(albums$sales, 450, 460, -100, -1000)</p>
-<p>q &#x3D; quantile(sales2)<br>boxplot(sales2)</p>
-<ul>
-<li>하한 극단 경계값 찾기</li>
-</ul>
-<p>bottom_outlier &#x3D; q[2] - 1.5 * (q[4] - q[2])<br>bottom_outlier</p>
-<ul>
-<li><p>상한 극단 경계값 찾기<br>top_outlier &#x3D; q[4] + 1.5 * (q[4] - q[2])<br>top_outlier</p>
-</li>
-<li><p>실제 극단값 존재하는지 출력</p>
-</li>
-</ul>
-<p>sales2[sales2 &lt; bottom_outlier]<br>sales2[sales2 &gt; top_outlier]</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/03/15/R/Descriptive-Analysis/" data-id="cl4lbikna000a60v1cwztcvkz" data-title="Descriptive Analysis" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -1266,6 +1307,10 @@
           </li>
         
           <li>
+            <a href="/2022/06/19/JAVA/JAVA22.06.19(for)/">🎈JAVA_반복문(for, while, dowhile)</a>
+          </li>
+        
+          <li>
             <a href="/2022/06/16/JAVA/JAVA22.06.16/">🎈JAVA_변수(variable)</a>
           </li>
         
@@ -1275,10 +1320,6 @@
         
           <li>
             <a href="/2022/05/03/Oracle/chapter09/">🎈Oracle PL/SQL_Chapter 09</a>
-          </li>
-        
-          <li>
-            <a href="/2022/05/02/Oracle/Chapter04/">🎈OracleSQL_Chapter 04</a>
           </li>
         
       </ul>
