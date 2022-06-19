@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>🎈JAVA_조건문(If, else, switch) | myblog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="조건문(if&#x2F; if, else&#x2F; if, else if, else&#x2F; switch)  주어진 조건식의 결과에 따라 별도의 명령을 수행하도록 제어하는 명령문  if문 결과가 참(true)이면 주어진 명령문을 실행하며, 거짓(false)이면 아무것도 실행하지 않는다.  123if(조건식) &amp;#123;조건식의 결과가 참일 때 실행하고자 하">
+<meta property="og:type" content="article">
+<meta property="og:title" content="🎈JAVA_조건문(If, else, switch)">
+<meta property="og:url" content="https://kjm12misa.github.io/2022/06/19/JAVA/JAVA22.06.19(IF)/index.html">
+<meta property="og:site_name" content="myblog">
+<meta property="og:description" content="조건문(if&#x2F; if, else&#x2F; if, else if, else&#x2F; switch)  주어진 조건식의 결과에 따라 별도의 명령을 수행하도록 제어하는 명령문  if문 결과가 참(true)이면 주어진 명령문을 실행하며, 거짓(false)이면 아무것도 실행하지 않는다.  123if(조건식) &amp;#123;조건식의 결과가 참일 때 실행하고자 하">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-06-19T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-19T13:01:21.602Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="myblog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">myblog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kjm12misa.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-JAVA/JAVA22.06.19(IF)" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/06/19/JAVA/JAVA22.06.19(IF)/" class="article-date">
+  <time class="dt-published" datetime="2022-06-19T00:00:00.000Z" itemprop="datePublished">2022-06-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      🎈JAVA_조건문(If, else, switch)
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>조건문(if&#x2F; if, else&#x2F; if, else if, else&#x2F; switch)</p>
+<ul>
+<li>주어진 조건식의 결과에 따라 별도의 명령을 수행하도록 제어하는 명령문</li>
+</ul>
+<h2 id="if문"><a href="#if문" class="headerlink" title="if문"></a>if문</h2><ul>
+<li>결과가 참(true)이면 주어진 명령문을 실행하며, 거짓(false)이면 아무것도 실행하지 않는다.</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if(조건식) &#123;</span><br><span class="line">조건식의 결과가 참일 때 실행하고자 하는 명령문;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>if문 예제</strong></li>
+</ol>
+<ul>
+<li>중괄호 있음과 없음의 차이</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 조건문;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">if</span>문 &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		<span class="type">int</span> <span class="variable">score</span> <span class="operator">=</span> <span class="number">93</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span>(score&gt;=<span class="number">90</span>) &#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;점수가 90보다 큼&quot;</span>);</span><br><span class="line">		System.out.println(<span class="string">&quot;점수가 90보다 작음&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">		<span class="keyword">if</span>(score&lt;<span class="number">90</span>)</span><br><span class="line">		System.out.println(<span class="string">&quot;점수가 90!보다 작음!!&quot;</span>);</span><br><span class="line">		System.out.println(<span class="string">&quot;점수가 90!보다 큼!!&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>실행 결과</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">점수가 90보다 큼</span><br><span class="line">점수가 90보다 작음</span><br><span class="line">점수가 90!보다 큼!!</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>설명</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(score&gt;=<span class="number">90</span>) </span><br><span class="line"><span class="comment">//93&gt;=90 이 되어 true. 중괄호 블록이 모두 실행되어 출력됨.</span></span><br><span class="line">&#123;System.out.println(<span class="string">&quot;점수가 90보다 큼&quot;</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;점수가 90보다 작음&quot;</span>);&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(score&lt;<span class="number">90</span>) <span class="comment">// 93&lt;90외 되어 false.(스코어가 90보다는 크기 때문에 진실이 아님)</span></span><br><span class="line"><span class="comment">// 90보다 큼!!을 출력하고 싶었는데 실행결과에서는 점수와는 상관없이 &quot;점수가 90!보다 큼!!&quot;을 </span></span><br><span class="line"><span class="comment">// 무조건 실행된다.</span></span><br><span class="line"><span class="comment">// 두 번째 if문은 첫 번째 syso에만 영향을 미치기 때문에</span></span><br><span class="line"><span class="comment">// 두 번째 syso에는 들여쓰기만 되었을 뿐 if문과는 상관 없다.</span></span><br><span class="line">		System.out.println(<span class="string">&quot;점수가 90!보다 작음!!&quot;</span>);</span><br><span class="line">		System.out.println(<span class="string">&quot;점수가 90!보다 큼!!&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>if, else문</strong></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">**if** (조건식) &#123;</span><br><span class="line">조건식의 결과가 참일 때 실행하고자 하는 명령문;</span><br><span class="line">&#125; **else** &#123;</span><br><span class="line">조건식의 결과가 거짓일 때 실행하고자 하는 명령문;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>간단한 예제</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 조건문;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">if</span>문 &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		<span class="type">int</span> <span class="variable">score</span> <span class="operator">=</span> <span class="number">93</span>;</span><br><span class="line">		</span><br><span class="line"><span class="comment">//		if(score&gt;=90) 93&gt;=90 true 이므로 &quot;점수가 90보다 큼&quot; 출력</span></span><br><span class="line">		<span class="keyword">if</span>(score&gt;=<span class="number">94</span>) &#123;<span class="comment">// 93&gt;=94 false 이므로 &quot;점수가 90보다 작음&quot; 출력</span></span><br><span class="line">			System.out.println(<span class="string">&quot;점수가 90보다 큼&quot;</span>);</span><br><span class="line"></span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;점수가 90보다 작음&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>if, else if, else문</strong></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">**if** (조건식1) &#123;</span><br><span class="line">조건식1의 결과가 참일 때 실행하고자 하는 명령문;</span><br><span class="line">&#125; **else** **if** (조건식2) &#123;</span><br><span class="line">조건식2의 결과가 참일 때 실행하고자 하는 명령문;</span><br><span class="line">&#125; **else** &#123;</span><br><span class="line">조건식1의 결과도 거짓이고, 조건식2의 결과도 거짓일 때 실행하고자 하는 명령문;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>응용 예제</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 조건문;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">if</span>문 &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		<span class="type">int</span> <span class="variable">score</span> <span class="operator">=</span> <span class="number">49</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(score&gt;=<span class="number">70</span>) &#123;<span class="comment">//score가 70이상일 경우</span></span><br><span class="line">			System.out.println(<span class="string">&quot;점수가  61점 이상 입니다.&quot;</span>);</span><br><span class="line">			System.out.println(<span class="string">&quot;합격입니다.&quot;</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(score&gt;=<span class="number">60</span>) &#123;<span class="comment">//score가 60~69사이일 경우</span></span><br><span class="line">			System.out.println(<span class="string">&quot;점수가 51~60 입니다.&quot;</span>);</span><br><span class="line">			System.out.println(<span class="string">&quot;좀 더 공부하고 다음 시험에 응시하여 주시기 바랍니다.&quot;</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(score&gt;=<span class="number">50</span>) &#123;<span class="comment">// score가 50~59사이일 경우</span></span><br><span class="line">			System.out.println(<span class="string">&quot;점수가 41~50점 입니다.&quot;</span>);</span><br><span class="line">			System.out.println(<span class="string">&quot;공부 열심히 하여 다음 시험에 응시해주시면 감사하겠습니다.&quot;</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;<span class="comment">//score가 49이하일 경우</span></span><br><span class="line">			System.out.println(<span class="string">&quot;점수가 40점 이하 입니다. &quot;</span>);</span><br><span class="line">			System.out.println(<span class="string">&quot;음,, 힘내세요!&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>실행 결과</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">점수가 40점 이하 입니다.</span><br><span class="line">음,, 힘내세요!</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>switch문</strong></li>
+</ol>
+<ul>
+<li>if &#x2F; else 문과 마찬가지로 주어진 조건 값의 결과에 따라 프로그램이 다른 명령을 수행하도록 하는 조건문</li>
+<li>if &#x2F; else 문보다 가독성이 더 좋으며, 컴파일러가 최적화를 쉽게 할 수 있어 속도 또한 빠른 편</li>
+<li>switch 문의 조건 값으로는 int형으로 승격할 수 있는 byte형, short형, char형, int형의 변수나 리터럴을 사용</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">**switch** (조건 값) &#123;</span><br><span class="line">**case** 값1**:**</span><br><span class="line">    조건 값이 값1일 때 실행하고자 하는 명령문;</span><br><span class="line">    **break**;</span><br><span class="line">**case** 값2**:**</span><br><span class="line">    조건 값이 값2일 때 실행하고자 하는 명령문;</span><br><span class="line">    **break**;</span><br><span class="line">...</span><br><span class="line">**default:**</span><br><span class="line">    조건 값이 어떠한 **case** 절에도 해당하지 않을 때 실행하고자 하는 명령문;</span><br><span class="line">    **break**;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>break; 예제<ul>
+<li>조건 값에 해당하는 case 절이나 default 절이 실행된 뒤에 전체 switch 문을 빠져나가게 해줍니다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 조건문;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">if</span>문 &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">	<span class="type">char</span> <span class="variable">ch</span> <span class="operator">=</span> <span class="string">&#x27;l&#x27;</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">switch</span>(ch) &#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;i&#x27;</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 &#x27;I&#x27; 입니다&quot;</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;l&#x27;</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 &#x27;L&#x27; 입니다&quot;</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;o&#x27;</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 &#x27;O&#x27; 입니다&quot;</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;v&#x27;</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 &#x27;V&#x27; 입니다&quot;</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;e&#x27;</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 &#x27;E&#x27; 입니다&quot;</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;u&#x27;</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 &#x27;U&#x27; 입니다&quot;</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 속해 있지 않습니다.&quot;</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>실행 결과</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">char ch = &#x27;l&#x27;;</span><br><span class="line">해당 문자는 &#x27;L&#x27; 입니다</span><br><span class="line">char ch = &#x27;k&#x27;;</span><br><span class="line">해당 문자는 속해 있지 않습니다.</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>break; 제외 예제<ul>
+<li>조건에 해당하는 switch 문의 case 절 이후의 모든 case 절이 전부 실행</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 조건문;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">if</span>문 &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">	<span class="type">char</span> <span class="variable">ch</span> <span class="operator">=</span> <span class="string">&#x27;l&#x27;</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">switch</span>(ch) &#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;i&#x27;</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 &#x27;I&#x27; 입니다&quot;</span>);</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;l&#x27;</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 &#x27;L&#x27; 입니다&quot;</span>);</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;o&#x27;</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 &#x27;O&#x27; 입니다&quot;</span>);</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;v&#x27;</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 &#x27;V&#x27; 입니다&quot;</span>);</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;e&#x27;</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 &#x27;E&#x27; 입니다&quot;</span>);</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;u&#x27;</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 &#x27;U&#x27; 입니다&quot;</span>);</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 속해 있지 않습니다.&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>실행 결과</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">해당 문자는 &#x27;L&#x27; 입니다</span><br><span class="line">해당 문자는 &#x27;O&#x27; 입니다</span><br><span class="line">해당 문자는 &#x27;V&#x27; 입니다</span><br><span class="line">해당 문자는 &#x27;E&#x27; 입니다</span><br><span class="line">해당 문자는 &#x27;U&#x27; 입니다</span><br><span class="line">해당 문자는 속해 있지 않습니다.</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/06/19/JAVA/JAVA22.06.19(IF)/" data-id="cl4lbikn3000360v1f0behvu1" data-title="🎈JAVA_조건문(If, else, switch)" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/06/16/JAVA/JAVA22.06.16/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">🎈JAVA_변수(variable)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/06/19/JAVA/JAVA22.06.19(IF)/">🎈JAVA_조건문(If, else, switch)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/16/JAVA/JAVA22.06.16/">🎈JAVA_변수(variable)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/05/Html/Html01/">🎉html 태그 기본 문법</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/03/Oracle/chapter09/">🎈Oracle PL/SQL_Chapter 09</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/02/Oracle/Chapter04/">🎈OracleSQL_Chapter 04</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

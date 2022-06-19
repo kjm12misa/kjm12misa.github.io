@@ -71,10 +71,136 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JAVA/JAVA22.06.19(IF)" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/06/19/JAVA/JAVA22.06.19(IF)/" class="article-date">
+  <time class="dt-published" datetime="2022-06-19T00:00:00.000Z" itemprop="datePublished">2022-06-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/06/19/JAVA/JAVA22.06.19(IF)/">🎈JAVA_조건문(If, else, switch)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>조건문(if&#x2F; if, else&#x2F; if, else if, else&#x2F; switch)</p>
+<ul>
+<li>주어진 조건식의 결과에 따라 별도의 명령을 수행하도록 제어하는 명령문</li>
+</ul>
+<h2 id="if문"><a href="#if문" class="headerlink" title="if문"></a>if문</h2><ul>
+<li>결과가 참(true)이면 주어진 명령문을 실행하며, 거짓(false)이면 아무것도 실행하지 않는다.</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if(조건식) &#123;</span><br><span class="line">조건식의 결과가 참일 때 실행하고자 하는 명령문;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>if문 예제</strong></li>
+</ol>
+<ul>
+<li>중괄호 있음과 없음의 차이</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 조건문;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">if</span>문 &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		<span class="type">int</span> <span class="variable">score</span> <span class="operator">=</span> <span class="number">93</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span>(score&gt;=<span class="number">90</span>) &#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;점수가 90보다 큼&quot;</span>);</span><br><span class="line">		System.out.println(<span class="string">&quot;점수가 90보다 작음&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">		<span class="keyword">if</span>(score&lt;<span class="number">90</span>)</span><br><span class="line">		System.out.println(<span class="string">&quot;점수가 90!보다 작음!!&quot;</span>);</span><br><span class="line">		System.out.println(<span class="string">&quot;점수가 90!보다 큼!!&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>실행 결과</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">점수가 90보다 큼</span><br><span class="line">점수가 90보다 작음</span><br><span class="line">점수가 90!보다 큼!!</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>설명</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(score&gt;=<span class="number">90</span>) </span><br><span class="line"><span class="comment">//93&gt;=90 이 되어 true. 중괄호 블록이 모두 실행되어 출력됨.</span></span><br><span class="line">&#123;System.out.println(<span class="string">&quot;점수가 90보다 큼&quot;</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;점수가 90보다 작음&quot;</span>);&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(score&lt;<span class="number">90</span>) <span class="comment">// 93&lt;90외 되어 false.(스코어가 90보다는 크기 때문에 진실이 아님)</span></span><br><span class="line"><span class="comment">// 90보다 큼!!을 출력하고 싶었는데 실행결과에서는 점수와는 상관없이 &quot;점수가 90!보다 큼!!&quot;을 </span></span><br><span class="line"><span class="comment">// 무조건 실행된다.</span></span><br><span class="line"><span class="comment">// 두 번째 if문은 첫 번째 syso에만 영향을 미치기 때문에</span></span><br><span class="line"><span class="comment">// 두 번째 syso에는 들여쓰기만 되었을 뿐 if문과는 상관 없다.</span></span><br><span class="line">		System.out.println(<span class="string">&quot;점수가 90!보다 작음!!&quot;</span>);</span><br><span class="line">		System.out.println(<span class="string">&quot;점수가 90!보다 큼!!&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>if, else문</strong></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">**if** (조건식) &#123;</span><br><span class="line">조건식의 결과가 참일 때 실행하고자 하는 명령문;</span><br><span class="line">&#125; **else** &#123;</span><br><span class="line">조건식의 결과가 거짓일 때 실행하고자 하는 명령문;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>간단한 예제</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 조건문;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">if</span>문 &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		<span class="type">int</span> <span class="variable">score</span> <span class="operator">=</span> <span class="number">93</span>;</span><br><span class="line">		</span><br><span class="line"><span class="comment">//		if(score&gt;=90) 93&gt;=90 true 이므로 &quot;점수가 90보다 큼&quot; 출력</span></span><br><span class="line">		<span class="keyword">if</span>(score&gt;=<span class="number">94</span>) &#123;<span class="comment">// 93&gt;=94 false 이므로 &quot;점수가 90보다 작음&quot; 출력</span></span><br><span class="line">			System.out.println(<span class="string">&quot;점수가 90보다 큼&quot;</span>);</span><br><span class="line"></span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;점수가 90보다 작음&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>if, else if, else문</strong></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">**if** (조건식1) &#123;</span><br><span class="line">조건식1의 결과가 참일 때 실행하고자 하는 명령문;</span><br><span class="line">&#125; **else** **if** (조건식2) &#123;</span><br><span class="line">조건식2의 결과가 참일 때 실행하고자 하는 명령문;</span><br><span class="line">&#125; **else** &#123;</span><br><span class="line">조건식1의 결과도 거짓이고, 조건식2의 결과도 거짓일 때 실행하고자 하는 명령문;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>응용 예제</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 조건문;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">if</span>문 &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		<span class="type">int</span> <span class="variable">score</span> <span class="operator">=</span> <span class="number">49</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(score&gt;=<span class="number">70</span>) &#123;<span class="comment">//score가 70이상일 경우</span></span><br><span class="line">			System.out.println(<span class="string">&quot;점수가  61점 이상 입니다.&quot;</span>);</span><br><span class="line">			System.out.println(<span class="string">&quot;합격입니다.&quot;</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(score&gt;=<span class="number">60</span>) &#123;<span class="comment">//score가 60~69사이일 경우</span></span><br><span class="line">			System.out.println(<span class="string">&quot;점수가 51~60 입니다.&quot;</span>);</span><br><span class="line">			System.out.println(<span class="string">&quot;좀 더 공부하고 다음 시험에 응시하여 주시기 바랍니다.&quot;</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(score&gt;=<span class="number">50</span>) &#123;<span class="comment">// score가 50~59사이일 경우</span></span><br><span class="line">			System.out.println(<span class="string">&quot;점수가 41~50점 입니다.&quot;</span>);</span><br><span class="line">			System.out.println(<span class="string">&quot;공부 열심히 하여 다음 시험에 응시해주시면 감사하겠습니다.&quot;</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;<span class="comment">//score가 49이하일 경우</span></span><br><span class="line">			System.out.println(<span class="string">&quot;점수가 40점 이하 입니다. &quot;</span>);</span><br><span class="line">			System.out.println(<span class="string">&quot;음,, 힘내세요!&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>실행 결과</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">점수가 40점 이하 입니다.</span><br><span class="line">음,, 힘내세요!</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>switch문</strong></li>
+</ol>
+<ul>
+<li>if &#x2F; else 문과 마찬가지로 주어진 조건 값의 결과에 따라 프로그램이 다른 명령을 수행하도록 하는 조건문</li>
+<li>if &#x2F; else 문보다 가독성이 더 좋으며, 컴파일러가 최적화를 쉽게 할 수 있어 속도 또한 빠른 편</li>
+<li>switch 문의 조건 값으로는 int형으로 승격할 수 있는 byte형, short형, char형, int형의 변수나 리터럴을 사용</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">**switch** (조건 값) &#123;</span><br><span class="line">**case** 값1**:**</span><br><span class="line">    조건 값이 값1일 때 실행하고자 하는 명령문;</span><br><span class="line">    **break**;</span><br><span class="line">**case** 값2**:**</span><br><span class="line">    조건 값이 값2일 때 실행하고자 하는 명령문;</span><br><span class="line">    **break**;</span><br><span class="line">...</span><br><span class="line">**default:**</span><br><span class="line">    조건 값이 어떠한 **case** 절에도 해당하지 않을 때 실행하고자 하는 명령문;</span><br><span class="line">    **break**;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>break; 예제<ul>
+<li>조건 값에 해당하는 case 절이나 default 절이 실행된 뒤에 전체 switch 문을 빠져나가게 해줍니다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 조건문;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">if</span>문 &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">	<span class="type">char</span> <span class="variable">ch</span> <span class="operator">=</span> <span class="string">&#x27;l&#x27;</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">switch</span>(ch) &#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;i&#x27;</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 &#x27;I&#x27; 입니다&quot;</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;l&#x27;</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 &#x27;L&#x27; 입니다&quot;</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;o&#x27;</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 &#x27;O&#x27; 입니다&quot;</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;v&#x27;</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 &#x27;V&#x27; 입니다&quot;</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;e&#x27;</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 &#x27;E&#x27; 입니다&quot;</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;u&#x27;</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 &#x27;U&#x27; 입니다&quot;</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 속해 있지 않습니다.&quot;</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>실행 결과</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">char ch = &#x27;l&#x27;;</span><br><span class="line">해당 문자는 &#x27;L&#x27; 입니다</span><br><span class="line">char ch = &#x27;k&#x27;;</span><br><span class="line">해당 문자는 속해 있지 않습니다.</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>break; 제외 예제<ul>
+<li>조건에 해당하는 switch 문의 case 절 이후의 모든 case 절이 전부 실행</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 조건문;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">if</span>문 &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">	<span class="type">char</span> <span class="variable">ch</span> <span class="operator">=</span> <span class="string">&#x27;l&#x27;</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">switch</span>(ch) &#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;i&#x27;</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 &#x27;I&#x27; 입니다&quot;</span>);</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;l&#x27;</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 &#x27;L&#x27; 입니다&quot;</span>);</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;o&#x27;</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 &#x27;O&#x27; 입니다&quot;</span>);</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;v&#x27;</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 &#x27;V&#x27; 입니다&quot;</span>);</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;e&#x27;</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 &#x27;E&#x27; 입니다&quot;</span>);</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;u&#x27;</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 &#x27;U&#x27; 입니다&quot;</span>);</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			System.out.println(<span class="string">&quot;해당 문자는 속해 있지 않습니다.&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>실행 결과</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">해당 문자는 &#x27;L&#x27; 입니다</span><br><span class="line">해당 문자는 &#x27;O&#x27; 입니다</span><br><span class="line">해당 문자는 &#x27;V&#x27; 입니다</span><br><span class="line">해당 문자는 &#x27;E&#x27; 입니다</span><br><span class="line">해당 문자는 &#x27;U&#x27; 입니다</span><br><span class="line">해당 문자는 속해 있지 않습니다.</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kjm12misa.github.io/2022/06/19/JAVA/JAVA22.06.19(IF)/" data-id="cl4lbikn3000360v1f0behvu1" data-title="🎈JAVA_조건문(If, else, switch)" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-JAVA/JAVA22.06.16" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/06/16/JAVA/JAVA22.06.16/" class="article-date">
-  <time class="dt-published" datetime="2022-06-15T15:00:00.000Z" itemprop="datePublished">2022-06-16</time>
+  <time class="dt-published" datetime="2022-06-16T00:00:00.000Z" itemprop="datePublished">2022-06-16</time>
 </a>
     
   </div>
@@ -286,7 +412,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/06/16/JAVA/JAVA22.06.16/" data-id="cl4h4l71i000ob8v1f5ui46yw" data-title="🎈JAVA_변수(variable)" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/06/16/JAVA/JAVA22.06.16/" data-id="cl4lbikmz000160v13c5afeay" data-title="🎈JAVA_변수(variable)" class="article-share-link">Share</a>
       
       
       
@@ -430,7 +556,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/05/05/Html/Html01/" data-id="cl4h4hvyq0000b8v10tbif4az" data-title="🎉html 태그 기본 문법" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/05/05/Html/Html01/" data-id="cl4lbikmr000060v1bi4ea3hf" data-title="🎉html 태그 기본 문법" class="article-share-link">Share</a>
       
       
       
@@ -796,7 +922,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/05/03/Oracle/chapter09/" data-id="cl4h4hvz70008b8v1bnzhd1pv" data-title="🎈Oracle PL/SQL_Chapter 09" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/05/03/Oracle/chapter09/" data-id="cl4lbikn8000860v12owsexrx" data-title="🎈Oracle PL/SQL_Chapter 09" class="article-share-link">Share</a>
       
       
       
@@ -1531,7 +1657,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/05/02/Oracle/Chapter04/" data-id="cl4h4hvz20003b8v1hzbec9bo" data-title="🎈OracleSQL_Chapter 04" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/05/02/Oracle/Chapter04/" data-id="cl4lbikn4000460v1fvtceh5t" data-title="🎈OracleSQL_Chapter 04" class="article-share-link">Share</a>
       
       
       
@@ -1867,7 +1993,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/27/Oracle/chapter03/" data-id="cl4h4hvz40005b8v10sj54bbw" data-title="🎈OracleSQL_Chapter 03" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/27/Oracle/chapter03/" data-id="cl4lbikn6000660v1dgbt13e1" data-title="🎈OracleSQL_Chapter 03" class="article-share-link">Share</a>
       
       
       
@@ -2214,7 +2340,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/27/Oracle/chapter05/" data-id="cl4h4hvz50006b8v1c4d6518u" data-title="🎈Oracle SQL_Chapter 05" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/27/Oracle/chapter05/" data-id="cl4lbikn7000760v129t98xnl" data-title="🎈Oracle SQL_Chapter 05" class="article-share-link">Share</a>
       
       
       
@@ -2446,7 +2572,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/25/Oracle/chapter02/" data-id="cl4h4hvz30004b8v10dyv4u96" data-title="🎈OracleSQL_Chapter 02" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/25/Oracle/chapter02/" data-id="cl4lbikn5000560v165otcj1w" data-title="🎈OracleSQL_Chapter 02" class="article-share-link">Share</a>
       
       
       
@@ -2513,7 +2639,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/20/install/vscodeMac/" data-id="cl4h4hvzn000lb8v1etzxewxo" data-title="[Mac M1] Installation VSCode🐱‍🏍" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/20/install/vscodeMac/" data-id="cl4lbiknn000m60v1bwko6eb1" data-title="[Mac M1] Installation VSCode🐱‍🏍" class="article-share-link">Share</a>
       
       
       
@@ -2697,232 +2823,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/18/install/Oracle/" data-id="cl4h4hvzh000hb8v1d8fdc5s0" data-title="[Windows 10] Oracle Install🐱‍🏍" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-install/Spark" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/04/18/install/Spark/" class="article-date">
-  <time class="dt-published" datetime="2022-04-18T00:00:00.000Z" itemprop="datePublished">2022-04-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/04/18/install/Spark/">[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="다운로드-전-필수-확인-사항🎉"><a href="#다운로드-전-필수-확인-사항🎉" class="headerlink" title="다운로드 전 필수 확인 사항🎉"></a><strong>다운로드 전 필수 확인 사항🎉</strong></h2><ul>
-<li>스파크 설치 전에는 반드시 체크해야 하는 사항(System Compatibility)</li>
-<li>2022년 1월 기준은 아래와 같다.</li>
-</ul>
-<p>Get Spark from the <strong><a target="_blank" rel="noopener" href="https://spark.apache.org/downloads.html">downloads page</a></strong> of the project website. This documentation is for Spark version 3.2.0. Spark uses Hadoop’s client libraries for HDFS and YARN. Downloads are pre-packaged for a handful of popular Hadoop versions. Users can also download a “Hadoop free” binary and run Spark with any Hadoop version <strong><a target="_blank" rel="noopener" href="https://spark.apache.org/docs/latest/hadoop-provided.html">by augmenting Spark’s classpath</a></strong>. Scala and Java users can include Spark in their projects using its Maven coordinates and Python users can install Spark from PyPI.</p>
-<p>If you’d like to build Spark from source, visit <strong><a target="_blank" rel="noopener" href="https://spark.apache.org/docs/latest/building-spark.html">Building Spark</a></strong>.</p>
-<p>Spark runs on both Windows and UNIX-like systems (e.g. Linux, Mac OS), and it should run on any platform that runs a supported version of Java. This should include JVMs on x86_64 and ARM64. It’s easy to run locally on one machine — all you need is to have <code>java</code> installed on your system <code>PATH</code>, or the <code>JAVA_HOME</code> environment variable pointing to a Java installation.</p>
-<p>Spark runs on Java 8&#x2F;11, Scala 2.12, Python 3.6+ and R 3.5+. Python 3.6 support is deprecated as of Spark 3.2.0. Java 8 prior to version 8u201 support is deprecated as of Spark 3.2.0. For the Scala API, Spark 3.2.0 uses Scala 2.12. You will need to use a compatible Scala version (2.12.x).</p>
-<p>For Python 3.9, Arrow optimization and pandas UDFs might not work due to the supported Python versions in Apache Arrow. Please refer to the latest <strong><a target="_blank" rel="noopener" href="https://arrow.apache.org/docs/python/install.html#python-compatibility">Python Compatibility</a></strong> page. For Java 11, <code>-Dio.netty.tryReflectionSetAccessible=true</code> is required additionally for Apache Arrow library. This prevents <code>java.lang.UnsupportedOperationException: sun.misc.Unsafe or java.nio.DirectByteBuffer.(long, int) not available</code> when Apache Arrow uses Netty internally.</p>
-<h2 id="Step-01-설치-파일-다운로드"><a href="#Step-01-설치-파일-다운로드" class="headerlink" title="Step 01 설치 파일 다운로드"></a><strong><strong>Step 01 설치 파일 다운로드</strong></strong></h2><ol>
-<li><strong>JAVA 설치 파일</strong></li>
-</ol>
-<ul>
-<li>설치 파일 :  <strong><a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/javase/javase8u211-later-archive-downloads.html">Java SE 8 Archive Downloads (JDK 8u211 and later)</a></strong></li>
-<li>설치 시, 오라클 로그인이 필요 할 수도 있다.</li>
-</ul>
-<ol>
-<li><strong><strong>WinRAR 프로그램 다운로드</strong></strong></li>
-</ol>
-<ul>
-<li><p>hadoop 파일의 압축을 풀기 위해서는 winRAR 프로그램을 다운로드 받아줘야 한다.</p>
-</li>
-<li><p>설치 주소 : <strong><a target="_blank" rel="noopener" href="https://www.rarlab.com/download.htm">https://www.rarlab.com/download.htm</a></strong></p>
-</li>
-<li><p>winRAR x64 (64 bit) 6.11 다운로드(각 컴퓨터 사양에 맞게 설치)</p>
-<p>  <img src="/%5Cimages%5Cinstall%5CSpark%5CwinRAR_%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C.png" alt="winRAR 다운로드.PNG"></p>
-</li>
-</ul>
-<ol>
-<li><strong><strong>Spark 설치 파일</strong></strong></li>
-</ol>
-<ul>
-<li>설치 주소 :  <strong><a target="_blank" rel="noopener" href="https://spark.apache.org/downloads.html">https://spark.apache.org/downloads.html</a>(최신 버전)</strong></li>
-<li>설치 URL: <strong><a target="_blank" rel="noopener" href="https://www.apache.org/dyn/closer.lua/spark/spark-3.2.0/spark-3.2.0-bin-hadoop3.2.tgz">https://www.apache.org/dyn/closer.lua/spark/spark-3.2.0/spark-3.2.0-bin-hadoop3.2.tgz</a></strong> (2022년 1월 기준)</li>
-<li>아래와 같이 3.2.0 버전을 다운로드 하였다.</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5CSpark%5C%EB%91%90%EB%B2%88%EC%A7%B8.png" alt="두번째.PNG"></p>
-<ol>
-<li><strong><strong>winutils 다운로드</strong></strong></li>
-</ol>
-<ul>
-<li><p>스파크가 윈도우 로컬 컴퓨터 Hadoop으로 착각하게 만들 프로그램이 필요하다.</p>
-</li>
-<li><p>설치 파일 :  <strong><a target="_blank" rel="noopener" href="https://github.com/cdarlint/winutils">https://github.com/cdarlint/winutils</a></strong></p>
-</li>
-<li><p>각 설치 버전에 맞는 winutils를 다운로드 받는다.</p>
-<p>  <img src="/%5Cimages%5Cinstall%5CSpark%5C%ED%95%98%EB%91%A1%EB%B2%84%EC%A0%84%EC%84%A0%ED%83%9D_1.png" alt="하둡버전선택 1.PNG"></p>
-</li>
-<li><p>hadoop-3.2.0 버전 폴더 들어가 다운로드</p>
-</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5CSpark%5C%ED%95%98%EB%91%A1%EB%B2%84%EC%A0%84%EC%84%A0%ED%83%9D_2.png" alt="하둡버전선택 2.PNG"></p>
-<h3 id="Step-02-Java-spark-hadoop-다운로드"><a href="#Step-02-Java-spark-hadoop-다운로드" class="headerlink" title="Step 02 Java, spark, hadoop 다운로드"></a><strong><strong>Step 02 Java, spark, hadoop 다운로드</strong></strong></h3><ul>
-<li>다운 받은 4개의 파일을 C드라이브 hadoop 폴더를 생성 후 집어 넣어 주기.</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5CSpark%5Chadoop_Folder.png" alt="hadoop Folder.PNG"></p>
-<ol>
-<li><strong>JAVA 다운로드</strong></li>
-</ol>
-<ul>
-<li><p>관리자 권한으로 실행</p>
-</li>
-<li><p>Install to : \program Files.…. 설치 파일 주소를 볼 때, 처음 설치 시 주소에 빈칸 없이 지정 해준다.</p>
-</li>
-<li><p>change …에 들어 가서 주소를 변경 해준다.</p>
-<p>  <img src="/%5Cimages%5Cinstall%5CSpark%5C1..png" alt="1..PNG"></p>
-</li>
-<li><p>Folder name: C:\jdk  변경.</p>
-<p>  <img src="/%5Cimages%5Cinstall%5CSpark%5C2..png" alt="2.,.PNG"></p>
-</li>
-<li><p>대상 폴더에서 변경을 눌러 준다.</p>
-</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5CSpark%5C3..png" alt="3..PNG"></p>
-<ul>
-<li><p>C 드라이브 → 새 폴더 만들기 → jre 폴더 생성 → 확인.</p>
-<p>  <img src="/%5Cimages%5Cinstall%5CSpark%5C4.png" alt="4.PNG"></p>
-</li>
-<li><p>확인 후 변경 된 설치 위치를 확인 할 수 있다.</p>
-</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5CSpark%5C5.png" alt="5.PNG"></p>
-<ul>
-<li>C 드라이브 자바 설치 완료!</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5CSpark%5Cjdk_jre_%EC%83%9D%EC%84%B1_%ED%8C%8C%EC%9D%BC_%ED%99%95%EC%9D%B8.png" alt="jdk, jre 생성 파일 확인.PNG"></p>
-<ol>
-<li><strong>WinRAR 설치</strong></li>
-</ol>
-<ul>
-<li><p>관리자 권한으로 실행</p>
-</li>
-<li><p>Toggle all 클릭 → OK → spark 설치 위한 응용 프로그램 설치 완료.</p>
-<p>  <img src="/%5Cimages%5Cinstall%5CSpark%5Cw1.png" alt="w1.PNG"></p>
-</li>
-</ul>
-<ol>
-<li><strong>Spark 설치</strong></li>
-</ol>
-<ul>
-<li><p>winRAR 프로그램이 적용 된 spark-3.2.0을 설치</p>
-</li>
-<li><p>설치 시 마우스 우 클릭 Extract to “spark-3.2.0-bin-hadoop3.2\”  클릭하여 설치</p>
-<p>  <img src="/%5Cimages%5Cinstall%5CSpark%5C21.png" alt="21.PNG"></p>
-</li>
-<li><p>다운로드 된 spark 폴더를 복사해 C 드라이브에 붙여 넣어 준다.</p>
-</li>
-<li><p>C 드라이브에 있는 spark 폴더 → conf 폴더 → log4j.properties.template 파일 메모장으로 열기</p>
-<p>  <img src="/%5Cimages%5Cinstall%5CSpark%5Cspark_%EC%97%B0%EA%B2%B0%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EB%A9%94%EB%AA%A8%EC%9E%A5.png" alt="spark 연결프로그램-메모장.PNG"></p>
-</li>
-<li><p>메모장으로 열린 파일에서 log4j.rootCategory&#x3D;INFO → ERROR 변경 후 저장.</p>
-<p>  <img src="/%5Cimages%5Cinstall%5CSpark%5C11_info-error.png" alt="11 info-error.PNG"></p>
-</li>
-<li><p>C drive → winutils 폴더 생성 → bin 폴더 생성 → hadoop폴더에서 winutils 파일 복사해서 붙이기</p>
-<p>  <img src="/%5Cimages%5Cinstall%5CSpark%5C%ED%95%98%EB%91%A1%ED%8F%B4%EB%8D%94%EC%97%90%EC%84%9C_%EB%B3%B5%EC%82%AC%ED%95%B4%EC%84%9C_%EA%B0%80%EC%A3%A0%EC%98%A4%EA%B8%B0.png" alt="하둡폴더에서 복사해서 가죠오기.PNG"></p>
-</li>
-</ul>
-<h3 id="winutils-설치"><a href="#winutils-설치" class="headerlink" title="winutils 설치"></a>winutils 설치</h3><ul>
-<li>만약, ChangeFileModeByMask error (3) 에러 발생 시, C드라이브 하단에 <code>tmp -&gt; hive</code><br> 폴더를 차례대로 생성</li>
-<li>cmd 관리자 권한으로 실행 후 아래와 같이 적어준다.</li>
-<li>경로 설정 : C:\winutils\bin&gt; → winutils.exe chmod 777 \tmp\hive</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5CSpark%5Ccmd_%EA%B4%80%EB%A6%AC%EC%9E%90%EA%B6%8C%ED%95%9C_%EC%8B%A4%ED%96%89.png" alt="cmd 관리자권한 실행.PNG"></p>
-<h3 id="환경-변수-설정"><a href="#환경-변수-설정" class="headerlink" title="환경 변수 설정"></a>환경 변수 설정</h3><ul>
-<li><p>시스템 환경 변수 설정</p>
-</li>
-<li><p>사용자 변수 → 새로 만들기</p>
-<p>  <img src="/%5Cimages%5Cinstall%5CSpark%5Cspark_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98%EC%84%A4%EC%A0%95_1.png" alt="spark 환경변수설정 1.PNG"></p>
-</li>
-</ul>
-<ol>
-<li><strong>SPARK_HOME 환경 변수 설정</strong></li>
-</ol>
-<ul>
-<li>변수 이름 : SPARK_HOME</li>
-<li>변수 값 : 파일 찾아보기 → C drive - spark 폴더 경로 복사 붙이기.</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5CSpark%5Cspark_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98%EC%84%A4%EC%A0%95_2.png" alt="spark 환경변수설정 2.PNG"></p>
-<ol>
-<li><strong>JAVA_HOME 환경 변수 설정</strong></li>
-</ol>
-<ul>
-<li>변수 이름 : JAVA_HOME</li>
-<li>변수 값 : 파일 찾아보기 → C drive - jdk 폴더 경로 복사 붙이기.</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5CSpark%5Cjava.png" alt="java.PNG"></p>
-<ol>
-<li><strong>HADOOP_HOME 환경 변수 설정</strong></li>
-</ol>
-<ul>
-<li>변수 이름 : HADOOP_HOME</li>
-<li>변수 값 : 파일 찾아보기 → C drive - winutils 폴더 경로 복사 붙이기.</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5CSpark%5Chadoop.png" alt="hadoop.PNG"></p>
-<ol>
-<li><p><strong>사용자 변수 path 변수 편집</strong></p>
-<p> <img src="/%5Cimages%5Cinstall%5CSpark%5Cpath.png" alt="path.PNG"></p>
-</li>
-</ol>
-<ul>
-<li>아래와 같은 코드 입력</li>
-<li>%SPARK_HOME%\bin</li>
-<li>%JAVA_HOME%\bin</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5CSpark%5C1.png" alt="1.PNG"></p>
-<h3 id="파이썬-환경-설정"><a href="#파이썬-환경-설정" class="headerlink" title="파이썬 환경 설정"></a>파이썬 환경 설정</h3><ol>
-<li><strong>python 환경 설정 추가</strong></li>
-</ol>
-<ul>
-<li>사용자 변수에 새로 만들기 추가</li>
-<li>변수 이름 : PYSPARK_PYTHON</li>
-<li>변수 값 : python</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5CSpark%5C2.png" alt="2.PNG"></p>
-<h3 id="step-03-spark-test"><a href="#step-03-spark-test" class="headerlink" title="step 03. spark test"></a>step 03. spark test</h3><ul>
-<li>cmd 관리자 권한으로 실행.</li>
-<li>경로 설정 : C:\spark&gt; 후 pyspark 입력 → 아래와 같이 뜨면 설치 성공.</li>
-</ul>
-<p><img src="/%5Cimages%5Cinstall%5CSpark%5C10.png" alt="10.PNG"></p>
-<ul>
-<li><p>Enter 누르고 아래와 같이 코드가 실행되는지 입력하여 확인하여 준다.</p>
-</li>
-<li><p><code>rd = sc.textFile(&quot;README.md&quot;)</code> → <code>rd.count()</code></p>
-<p>  <img src="/%5Cimages%5Cinstall%5CSpark%5C30.png" alt="30.PNG"></p>
-</li>
-</ul>
-<p>참조 출처 : <a target="_blank" rel="noopener" href="https://dschloe.github.io/python/python_edu/00_settings/spark_installation_windows_10/">https://dschloe.github.io/python/python_edu&#x2F;00_settings&#x2F;spark_installation_windows_10&#x2F;</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kjm12misa.github.io/2022/04/18/install/Spark/" data-id="cl4h4hvzj000jb8v13lw63jai" data-title="[Windows 10] Spark Installation and JAVA, hadoop🐱‍🏍" class="article-share-link">Share</a>
+      <a data-url="https://kjm12misa.github.io/2022/04/18/install/Oracle/" data-id="cl4lbikni000i60v1a75ba907" data-title="[Windows 10] Oracle Install🐱‍🏍" class="article-share-link">Share</a>
       
       
       
@@ -2970,6 +2871,10 @@
       <ul>
         
           <li>
+            <a href="/2022/06/19/JAVA/JAVA22.06.19(IF)/">🎈JAVA_조건문(If, else, switch)</a>
+          </li>
+        
+          <li>
             <a href="/2022/06/16/JAVA/JAVA22.06.16/">🎈JAVA_변수(variable)</a>
           </li>
         
@@ -2983,10 +2888,6 @@
         
           <li>
             <a href="/2022/05/02/Oracle/Chapter04/">🎈OracleSQL_Chapter 04</a>
-          </li>
-        
-          <li>
-            <a href="/2022/04/27/Oracle/chapter03/">🎈OracleSQL_Chapter 03</a>
           </li>
         
       </ul>
